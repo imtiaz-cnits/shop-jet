@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+
+/* ..................................................... */
+/* .............. Default CSS END ...................... */
+/* ..................................................... */
+
+/* Import Tailwind */
+@import "tailwindcss";
+
+/* Custom Font */
+
+@font-face {
+  font-family: "Chillax";
+  src: url("../assets/fonts/Chillax-Bold.otf") format("");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Chillax-Variable';
+  src: url('../assets/fonts/Chillax-Variable.woff2') format('woff2'),
+       url('../assets/fonts/Chillax-Variable.woff') format('woff'),
+       url('../assets/fonts/Chillax-Variable.ttf') format('truetype');
+       font-weight: 200 700;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Chillax-Extralight';
+  src: url('../assets/fonts/Chillax-Extralight.woff2') format('woff2'),
+       url('../assets/fonts/Chillax-Extralight.woff') format('woff'),
+       url('../assets/fonts/Chillax-Extralight.ttf') format('truetype');
+       font-weight: 200;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Chillax-Light';
+  src: url('../assets/fonts/Chillax-Light.woff2') format('woff2'),
+       url('../assets/fonts/Chillax-Light.woff') format('woff'),
+       url('../assets/fonts/Chillax-Light.ttf') format('truetype');
+       font-weight: 300;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Chillax-Regular';
+  src: url('../assets/fonts/Chillax-Regular.woff2') format('woff2'),
+       url('../assets/fonts/Chillax-Regular.woff') format('woff'),
+       url('../assets/fonts/Chillax-Regular.ttf') format('truetype');
+       font-weight: 400;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Chillax-Medium';
+  src: url('../assets/fonts/Chillax-Medium.woff2') format('woff2'),
+       url('../assets/fonts/Chillax-Medium.woff') format('woff'),
+       url('../assets/fonts/Chillax-Medium.ttf') format('truetype');
+       font-weight: 500;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Chillax-Semibold';
+  src: url('../assets/fonts/Chillax-Semibold.woff2') format('woff2'),
+       url('../assets/fonts/Chillax-Semibold.woff') format('woff'),
+       url('../assets/fonts/Chillax-Semibold.ttf') format('truetype');
+       font-weight: 600;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Chillax-Bold';
+  src: url('../assets/fonts/Chillax-Bold.woff2') format('woff2'),
+       url('../assets/fonts/Chillax-Bold.woff') format('woff'),
+       url('../assets/fonts/Chillax-Bold.ttf') format('truetype');
+       font-weight: 700;
+       font-display: swap;
+       font-style: normal;
+}
+
+
+
+@layer base {
+  :root {
+    --primary-font: "Chillax";
+    --secondary-font: "Sora";
+    --primary-color: #8dc639;
+    --secondary-color: #faa729;
+    --accent1: #c4c4c4;
+    --accent2: #c1c1c1;
+    --accent3: #f5f5f5;
+    --white: #ffffff;
+    --black: #000000;
+    --text2: #252d44;
+  }
+
+  body {
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+  }
+
+  ol,
+  ul,
+  menu {
+    list-style: none;
+  }
+  
+  p {
+    font-size: 16px;
+    font-family: var(--secondary-font);
+    color: var(--text2);
+  }
+
+  label {
+    color: var(--text) !important;
+    transition: 0.4s;
+  }
+}
+
+/* Font */
+@layer utilities {
+  .font-primary {
+    font-family: "Chillax" !important;
+  }
+
+  .font-secondary {
+    font-family: "Sora" !important;
+  }
+}
+
+/* Container Setup */
+@layer components {
+  .custom-container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-[1536px] xl:max-w-[1280px] lg:max-w-[1024px] md:max-w-[768px] sm:max-w-[640px];
+  }
+}
+
+/* ..................................................... */
+/* .............. Default CSS END ...................... */
+/* ..................................................... */
+
+/* .........Preloader Animation for loading spinner.......... */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animate-custom-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* .........Preloader Animation for loading spinner........... */
