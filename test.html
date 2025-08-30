@@ -3,38 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | Grocery E-Commerce</title>
+    <title>ShopJet Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
     <!-- Fav Icon -->
     <link rel="icon" type="image/x-icon" href="./assets/icon/fav.png" />
 
-    <!-- Font Awesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
-
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="./src/output.css" />
+
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fadeIn {
+        animation: fadeIn 0.3s ease-in-out;
+      }
+      .rotate-on-hover {
+        transition: transform 0.3s ease-in-out;
+      }
+      .group-hover:rotate-180 {
+        transform: rotate(180deg);
+      }
+      .dropdown-content {
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+      .dropdown-content:not(.hidden) {
+        max-height: 500px;
+        opacity: 1;
+      }
+    </style>
   </head>
   <body>
-    <!-- Preloader Start -->
-    <!-- <div
-      id="pagePreloader"
-      class="fixed inset-0 w-full h-full bg-[var(--primary-color)] flex flex-col justify-center items-center z-[9999] transition-opacity duration-500 ease-in-out"
-    >
-      <div
-        class="w-[50px] h-[50px] border-[6px] border-solid border-gray-200 border-t-[6px] border-t-black rounded-full animate-custom-spin mb-[20px]"
-      ></div>
-      <div class="text-center font-bold mb-[20px]">
-        <img
-          src="./assets/images/navbar-light-logo.png"
-          alt="Company Logo"
-          class="mx-auto w-[120px] object-contain"
-        />
-      </div>
-    </div> -->
-    <!-- Preloader End -->
-
     <!-- Top Bar Start -->
     <div class="topbar bg-[var(--primary-color)] py-2">
       <div class="custom-container">
@@ -116,7 +127,7 @@
               class="w-full bg-[var(--accent1)] border border-[var(--border2)] rounded-bl-full rounded-tl-full px-4 py-2 focus:outline-none text-[16px]"
             />
             <button
-              class="flex justify-center items-center gap-[6px] bg-[var(--primary-color)] rounded-br-full rounded-tr-full border border-[var(--border2)] text-[var(--secondary-color)] text-[16px] font-normal px-4 rounded-r-md cursor-pointer"
+              class="flex justify-center items-center gap-[6px] bg-[var(--primary-color)] rounded-br-full rounded-tr-full border border-[var(--border2)] text-[var(--secondary-color)] text-[16px] font-normal px-4 rounded-r-md"
             >
               Search
               <svg
@@ -139,150 +150,87 @@
           </div>
 
           <!-- Right Icons -->
-          <div class="flex items-center space-x-4 rounded-lg">
-            <!-- Language -->
-            <div id="language-selector" class="relative font-primary">
-              <div
-                class="flex items-center space-x-2 p-[8px] pr-[12px] rounded-full cursor-pointer bg-[var(--accent1)] transition-colors duration-200"
-              >
-                <img
-                  id="language-flag"
-                  src="https://flagcdn.com/gb.svg"
-                  alt="UK Flag"
-                  class="w-6 h-6 rounded-full object-cover"
-                />
-                <span id="language-text" class="text-[var(--text)] font-medium"
-                  >EN</span
-                >
-                <i class="fas fa-chevron-down text-[var(--text)] text-xs"></i>
-              </div>
-
-              <div
-                id="language-dropdown"
-                class="absolute top-full mt-1 w-auto bg-[var(--secondary-color)] border border-[var(--border)] rounded-md shadow-lg hidden"
-              >
-                <div
-                  class="flex items-center space-x-2 p-2 cursor-pointer hover:bg-[var(--accent1)]"
-                  data-lang="en"
-                >
-                  <img
-                    src="https://flagcdn.com/gb.svg"
-                    alt="UK Flag"
-                    class="w-6 h-4"
-                  />
-                  <span>EN</span>
-                </div>
-                <div
-                  class="flex items-center space-x-2 p-2 cursor-pointer hover:bg-[var(--accent1)]"
-                  data-lang="es"
-                >
-                  <img
-                    src="https://flagcdn.com/es.svg"
-                    alt="Spanish Flag"
-                    class="w-6 h-4"
-                  />
-                  <span>ES</span>
-                </div>
-                <div
-                  class="flex items-center space-x-2 p-2 cursor-pointer hover:bg-[var(--accent1)]"
-                  data-lang="fr"
-                >
-                  <img
-                    src="https://flagcdn.com/fr.svg"
-                    alt="French Flag"
-                    class="w-6 h-4"
-                  />
-                  <span>FR</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Icon -->
-            <a
-              href="#"
-              class="whichlist relative cursor-pointer hidden md:flex"
+          <div class="flex items-center space-x-4 p-2 bg-gray-100 rounded-lg">
+            <button
+              class="flex items-center space-x-2 bg-white px-3 py-1 rounded-md shadow-sm"
             >
+              <img
+                src="https://flagcdn.com/w20/gb.png"
+                alt="UK Flag"
+                class="w-5 h-5"
+              />
+              <span class="text-sm font-medium text-gray-700">EN</span>
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="20"
-                viewBox="0 0 22 20"
+                class="w-4 h-4 text-gray-400"
                 fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M10.9932 3.13581C8.9938 0.7984 5.65975 0.169643 3.15469 2.31001C0.649644 4.45038 0.296968 8.02898 2.2642 10.5604C3.89982 12.6651 8.84977 17.1041 10.4721 18.5408C10.6536 18.7016 10.7444 18.7819 10.8502 18.8135C10.9426 18.8411 11.0437 18.8411 11.1361 18.8135C11.2419 18.7819 11.3327 18.7016 11.5142 18.5408C13.1365 17.1041 18.0865 12.6651 19.7221 10.5604C21.6893 8.02898 21.3797 4.42787 18.8316 2.31001C16.2835 0.192157 12.9925 0.7984 10.9932 3.13581Z"
-                  stroke="#202124"
-                  stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
                 />
               </svg>
-              <span
-                class="absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
-              >
-                0
-              </span>
-            </a>
-
-            <a href="#" class="cart relative cursor-pointer hidden md:flex">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="22"
-                viewBox="0 0 22 22"
-                fill="none"
-              >
+            </button>
+            <button class="text-purple-600 hover:text-purple-800">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path
-                  d="M4.00014 13H17.1359C18.1487 13 18.6551 13 19.0582 12.8112C19.4134 12.6448 19.7118 12.3777 19.9163 12.0432C20.1485 11.6633 20.2044 11.16 20.3163 10.1534L20.9013 4.88835C20.9355 4.58088 20.9525 4.42715 20.9031 4.30816C20.8597 4.20366 20.7821 4.11697 20.683 4.06228C20.5702 4 20.4155 4 20.1062 4H3.50014M1 1H2.24844C2.51306 1 2.64537 1 2.74889 1.05032C2.84002 1.09463 2.91554 1.16557 2.96544 1.25376C3.02212 1.35394 3.03037 1.48599 3.04688 1.7501L3.95312 16.2499C3.96963 16.514 3.97788 16.6461 4.03456 16.7462C4.08446 16.8344 4.15998 16.9054 4.25111 16.9497C4.35463 17 4.48694 17 4.75156 17H18M6.5 20.5H6.51M15.5 20.5H15.51M7 20.5C7 20.7761 6.77614 21 6.5 21C6.22386 21 6 20.7761 6 20.5C6 20.2239 6.22386 20 6.5 20C6.77614 20 7 20.2239 7 20.5ZM16 20.5C16 20.7761 15.7761 21 15.5 21C15.2239 21 15 20.7761 15 20.5C15 20.2239 15.2239 20 15.5 20C15.7761 20 16 20.2239 16 20.5Z"
-                  stroke="#202124"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
                 />
               </svg>
-              <span
-                class="absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
-              >
-                0
-              </span>
-            </a>
-
-            <a
-              href="#"
-              class="profile items-center justify-center rounded-full cursor-pointer p-2 bg-[var(--accent1)] hidden md:flex"
-            >
-              <i
-                class="far fa-user-circle text-[22px] text-[var(--primary-color)]"
-              ></i>
-            </a>
+            </button>
+            <button class="text-purple-600 hover:text-purple-800">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                />
+              </svg>
+            </button>
+            <button class="text-purple-600 hover:text-purple-800">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-13c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zm0 5c-1.84 0-4-.67-4-2s2.16-2 4-2 4 .67 4 2-2.16 2-4 2z"
+                />
+              </svg>
+            </button>
 
             <!-- Mobile Menu Button -->
             <button
               id="menu-btn"
-              class="md:hidden text-[var(--text)] focus:outline-none text-2xl cursor-pointer"
+              class="md:hidden text-gray-700 focus:outline-none text-2xl"
             >
               ☰
             </button>
           </div>
+          <!-- <div class="flex items-center space-x-4">
+            <button class="hidden md:inline text-gray-600">EN</button>
+            <button class="hidden md:inline text-gray-600">🇬🇧</button>
+            <button class="text-gray-600">
+              <i class="ph ph-heart text-xl"></i>
+            </button>
+            <button class="text-gray-600">
+              <i class="ph ph-shopping-cart text-xl"></i>
+            </button>
+
+            
+          </div> -->
         </div>
       </div>
 
       <!-- Desktop Menu -->
       <div class="menu-bar hidden md:block border-t border-gray-200">
         <div class="custom-container">
-          <ul class="flex space-x-6 py-3 text-[var(--text)] font-medium">
+          <ul class="flex space-x-6 py-3 text-gray-700 font-medium">
             <li class="relative group">
               <button class="flex items-center space-x-1 hover:text-purple-600">
                 <span>All Categories</span>
-                <i
-                  class="fas fa-chevron-down rotate-on-hover text-[var(--text)] text-xs"
-                ></i>
+                <i class="ph ph-caret-down text-sm rotate-on-hover"></i>
               </button>
               <!-- Mega Dropdown -->
               <div
-                class="fixed left-0 top-[130px] hidden group-hover:block bg-wy-6te shadow-lg w-full p-6 animate-fadeIn"
+                class="fixed left-0 top-[100px] hidden group-hover:block bg-wy-6te shadow-lg w-full p-6 animate-fadeIn"
               >
                 <div class="custom-container">
                   <div class="mx-auto grid grid-cols-5 gap-6 text-sm">
@@ -419,13 +367,11 @@
             <li class="relative group">
               <button class="flex items-center space-x-1 hover:text-purple-600">
                 <span>Essentials</span>
-                <i
-                  class="fas fa-chevron-down rotate-on-hover text-[var(--text)] text-xs"
-                ></i>
+                <i class="ph ph-caret-down text-sm rotate-on-hover"></i>
               </button>
               <!-- Mega Dropdown -->
               <div
-                class="fixed left-0 top-[130px] hidden group-hover:block bg-wy-6te shadow-lg w-full p-6 animate-fadeIn"
+                class="fixed left-0 top-[100px] hidden group-hover:block bg-wy-6te shadow-lg w-full p-6 animate-fadeIn"
               >
                 <div class="custom-container">
                   <div class="mx-auto grid grid-cols-5 gap-6 text-sm">
@@ -564,13 +510,11 @@
             <li class="relative group">
               <button class="flex items-center space-x-1 hover:text-purple-600">
                 <span>Fresh & Frozen</span>
-                <i
-                  class="fas fa-chevron-down rotate-on-hover text-[var(--text)] text-xs"
-                ></i>
+                <i class="ph ph-caret-down text-sm rotate-on-hover"></i>
               </button>
               <!-- Mega Dropdown -->
               <div
-                class="fixed left-0 top-[130px] hidden group-hover:block bg-[var(--secondary-color)] shadow-lg w-[100%] py-6 animate-fadeIn"
+                class="fixed left-0 top-[100px] hidden group-hover:block bg-white shadow-lg w-[100%] py-6 animate-fadeIn"
               >
                 <div class="custom-container">
                   <div class="mx-auto grid grid-cols-5 gap-6 text-sm">
@@ -712,25 +656,20 @@
     <!-- Sidebar Mobile Menu -->
     <div
       id="mobile-menu"
-      class="fixed top-0 left-0 h-full w-72 bg-[var(--secondary-color)] shadow-lg transform -translate-x-full transition-transform duration-300 z-50 overflow-y-auto"
+      class="fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 overflow-y-auto"
     >
-      <div class="p-3 flex justify-between items-center border-b">
-        <span class="font-bold text-[var(--primary-color)] text-lg">Menu</span>
-        <button
-          id="close-menu"
-          class="text-[var(--primary-color)] text-xl cursor-pointer"
-        >
-          <i class="fa-solid fa-circle-xmark"></i>
-        </button>
+      <div class="p-4 flex justify-between items-center border-b">
+        <span class="font-bold text-purple-700 text-lg">Menu</span>
+        <button id="close-menu" class="text-gray-600 text-xl">✕</button>
       </div>
-      <ul class="flex flex-col p-4 text-[var(--text)] font-medium">
+      <ul class="flex flex-col p-4 text-gray-700 font-medium">
         <!-- Essentials Dropdown (Accordion) -->
         <li>
           <button
             class="flex justify-between items-center w-full py-2 dropdown-btn"
           >
             <span>All Categories</span>
-            <i class="fas fa-chevron-down text-[var(--text)] text-xs"></i>
+            <i class="ph ph-caret-down"></i>
           </button>
           <ul class="dropdown-content hidden pl-4 space-y-2 text-sm">
             <li><a href="#">Instant Food & Mixes</a></li>
@@ -749,7 +688,7 @@
             class="flex justify-between items-center w-full py-2 dropdown-btn"
           >
             <span>Essentials</span>
-            <i class="fas fa-chevron-down text-[var(--text)] text-xs"></i>
+            <i class="ph ph-caret-down"></i>
           </button>
           <ul class="dropdown-content hidden pl-4 space-y-2 text-sm">
             <li><a href="#">Instant Food & Mixes</a></li>
@@ -767,7 +706,7 @@
             class="flex justify-between items-center w-full py-2 dropdown-btn"
           >
             <span>Fresh & Frozen</span>
-            <i class="fas fa-chevron-down text-[var(--text)] text-xs"></i>
+            <i class="ph ph-caret-down"></i>
           </button>
           <ul class="dropdown-content hidden pl-4 space-y-2 text-sm">
             <li><a href="#">Instant Food & Mixes</a></li>
@@ -785,153 +724,137 @@
 
     <!-- Mobile Bottom Navbar -->
     <div
-      class="mobile-navigation font-primary fixed bottom-0 left-0 w-full bg-[var(--secondary-color)] border-t border-t-[var(--border)] md:hidden z-50"
+      class="fixed bottom-0 left-0 w-full bg-white border-t shadow-inner md:hidden z-50"
     >
-      <div class="custom-container py-2">
+      <div class="custom-container">
         <div class="wrap">
           <div class="flex">
             <div class="flex-1 group">
-              <div
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+              <a
+                href="#"
+                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-gray-400 group-hover:text-indigo-500"
               >
-                <a href="#" class="whichlist pt-1">
-                  <h2 class="w-5 h-5 mx-auto relative cursor-pointer">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="22"
-                      height="20"
-                      viewBox="0 0 22 20"
-                      fill="none"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M10.9932 3.13581C8.9938 0.7984 5.65975 0.169643 3.15469 2.31001C0.649644 4.45038 0.296968 8.02898 2.2642 10.5604C3.89982 12.6651 8.84977 17.1041 10.4721 18.5408C10.6536 18.7016 10.7444 18.7819 10.8502 18.8135C10.9426 18.8411 11.0437 18.8411 11.1361 18.8135C11.2419 18.7819 11.3327 18.7016 11.5142 18.5408C13.1365 17.1041 18.0865 12.6651 19.7221 10.5604C21.6893 8.02898 21.3797 4.42787 18.8316 2.31001C16.2835 0.192157 12.9925 0.7984 10.9932 3.13581Z"
-                        stroke="#202124"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <span
-                      class="absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
-                    >
-                      0
-                    </span>
-                  </h2>
-                  <span class="block text-[16px]">wishlist</span>
+                <span class="py-1">
+                  <i class="ph ph-heart text-xl"></i>
+                  <span class="block text-xs pb-2">Home</span>
                   <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                    class="block w-5 mx-auto h-1 group-hover:bg-indigo-500 rounded-full"
                   ></span>
-                </a>
-              </div>
+                </span>
+              </a>
             </div>
             <div class="flex-1 group">
-              <div
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+              <a
+                href="#"
+                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-gray-400 group-hover:text-indigo-500"
               >
-                <a href="#" class="cart pt-1">
-                  <h2 class="w-5 h-5 mx-auto relative cursor-pointer">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="22"
-                      height="22"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                    >
-                      <path
-                        d="M4.00014 13H17.1359C18.1487 13 18.6551 13 19.0582 12.8112C19.4134 12.6448 19.7118 12.3777 19.9163 12.0432C20.1485 11.6633 20.2044 11.16 20.3163 10.1534L20.9013 4.88835C20.9355 4.58088 20.9525 4.42715 20.9031 4.30816C20.8597 4.20366 20.7821 4.11697 20.683 4.06228C20.5702 4 20.4155 4 20.1062 4H3.50014M1 1H2.24844C2.51306 1 2.64537 1 2.74889 1.05032C2.84002 1.09463 2.91554 1.16557 2.96544 1.25376C3.02212 1.35394 3.03037 1.48599 3.04688 1.7501L3.95312 16.2499C3.96963 16.514 3.97788 16.6461 4.03456 16.7462C4.08446 16.8344 4.15998 16.9054 4.25111 16.9497C4.35463 17 4.48694 17 4.75156 17H18M6.5 20.5H6.51M15.5 20.5H15.51M7 20.5C7 20.7761 6.77614 21 6.5 21C6.22386 21 6 20.7761 6 20.5C6 20.2239 6.22386 20 6.5 20C6.77614 20 7 20.2239 7 20.5ZM16 20.5C16 20.7761 15.7761 21 15.5 21C15.2239 21 15 20.7761 15 20.5C15 20.2239 15.2239 20 15.5 20C15.7761 20 16 20.2239 16 20.5Z"
-                        stroke="#202124"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <span
-                      class="absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
-                    >
-                      0
-                    </span>
-                  </h2>
-                  <span class="block text-[16px]">Cart</span>
+                <span class="py-1">
+                  <i class="ph ph-heart text-xl"></i>
+                  <span class="block text-xs pb-2">Home</span>
                   <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                    class="block w-5 mx-auto h-1 group-hover:bg-indigo-500 rounded-full"
                   ></span>
-                </a>
-              </div>
+                </span>
+              </a>
             </div>
             <div class="flex-1 group">
-              <div
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+              <a
+                href="#"
+                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-gray-400 group-hover:text-indigo-500"
               >
-                <a href="#" class="profile pt-1">
-                  <h2 class="w-5 h-5 mx-auto cursor-pointer">
-                    <i
-                      class="fa-solid fa-house text-[22px] text-[var(--black)]"
-                    ></i>
-                  </h2>
-                  <span class="block text-[16px]">Home</span>
+                <span class="py-1">
+                  <i class="ph ph-heart text-xl"></i>
+                  <span class="block text-xs pb-2">Explore</span>
                   <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                    class="block w-5 mx-auto h-1 group-hover:bg-indigo-500 rounded-full"
                   ></span>
-                </a>
-              </div>
-            </div>
-
-            <div class="flex-1 group">
-              <div
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
-              >
-                <a href="#" class="search pt-1">
-                  <h2 class="w-5 h-5 mx-auto cursor-pointer">
-                    <svg
-                      class="w-6 h-6"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                    >
-                      <path
-                        d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z"
-                        stroke="black"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </h2>
-                  <span class="block text-[16px]">Search</span>
-                  <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
-                  ></span>
-                </a>
-              </div>
+                </span>
+              </a>
             </div>
             <div class="flex-1 group">
-              <div
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+              <a
+                href="#"
+                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-gray-400 group-hover:text-indigo-500"
               >
-                <a href="#" class="profile pt-1">
-                  <h2 class="w-5 h-5 mx-auto cursor-pointer">
-                    <i
-                      class="far fa-user-circle text-[22px] text-[var(--black)]"
-                    ></i>
-                  </h2>
-                  <span class="block text-[16px]">Profile</span>
+                <span class="py-1">
+                  <i class="ph ph-heart text-xl"></i>
+                  <span class="block text-xs pb-2">Reels</span>
                   <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                    class="block w-5 mx-auto h-1 group-hover:bg-indigo-500 rounded-full"
                   ></span>
-                </a>
-              </div>
+                </span>
+              </a>
+            </div>
+            <div class="flex-1 group">
+              <a
+                href="#"
+                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-gray-400 group-hover:text-indigo-500"
+              >
+                <span class="py-1">
+                  <i class="ph ph-heart text-xl"></i>
+                  <span class="block text-xs pb-2">Activity</span>
+                  <span
+                    class="block w-5 mx-auto h-1 group-hover:bg-indigo-500 rounded-full"
+                  ></span>
+                </span>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Navbar End -->
 
-    <!-- JS Link -->
-    <script src="./assets/js/app.js"></script>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeMenu = document.getElementById("close-menu");
+      const dropdownBtns = document.querySelectorAll(".dropdown-btn");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("-translate-x-full");
+      });
+
+      closeMenu.addEventListener("click", () => {
+        mobileMenu.classList.add("-translate-x-full");
+      });
+
+      // Close other dropdowns when one is opened
+      dropdownBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const content = btn.nextElementSibling;
+          const isOpen = !content.classList.contains("hidden");
+
+          // Close all dropdowns
+          dropdownBtns.forEach((otherBtn) => {
+            const otherContent = otherBtn.nextElementSibling;
+            otherContent.classList.add("hidden");
+            otherBtn.querySelector("i").classList.remove("rotate-180");
+          });
+
+          // Toggle the clicked dropdown
+          if (!isOpen) {
+            content.classList.remove("hidden");
+            btn.querySelector("i").classList.add("rotate-180");
+          }
+        });
+      });
+
+      // Close sidebar on outside click
+      document.addEventListener("click", (e) => {
+        if (
+          !mobileMenu.contains(e.target) &&
+          !menuBtn.contains(e.target) &&
+          !mobileMenu.classList.contains("-translate-x-full")
+        ) {
+          mobileMenu.classList.add("-translate-x-full");
+          // Close all dropdowns when sidebar closes
+          dropdownBtns.forEach((btn) => {
+            const content = btn.nextElementSibling;
+            content.classList.add("hidden");
+            btn.querySelector("i").classList.remove("rotate-180");
+          });
+        }
+      });
+    </script>
   </body>
 </html>

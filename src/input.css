@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* ..................................................... */
 /* .............. Default CSS END ...................... */
@@ -9,105 +10,29 @@
 
 /* Custom Font */
 
-@font-face {
+/* @font-face {
   font-family: "Chillax";
-  src: url("../assets/fonts/Chillax-Bold.otf") format("");
+  src: url("../assets/fonts/San Francisco Pro Display/SF-Pro-Display-Bold.otf") format("");
   font-weight: 700;
   font-display: swap;
   font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'Chillax-Variable';
-  src: url('../assets/fonts/Chillax-Variable.woff2') format('woff2'),
-       url('../assets/fonts/Chillax-Variable.woff') format('woff'),
-       url('../assets/fonts/Chillax-Variable.ttf') format('truetype');
-       font-weight: 200 700;
-       font-display: swap;
-       font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'Chillax-Extralight';
-  src: url('../assets/fonts/Chillax-Extralight.woff2') format('woff2'),
-       url('../assets/fonts/Chillax-Extralight.woff') format('woff'),
-       url('../assets/fonts/Chillax-Extralight.ttf') format('truetype');
-       font-weight: 200;
-       font-display: swap;
-       font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'Chillax-Light';
-  src: url('../assets/fonts/Chillax-Light.woff2') format('woff2'),
-       url('../assets/fonts/Chillax-Light.woff') format('woff'),
-       url('../assets/fonts/Chillax-Light.ttf') format('truetype');
-       font-weight: 300;
-       font-display: swap;
-       font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'Chillax-Regular';
-  src: url('../assets/fonts/Chillax-Regular.woff2') format('woff2'),
-       url('../assets/fonts/Chillax-Regular.woff') format('woff'),
-       url('../assets/fonts/Chillax-Regular.ttf') format('truetype');
-       font-weight: 400;
-       font-display: swap;
-       font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'Chillax-Medium';
-  src: url('../assets/fonts/Chillax-Medium.woff2') format('woff2'),
-       url('../assets/fonts/Chillax-Medium.woff') format('woff'),
-       url('../assets/fonts/Chillax-Medium.ttf') format('truetype');
-       font-weight: 500;
-       font-display: swap;
-       font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'Chillax-Semibold';
-  src: url('../assets/fonts/Chillax-Semibold.woff2') format('woff2'),
-       url('../assets/fonts/Chillax-Semibold.woff') format('woff'),
-       url('../assets/fonts/Chillax-Semibold.ttf') format('truetype');
-       font-weight: 600;
-       font-display: swap;
-       font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'Chillax-Bold';
-  src: url('../assets/fonts/Chillax-Bold.woff2') format('woff2'),
-       url('../assets/fonts/Chillax-Bold.woff') format('woff'),
-       url('../assets/fonts/Chillax-Bold.ttf') format('truetype');
-       font-weight: 700;
-       font-display: swap;
-       font-style: normal;
-}
-
+} */
 
 
 @layer base {
   :root {
-    --primary-font: "Chillax";
-    --secondary-font: "Sora";
-    --primary-color: #8dc639;
-    --secondary-color: #faa729;
-    --accent1: #c4c4c4;
-    --accent2: #c1c1c1;
-    --accent3: #f5f5f5;
-    --white: #ffffff;
+    --primary-font: "SF-Pro-Display";
+    --secondary-font: "Inter";
+    --primary-color: #624D9F;
+    --secondary-color: #FFFFFF;
+    --accent1: #F3F8FD;
+    --accent2: #DB9FDA;
+    --accent3: #CCE0F1;
     --black: #000000;
-    --text2: #252d44;
+    --border: #E2EDF7;
+    --border2: #F5F6F6;
+    --text: #202124;
+    --text2: #575B63;
   }
 
   body {
@@ -133,17 +58,30 @@
   label {
     color: var(--text) !important;
     transition: 0.4s;
+    font-family: var(--primary-font);
+  }
+
+  a, button {
+    font-family: var(--primary-font);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--primary-font);
+  }
+
+  input {
+    font-family: var(--secondary-font);
   }
 }
 
 /* Font */
 @layer utilities {
   .font-primary {
-    font-family: "Chillax" !important;
+    font-family: "SF-Pro-Display" !important;
   }
 
   .font-secondary {
-    font-family: "Sora" !important;
+    font-family: "Inter" !important;
   }
 }
 

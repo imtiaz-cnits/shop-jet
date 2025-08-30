@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['"Chillax"'],
-        secondary: ['"Sora"'],
+        primary: ['"SF-Pro-Display"'],
+        secondary: ['"Inter"'],
       },
       spacing: {
         72: "18rem",
