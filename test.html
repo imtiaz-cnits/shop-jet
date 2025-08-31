@@ -3,857 +3,145 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShopJet Navbar</title>
+    <title>Hero Slider</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <!-- Fav Icon -->
-    <link rel="icon" type="image/x-icon" href="./assets/icon/fav.png" />
-
-    <!-- Tailwind CSS -->
-    <link rel="stylesheet" href="./src/output.css" />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
 
     <style>
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .animate-fadeIn {
-        animation: fadeIn 0.3s ease-in-out;
-      }
-      .rotate-on-hover {
-        transition: transform 0.3s ease-in-out;
-      }
-      .group-hover:rotate-180 {
-        transform: rotate(180deg);
-      }
-      .dropdown-content {
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        max-height: 0;
+      /* Animation */
+      .fade-up {
         opacity: 0;
-        overflow: hidden;
+        transform: translateY(30px);
+        transition: all 0.8s ease-in-out;
       }
-      .dropdown-content:not(.hidden) {
-        max-height: 500px;
+      .swiper-slide-active .fade-up {
         opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Pagination Design */
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: #cbd5e1; /* gray-300 */
+        opacity: 1;
+      }
+      .swiper-pagination-bullet-active {
+        background: #2563eb; /* blue-600 */
+        transform: scale(1.2);
       }
     </style>
   </head>
-  <body>
-    <!-- Top Bar Start -->
-    <div class="topbar bg-[var(--primary-color)] py-2">
-      <div class="custom-container">
-        <div class="topbar-wrap">
-          <div
-            class="flex flex-col md:flex-row justify-center items-center gap-1 md:gap-[40px]"
-          >
-            <p
-              class="flex justify-center items-center gap-[6px] text-[var(--secondary-color)] text-[16px] font-normal"
+  <body class="bg-gray-50">
+    <!-- Hero Slider -->
+    <div class="swiper myHeroSwiper w-full h-screen">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div
+          class="swiper-slide flex flex-col md:flex-row items-center justify-between px-6 md:px-16"
+        >
+          <!-- Left Text -->
+          <div class="text-center md:text-left max-w-lg">
+            <h1
+              class="fade-up text-4xl md:text-5xl font-bold text-gray-800 mb-4"
             >
-              <svg
-                class="w-5 h-5"
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="21"
-                viewBox="0 0 20 21"
-                fill="none"
-              >
-                <path
-                  d="M17.0833 6.56479L9.99997 10.5M9.99997 10.5L2.91664 6.56479M9.99997 10.5L10 18.4167M17.5 13.8821V7.11787C17.5 6.83234 17.5 6.68957 17.4579 6.56224C17.4207 6.44959 17.3599 6.34619 17.2795 6.25895C17.1886 6.16033 17.0638 6.091 16.8142 5.95233L10.6475 2.5264C10.4112 2.3951 10.293 2.32945 10.1679 2.30372C10.0571 2.28094 9.94288 2.28094 9.83213 2.30372C9.70698 2.32945 9.58881 2.3951 9.35248 2.5264L3.18581 5.95233C2.93621 6.091 2.8114 6.16033 2.72053 6.25895C2.64013 6.34619 2.57929 6.44959 2.54207 6.56224C2.5 6.68957 2.5 6.83234 2.5 7.11787V13.8821C2.5 14.1677 2.5 14.3104 2.54207 14.4378C2.57929 14.5504 2.64013 14.6538 2.72053 14.7411C2.8114 14.8397 2.93621 14.909 3.18581 15.0477L9.35248 18.4736C9.58881 18.6049 9.70698 18.6705 9.83213 18.6963C9.94288 18.7191 10.0571 18.7191 10.1679 18.6963C10.293 18.6705 10.4112 18.6049 10.6475 18.4736L16.8142 15.0477C17.0638 14.909 17.1886 14.8397 17.2795 14.7411C17.3599 14.6538 17.4207 14.5504 17.4579 14.4378C17.5 14.3104 17.5 14.1677 17.5 13.8821Z"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M13.75 8.41667L6.25 4.25"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              FREE Shipping over 39€+
-            </p>
+              Stylish Headphones
+            </h1>
             <p
-              class="flex justify-center items-center gap-[6px] text-[var(--secondary-color)] text-[16px] font-normal"
+              class="fade-up text-gray-600 mb-6"
+              style="transition-delay: 0.2s"
             >
-              <svg
-                class="w-5 h-5"
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="21"
-                viewBox="0 0 20 21"
-                fill="none"
-              >
-                <path
-                  d="M5.83333 13.0752V18.8333L9.75241 17.2657C9.84387 17.2291 9.88961 17.2108 9.93683 17.2036C9.9787 17.1972 10.0213 17.1972 10.0632 17.2036C10.1104 17.2108 10.1561 17.2291 10.2476 17.2657L14.1667 18.8333V13.0752M16.25 8.41667C16.25 11.8684 13.4518 14.6667 10 14.6667C6.54822 14.6667 3.75 11.8684 3.75 8.41667C3.75 4.96489 6.54822 2.16667 10 2.16667C13.4518 2.16667 16.25 4.96489 16.25 8.41667Z"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              Europe’s #1 Indian Grocery Store
+              Experience premium sound quality with modern design.
             </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Top Bar End -->
-
-    <!-- Navbar -->
-    <nav class="navbar bg-[var(--secondary-color)] shadow relative z-50">
-      <div class="header custom-container">
-        <div class="flex justify-between items-center py-3">
-          <!-- Logo -->
-          <div class="flex items-center space-x-3">
-            <a href="./index.html" class="w-[150px] object-contain">
-              <img src="./assets/icon/logo.png" alt="" />
-            </a>
+            <button
+              class="fade-up px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+              style="transition-delay: 0.4s"
+            >
+              Shop Now
+            </button>
           </div>
 
-          <!-- Search Box -->
-          <div class="hidden w-full max-w-[50%] md:flex flex-1 mx-4">
-            <input
-              type="text"
-              placeholder="Search for rice, sweets, snacks, Beverages or more..."
-              class="w-full bg-[var(--accent1)] border border-[var(--border2)] rounded-bl-full rounded-tl-full px-4 py-2 focus:outline-none text-[16px]"
+          <!-- Right Image -->
+          <div class="mt-8 md:mt-0">
+            <img
+              src="https://i.ibb.co/5W3ZVv3/headphone.png"
+              alt="Product"
+              class="w-80 md:w-[450px] fade-up"
+              style="transition-delay: 0.6s"
             />
-            <button
-              class="flex justify-center items-center gap-[6px] bg-[var(--primary-color)] rounded-br-full rounded-tr-full border border-[var(--border2)] text-[var(--secondary-color)] text-[16px] font-normal px-4 rounded-r-md"
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div
+          class="swiper-slide flex flex-col md:flex-row items-center justify-between px-6 md:px-16"
+        >
+          <div class="text-center md:text-left max-w-lg">
+            <h1
+              class="fade-up text-4xl md:text-5xl font-bold text-gray-800 mb-4"
             >
-              Search
-              <svg
-                class="w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-              >
-                <path
-                  d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
+              Smart Watch
+            </h1>
+            <p
+              class="fade-up text-gray-600 mb-6"
+              style="transition-delay: 0.2s"
+            >
+              Track your health & stay connected anytime, anywhere.
+            </p>
+            <button
+              class="fade-up px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+              style="transition-delay: 0.4s"
+            >
+              Explore Now
             </button>
           </div>
 
-          <!-- Right Icons -->
-          <div class="flex items-center space-x-4 p-2 bg-gray-100 rounded-lg">
-            <button
-              class="flex items-center space-x-2 bg-white px-3 py-1 rounded-md shadow-sm"
-            >
-              <img
-                src="https://flagcdn.com/w20/gb.png"
-                alt="UK Flag"
-                class="w-5 h-5"
-              />
-              <span class="text-sm font-medium text-gray-700">EN</span>
-              <svg
-                class="w-4 h-4 text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            <button class="text-purple-600 hover:text-purple-800">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                />
-              </svg>
-            </button>
-            <button class="text-purple-600 hover:text-purple-800">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-                />
-              </svg>
-            </button>
-            <button class="text-purple-600 hover:text-purple-800">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-13c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zm0 5c-1.84 0-4-.67-4-2s2.16-2 4-2 4 .67 4 2-2.16 2-4 2z"
-                />
-              </svg>
-            </button>
-
-            <!-- Mobile Menu Button -->
-            <button
-              id="menu-btn"
-              class="md:hidden text-gray-700 focus:outline-none text-2xl"
-            >
-              ☰
-            </button>
-          </div>
-          <!-- <div class="flex items-center space-x-4">
-            <button class="hidden md:inline text-gray-600">EN</button>
-            <button class="hidden md:inline text-gray-600">🇬🇧</button>
-            <button class="text-gray-600">
-              <i class="ph ph-heart text-xl"></i>
-            </button>
-            <button class="text-gray-600">
-              <i class="ph ph-shopping-cart text-xl"></i>
-            </button>
-
-            
-          </div> -->
-        </div>
-      </div>
-
-      <!-- Desktop Menu -->
-      <div class="menu-bar hidden md:block border-t border-gray-200">
-        <div class="custom-container">
-          <ul class="flex space-x-6 py-3 text-gray-700 font-medium">
-            <li class="relative group">
-              <button class="flex items-center space-x-1 hover:text-purple-600">
-                <span>All Categories</span>
-                <i class="ph ph-caret-down text-sm rotate-on-hover"></i>
-              </button>
-              <!-- Mega Dropdown -->
-              <div
-                class="fixed left-0 top-[100px] hidden group-hover:block bg-wy-6te shadow-lg w-full p-6 animate-fadeIn"
-              >
-                <div class="custom-container">
-                  <div class="mx-auto grid grid-cols-5 gap-6 text-sm">
-                    <div>
-                      <h4 class="font-semibold mb-2">Instant Food & Mixes</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Instant Food & Mix</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Ready to Eat</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Instant Noodles</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Dessert Mix</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Savory Mix</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold mb-2">Oil, Ghee & Sauces</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Oils, Ghee & Sauces</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Food Oil</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Butter</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Ghee</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Sauces</a>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold mb-2">Snacks & Sweets</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Snacks & Sweets</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Sweets</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Chips</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Biscuits & Cookies</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold mb-2">Pickles & Condiments</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Pickles</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Chutneys</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Soy Products</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold mb-2">Beverages</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Beverages</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Soft Drinks</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Milk Powder</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Tea</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Alcoholic Beverage</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li><a href="#" class="hover:text-purple-600">New Arrivals</a></li>
-            <li><a href="#" class="hover:text-purple-600">Best Sellers</a></li>
-
-            <li class="relative group">
-              <button class="flex items-center space-x-1 hover:text-purple-600">
-                <span>Essentials</span>
-                <i class="ph ph-caret-down text-sm rotate-on-hover"></i>
-              </button>
-              <!-- Mega Dropdown -->
-              <div
-                class="fixed left-0 top-[100px] hidden group-hover:block bg-wy-6te shadow-lg w-full p-6 animate-fadeIn"
-              >
-                <div class="custom-container">
-                  <div class="mx-auto grid grid-cols-5 gap-6 text-sm">
-                    <div>
-                      <h4 class="font-semibold mb-2">Instant Food & Mixes</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Instant Food & Mix</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Ready to Eat</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Instant Noodles</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Dessert Mix</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Savory Mix</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold mb-2">Oil, Ghee & Sauces</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Oils, Ghee & Sauces</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Food Oil</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Butter</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Ghee</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Sauces</a>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold mb-2">Snacks & Sweets</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Snacks & Sweets</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Sweets</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Chips</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Biscuits & Cookies</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold mb-2">Pickles & Condiments</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Pickles</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Chutneys</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Soy Products</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold mb-2">Beverages</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Beverages</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Soft Drinks</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Milk Powder</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Tea</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Alcoholic Beverage</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <li>
-              <a href="#" class="hover:text-purple-600">Fruits & Vegetables</a>
-            </li>
-
-            <li class="relative group">
-              <button class="flex items-center space-x-1 hover:text-purple-600">
-                <span>Fresh & Frozen</span>
-                <i class="ph ph-caret-down text-sm rotate-on-hover"></i>
-              </button>
-              <!-- Mega Dropdown -->
-              <div
-                class="fixed left-0 top-[100px] hidden group-hover:block bg-white shadow-lg w-[100%] py-6 animate-fadeIn"
-              >
-                <div class="custom-container">
-                  <div class="mx-auto grid grid-cols-5 gap-6 text-sm">
-                    <div>
-                      <h4 class="font-semibold mb-2">Instant Food & Mixes</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Instant Food & Mix</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Ready to Eat</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Instant Noodles</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Dessert Mix</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Savory Mix</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold mb-2">Oil, Ghee & Sauces</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Oils, Ghee & Sauces</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Food Oil</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Butter</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Ghee</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Sauces</a>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold mb-2">Snacks & Sweets</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Snacks & Sweets</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Sweets</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Chips</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Biscuits & Cookies</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold mb-2">Pickles & Condiments</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Pickles</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Chutneys</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Soy Products</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 class="font-semibold mb-2">Beverages</h4>
-                      <ul class="space-y-1">
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >All Beverages</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Soft Drinks</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Milk Powder</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600">Tea</a>
-                        </li>
-                        <li>
-                          <a href="#" class="hover:text-purple-600"
-                            >Alcoholic Beverage</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <li><a href="#" class="hover:text-purple-600">On Sale</a></li>
-            <li><a href="#" class="hover:text-purple-600">Pooja</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Sidebar Mobile Menu -->
-    <div
-      id="mobile-menu"
-      class="fixed top-0 left-0 h-full w-72 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50 overflow-y-auto"
-    >
-      <div class="p-4 flex justify-between items-center border-b">
-        <span class="font-bold text-purple-700 text-lg">Menu</span>
-        <button id="close-menu" class="text-gray-600 text-xl">✕</button>
-      </div>
-      <ul class="flex flex-col p-4 text-gray-700 font-medium">
-        <!-- Essentials Dropdown (Accordion) -->
-        <li>
-          <button
-            class="flex justify-between items-center w-full py-2 dropdown-btn"
-          >
-            <span>All Categories</span>
-            <i class="ph ph-caret-down"></i>
-          </button>
-          <ul class="dropdown-content hidden pl-4 space-y-2 text-sm">
-            <li><a href="#">Instant Food & Mixes</a></li>
-            <li><a href="#">Oil, Ghee & Sauces</a></li>
-            <li><a href="#">Snacks & Sweets</a></li>
-            <li><a href="#">Pickles & Condiments</a></li>
-            <li><a href="#">Beverages</a></li>
-          </ul>
-        </li>
-
-        <li><a href="#" class="block py-2">New Arrivals</a></li>
-        <li><a href="#" class="block py-2">Best Sellers</a></li>
-
-        <li>
-          <button
-            class="flex justify-between items-center w-full py-2 dropdown-btn"
-          >
-            <span>Essentials</span>
-            <i class="ph ph-caret-down"></i>
-          </button>
-          <ul class="dropdown-content hidden pl-4 space-y-2 text-sm">
-            <li><a href="#">Instant Food & Mixes</a></li>
-            <li><a href="#">Oil, Ghee & Sauces</a></li>
-            <li><a href="#">Snacks & Sweets</a></li>
-            <li><a href="#">Pickles & Condiments</a></li>
-            <li><a href="#">Beverages</a></li>
-          </ul>
-        </li>
-
-        <li><a href="#" class="block py-2">Fruits & Vegetables</a></li>
-
-        <li>
-          <button
-            class="flex justify-between items-center w-full py-2 dropdown-btn"
-          >
-            <span>Fresh & Frozen</span>
-            <i class="ph ph-caret-down"></i>
-          </button>
-          <ul class="dropdown-content hidden pl-4 space-y-2 text-sm">
-            <li><a href="#">Instant Food & Mixes</a></li>
-            <li><a href="#">Oil, Ghee & Sauces</a></li>
-            <li><a href="#">Snacks & Sweets</a></li>
-            <li><a href="#">Pickles & Condiments</a></li>
-            <li><a href="#">Beverages</a></li>
-          </ul>
-        </li>
-
-        <li><a href="#" class="block py-2">On Sale</a></li>
-        <li><a href="#" class="block py-2">Pooja</a></li>
-      </ul>
-    </div>
-
-    <!-- Mobile Bottom Navbar -->
-    <div
-      class="fixed bottom-0 left-0 w-full bg-white border-t shadow-inner md:hidden z-50"
-    >
-      <div class="custom-container">
-        <div class="wrap">
-          <div class="flex">
-            <div class="flex-1 group">
-              <a
-                href="#"
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-gray-400 group-hover:text-indigo-500"
-              >
-                <span class="py-1">
-                  <i class="ph ph-heart text-xl"></i>
-                  <span class="block text-xs pb-2">Home</span>
-                  <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-indigo-500 rounded-full"
-                  ></span>
-                </span>
-              </a>
-            </div>
-            <div class="flex-1 group">
-              <a
-                href="#"
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-gray-400 group-hover:text-indigo-500"
-              >
-                <span class="py-1">
-                  <i class="ph ph-heart text-xl"></i>
-                  <span class="block text-xs pb-2">Home</span>
-                  <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-indigo-500 rounded-full"
-                  ></span>
-                </span>
-              </a>
-            </div>
-            <div class="flex-1 group">
-              <a
-                href="#"
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-gray-400 group-hover:text-indigo-500"
-              >
-                <span class="py-1">
-                  <i class="ph ph-heart text-xl"></i>
-                  <span class="block text-xs pb-2">Explore</span>
-                  <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-indigo-500 rounded-full"
-                  ></span>
-                </span>
-              </a>
-            </div>
-            <div class="flex-1 group">
-              <a
-                href="#"
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-gray-400 group-hover:text-indigo-500"
-              >
-                <span class="py-1">
-                  <i class="ph ph-heart text-xl"></i>
-                  <span class="block text-xs pb-2">Reels</span>
-                  <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-indigo-500 rounded-full"
-                  ></span>
-                </span>
-              </a>
-            </div>
-            <div class="flex-1 group">
-              <a
-                href="#"
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-gray-400 group-hover:text-indigo-500"
-              >
-                <span class="py-1">
-                  <i class="ph ph-heart text-xl"></i>
-                  <span class="block text-xs pb-2">Activity</span>
-                  <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-indigo-500 rounded-full"
-                  ></span>
-                </span>
-              </a>
-            </div>
+          <div class="mt-8 md:mt-0">
+            <img
+              src="https://i.ibb.co/fFnPCmj/watch.png"
+              alt="Product"
+              class="w-72 md:w-[400px] fade-up"
+              style="transition-delay: 0.6s"
+            />
           </div>
         </div>
+      </div>
+
+      <!-- Swiper Controls -->
+      <div class="swiper-pagination mt-4"></div>
+
+      <!-- Custom Prev/Next -->
+      <div class="swiper-button-prev !text-blue-600 !left-4 !scale-125">
+        <i class="ph-bold ph-caret-left"></i>
+      </div>
+      <div class="swiper-button-next !text-blue-600 !right-4 !scale-125">
+        <i class="ph-bold ph-caret-right"></i>
       </div>
     </div>
 
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const closeMenu = document.getElementById("close-menu");
-      const dropdownBtns = document.querySelectorAll(".dropdown-btn");
-
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.remove("-translate-x-full");
-      });
-
-      closeMenu.addEventListener("click", () => {
-        mobileMenu.classList.add("-translate-x-full");
-      });
-
-      // Close other dropdowns when one is opened
-      dropdownBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const content = btn.nextElementSibling;
-          const isOpen = !content.classList.contains("hidden");
-
-          // Close all dropdowns
-          dropdownBtns.forEach((otherBtn) => {
-            const otherContent = otherBtn.nextElementSibling;
-            otherContent.classList.add("hidden");
-            otherBtn.querySelector("i").classList.remove("rotate-180");
-          });
-
-          // Toggle the clicked dropdown
-          if (!isOpen) {
-            content.classList.remove("hidden");
-            btn.querySelector("i").classList.add("rotate-180");
-          }
-        });
-      });
-
-      // Close sidebar on outside click
-      document.addEventListener("click", (e) => {
-        if (
-          !mobileMenu.contains(e.target) &&
-          !menuBtn.contains(e.target) &&
-          !mobileMenu.classList.contains("-translate-x-full")
-        ) {
-          mobileMenu.classList.add("-translate-x-full");
-          // Close all dropdowns when sidebar closes
-          dropdownBtns.forEach((btn) => {
-            const content = btn.nextElementSibling;
-            content.classList.add("hidden");
-            btn.querySelector("i").classList.remove("rotate-180");
-          });
-        }
+      const swiper = new Swiper(".myHeroSwiper", {
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
       });
     </script>
   </body>
