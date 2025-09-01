@@ -131,10 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
 //...........................................................................
 const swiper = new Swiper(".myHeroSwiper", {
   loop: true,
-  // autoplay: {
-  //   delay: 4000,
-  //   disableOnInteraction: false,
-  // },
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -146,4 +146,50 @@ const swiper = new Swiper(".myHeroSwiper", {
 });
 //...........................................................................
 //.........................Hero Slider JS End................................
+//...........................................................................
+
+//...........................................................................
+//.........................Summer Sale Slider JS Start.......................
+//...........................................................................
+const productSaleSwiper = new Swiper(".product-swiper", {
+  slidesPerView: 1,
+  spaceBetween: 15,
+  loop: true,
+  breakpoints: {
+    640: { slidesPerView: 2, spaceBetween: 20 },
+    768: { slidesPerView: 2, spaceBetween: 20 },
+    992: { slidesPerView: 3, spaceBetween: 20 },
+    1100: { slidesPerView: 4, spaceBetween: 20 },
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+//...........................................................................
+//.........................Summer Sale Slider JS End.........................
+//...........................................................................
+
+//...........................................................................
+//.........................Hot Deals Slider JS End.........................
+//...........................................................................
+const dealsSwiper = new Swiper(".dealsSwiper", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+    },
+  },
+});
+//...........................................................................
+//.........................Hot Deals Slider JS End.........................
 //...........................................................................
