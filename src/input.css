@@ -130,10 +130,10 @@
 }
 
 /* Pagination Design */
-.hero .swiper-pagination-bullet {
+.swiper-pagination-bullet {
   width: 12px;
-  height: 12px;
-  background: var(--secondary-color);
+  height: 10px;
+  background: var(--accent3);
   opacity: 1;
   transition: 0.4s;
   -webkit-transition: 0.4s;
@@ -141,7 +141,7 @@
   -ms-transition: 0.4s;
   -o-transition: 0.4s;
 }
-.hero .swiper-pagination-bullet-active {
+.swiper-pagination-bullet-active {
   width: 28px;
   border-radius: 30px;
   background: var(--primary-color);

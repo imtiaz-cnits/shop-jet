@@ -1,100 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hot Deals Slider</title>
+    <title>Mega Navbar</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <style>
-        /* Custom CSS to ensure full width */
-        .hot-deals .swiper {
-            width: 100vw;
-            margin-left: 50%;
-            transform: translateX(-50%);
-        }
-        .swiper-slide {
-            background-size: cover !important;
-            background-position: center !important;
-        }
-    </style>
-</head>
-<body class="bg-white">
-    <section class="hot-deals mt-[60px]">
-        <div class="w-full">
-            <div class="header-box text-center mb-8">
-                <h2 class="flex items-center justify-center gap-2 text-2xl text-[var(--text)] fruits-vegetables-title mb-4 font-bold">
-                    <span class="icon">
-                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="18" cy="18" r="17.5" stroke="#EEB13C" />
-                            <g clip-path="url(#clip0_217_2038)">
-                                <path d="M26 20.4646C26 24.6365 22.6367 27.9998 18.5 27.9998C14.3633 27.9998 11 24.6353 11 20.4998C11 18.208 12.0867 16.3279 13.1316 15.2615C13.7164 14.6131 14.75 15.0232 14.75 15.8709V19.2107C14.75 20.5845 15.8426 21.7303 17.2172 21.7474C18.6133 21.7693 19.75 20.6404 19.75 19.2498C19.75 15.8123 12.9102 15.4951 17.7129 8.42166C18.2402 7.65135 19.4375 8.00096 19.4375 8.93064C19.4023 12.9607 26 13.8474 26 20.4646Z" fill="#BF2120" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_217_2038">
-                                    <rect width="15" height="20" fill="white" transform="translate(11 8)" />
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </span>
-                    Hot Deals
-                </h2>
-                <p class="text-[var(--text2)] text-sm max-w-xl mx-auto">
-                    Limited-time deals you’ll love! Stock up and save with this week’s top grocery offers before they’re gone.
-                </p>
-            </div>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar -->
+    <header class="bg-white shadow">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+          <!-- Logo -->
+          <div class="flex-shrink-0 text-2xl font-bold text-indigo-600">
+            MyShop
+          </div>
 
-            <div class="swiper dealsSwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide rounded-xl flex items-center bg-[url(../assets/img/home/Offer-1.png)] bg-no-repeat bg-cover">
-                        <div class="w-full">
-                            <span class="bg-white text-green-600 text-xs font-semibold px-3 py-1 rounded-full">Exclusive</span>
-                            <h3 class="text-2xl font-bold mt-2">August Deals</h3>
-                            <button class="mt-4 bg-orange-500 text-white px-5 py-2 rounded-full hover:bg-orange-600">
-                                Shop Now
-                            </button>
-                        </div>
-                    </div>
-                    <div class="swiper-slide rounded-xl flex items-center bg-[url(../assets/img/home/Offer-1.png)] bg-no-repeat bg-cover">
-                        <div class="w-full">
-                            <span class="bg-white text-green-600 text-xs font-semibold px-3 py-1 rounded-full">Exclusive</span>
-                            <h3 class="text-2xl font-bold mt-2">August Deals</h3>
-                            <button class="mt-4 bg-orange-500 text-white px-5 py-2 rounded-full hover:bg-orange-600">
-                                Shop Now
-                            </button>
-                        </div>
-                    </div>
-                    <div class="swiper-slide rounded-xl flex items-center bg-[url(../assets/img/home/Offer-1.png)] bg-no-repeat bg-cover">
-                        <div class="w-full">
-                            <span class="bg-white text-green-600 text-xs font-semibold px-3 py-1 rounded-full">Exclusive</span>
-                            <h3 class="text-2xl font-bold mt-2">August Deals</h3>
-                            <button class="mt-4 bg-orange-500 text-white px-5 py-2 rounded-full hover:bg-orange-600">
-                                Shop Now
-                            </button>
-                        </div>
-                    </div>
+          <!-- Desktop Menu -->
+          <nav class="hidden lg:flex space-x-6">
+            <a href="#" class="hover:text-indigo-600">All Categories</a>
+            <a href="#" class="hover:text-indigo-600">New Arrivals</a>
+            <a href="#" class="hover:text-indigo-600">Best Sellers</a>
+
+            <!-- Mega Menu -->
+            <div class="relative group">
+              <button class="hover:text-indigo-600 flex items-center space-x-1">
+                <span>Essentials</span>
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <!-- Mega Menu Content -->
+              <div
+                class="absolute left-0 top-full mt-2 w-screen max-w-5xl bg-white shadow-lg p-6 hidden group-hover:grid grid-cols-5 gap-6"
+              >
+                <!-- Column 1 -->
+                <div>
+                  <h3 class="font-semibold text-gray-800 mb-2">
+                    Instant Food & Mixes
+                  </h3>
+                  <ul class="space-y-1 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-indigo-600">Ready to Eat</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-indigo-600"
+                        >Instant Noodles</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-indigo-600">Dessert Mix</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-indigo-600">Savoury Mix</a>
+                    </li>
+                  </ul>
                 </div>
+
+                <!-- Column 2 -->
+                <div>
+                  <h3 class="font-semibold text-gray-800 mb-2">
+                    Oil, Ghee & Sauces
+                  </h3>
+                  <ul class="space-y-1 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-indigo-600">Poured Oil</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-indigo-600">Butter</a>
+                    </li>
+                    <li><a href="#" class="hover:text-indigo-600">Ghee</a></li>
+                    <li>
+                      <a href="#" class="hover:text-indigo-600"
+                        >Seasoning Sauce</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                  <h3 class="font-semibold text-gray-800 mb-2">
+                    Snacks & Sweets
+                  </h3>
+                  <ul class="space-y-1 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-indigo-600"
+                        >Home Made Sweets</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-indigo-600">Snacks</a>
+                    </li>
+                    <li><a href="#" class="hover:text-indigo-600">Chips</a></li>
+                    <li>
+                      <a href="#" class="hover:text-indigo-600">Biscuits</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-indigo-600">Dry Fruits</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                  <h3 class="font-semibold text-gray-800 mb-2">
+                    Pickles & Condiments
+                  </h3>
+                  <ul class="space-y-1 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-indigo-600">Papads</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-indigo-600">Chutneys</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-indigo-600">Pickle & Jam</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-indigo-600"
+                        >Coconut Products</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Column 5 -->
+                <div>
+                  <h3 class="font-semibold text-gray-800 mb-2">Beverages</h3>
+                  <ul class="space-y-1 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-indigo-600">Soft Drinks</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-indigo-600">Milk Powder</a>
+                    </li>
+                    <li><a href="#" class="hover:text-indigo-600">Tea</a></li>
+                    <li>
+                      <a href="#" class="hover:text-indigo-600"
+                        >Alcoholic Beverage</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <div class="swiper-pagination mt-4"></div>
-        </div>
-    </section>
+            <a href="#" class="hover:text-indigo-600">Fruits & Vegetables</a>
+            <a href="#" class="hover:text-indigo-600">Fresh & Frozen</a>
+            <a href="#" class="hover:text-indigo-600">On Sale</a>
+            <a href="#" class="hover:text-indigo-600">Pooja</a>
+          </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+          <!-- Mobile Menu Button -->
+          <div class="lg:hidden">
+            <button
+              id="menu-btn"
+              class="text-gray-700 hover:text-indigo-600 focus:outline-none"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-white shadow">
+        <nav class="px-4 pt-4 pb-6 space-y-2">
+          <a href="#" class="block hover:text-indigo-600">All Categories</a>
+          <a href="#" class="block hover:text-indigo-600">New Arrivals</a>
+          <a href="#" class="block hover:text-indigo-600">Best Sellers</a>
+          <a href="#" class="block hover:text-indigo-600">Essentials</a>
+          <a href="#" class="block hover:text-indigo-600"
+            >Fruits & Vegetables</a
+          >
+          <a href="#" class="block hover:text-indigo-600">Fresh & Frozen</a>
+          <a href="#" class="block hover:text-indigo-600">On Sale</a>
+          <a href="#" class="block hover:text-indigo-600">Pooja</a>
+        </nav>
+      </div>
+    </header>
+
     <script>
-        const dealsSwiper = new Swiper(".dealsSwiper", {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                },
-            },
-        });
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
     </script>
-</body>
+  </body>
 </html>
