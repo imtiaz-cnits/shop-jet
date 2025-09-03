@@ -44,7 +44,7 @@
     <!-- Back to Top Button Start -->
     <div
       id="back-to-top"
-      class="fixed bottom-8 right-8 w-14 h-14 flex justify-center items-center rounded-full cursor-pointer opacity-0 invisible transition-opacity duration-500 z-[100]"
+      class="fixed bottom-[90px] right-6 lg:bottom-8 lg:right-8 w-14 h-14 flex justify-center items-center rounded-full cursor-pointer opacity-0 invisible transition-opacity duration-500 z-[50]"
     >
       <svg
         class="w-14 h-14 transition-colors duration-300 group"
@@ -260,7 +260,11 @@
               </span>
             </a>
 
-            <a href="#" class="cart relative cursor-pointer hidden lg:flex">
+            <a
+              href="#"
+              id="cart-icon"
+              class="cart relative cursor-pointer hidden lg:flex"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -277,11 +281,14 @@
                 />
               </svg>
               <span
+                id="cart-item-count"
                 class="absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
               >
                 0
               </span>
             </a>
+
+            <div class="bar w-[1px] h-[18px] bg-[var(--border)]"></div>
 
             <a
               href="#"
@@ -299,6 +306,354 @@
             >
               ☰
             </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Sidebar -->
+      <div
+        id="overlay"
+        class="fixed inset-0 bg-black opacity-50 z-40 hidden"
+      ></div>
+
+      <div
+        id="cart-sidebar"
+        class="fixed top-0 right-0 h-full w-full md:w-96 bg-[var(--secondary-color)] shadow-lg transition-all duration-300 ease-in-out z-[150]"
+        style="transform: translateX(100%)"
+      >
+        <div class="wrapper p-4 pt-0">
+          <div
+            class="sticky bg-[var(--secondary-color)] top-0 left-0 flex justify-between items-center py-3"
+          >
+            <h2 class="my-cart text-xl font-semibold">
+              Review Your Cart (<span id="cart-item-count-sidebar">3</span>)
+            </h2>
+            <button
+              class="text-[var(--text)] hover:text-[var(--primary-color)] focus:outline-none"
+              id="close-sidebar-btn"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Cart Item -->
+          <div
+            id="cart-items"
+            class="mb-4 overflow-y-auto min-h-0 max-h-[calc(100vh-330px)]"
+          >
+            <!-- <div id="cart-items" class="mb-4 overflow-y-auto h-[calc(100vh-330px)]"> -->
+            <div
+              class="cart-product-items flex gap-2 items-center pb-2 mb-2 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-1 bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-20 h-20 object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-lg line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-md font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+
+              <div
+                class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+              >
+                <button
+                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                >
+                  -
+                </button>
+                <span class="text-sm item-qty" data-qty="1">1</span>
+                <button
+                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-2 mb-2 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-1 bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-20 h-20 object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-lg line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-md font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+
+              <div
+                class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+              >
+                <button
+                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                >
+                  -
+                </button>
+                <span class="text-sm item-qty" data-qty="1">1</span>
+                <button
+                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-2 mb-2 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-1 bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-20 h-20 object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-lg line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-md font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+
+              <div
+                class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+              >
+                <button
+                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                >
+                  -
+                </button>
+                <span class="text-sm item-qty" data-qty="1">1</span>
+                <button
+                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-2 mb-2 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-1 bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-20 h-20 object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-lg line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-md font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+
+              <div
+                class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+              >
+                <button
+                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                >
+                  -
+                </button>
+                <span class="text-sm item-qty" data-qty="1">1</span>
+                <button
+                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom box  -->
+          <div class="bottom-box pb-[20px] bg-[var(--secondery-color)]">
+            <div class="mb-4">
+              <h4 class="title text-[var(--text)] font-medium mb-2">
+                Got a discount code?
+              </h4>
+              <div class="flex items-center cupon-box">
+                <input
+                  type="text"
+                  placeholder="Coupon Code"
+                  class="flex-1 text-sm text-[var(--text)] border border-[var(--border)] rounded-tl-full rounded-bl-full p-2 px-3 focus:outline-none focus:border-[var(--primary-color)] transition duration-300"
+                />
+                <button
+                  class="apply-btn bg-[var(--primary-color)] border border-[var(--primary-color)] text-sm text-[var(--secondary-color)] rounded-tr-full rounded-br-full px-4 py-2 hover:bg-[var(--black)] transition duration-300"
+                >
+                  Apply
+                </button>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex justify-between font-medium">
+                <h4 class="title text-[var(--text)] font-medium mb-2">
+                  Subtotal
+                </h4>
+                <span id="subtotal">₹253.00</span>
+              </div>
+              <p class="desc text-sm text-[var(--text2)] mb-0 line-clamp-1">
+                Shipping & taxes may be re-calculated at checkout
+              </p>
+            </div>
+
+            <button
+              class="continue-btn w-full bg-[var(--primary-color)] border border-[var(--primary-color)] text-[16px] text-[var(--secondary-color)] rounded-full px-4 py-3 hover:bg-[var(--black)] transition duration-300"
+            >
+              Checkout <span id="checkout-price">₹253.00</span>
+            </button>
+
+            <div class="text-center mt-4">
+              <a
+                href="#"
+                class="text-blue-600 hover:text-blue-700"
+                onclick="closeSidebar()"
+                >Continue Shopping</a
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -1453,85 +1808,105 @@
 
     <!-- Hero Start -->
     <div class="hero">
-      <div class="custom-container">
+      <div class="custom-container relative">
         <div class="swiper myHeroSwiper w-full">
           <div class="swiper-wrapper">
             <!-- Slide 1 -->
             <div
-              class="swiper-slide bg-[#BF2120] flex items-center rounded-xl px-6 md:px-10 py-12 overflow-hidden"
+              class="swiper-slide bg-[url(../assets/img/home/heroslider.png)] bg-no-repeat bg-cover flex items-center rounded-xl px-6 md:px-10 py-18 overflow-hidden"
             >
               <div
                 class="flex flex-col md:flex-row items-center justify-between"
               >
                 <!-- Left Text -->
                 <div class="text-center md:text-left max-w-lg">
-                  <h1
-                    class="fade-up text-[32px] md:text-[48px] text-base/14 font-bold text-[var(--secondary-color)] mb-2"
+                  <span
+                    class="bg-[var(--primary-color)] font-secondary p-1 px-3 font-medium text-[12px] text-[var(--secondary-color)] rounded-full"
+                    >Weekend Discount</span
                   >
-                    Asia’s Largest Milk Brand
+                  <h1
+                    class="fade-up text-[32px] md:text-[44px] text-base/12 md:text-base/14 font-bold text-[var(--primary-color)] my-2"
+                  >
+                    Get the best quality products at the lowest prices
                   </h1>
                   <p
-                    class="fade-up text-sm text-[var(--secondary-color)] mb-10"
+                    class="fade-up text-sm text-[var(--text)] mb-10"
                     style="transition-delay: 0.2s"
                   >
-                    Available Now
+                    We have prepared special discounts for you on products.Don't
+                    miss it!
                   </p>
-                  <a
-                    href="#"
-                    class="shop-btn fade-up px-6 py-2 bg-[var(--primary-color)] font-semibold text-[16px] text-[var(--secondary-color)] rounded-full shadow hover:bg-[var(--black)] transition duration-300 cursor-pointer"
+                  <div
+                    class="flex items-center justify-center md:justify-start gap-4"
                   >
-                    Shop Now
-                  </a>
-                </div>
-
-                <!-- Right Image -->
-                <div class="mt-8 md:mt-0">
-                  <img
-                    src="./assets/img/home/slider-img1.png"
-                    alt="Product"
-                    class="w-full object-cover fade-up"
-                    style="transition-delay: 0.6s"
-                  />
+                    <a
+                      href="#"
+                      class="shop-btn fade-up px-6 py-2 bg-[var(--primary-color)] font-semibold text-[16px] text-[var(--secondary-color)] rounded-full shadow hover:bg-[var(--black)] transition duration-300 cursor-pointer"
+                    >
+                      Shop Now
+                    </a>
+                    <div
+                      class="price-box flex items-center gap-2 font-secondary fade-up transition duration-300"
+                    >
+                      <span
+                        class="old-price text-[var(--text2)] line-through text-[18px]"
+                        >1,49€</span
+                      >
+                      <span
+                        class="current-price text-[20px] font-semibold text-[var(--primary-color)]"
+                        >1,39€</span
+                      >
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <!-- Slide 2 -->
             <div
-              class="swiper-slide bg-[#BF2120] flex items-center rounded-xl px-6 md:px-10 py-12 overflow-hidden"
+              class="swiper-slide bg-[url(../assets/img/home/heroslider.png)] bg-no-repeat bg-cover flex items-center rounded-xl px-6 md:px-10 py-18 overflow-hidden"
             >
               <div
                 class="flex flex-col md:flex-row items-center justify-between"
               >
                 <!-- Left Text -->
                 <div class="text-center md:text-left max-w-lg">
-                  <h1
-                    class="fade-up text-[32px] md:text-[48px] text-base/14 font-bold text-[var(--secondary-color)] mb-2"
+                  <span
+                    class="bg-[var(--primary-color)] font-secondary p-1 px-3 font-medium text-[12px] text-[var(--secondary-color)] rounded-full"
+                    >Weekend Discount</span
                   >
-                    Asia’s Largest Milk Brand
+                  <h1
+                    class="fade-up text-[32px] md:text-[44px] text-base/12 md:text-base/14 font-bold text-[var(--primary-color)] my-2"
+                  >
+                    Get the best quality products at the lowest prices
                   </h1>
                   <p
-                    class="fade-up text-sm text-[var(--secondary-color)] mb-10"
+                    class="fade-up text-sm text-[var(--text)] mb-10"
                     style="transition-delay: 0.2s"
                   >
-                    Available Now
+                    We have prepared special discounts for you on products.Don't
+                    miss it!
                   </p>
-                  <a
-                    href="#"
-                    class="shop-btn fade-up px-6 py-2 bg-[var(--primary-color)] font-semibold text-[16px] text-[var(--secondary-color)] rounded-full shadow hover:bg-[var(--black)] transition duration-300 cursor-pointer"
+                  <div
+                    class="flex items-center justify-center md:justify-start gap-4"
                   >
-                    Shop Now
-                  </a>
-                </div>
-
-                <!-- Right Image -->
-                <div class="mt-8 md:mt-0">
-                  <img
-                    src="./assets/img/home/slider-img1.png"
-                    alt="Product"
-                    class="w-full object-cover fade-up"
-                    style="transition-delay: 0.6s"
-                  />
+                    <a
+                      href="#"
+                      class="shop-btn fade-up px-6 py-2 bg-[var(--primary-color)] font-semibold text-[16px] text-[var(--secondary-color)] rounded-full shadow hover:bg-[var(--black)] transition duration-300 cursor-pointer"
+                    >
+                      Shop Now
+                    </a>
+                    <div
+                      class="price-box flex items-center gap-2 font-secondary fade-up transition duration-300"
+                    >
+                      <span
+                        class="old-price text-[var(--text2)] line-through text-[18px]"
+                        >1,49€</span
+                      >
+                      <span
+                        class="current-price text-[20px] font-semibold text-[var(--primary-color)]"
+                        >1,39€</span
+                      >
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1539,18 +1914,124 @@
 
           <!-- Swiper Controls -->
           <div class="swiper-pagination mt-4"></div>
+        </div>
 
-          <!-- Custom Prev/Next -->
-          <div
-            class="swiper-button-prev after:hidden !text-[var(--secondary-color)] !left-1 !scale-125 border border-[var(--secondary-color)] rounded-full w-[30px] h-[30px] hover:bg-[var(--black)] transition duration-300 !hidden md:!flex"
+        <!-- Navigation -->
+        <div
+          class="swiper-button-next !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[50%] -right-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
           >
-            <i class="fa-solid fa-angle-left"></i>
-          </div>
-          <div
-            class="swiper-button-next after:hidden !text-[var(--secondary-color)] !right-1 !scale-125 border border-[var(--secondary-color)] rounded-full w-[30px] h-[30px] hover:bg-[var(--black)] transition duration-300 !hidden md:!flex"
+            <g filter="url(#filter0_d_2070_130)">
+              <path
+                d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_130"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_130"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_130"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div
+          class="swiper-button-prev !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[50%] -left-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
           >
-            <i class="fa-solid fa-angle-right"></i>
-          </div>
+            <g filter="url(#filter0_d_2070_153)">
+              <path
+                d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_153"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_153"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_153"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
         </div>
       </div>
     </div>
@@ -1588,7 +2069,7 @@
           </a>
         </div>
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 categories-grid"
+          class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 categories-grid"
         >
           <div
             class="bg-[var(--accent1)] p-4 rounded-lg text-center categories-card"
@@ -1667,7 +2148,7 @@
 
     <!-- Samar Sale Start -->
     <section class="summer-sale-section mt-[60px]">
-      <div class="custom-container">
+      <div class="custom-container relative">
         <!-- Heading -->
         <div class="header-box flex items-center justify-between mb-4">
           <h2
@@ -1699,8 +2180,8 @@
         </div>
 
         <!-- Swiper -->
-        <div class="swiper product-swiper">
-          <div class="swiper-wrapper">
+        <div class="swiper summer-swiper p-4 overflow-visible">
+          <div class="swiper-wrapper py-2 pb-10 md:pb-2">
             <!-- Card -->
             <div class="swiper-slide summer-sale-card">
               <div
@@ -1722,7 +2203,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/samar-sale1.webp"
@@ -1732,12 +2213,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Panipuri Papad
+                      Canada Dry Ginger Ale – 2 L Bottle
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -1759,7 +2240,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    200g Pack Full Chips (Papad)
+                    200g Canada Dry Ginger Ale
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -1797,7 +2278,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -1817,7 +2298,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/samar-sale2.webp"
@@ -1827,12 +2308,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Alooz
+                      All Natural Style Chicken Meatballs
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -1854,7 +2335,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    20g All in one mix
+                    200g Meatballs
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -1888,7 +2369,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -1915,7 +2396,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/samar-sale3.webp"
@@ -1925,12 +2406,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      TRS
+                      Blue Almonds Lightly Salted Vegetables
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -1952,7 +2433,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    200g Plain Madras Papadam (Appalam)
+                    200g Lightly Salted Vegetables
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -1990,7 +2471,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -2017,7 +2498,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/samar-sale4.webp"
@@ -2027,12 +2508,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      White Pearl
+                      Seeds of Change Organic Red Rice
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -2054,7 +2535,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    2kg Original Basmati Rice
+                    2kg Seeds of Change Organic Red Rice
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -2092,7 +2573,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -2119,7 +2600,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/samar-sale3.webp"
@@ -2129,12 +2610,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      TRS
+                      Blue Almonds Lightly Salted Vegetables
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -2156,7 +2637,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    200g Plain Madras Papadam (Appalam)
+                    200g Blue Almonds Lightly Salted Vegetables
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -2194,7 +2675,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -2202,125 +2683,126 @@
             </div>
           </div>
 
-          <!-- Navigation -->
-          <div
-            class="drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] !right-0 !w-10 !h-10 swiper-button-next bg-[var(--accent1)] rounded-full after:hidden !text-[bar(--black)] !z-30"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="54"
-              height="54"
-              viewBox="0 0 54 54"
-              fill="none"
-            >
-              <g filter="url(#filter0_d_2070_130)">
-                <path
-                  d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
-                  stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d_2070_130"
-                  x="-5"
-                  y="-5"
-                  width="64"
-                  height="64"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="8" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_2070_130"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_2070_130"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-          </div>
-          <div
-            class="drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] !left-0 !w-10 !h-10 swiper-button-prev bg-[var(--accent1)] rounded-full after:hidden !text-[bar(--black)] !z-30"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="54"
-              height="54"
-              viewBox="0 0 54 54"
-              fill="none"
-            >
-              <g filter="url(#filter0_d_2070_153)">
-                <path
-                  d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
-                  stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d_2070_153"
-                  x="-5"
-                  y="-5"
-                  width="64"
-                  height="64"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="8" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_2070_153"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_2070_153"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-          </div>
           <!-- Pagination -->
-          <div class="swiper-pagination hidden"></div>
+          <div class="swiper-pagination block md:hidden"></div>
+        </div>
+
+        <!-- Navigation -->
+        <div
+          class="swiper-button-next summer-next !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -right-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+          >
+            <g filter="url(#filter0_d_2070_130)">
+              <path
+                d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_130"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_130"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_130"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div
+          class="swiper-button-prev summer-prev !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -left-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+          >
+            <g filter="url(#filter0_d_2070_153)">
+              <path
+                d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_153"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_153"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_153"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
         </div>
       </div>
     </section>
@@ -2328,7 +2810,7 @@
 
     <!-- Best Seller Start -->
     <section class="best-sale-section mt-[60px]">
-      <div class="custom-container">
+      <div class="custom-container relative">
         <!-- Heading -->
         <div class="header-box flex items-center justify-between mb-4">
           <h2
@@ -2360,8 +2842,8 @@
         </div>
 
         <!-- Swiper -->
-        <div class="swiper product-swiper">
-          <div class="swiper-wrapper">
+        <div class="swiper best-seller-swiper overflow-visible">
+          <div class="swiper-wrapper py-2 pb-10 md:pb-2">
             <!-- Card -->
             <div class="swiper-slide best-sale-card">
               <div
@@ -2376,7 +2858,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/best1.webp"
@@ -2386,12 +2868,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      KO-LEE Noodles
+                      Canada Dry Ginger Ale – 2 L Bottle
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -2413,7 +2895,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    Chicken Flavour 70g
+                    Canada Dry Ginger Ale – 2 L Bottle
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -2447,7 +2929,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -2467,7 +2949,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/best2.webp"
@@ -2477,12 +2959,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Heer
+                      Encore Seafoods Stuffed Alaskan
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -2504,7 +2986,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    5kg Chakki Atta (Whole Wheat Flour)
+                    1pec Encore Seafoods Stuffed Alaskan
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -2538,7 +3020,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -2558,7 +3040,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/best3.webp"
@@ -2568,12 +3050,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Ananda
+                      Angie’s Sweet & Salty Kettle Corn
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -2595,7 +3077,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    500g Fresh Paneer
+                    500g Angie’s Sweet & Salty Kettle Corn
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -2629,7 +3111,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -2649,7 +3131,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/samar-sale1.webp"
@@ -2659,12 +3141,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Panipuri Papad
+                      Foster Farms Takeout Crispy Classic
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -2686,7 +3168,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    200g Pack Full Chips (Papad)
+                    200g Foster Farms Takeout Crispy Classic
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -2724,7 +3206,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -2751,7 +3233,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/samar-sale3.webp"
@@ -2761,12 +3243,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      TRS
+                      Blue Almonds Lightly Salted Vegetables
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -2788,7 +3270,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    200g Plain Madras Papadam (Appalam)
+                    200g Blue Almonds Lightly Salted Vegetables
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -2826,133 +3308,133 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- Navigation -->
-          <div
-            class="drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] !right-0 !w-10 !h-10 swiper-button-next bg-[var(--accent1)] rounded-full after:hidden !text-[bar(--black)] !z-30"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="54"
-              height="54"
-              viewBox="0 0 54 54"
-              fill="none"
-            >
-              <g filter="url(#filter0_d_2070_130)">
-                <path
-                  d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
-                  stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d_2070_130"
-                  x="-5"
-                  y="-5"
-                  width="64"
-                  height="64"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="8" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_2070_130"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_2070_130"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-          </div>
-          <div
-            class="drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] !left-0 !w-10 !h-10 swiper-button-prev bg-[var(--accent1)] rounded-full after:hidden !text-[bar(--black)] !z-30"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="54"
-              height="54"
-              viewBox="0 0 54 54"
-              fill="none"
-            >
-              <g filter="url(#filter0_d_2070_153)">
-                <path
-                  d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
-                  stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d_2070_153"
-                  x="-5"
-                  y="-5"
-                  width="64"
-                  height="64"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="8" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_2070_153"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_2070_153"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-          </div>
           <!-- Pagination -->
-          <div class="swiper-pagination hidden"></div>
+          <div class="swiper-pagination block md:hidden"></div>
+        </div>
+
+        <!-- Navigation -->
+        <div
+          class="swiper-button-next best-next !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -right-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+          >
+            <g filter="url(#filter0_d_2070_130)">
+              <path
+                d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_130"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_130"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_130"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div
+          class="swiper-button-prev best-prev !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -left-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+          >
+            <g filter="url(#filter0_d_2070_153)">
+              <path
+                d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_153"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_153"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_153"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
         </div>
       </div>
     </section>
@@ -2960,7 +3442,7 @@
 
     <!-- Fruits & Vegetables Start -->
     <section class="fruits-vegetables-section mt-[60px]">
-      <div class="custom-container">
+      <div class="custom-container relative">
         <!-- Heading -->
         <div class="header-box flex items-center justify-between mb-4">
           <h2
@@ -2992,8 +3474,8 @@
         </div>
 
         <!-- Swiper -->
-        <div class="swiper product-swiper">
-          <div class="swiper-wrapper">
+        <div class="swiper fruits-swiper overflow-visible">
+          <div class="swiper-wrapper py-2 pb-10 md:pb-2">
             <!-- Card -->
             <div class="swiper-slide fruits-vegetables-card">
               <div
@@ -3015,7 +3497,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/fr-va1.webp"
@@ -3025,12 +3507,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Fresh Mango
+                      Canada Dry Ginger Ale – 2 L Bottle
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -3052,7 +3534,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    3 to 5 Pieces Chaunsa Mango (1.1 to 1.3kg)...
+                    Canada Dry Ginger Ale – 2 L Bottle
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -3090,7 +3572,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -3110,7 +3592,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/fr-va2.webp"
@@ -3120,12 +3602,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Coriander Leaves
+                      Encore Seafoods Stuffed Alaskan
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -3147,7 +3629,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    1 Bunch Fresh Dhaniya (40g to 60g)
+                    1 Encore Seafoods Stuffed Alaskan
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -3181,7 +3663,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -3201,7 +3683,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/fr-va3.webp"
@@ -3211,12 +3693,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Bitter Gourd
+                      Angie’s Sweet & Salty Kettle Corn
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -3238,7 +3720,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    250g Fresh Karela (Bitter Gourd)
+                    250g Angie’s Sweet & Salty Kettle Corn
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -3272,7 +3754,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -3292,7 +3774,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/fr-va4.webp"
@@ -3302,12 +3784,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Green Chili
+                      Foster Farms Takeout Crispy Classic
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -3363,7 +3845,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -3383,7 +3865,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/fr-va3.webp"
@@ -3393,7 +3875,7 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
@@ -3454,7 +3936,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -3462,125 +3944,126 @@
             </div>
           </div>
 
-          <!-- Navigation -->
-          <div
-            class="drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] !right-0 !w-10 !h-10 swiper-button-next bg-[var(--accent1)] rounded-full after:hidden !text-[bar(--black)] !z-30"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="54"
-              height="54"
-              viewBox="0 0 54 54"
-              fill="none"
-            >
-              <g filter="url(#filter0_d_2070_130)">
-                <path
-                  d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
-                  stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d_2070_130"
-                  x="-5"
-                  y="-5"
-                  width="64"
-                  height="64"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="8" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_2070_130"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_2070_130"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-          </div>
-          <div
-            class="drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] !left-0 !w-10 !h-10 swiper-button-prev bg-[var(--accent1)] rounded-full after:hidden !text-[bar(--black)] !z-30"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="54"
-              height="54"
-              viewBox="0 0 54 54"
-              fill="none"
-            >
-              <g filter="url(#filter0_d_2070_153)">
-                <path
-                  d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
-                  stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d_2070_153"
-                  x="-5"
-                  y="-5"
-                  width="64"
-                  height="64"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="8" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_2070_153"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_2070_153"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-          </div>
           <!-- Pagination -->
-          <div class="swiper-pagination hidden"></div>
+          <div class="swiper-pagination block md:hidden"></div>
+        </div>
+
+        <!-- Navigation -->
+        <div
+          class="swiper-button-next fruits-next !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -right-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+          >
+            <g filter="url(#filter0_d_2070_130)">
+              <path
+                d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_130"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_130"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_130"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div
+          class="swiper-button-prev fruits-prev !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -left-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+          >
+            <g filter="url(#filter0_d_2070_153)">
+              <path
+                d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_153"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_153"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_153"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
         </div>
       </div>
     </section>
@@ -3700,7 +4183,7 @@
 
     <!-- Fresh Frozen Start -->
     <section class="fresh-frozen-section mt-[60px]">
-      <div class="custom-container">
+      <div class="custom-container relative">
         <!-- Heading -->
         <div class="header-box flex items-center justify-between mb-4">
           <h2
@@ -3732,8 +4215,8 @@
         </div>
 
         <!-- Swiper -->
-        <div class="swiper product-swiper">
-          <div class="swiper-wrapper">
+        <div class="swiper frozen-swiper overflow-visible">
+          <div class="swiper-wrapper py-2 pb-10 md:pb-2">
             <!-- Card -->
             <div class="swiper-slide fresh-frozen-card">
               <div
@@ -3755,7 +4238,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/frozen1.webp"
@@ -3765,12 +4248,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Buzz
+                      Chobani Complete Vanilla Greek Yogurt
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -3792,7 +4275,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    200g Pack Full Chips (Papad)
+                    200g Chobani Complete Vanilla Greek Yogurt
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -3830,7 +4313,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -3850,7 +4333,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/frozen2.webp"
@@ -3860,12 +4343,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Deep Methi
+                      Haagen Caramel Cone Ice Cream Boxed
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -3887,7 +4370,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    340g (Frozen) Methi (Chopped)
+                    340g Haagen Caramel Cone Ice Cream Boxed
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -3921,7 +4404,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -3948,7 +4431,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/frozen3.webp"
@@ -3958,12 +4441,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Shana
+                      Organic Cage Grade A Large Eggs
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -3985,7 +4468,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    400g (Frozen) Minute Khana Onion Paratha...
+                    Organic Cage Grade A Large Eggs
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -4023,7 +4506,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -4050,7 +4533,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/frozen4.webp"
@@ -4060,12 +4543,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Garlic Tandoori
+                      Naturally Flavored Cinnamon Vanilla
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -4087,7 +4570,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    400g (Frozen) Minute Khana Tandoori Garl...
+                    400g Naturally Flavored Cinnamon Vanilla
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -4125,7 +4608,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -4152,7 +4635,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/frozen3.webp"
@@ -4162,12 +4645,12 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
                     >
-                      Shana
+                      Organic Cage Grade A Large Eggs
                     </h3>
                     <!-- Rating -->
                     <div class="rating flex items-center gap-1">
@@ -4189,7 +4672,7 @@
                   </div>
 
                   <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    400g (Frozen) Minute Khana Onion Paratha...
+                    Organic Cage Grade A Large Eggs
                   </p>
 
                   <div class="flex justify-between items-center gap-1">
@@ -4227,7 +4710,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -4235,125 +4718,126 @@
             </div>
           </div>
 
-          <!-- Navigation -->
-          <div
-            class="drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] !right-0 !w-10 !h-10 swiper-button-next bg-[var(--accent1)] rounded-full after:hidden !text-[bar(--black)] !z-30"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="54"
-              height="54"
-              viewBox="0 0 54 54"
-              fill="none"
-            >
-              <g filter="url(#filter0_d_2070_130)">
-                <path
-                  d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
-                  stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d_2070_130"
-                  x="-5"
-                  y="-5"
-                  width="64"
-                  height="64"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="8" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_2070_130"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_2070_130"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-          </div>
-          <div
-            class="drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] !left-0 !w-10 !h-10 swiper-button-prev bg-[var(--accent1)] rounded-full after:hidden !text-[bar(--black)] !z-30"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="54"
-              height="54"
-              viewBox="0 0 54 54"
-              fill="none"
-            >
-              <g filter="url(#filter0_d_2070_153)">
-                <path
-                  d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
-                  stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d_2070_153"
-                  x="-5"
-                  y="-5"
-                  width="64"
-                  height="64"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="8" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_2070_153"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_2070_153"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-          </div>
           <!-- Pagination -->
-          <div class="swiper-pagination hidden"></div>
+          <div class="swiper-pagination block md:hidden"></div>
+        </div>
+
+        <!-- Navigation -->
+        <div
+          class="swiper-button-next frozen-next !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -right-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+          >
+            <g filter="url(#filter0_d_2070_130)">
+              <path
+                d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_130"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_130"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_130"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div
+          class="swiper-button-prev frozen-prev !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -left-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+          >
+            <g filter="url(#filter0_d_2070_153)">
+              <path
+                d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_153"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_153"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_153"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
         </div>
       </div>
     </section>
@@ -4361,7 +4845,7 @@
 
     <!-- New Arrival Start -->
     <section class="new-arrival-section mt-[60px]">
-      <div class="custom-container">
+      <div class="custom-container relative">
         <!-- Heading -->
         <div class="header-box flex items-center justify-between mb-4">
           <h2
@@ -4393,8 +4877,8 @@
         </div>
 
         <!-- Swiper -->
-        <div class="swiper product-swiper">
-          <div class="swiper-wrapper">
+        <div class="swiper arrival-swiper overflow-visible">
+          <div class="swiper-wrapper py-2 pb-10 md:pb-2">
             <!-- Card -->
             <div class="swiper-slide new-arrival-card">
               <div
@@ -4416,7 +4900,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/arrival1.webp"
@@ -4426,7 +4910,7 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
@@ -4491,7 +4975,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -4518,7 +5002,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/arrival2.webp"
@@ -4528,7 +5012,7 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
@@ -4593,7 +5077,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -4613,7 +5097,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/arrival3.webp"
@@ -4623,7 +5107,7 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
@@ -4684,7 +5168,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -4711,7 +5195,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/arrival4.webp"
@@ -4721,7 +5205,7 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
@@ -4786,7 +5270,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -4806,7 +5290,7 @@
 
                 <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--accent1)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/arrival3.webp"
@@ -4816,7 +5300,7 @@
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 h-[146px]">
+                <div class="details p-4 h-[146px] bg-[var(--accent1)]">
                   <div class="flex justify-between items-center gap-1 mb-1">
                     <h3
                       class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
@@ -4877,7 +5361,7 @@
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Add
+                      <span class="hidden md:block">Add</span>
                     </button>
                   </div>
                 </div>
@@ -4885,125 +5369,126 @@
             </div>
           </div>
 
-          <!-- Navigation -->
-          <div
-            class="drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] !right-0 !w-10 !h-10 swiper-button-next bg-[var(--accent1)] rounded-full after:hidden !text-[bar(--black)] !z-30"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="54"
-              height="54"
-              viewBox="0 0 54 54"
-              fill="none"
-            >
-              <g filter="url(#filter0_d_2070_130)">
-                <path
-                  d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
-                  stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d_2070_130"
-                  x="-5"
-                  y="-5"
-                  width="64"
-                  height="64"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="8" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_2070_130"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_2070_130"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-          </div>
-          <div
-            class="drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] !left-0 !w-10 !h-10 swiper-button-prev bg-[var(--accent1)] rounded-full after:hidden !text-[bar(--black)] !z-30"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="54"
-              height="54"
-              viewBox="0 0 54 54"
-              fill="none"
-            >
-              <g filter="url(#filter0_d_2070_153)">
-                <path
-                  d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
-                  stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </g>
-              <defs>
-                <filter
-                  id="filter0_d_2070_153"
-                  x="-5"
-                  y="-5"
-                  width="64"
-                  height="64"
-                  filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
-                >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset />
-                  <feGaussianBlur stdDeviation="8" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_2070_153"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_2070_153"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-          </div>
           <!-- Pagination -->
-          <div class="swiper-pagination hidden"></div>
+          <div class="swiper-pagination block md:hidden"></div>
+        </div>
+
+        <!-- Navigation -->
+        <div
+          class="swiper-button-next arrival-next !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -right-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+          >
+            <g filter="url(#filter0_d_2070_130)">
+              <path
+                d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_130"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_130"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_130"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div
+          class="swiper-button-prev arrival-prev !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -left-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+          >
+            <g filter="url(#filter0_d_2070_153)">
+              <path
+                d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_153"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_153"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_153"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
         </div>
       </div>
     </section>
@@ -5020,7 +5505,7 @@
           </h2>
         </div>
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 categories-grid"
+          class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 categories-grid"
         >
           <div
             class="bg-[var(--accent1)] p-4 rounded-lg text-center categories-card"
@@ -5192,10 +5677,10 @@
     <!-- All Categories End -->
 
     <!-- Groceries online Store Start -->
-    <div class="groceri-store mt-[60px]">
+    <!-- <div class="groceri-store mt-[60px]">
       <div class="custom-container">
         <div class="grid lg:grid-cols-2 gap-6 items-start">
-          <!-- Image -->
+        
           <div>
             <img
               src="./assets/img/home/groceries-online.webp"
@@ -5203,7 +5688,6 @@
               class="w-full aspect-square object-cover rounded-lg"
             />
           </div>
-          <!-- Content -->
           <div>
             <h2 class="text-2xl text-[var(--text)] font-bold pb-4 title">
               Your Groceries online Store
@@ -5280,7 +5764,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Groceries online Store End -->
 
     <!-- Banner Start -->
@@ -5318,7 +5802,6 @@
         </div>
       </div>
     </div>
-
     <!-- Banner End -->
 
     <!-- Footer Start -->

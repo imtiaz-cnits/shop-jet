@@ -127,6 +127,91 @@ document.addEventListener("DOMContentLoaded", () => {
 //...........................................................................
 
 //...........................................................................
+//...........................Cart Sidebar JS Start.........................
+//...........................................................................
+
+const sidebar = document.getElementById("cart-sidebar");
+const overlay = document.getElementById("overlay");
+const cartIcon = document.getElementById("cart-icon");
+const closeBtn = document.getElementById("close-sidebar-btn");
+const cartItemCount = document.getElementById("cart-item-count");
+const cartItemCountSidebar = document.getElementById("cart-item-count-sidebar");
+const subtotalElement = document.getElementById("subtotal");
+const checkoutPriceElement = document.getElementById("checkout-price");
+const cartItemsContainer = document.getElementById("cart-items");
+
+// Functions
+function openSidebar() {
+  sidebar.style.transform = "translateX(0)";
+  overlay.style.display = "block";
+}
+
+function closeSidebar() {
+  sidebar.style.transform = "translateX(100%)";
+  overlay.style.display = "none";
+}
+
+function updateCartTotal() {
+  let total = 0;
+  const itemElements = cartItemsContainer.querySelectorAll(
+    ".cart-product-items"
+  );
+  let totalItems = 0;
+
+  itemElements.forEach((item) => {
+    const qtyElement = item.querySelector(".item-qty");
+    const priceElement = item.querySelector(".discounted-price");
+    const qty = parseInt(qtyElement.textContent, 10);
+    const price = parseFloat(priceElement.dataset.price);
+    total += qty * price;
+    totalItems += qty;
+  });
+
+  subtotalElement.textContent = `₹${total.toFixed(2)}`;
+  checkoutPriceElement.textContent = `₹${total.toFixed(2)}`;
+  cartItemCount.textContent = totalItems;
+  cartItemCountSidebar.textContent = totalItems;
+}
+
+// Event Listeners
+cartIcon.addEventListener("click", openSidebar);
+closeBtn.addEventListener("click", closeSidebar);
+overlay.addEventListener("click", closeSidebar);
+
+// Add event listeners for quantity buttons and remove buttons
+cartItemsContainer.addEventListener("click", (e) => {
+  const button = e.target.closest("button");
+  if (!button) return;
+
+  const itemElement = button.closest(".cart-product-items");
+  if (!itemElement) return;
+
+  if (button.classList.contains("remove-item")) {
+    itemElement.remove();
+  } else {
+    const qtyElement = itemElement.querySelector(".item-qty");
+    let currentQty = parseInt(qtyElement.textContent, 10);
+    if (button.classList.contains("increase-qty")) {
+      currentQty++;
+      qtyElement.textContent = currentQty;
+    } else if (button.classList.contains("decrease-qty")) {
+      if (currentQty > 1) {
+        currentQty--;
+        qtyElement.textContent = currentQty;
+      }
+    }
+  }
+
+  updateCartTotal();
+});
+
+// Initial calculation
+updateCartTotal();
+//...........................................................................
+//...........................Cart Sidebar JS End.........................
+//...........................................................................
+
+//...........................................................................
 //.........................Hero Slider JS Start..............................
 //...........................................................................
 const swiper = new Swiper(".myHeroSwiper", {
@@ -149,21 +234,111 @@ const swiper = new Swiper(".myHeroSwiper", {
 //...........................................................................
 
 //...........................................................................
-//.........................Summer Sale Slider JS Start.......................
+//.........................Product Slider JS Start.......................
 //...........................................................................
-const productSaleSwiper = new Swiper(".product-swiper", {
+// Initialize Swiper for .summer-swiper
+const summerSwiper = new Swiper(".summer-swiper", {
   slidesPerView: 1,
   spaceBetween: 15,
   loop: true,
   breakpoints: {
+    0: { slidesPerView: 2, spaceBetween: 20 },
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 2, spaceBetween: 20 },
     992: { slidesPerView: 3, spaceBetween: 20 },
     1100: { slidesPerView: 4, spaceBetween: 20 },
   },
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".summer-next",
+    prevEl: ".summer-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+
+// Initialize Swiper for .best-seller-swiper
+const bestSellerSwiper = new Swiper(".best-seller-swiper", {
+  slidesPerView: 1,
+  spaceBetween: 15,
+  loop: true,
+  breakpoints: {
+    0: { slidesPerView: 2, spaceBetween: 20 },
+    640: { slidesPerView: 2, spaceBetween: 20 },
+    768: { slidesPerView: 2, spaceBetween: 20 },
+    992: { slidesPerView: 3, spaceBetween: 20 },
+    1100: { slidesPerView: 4, spaceBetween: 20 },
+  },
+  navigation: {
+    nextEl: ".best-next",
+    prevEl: ".best-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+
+// Initialize Swiper for .fruits-swiper
+const fruitsSellerSwiper = new Swiper(".fruits-swiper", {
+  slidesPerView: 1,
+  spaceBetween: 15,
+  loop: true,
+  breakpoints: {
+    0: { slidesPerView: 2, spaceBetween: 20 },
+    640: { slidesPerView: 2, spaceBetween: 20 },
+    768: { slidesPerView: 2, spaceBetween: 20 },
+    992: { slidesPerView: 3, spaceBetween: 20 },
+    1100: { slidesPerView: 4, spaceBetween: 20 },
+  },
+  navigation: {
+    nextEl: ".fruits-next",
+    prevEl: ".fruits-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+
+// Initialize Swiper for .frozen-swiper
+const frozenSellerSwiper = new Swiper(".frozen-swiper", {
+  slidesPerView: 1,
+  spaceBetween: 15,
+  loop: true,
+  breakpoints: {
+    0: { slidesPerView: 2, spaceBetween: 20 },
+    640: { slidesPerView: 2, spaceBetween: 20 },
+    768: { slidesPerView: 2, spaceBetween: 20 },
+    992: { slidesPerView: 3, spaceBetween: 20 },
+    1100: { slidesPerView: 4, spaceBetween: 20 },
+  },
+  navigation: {
+    nextEl: ".frozen-next",
+    prevEl: ".frozen-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+
+// Initialize Swiper for .arrival-swiper
+const arrivalSellerSwiper = new Swiper(".arrival-swiper", {
+  slidesPerView: 1,
+  spaceBetween: 15,
+  loop: true,
+  breakpoints: {
+    0: { slidesPerView: 2, spaceBetween: 20 },
+    640: { slidesPerView: 2, spaceBetween: 20 },
+    768: { slidesPerView: 2, spaceBetween: 20 },
+    992: { slidesPerView: 3, spaceBetween: 20 },
+    1100: { slidesPerView: 4, spaceBetween: 20 },
+  },
+  navigation: {
+    nextEl: ".arrival-next",
+    prevEl: ".arrival-prev",
   },
   pagination: {
     el: ".swiper-pagination",
@@ -171,7 +346,7 @@ const productSaleSwiper = new Swiper(".product-swiper", {
   },
 });
 //...........................................................................
-//.........................Summer Sale Slider JS End.........................
+//.........................Product Slider JS End.........................
 //...........................................................................
 
 //...........................................................................
@@ -193,25 +368,26 @@ const dealsSwiper = new Swiper(".dealsSwiper", {
 //...........................................................................
 //.........................Hot Deals Slider JS End.........................
 //...........................................................................
-//...........................................................................
-//.........................Hot Deals Slider JS End.........................
-// JavaScript for Back to Top functionality
- const backToTopButton = document.getElementById("back-to-top");
 
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) {
-          backToTopButton.classList.remove("opacity-0", "invisible");
-          backToTopButton.classList.add("opacity-100", "visible");
-        } else {
-          backToTopButton.classList.remove("opacity-100", "visible");
-          backToTopButton.classList.add("opacity-0", "invisible");
-        }
-      });
 
-      backToTopButton.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
+//...........................................................................
+//.........................Back To Top JS Start.........................
+const backToTopButton = document.getElementById("back-to-top");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    backToTopButton.classList.remove("opacity-0", "invisible");
+    backToTopButton.classList.add("opacity-100", "visible");
+  } else {
+    backToTopButton.classList.remove("opacity-100", "visible");
+    backToTopButton.classList.add("opacity-0", "invisible");
+  }
+});
+
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 //...........................................................................
 //...........................................................................
-//.........................Hot Deals Slider JS End.........................
+//.........................Back To Top JS End.........................
 //...........................................................................

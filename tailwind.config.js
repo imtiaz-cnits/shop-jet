@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['"Open Sans"'],
+        primary: ['"Bricolage Grotesque"'],
         secondary: ['"Inter"'],
       },
       spacing: {

@@ -1,217 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mega Navbar</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-gray-50">
-    <!-- Navbar -->
-    <header class="bg-white shadow">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16 items-center">
-          <!-- Logo -->
-          <div class="flex-shrink-0 text-2xl font-bold text-indigo-600">
-            MyShop
-          </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
 
-          <!-- Desktop Menu -->
-          <nav class="hidden lg:flex space-x-6">
-            <a href="#" class="hover:text-indigo-600">All Categories</a>
-            <a href="#" class="hover:text-indigo-600">New Arrivals</a>
-            <a href="#" class="hover:text-indigo-600">Best Sellers</a>
+    <div class="p-6 md:p-10">
 
-            <!-- Mega Menu -->
-            <div class="relative group">
-              <button class="hover:text-indigo-600 flex items-center space-x-1">
-                <span>Essentials</span>
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
+        <div class="flex items-center justify-between mb-8">
+            <button class="text-gray-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <div class="relative">
+                <button class="text-gray-600 focus:outline-none" id="cart-icon">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13a2 2 0 100 4m0-4a2 2 0 110 4m7 0a2 2 0 100 4m0-4a2 2 0 110 4"></path></svg>
+                    <span id="cart-item-count" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">3</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
-              <!-- Mega Menu Content -->
-              <div
-                class="absolute left-0 top-full mt-2 w-screen max-w-5xl bg-white shadow-lg p-6 hidden group-hover:grid grid-cols-5 gap-6"
-              >
-                <!-- Column 1 -->
-                <div>
-                  <h3 class="font-semibold text-gray-800 mb-2">
-                    Instant Food & Mixes
-                  </h3>
-                  <ul class="space-y-1 text-sm">
-                    <li>
-                      <a href="#" class="hover:text-indigo-600">Ready to Eat</a>
-                    </li>
-                    <li>
-                      <a href="#" class="hover:text-indigo-600"
-                        >Instant Noodles</a
-                      >
-                    </li>
-                    <li>
-                      <a href="#" class="hover:text-indigo-600">Dessert Mix</a>
-                    </li>
-                    <li>
-                      <a href="#" class="hover:text-indigo-600">Savoury Mix</a>
-                    </li>
-                  </ul>
-                </div>
+    <div id="overlay" class="fixed inset-0 bg-black opacity-50 z-40 hidden"></div>
 
-                <!-- Column 2 -->
-                <div>
-                  <h3 class="font-semibold text-gray-800 mb-2">
-                    Oil, Ghee & Sauces
-                  </h3>
-                  <ul class="space-y-1 text-sm">
-                    <li>
-                      <a href="#" class="hover:text-indigo-600">Poured Oil</a>
-                    </li>
-                    <li>
-                      <a href="#" class="hover:text-indigo-600">Butter</a>
-                    </li>
-                    <li><a href="#" class="hover:text-indigo-600">Ghee</a></li>
-                    <li>
-                      <a href="#" class="hover:text-indigo-600"
-                        >Seasoning Sauce</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <!-- Column 3 -->
-                <div>
-                  <h3 class="font-semibold text-gray-800 mb-2">
-                    Snacks & Sweets
-                  </h3>
-                  <ul class="space-y-1 text-sm">
-                    <li>
-                      <a href="#" class="hover:text-indigo-600"
-                        >Home Made Sweets</a
-                      >
-                    </li>
-                    <li>
-                      <a href="#" class="hover:text-indigo-600">Snacks</a>
-                    </li>
-                    <li><a href="#" class="hover:text-indigo-600">Chips</a></li>
-                    <li>
-                      <a href="#" class="hover:text-indigo-600">Biscuits</a>
-                    </li>
-                    <li>
-                      <a href="#" class="hover:text-indigo-600">Dry Fruits</a>
-                    </li>
-                  </ul>
-                </div>
-
-                <!-- Column 4 -->
-                <div>
-                  <h3 class="font-semibold text-gray-800 mb-2">
-                    Pickles & Condiments
-                  </h3>
-                  <ul class="space-y-1 text-sm">
-                    <li>
-                      <a href="#" class="hover:text-indigo-600">Papads</a>
-                    </li>
-                    <li>
-                      <a href="#" class="hover:text-indigo-600">Chutneys</a>
-                    </li>
-                    <li>
-                      <a href="#" class="hover:text-indigo-600">Pickle & Jam</a>
-                    </li>
-                    <li>
-                      <a href="#" class="hover:text-indigo-600"
-                        >Coconut Products</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <!-- Column 5 -->
-                <div>
-                  <h3 class="font-semibold text-gray-800 mb-2">Beverages</h3>
-                  <ul class="space-y-1 text-sm">
-                    <li>
-                      <a href="#" class="hover:text-indigo-600">Soft Drinks</a>
-                    </li>
-                    <li>
-                      <a href="#" class="hover:text-indigo-600">Milk Powder</a>
-                    </li>
-                    <li><a href="#" class="hover:text-indigo-600">Tea</a></li>
-                    <li>
-                      <a href="#" class="hover:text-indigo-600"
-                        >Alcoholic Beverage</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-lg transition-all duration-300 ease-in-out z-50 overflow-y-auto" style="transform: translateX(100%);">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-semibold">Review Your Cart (<span id="cart-item-count-sidebar">3</span>)</h2>
+                <button class="text-gray-500 hover:text-gray-700 focus:outline-none" id="close-sidebar-btn">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
 
-            <a href="#" class="hover:text-indigo-600">Fruits & Vegetables</a>
-            <a href="#" class="hover:text-indigo-600">Fresh & Frozen</a>
-            <a href="#" class="hover:text-indigo-600">On Sale</a>
-            <a href="#" class="hover:text-indigo-600">Pooja</a>
-          </nav>
+            <div id="cart-items" class="mb-6">
+                <div class="flex items-start pb-4 mb-4 border-b">
+                    <img src="https://via.placeholder.com/80x80" alt="Aashirvaad Atta Flour 10 kg" class="w-20 h-20 object-cover rounded-md mr-4">
+                    <div class="flex-1">
+                        <h3 class="font-medium text-lg">Aashirvaad Atta Flour 10 kg</h3>
+                        <p class="text-gray-500 line-through original-price" data-price="155.00">₹155.00</p>
+                        <p class="text-lg font-bold discounted-price" data-price="139.00">₹139.00</p>
+                        <span class="text-green-600 text-sm">Save 16%</span>
+                    </div>
+                    <div class="flex flex-col items-end justify-between">
+                        <button class="text-gray-500 hover:text-red-500 focus:outline-none remove-item">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                        <div class="flex items-center space-x-2 border border-gray-300 rounded-md">
+                            <button class="px-2 py-1 text-gray-600 hover:bg-gray-100 decrease-qty">-</button>
+                            <span class="text-sm item-qty" data-qty="1">1</span>
+                            <button class="px-2 py-1 text-gray-600 hover:bg-gray-100 increase-qty">+</button>
+                        </div>
+                    </div>
+                </div>
 
-          <!-- Mobile Menu Button -->
-          <div class="lg:hidden">
-            <button
-              id="menu-btn"
-              class="text-gray-700 hover:text-indigo-600 focus:outline-none"
-            >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+                <div class="flex items-start pb-4 mb-4 border-b">
+                    <img src="https://via.placeholder.com/80x80" alt="Aashirvaad Select Sharbat..." class="w-20 h-20 object-cover rounded-md mr-4">
+                    <div class="flex-1">
+                        <h3 class="font-medium text-lg">Aashirvaad Select Sharbat...</h3>
+                        <p class="text-gray-500 line-through original-price" data-price="130.00">₹130.00</p>
+                        <p class="text-lg font-bold discounted-price" data-price="85.00">₹85.00</p>
+                        <span class="text-green-600 text-sm">Save 35%</span>
+                    </div>
+                    <div class="flex flex-col items-end justify-between">
+                        <button class="text-gray-500 hover:text-red-500 focus:outline-none remove-item">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                        <div class="flex items-center space-x-2 border border-gray-300 rounded-md">
+                            <button class="px-2 py-1 text-gray-600 hover:bg-gray-100 decrease-qty">-</button>
+                            <span class="text-sm item-qty" data-qty="1">1</span>
+                            <button class="px-2 py-1 text-gray-600 hover:bg-gray-100 increase-qty">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-start pb-4 mb-4 border-b">
+                    <img src="https://via.placeholder.com/80x80" alt="Ali Baba Brown Chick Peas" class="w-20 h-20 object-cover rounded-md mr-4">
+                    <div class="flex-1">
+                        <h3 class="font-medium text-lg">Ali Baba Brown Chick Peas</h3>
+                        <p class="text-lg font-bold discounted-price" data-price="29.00">₹29.00</p>
+                    </div>
+                    <div class="flex flex-col items-end justify-between">
+                        <button class="text-gray-500 hover:text-red-500 focus:outline-none remove-item">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                        <div class="flex items-center space-x-2 border border-gray-300 rounded-md">
+                            <button class="px-2 py-1 text-gray-600 hover:bg-gray-100 decrease-qty">-</button>
+                            <span class="text-sm item-qty" data-qty="1">1</span>
+                            <button class="px-2 py-1 text-gray-600 hover:bg-gray-100 increase-qty">+</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mb-6">
+                <h4 class="font-medium mb-2">Got a discount code?</h4>
+                <div class="flex space-x-2">
+                    <input type="text" placeholder="Coupon Code" class="flex-1 border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button class="bg-blue-600 text-white rounded-md px-4 py-2 hover:bg-blue-700">Apply</button>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <div class="flex justify-between font-medium">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₹253.00</span>
+                </div>
+                <p class="text-sm text-gray-500">Shipping & taxes may be re-calculated at checkout</p>
+            </div>
+
+            <button class="w-full bg-blue-600 text-white rounded-md py-3 text-lg font-semibold hover:bg-blue-700">
+                Checkout <span id="checkout-price">₹253.00</span>
             </button>
-          </div>
-        </div>
-      </div>
 
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden lg:hidden bg-white shadow">
-        <nav class="px-4 pt-4 pb-6 space-y-2">
-          <a href="#" class="block hover:text-indigo-600">All Categories</a>
-          <a href="#" class="block hover:text-indigo-600">New Arrivals</a>
-          <a href="#" class="block hover:text-indigo-600">Best Sellers</a>
-          <a href="#" class="block hover:text-indigo-600">Essentials</a>
-          <a href="#" class="block hover:text-indigo-600"
-            >Fruits & Vegetables</a
-          >
-          <a href="#" class="block hover:text-indigo-600">Fresh & Frozen</a>
-          <a href="#" class="block hover:text-indigo-600">On Sale</a>
-          <a href="#" class="block hover:text-indigo-600">Pooja</a>
-        </nav>
-      </div>
-    </header>
+            <div class="text-center mt-4">
+                <a href="#" class="text-blue-600 hover:text-blue-700" onclick="closeSidebar()">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
 
     <script>
-      // Mobile menu toggle
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
+        // DOM elements
+        const sidebar = document.getElementById('cart-sidebar');
+        const overlay = document.getElementById('overlay');
+        const cartIcon = document.getElementById('cart-icon');
+        const closeBtn = document.getElementById('close-sidebar-btn');
+        const cartItemCount = document.getElementById('cart-item-count');
+        const cartItemCountSidebar = document.getElementById('cart-item-count-sidebar');
+        const subtotalElement = document.getElementById('subtotal');
+        const checkoutPriceElement = document.getElementById('checkout-price');
+        const cartItemsContainer = document.getElementById('cart-items');
 
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
+        // Functions
+        function openSidebar() {
+            sidebar.style.transform = 'translateX(0)';
+            overlay.style.display = 'block';
+        }
+
+        function closeSidebar() {
+            sidebar.style.transform = 'translateX(100%)';
+            overlay.style.display = 'none';
+        }
+
+        function updateCartTotal() {
+            let total = 0;
+            const itemElements = cartItemsContainer.querySelectorAll('.flex.items-start');
+            let totalItems = 0;
+
+            itemElements.forEach(item => {
+                const qtyElement = item.querySelector('.item-qty');
+                const priceElement = item.querySelector('.discounted-price');
+                const qty = parseInt(qtyElement.textContent, 10);
+                const price = parseFloat(priceElement.dataset.price);
+                total += qty * price;
+                totalItems += qty;
+            });
+            
+            subtotalElement.textContent = `₹${total.toFixed(2)}`;
+            checkoutPriceElement.textContent = `₹${total.toFixed(2)}`;
+            cartItemCount.textContent = totalItems;
+            cartItemCountSidebar.textContent = totalItems;
+        }
+
+        // Event Listeners
+        cartIcon.addEventListener('click', openSidebar);
+        closeBtn.addEventListener('click', closeSidebar);
+        overlay.addEventListener('click', closeSidebar);
+
+        // Add event listeners for quantity buttons and remove buttons
+        cartItemsContainer.addEventListener('click', (e) => {
+            const button = e.target.closest('button');
+            if (!button) return;
+
+            const itemElement = button.closest('.flex.items-start');
+            if (!itemElement) return;
+
+            const qtyElement = itemElement.querySelector('.item-qty');
+            let currentQty = parseInt(qtyElement.textContent, 10);
+            
+            if (button.classList.contains('increase-qty')) {
+                currentQty++;
+                qtyElement.textContent = currentQty;
+            } else if (button.classList.contains('decrease-qty')) {
+                if (currentQty > 1) {
+                    currentQty--;
+                    qtyElement.textContent = currentQty;
+                }
+            } else if (button.classList.contains('remove-item')) {
+                itemElement.remove();
+            }
+
+            updateCartTotal();
+        });
+
+        // Initial calculation
+        updateCartTotal();
+
     </script>
-  </body>
+</body>
 </html>
