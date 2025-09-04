@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 /* ..................................................... */
@@ -27,11 +27,11 @@
     --accent1: #f3f8fd;
     --accent2: #db9fda;
     --accent3: #cce0f1;
-    --accent4: #EEB13C;
+    --accent4: #eeb13c;
     --black: #000000;
     --border: #e2edf7;
     --border2: #f5f6f6;
-    --border3: #F3F8FD;
+    --border3: #f3f8fd;
     --text: #202124;
     --text2: #575b63;
   }
@@ -116,7 +116,6 @@
 }
 
 /* .........Preloader Animation for loading spinner........... */
-
 
 /* .........Hero Slider Start........... */
 .hero .fade-up {

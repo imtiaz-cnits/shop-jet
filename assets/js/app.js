@@ -32,41 +32,73 @@
 //...........................................................................
 //..............................Navbar JS Start..............................
 //...........................................................................
+// === Inject CSS from JS ===
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease forwards;
+  -webkit-animation: fadeIn 0.3s ease forwards;
+}
+`;
+document.head.appendChild(style);
+
+// === Selectors ===
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 const closeMenu = document.getElementById("close-menu");
 const dropdownBtns = document.querySelectorAll(".dropdown-btn");
+const backBtns = document.querySelectorAll(".back-btn");
 
+// === Open Sidebar ===
 menuBtn.addEventListener("click", () => {
   mobileMenu.classList.remove("-translate-x-full");
+  mobileMenu.classList.add("animate-fadeIn"); // apply fadeIn
 });
 
+// === Close Sidebar ===
 closeMenu.addEventListener("click", () => {
   mobileMenu.classList.add("-translate-x-full");
-});
+  // remove animation after hide
+  mobileMenu.classList.remove("animate-fadeIn");
 
-// Close other dropdowns when one is opened
-dropdownBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const content = btn.nextElementSibling;
-    const isOpen = !content.classList.contains("hidden");
-
-    // Close all dropdowns
-    dropdownBtns.forEach((otherBtn) => {
-      const otherContent = otherBtn.nextElementSibling;
-      otherContent.classList.add("hidden");
-      otherBtn.querySelector("i").classList.remove("rotate-180");
-    });
-
-    // Toggle the clicked dropdown
-    if (!isOpen) {
-      content.classList.remove("hidden");
-      btn.querySelector("i").classList.add("rotate-180");
-    }
+  // Hide any open submenus when the main menu closes
+  document.querySelectorAll(".dropdown-panel").forEach((content) => {
+    content.classList.add("translate-x-full");
   });
 });
 
-// Close sidebar on outside click
+// === Open Submenu ===
+dropdownBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const targetId = btn.getAttribute("data-target");
+    const targetContent = document.getElementById(targetId);
+
+    // Slide the target content into view smoothly
+    targetContent.classList.remove("translate-x-full");
+    targetContent.classList.add("animate-fadeIn");
+  });
+});
+
+// === Back to Main Menu ===
+backBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const currentContent = btn.closest(".dropdown-panel");
+    currentContent.classList.add("translate-x-full");
+    currentContent.classList.remove("animate-fadeIn");
+  });
+});
+
+// === Close Sidebar on Outside Click ===
 document.addEventListener("click", (e) => {
   if (
     !mobileMenu.contains(e.target) &&
@@ -74,11 +106,12 @@ document.addEventListener("click", (e) => {
     !mobileMenu.classList.contains("-translate-x-full")
   ) {
     mobileMenu.classList.add("-translate-x-full");
-    // Close all dropdowns when sidebar closes
-    dropdownBtns.forEach((btn) => {
-      const content = btn.nextElementSibling;
-      content.classList.add("hidden");
-      btn.querySelector("i").classList.remove("rotate-180");
+    mobileMenu.classList.remove("animate-fadeIn");
+
+    // Hide any open submenus when the main menu closes
+    document.querySelectorAll(".dropdown-panel").forEach((content) => {
+      content.classList.add("translate-x-full");
+      content.classList.remove("animate-fadeIn");
     });
   }
 });
@@ -368,7 +401,6 @@ const dealsSwiper = new Swiper(".dealsSwiper", {
 //...........................................................................
 //.........................Hot Deals Slider JS End.........................
 //...........................................................................
-
 
 //...........................................................................
 //.........................Back To Top JS Start.........................

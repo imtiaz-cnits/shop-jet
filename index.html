@@ -193,10 +193,10 @@
 
               <div
                 id="language-dropdown"
-                class="absolute top-full mt-1 w-auto bg-[var(--secondary-color)] border border-[var(--border)] rounded-md shadow-lg hidden z-50"
+                class="absolute top-full mt-1 w-full bg-[var(--secondary-color)] border border-[var(--border)] rounded-md shadow-lg hidden z-50"
               >
                 <div
-                  class="flex items-center space-x-2 p-2 cursor-pointer hover:bg-[var(--accent1)]"
+                  class="flex items-center space-x-2 px-2 py-1 cursor-pointer hover:bg-[var(--accent1)]"
                   data-lang="en"
                 >
                   <img
@@ -207,7 +207,7 @@
                   <span>EN</span>
                 </div>
                 <div
-                  class="flex items-center space-x-2 p-2 cursor-pointer hover:bg-[var(--accent1)]"
+                  class="flex items-center space-x-2 px-2 py-1 cursor-pointer hover:bg-[var(--accent1)]"
                   data-lang="es"
                 >
                   <img
@@ -218,7 +218,7 @@
                   <span>ES</span>
                 </div>
                 <div
-                  class="flex items-center space-x-2 p-2 cursor-pointer hover:bg-[var(--accent1)]"
+                  class="flex items-center space-x-2 px-2 py-1 cursor-pointer hover:bg-[var(--accent1)]"
                   data-lang="fr"
                 >
                   <img
@@ -806,7 +806,7 @@
                           <a
                             href="#"
                             class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
-                            >Biscuits, Cookies & Rusk</a
+                            >Cookies & Rusk</a
                           >
                         </li>
                         <li>
@@ -826,7 +826,7 @@
                           <a
                             href="#"
                             class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
-                            >All Pickles & Condiments</a
+                            >Pickles & Condiments</a
                           >
                         </li>
                         <li>
@@ -1068,7 +1068,7 @@
                           <a
                             href="#"
                             class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
-                            >Biscuits, Cookies & Rusk</a
+                            >Cookies & Rusk</a
                           >
                         </li>
                         <li>
@@ -1088,7 +1088,7 @@
                           <a
                             href="#"
                             class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
-                            >All Pickles & Condiments</a
+                            >Pickles & Condiments</a
                           >
                         </li>
                         <li>
@@ -1324,7 +1324,7 @@
                           <a
                             href="#"
                             class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
-                            >Biscuits, Cookies & Rusk</a
+                            >Cookies & Rusk</a
                           >
                         </li>
                         <li>
@@ -1344,7 +1344,7 @@
                           <a
                             href="#"
                             class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
-                            >All Pickles & Condiments</a
+                            >Pickles & Condiments</a
                           >
                         </li>
                         <li>
@@ -1434,14 +1434,14 @@
               <a
                 href="#"
                 class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-3 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
-                >On Sale</a
+                >Blog</a
               >
             </li>
             <li class="m-0">
               <a
                 href="#"
                 class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-3 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
-                >Pooja</a
+                >Contact</a
               >
             </li>
           </ul>
@@ -1452,208 +1452,576 @@
     <!-- Sidebar Mobile Menu -->
     <div
       id="mobile-menu"
-      class="fixed top-0 left-0 h-full w-72 bg-[var(--secondary-color)] shadow-lg transform -translate-x-full transition-transform duration-300 z-50 overflow-y-auto"
+      class="fixed top-0 left-0 h-full w-72 bg-[var(--secondary-color)] shadow-lg transform -translate-x-full transition-transform duration-300 z-50 overflow-hidden"
     >
-      <div
-        class="p-3 flex justify-between items-center border-b border-[var(--border)]"
-      >
-        <span class="font-bold text-[var(--primary-color)] text-lg">Menu</span>
-        <button
-          id="close-menu"
-          class="text-[var(--primary-color)] text-xl cursor-pointer"
+      <div class="p-3 flex flex-col h-full w-full">
+        <div
+          class="flex justify-between items-center border-b border-[var(--border)] p-3"
         >
-          <i class="fa-solid fa-circle-xmark"></i>
-        </button>
+          <span class="font-bold text-[var(--primary-color)] text-lg"
+            >Menu</span
+          >
+          <button
+            id="close-menu"
+            class="text-[var(--primary-color)] text-xl cursor-pointer"
+          >
+            <i class="fa-solid fa-circle-xmark"></i>
+          </button>
+        </div>
+        <ul
+          class="flex flex-col p-4 pb-[70px] text-[var(--text)] font-medium overflow-y-auto"
+        >
+          <li>
+            <button
+              data-target="all-categories"
+              class="flex justify-between hover:text-[var(--primary-color)] items-center w-full py-2 dropdown-btn cursor-pointer"
+            >
+              <span>All Categories</span>
+              <i class="fas fa-chevron-right text-[var(--text)] text-xs"></i>
+            </button>
+          </li>
+
+          <li>
+            <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
+              >New Arrivals</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
+              >Best Sellers</a
+            >
+          </li>
+
+          <li>
+            <button
+              data-target="essentials"
+              class="flex justify-between hover:text-[var(--primary-color)] items-center w-full py-2 dropdown-btn cursor-pointer"
+            >
+              <span>Essentials</span>
+              <i class="fas fa-chevron-right text-[var(--text)] text-xs"></i>
+            </button>
+          </li>
+
+          <li>
+            <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
+              >Fruits & Vegetables</a
+            >
+          </li>
+
+          <li>
+            <button
+              data-target="fresh-frozen"
+              class="flex justify-between hover:text-[var(--primary-color)] items-center w-full py-2 dropdown-btn cursor-pointer"
+            >
+              <span>Fresh & Frozen</span>
+              <i class="fas fa-chevron-right text-[var(--text)] text-xs"></i>
+            </button>
+          </li>
+
+          <li>
+            <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
+              >Blog</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
+              >Contact</a
+            >
+          </li>
+        </ul>
       </div>
-      <ul class="flex flex-col p-4 pb-[70px] text-[var(--text)] font-medium">
-        <!-- Essentials Dropdown (Accordion) -->
-        <li>
+
+      <div
+        id="all-categories"
+        class="dropdown-panel absolute top-0 right-0 h-full w-full bg-[var(--secondary-color)] transform translate-x-full transition-transform duration-300"
+      >
+        <div class="p-3 flex items-center border-b border-[var(--border)]">
           <button
-            class="flex justify-between hover:text-[var(--primary-color)] items-center w-full py-2 dropdown-btn cursor-pointer"
+            class="back-btn text-[var(--primary-color)] text-xl cursor-pointer mr-4"
           >
-            <span>All Categories</span>
-            <i class="fas fa-chevron-down text-[var(--text)] text-xs"></i>
+            <i class="fa-solid fa-arrow-left"></i>
           </button>
-          <ul class="dropdown-content hidden pl-4 space-y-2 text-sm">
-            <h3 class="title font-bold text-[var(--primary-color)] underline">
-              Instant Food & Mixes
-            </h3>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >All Instant Food & Mix</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >Ready to Eat</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >Instant Noodles</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >Dessert Mix</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >Savoury Mix</a
-              >
-            </li>
-            <h3 class="title font-bold text-[var(--primary-color)] underline">
-              Oil, Ghee & Sauces
-            </h3>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >All Oil, Ghee & Sauces</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]">Food Oil</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]">Butter</a>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
-            >New Arrivals</a
+          <span class="font-bold text-[var(--primary-color)] text-lg"
+            >All Categories</span
           >
-        </li>
-        <li>
-          <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
-            >Best Sellers</a
-          >
-        </li>
+        </div>
+        <ul
+          class="flex flex-col p-4 pb-[40px] space-y-2 text-sm text-[var(--text)] overflow-y-auto h-[calc(100%-120px)]"
+        >
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Instant Food & Mixes
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Instant Food & Mix</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Ready to Eat</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Instant Noodles</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dessert Mix</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Savoury Mix</a
+            >
+          </li>
 
-        <li>
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Oil, Ghee & Sauces
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Oil, Ghee & Sauces</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Food Oil</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Butter</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Ghee</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Seasoning Sauce</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Snacks & Sweets
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Snacks & Sweets</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Home Made Sweets</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Snacks</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Sweets</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Chips</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Biscuits, Cookies & Rusk</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dry Fruits & Seeds</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Pickles & Condiments
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Pickles & Condiments</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Pastes</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Chutneys</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Pulp & Jam</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Soy Products</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Coconut Products</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dry Fruits & Seeds</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Beverages
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Beverages</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Soft Drinks & Juices</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Milk Powder</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Tea</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Alcoholic Beverage</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div
+        id="essentials"
+        class="dropdown-panel absolute top-0 right-0 h-full w-full bg-[var(--secondary-color)] transform translate-x-full transition-transform duration-300"
+      >
+        <div class="p-3 flex items-center border-b border-[var(--border)]">
           <button
-            class="flex justify-between hover:text-[var(--primary-color)] items-center w-full py-2 dropdown-btn cursor-pointer"
+            class="back-btn text-[var(--primary-color)] text-xl cursor-pointer mr-4"
           >
-            <span>Essentials</span>
-            <i class="fas fa-chevron-down text-[var(--text)] text-xs"></i>
+            <i class="fa-solid fa-arrow-left"></i>
           </button>
-          <ul class="dropdown-content hidden pl-4 space-y-2 text-sm">
-            <h3 class="title font-bold text-[var(--primary-color)] underline">
-              Instant Food & Mixes
-            </h3>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >All Instant Food & Mix</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >Ready to Eat</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >Instant Noodles</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >Dessert Mix</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >Savoury Mix</a
-              >
-            </li>
-            <h3 class="title font-bold text-[var(--primary-color)] underline">
-              Oil, Ghee & Sauces
-            </h3>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >All Oil, Ghee & Sauces</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]">Food Oil</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]">Butter</a>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
-            >Fruits & Vegetables</a
+          <span class="font-bold text-[var(--primary-color)] text-lg"
+            >Essentials</span
           >
-        </li>
+        </div>
+        <ul
+          class="flex flex-col p-4 pb-[40px] space-y-2 text-sm text-[var(--text)] overflow-y-auto h-[calc(100%-120px)]"
+        >
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Instant Food & Mixes
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Instant Food & Mix</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Ready to Eat</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Instant Noodles</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dessert Mix</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Savoury Mix</a
+            >
+          </li>
 
-        <li>
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Oil, Ghee & Sauces
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Oil, Ghee & Sauces</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Food Oil</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Butter</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Ghee</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Seasoning Sauce</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Snacks & Sweets
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Snacks & Sweets</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Home Made Sweets</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Snacks</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Sweets</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Chips</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Biscuits, Cookies & Rusk</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dry Fruits & Seeds</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Pickles & Condiments
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Pickles & Condiments</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Pastes</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Chutneys</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Pulp & Jam</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Soy Products</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Coconut Products</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dry Fruits & Seeds</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Beverages
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Beverages</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Soft Drinks & Juices</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Milk Powder</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Tea</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Alcoholic Beverage</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div
+        id="fresh-frozen"
+        class="dropdown-panel absolute top-0 right-0 h-full w-full bg-[var(--secondary-color)] transform translate-x-full transition-transform duration-300"
+      >
+        <div class="p-3 flex items-center border-b border-[var(--border)]">
           <button
-            class="flex justify-between hover:text-[var(--primary-color)] items-center w-full py-2 dropdown-btn cursor-pointer"
+            class="back-btn text-[var(--primary-color)] text-xl cursor-pointer mr-4"
           >
-            <span>Fresh & Frozen</span>
-            <i class="fas fa-chevron-down text-[var(--text)] text-xs"></i>
+            <i class="fa-solid fa-arrow-left"></i>
           </button>
-          <ul class="dropdown-content hidden pl-4 space-y-2 text-sm">
-            <h3 class="title font-bold text-[var(--primary-color)] underline">
-              Instant Food & Mixes
-            </h3>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >All Instant Food & Mix</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >Ready to Eat</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >Instant Noodles</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >Dessert Mix</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >Savoury Mix</a
-              >
-            </li>
-            <h3 class="title font-bold text-[var(--primary-color)] underline">
-              Oil, Ghee & Sauces
-            </h3>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]"
-                >All Oil, Ghee & Sauces</a
-              >
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]">Food Oil</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-[var(--primary-color)]">Butter</a>
-            </li>
-          </ul>
-        </li>
+          <span class="font-bold text-[var(--primary-color)] text-lg"
+            >Fresh & Frozen</span
+          >
+        </div>
+        <ul
+          class="flex flex-col p-4 pb-[40px] space-y-2 text-sm text-[var(--text)] overflow-y-auto h-[calc(100%-120px)]"
+        >
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Instant Food & Mixes
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Instant Food & Mix</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Ready to Eat</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Instant Noodles</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dessert Mix</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Savoury Mix</a
+            >
+          </li>
 
-        <li>
-          <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
-            >On Sale</a
-          >
-        </li>
-        <li>
-          <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
-            >Pooja</a
-          >
-        </li>
-      </ul>
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Oil, Ghee & Sauces
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Oil, Ghee & Sauces</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Food Oil</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Butter</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Ghee</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Seasoning Sauce</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Snacks & Sweets
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Snacks & Sweets</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Home Made Sweets</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Snacks</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Sweets</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Chips</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Biscuits, Cookies & Rusk</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dry Fruits & Seeds</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Pickles & Condiments
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Pickles & Condiments</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Pastes</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Chutneys</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Pulp & Jam</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Soy Products</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Coconut Products</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dry Fruits & Seeds</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Beverages
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Beverages</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Soft Drinks & Juices</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Milk Powder</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Tea</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Alcoholic Beverage</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
 
     <!-- Mobile Bottom Navbar -->
@@ -1661,7 +2029,7 @@
       class="mobile-navigation font-primary fixed bottom-0 bg-[var(--accent1)] left-0 w-full p-2 lg:hidden z-50"
     >
       <div
-        class="custom-container py-2 bg-[var(--secondary-color)] border border-[var(--border)] rounded-lg"
+        class="navigation-wrap py-2 bg-[var(--secondary-color)] border border-[var(--border)] rounded-lg"
       >
         <div class="wrap">
           <div class="flex">

@@ -19,17 +19,16 @@
         position: relative;
       }
       .brand-logo.selected::after {
-        content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="14" viewBox="0 0 14 10" fill="none"><path d="M12.3957 1L5.06234 8.33333L1.729 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+        content: "✓";
         position: absolute;
-        width: 20px;
-        height: 16px;
-        display: flex;
-        border-bottom-left-radius: 30px;
-        align-items: center;
-        justify-content: center;
+        width: 60px;
+        height: 60px;
         top: 0px;
         right: 0px;
-        background: rgb(75, 4, 82);
+        font-size: 14px;
+        font-weight: bold;
+        color: #8b5cf6;
+        background: yellow;
       }
       /* Range slider overlap fix */
       .range-slider {
@@ -54,14 +53,22 @@
         width: 18px;
         height: 18px;
         border-radius: 50%;
-        background: #e6ddfa;
+        background: #8b5cf6; /* purple */
         cursor: pointer;
-        border: 1px solid black;
         pointer-events: all;
         position: relative;
         z-index: 5;
       }
-   
+      .range-slider input[type="range"]::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #8b5cf6;
+        cursor: pointer;
+        pointer-events: all;
+        position: relative;
+        z-index: 5;
+      }
       .slider-track {
         position: absolute;
         height: 6px;
@@ -177,17 +184,17 @@
               <img
                 src="https://via.placeholder.com/60x30?text=Brand1"
                 alt="Brand1"
-                class="brand-logo border border-gray-300 rounded cursor-pointer"
+                class="brand-logo border border-gray-300 rounded p-1 cursor-pointer"
               />
               <img
                 src="https://via.placeholder.com/60x30?text=Brand2"
                 alt="Brand2"
-                class="brand-logo border border-gray-300 rounded cursor-pointer"
+                class="brand-logo border border-gray-300 rounded p-1 cursor-pointer"
               />
               <img
                 src="https://via.placeholder.com/60x30?text=Brand3"
                 alt="Brand3"
-                class="brand-logo border border-gray-300 rounded cursor-pointer"
+                class="brand-logo border border-gray-300 rounded p-1 cursor-pointer"
               />
             </div>
           </div>
@@ -202,22 +209,22 @@
                 type="range"
                 id="minRange"
                 min="0"
-                max="1000"
+                max="500"
                 value="100"
-                step="1"
+                step="10"
               />
               <input
                 type="range"
                 id="maxRange"
                 min="0"
-                max="1000"
-                value="500"
-                step="1"
+                max="500"
+                value="400"
+                step="10"
               />
             </div>
             <div class="flex justify-between text-sm text-gray-600 mt-6">
               <span id="minValue">€100</span>
-              <span id="maxValue">€500</span>
+              <span id="maxValue">€400</span>
             </div>
           </div>
 
