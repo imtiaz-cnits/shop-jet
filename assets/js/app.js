@@ -200,8 +200,8 @@ function updateCartTotal() {
     totalItems += qty;
   });
 
-  subtotalElement.textContent = `₹${total.toFixed(2)}`;
-  checkoutPriceElement.textContent = `₹${total.toFixed(2)}`;
+  subtotalElement.textContent = `${total.toFixed(2)}€`;
+  checkoutPriceElement.textContent = `${total.toFixed(2)}€`;
   cartItemCount.textContent = totalItems;
   cartItemCountSidebar.textContent = totalItems;
 }
@@ -423,3 +423,84 @@ backToTopButton.addEventListener("click", () => {
 //...........................................................................
 //.........................Back To Top JS End.........................
 //...........................................................................
+
+
+//......................................................................
+//..........................Navbar Search Filter Start................................
+
+// Select the search input and results container
+const searchInputs = document.querySelectorAll(
+  'input[placeholder="Search for rice, sweets, snacks, Beverages or more..."]'
+);
+const resultsBox = document.getElementById("search-results");
+
+// Debounce function to limit search execution
+function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}
+
+// Add input event listener to each search input
+searchInputs.forEach((input) => {
+  input.addEventListener(
+    "input",
+    debounce(() => {
+      const query = input.value.trim().toLowerCase();
+      resultsBox.innerHTML = "";
+
+      if (!query) {
+        resultsBox.style.display = "none";
+        return;
+      }
+
+      // Collect unique text matches from elements outside nav
+      let matches = new Set();
+      document
+        .querySelectorAll("h1, h2, h3, h4, h5, h6, p, span, a, li, div")
+        .forEach((el) => {
+          if (el.closest("nav")) return;
+
+          const text = el.innerText.trim();
+          if (text && text.toLowerCase().includes(query)) {
+            matches.add(text);
+          }
+        });
+      matches = [...matches];
+
+      if (matches.length > 0) {
+        resultsBox.style.display = "block";
+        resultsBox.innerHTML = matches
+          .slice(0, 10)
+          .map(
+            (t) => `<div style="padding:5px 0; border-bottom:1px solid #eee;">
+                ${t.replace(
+                  new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"),
+                  (match) => `<mark>${match}</mark>`
+                )}
+              </div>`
+          )
+          .join("");
+      } else {
+        resultsBox.style.display = "block";
+        resultsBox.innerHTML = `<div style="padding:5px; color:#777;">No results found</div>`;
+      }
+    }, 300)
+  );
+});
+
+// Handle outside click to close search results
+document.addEventListener("click", (e) => {
+  const resultsBox = document.getElementById("search-results");
+  const isClickInside =
+    resultsBox.contains(e.target) ||
+    e.target.matches('input[placeholder="Search for rice, sweets, snacks, Beverages or more..."]');
+
+  if (!isClickInside) {
+    resultsBox.style.display = "none";
+  }
+});
+//........Navbar Search Filter End..............................
+//......................................................................

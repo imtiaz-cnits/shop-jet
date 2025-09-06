@@ -3,382 +3,671 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-commerce Store</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <!-- Nice Select CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/jquery-nice-select@1.1.0/css/nice-select.css"
-    />
-    <style>
-      .brand-logo.selected {
-        border: 2px solid #8b5cf6 !important;
-        position: relative;
-      }
-      .brand-logo.selected::after {
-        content: "✓";
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        top: 0px;
-        right: 0px;
-        font-size: 14px;
-        font-weight: bold;
-        color: #8b5cf6;
-        background: yellow;
-      }
-      /* Range slider overlap fix */
-      .range-slider {
-        position: relative;
-        width: 100%;
-        height: 6px;
-      }
-      .range-slider input[type="range"] {
-        -webkit-appearance: none;
-        width: 100%;
-        height: 6px;
-        background: transparent;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
-        z-index: 3;
-      }
-      .range-slider input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: #8b5cf6; /* purple */
-        cursor: pointer;
-        pointer-events: all;
-        position: relative;
-        z-index: 5;
-      }
-      .range-slider input[type="range"]::-moz-range-thumb {
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: #8b5cf6;
-        cursor: pointer;
-        pointer-events: all;
-        position: relative;
-        z-index: 5;
-      }
-      .slider-track {
-        position: absolute;
-        height: 6px;
-        background: #8b5cf6;
-        border-radius: 9999px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 2;
-      }
-      .slider-bg {
-        position: absolute;
-        height: 6px;
-        background: #d1d5db; /* gray-300 */
-        border-radius: 9999px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        z-index: 1;
-      }
+    <title>Home | Grocery E-Commerce</title>
+    <!-- Fav Icon -->
+    <link rel="icon" type="image/x-icon" href="./assets/icon/fav.png" />
 
-      /* Smooth mobile toggle */
-      #filterMenu {
-        transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
-        overflow: hidden;
-      }
-      #filterMenu.closed {
-        max-height: 0;
-        opacity: 0;
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-      #filterMenu.open {
-        max-height: 100vh; /* large enough for content */
-        opacity: 1;
-      }
-    </style>
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="./src/output.css" />
   </head>
-  <body class="bg-gray-100 font-sans">
-    <header class="bg-purple-700 text-white p-4 md:p-6 text-center">
-      <h1 class="text-xl md:text-3xl font-bold">Get 10% Cashback</h1>
-      <p class="text-md md:text-lg mt-2">on Shopping €150</p>
-    </header>
-
-    <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row gap-6">
-      <!-- Sidebar Filter -->
-      <aside class="w-full md:w-1/4 bg-white p-4 rounded-lg shadow-md">
-        <div class="flex justify-between items-center">
-          <h2 class="text-lg font-semibold text-gray-800">Filter</h2>
-          <button
-            id="filterToggle"
-            class="md:hidden p-2 text-gray-500 hover:text-gray-700"
+  <body>
+    <section class="best-sale-section mt-[60px]">
+      <div class="custom-container relative">
+        <!-- Heading -->
+        <div class="header-box flex items-center justify-between mb-4">
+          <h2
+            class="text-2xl text-[var(--text)] font-bold mb-0 best-sale-title"
           >
+            Best Seller
+          </h2>
+          <a
+            href="#"
+            class="inline-flex items-center gap-[4px] font-secondary text-[16px] text-[var(--text)] font-semibold hover:underline categories-link group transition duration-300"
+            >See All
             <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+              class="group-hover:rotate-45 transition duration-300"
               xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
             >
               <path
+                d="M5.83325 14.6666L14.1666 6.33331M14.1666 6.33331H5.83325M14.1666 6.33331V14.6666"
+                stroke="#202124"
+                stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
+              />
             </svg>
-          </button>
+          </a>
         </div>
 
-        <div id="filterMenu" class="md:block">
-          <!-- Search Input -->
-          <div class="mb-6">
-            <input
-              type="text"
-              placeholder="Search products..."
-              class="w-full p-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
-            />
-          </div>
+        <!-- Swiper -->
+        <div class="swiper best-seller-swiper overflow-visible">
+          <div class="swiper-wrapper py-2 pb-10 md:pb-2">
+            <!-- Card -->
+            <div class="swiper-slide best-sale-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+              >
+                <!-- Wishlist Icon -->
+                <button
+                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
+                >
+                  ♡
+                </button>
 
-          <!-- Category Radio -->
-          <div class="mb-6">
-            <h3 class="text-md font-medium text-gray-700 mb-2">Category</h3>
-            <label class="flex items-center mb-2 text-sm text-gray-700">
-              <input
-                type="radio"
-                name="category"
-                class="form-radio text-purple-600 mr-2"
-              />
-              Fruits & Vegetables (128)
-            </label>
-            <label class="flex items-center mb-2 text-sm text-gray-700">
-              <input
-                type="radio"
-                name="category"
-                class="form-radio text-purple-600 mr-2"
-              />
-              Dairy & Breakfast (90)
-            </label>
-            <label class="flex items-center mb-2 text-sm text-gray-700">
-              <input
-                type="radio"
-                name="category"
-                class="form-radio text-purple-600 mr-2"
-              />
-              Snacks (56)
-            </label>
-          </div>
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
+                >
+                  <img
+                    src="./assets/img/home/best1.webp"
+                    alt="Product"
+                    class="object-contain"
+                  />
+                </div>
 
-          <!-- Brand -->
-          <div class="mb-6">
-            <h3 class="text-md font-medium text-gray-700 mb-2">Brand</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-2">
-              <img
-                src="https://via.placeholder.com/60x30?text=Brand1"
-                alt="Brand1"
-                class="brand-logo border border-gray-300 rounded p-1 cursor-pointer"
-              />
-              <img
-                src="https://via.placeholder.com/60x30?text=Brand2"
-                alt="Brand2"
-                class="brand-logo border border-gray-300 rounded p-1 cursor-pointer"
-              />
-              <img
-                src="https://via.placeholder.com/60x30?text=Brand3"
-                alt="Brand3"
-                class="brand-logo border border-gray-300 rounded p-1 cursor-pointer"
-              />
+                <!-- Details -->
+                <div class="details p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[130px] flex-col gap-2 justify-between bg-red-400">
+                  <div>
+                  <div class="flex justify-between items-center gap-1 mb-1">
+                    <h3
+                      class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
+                    >
+                      Canada Dry Ginger Ale – 2 L Bottle
+                    </h3>
+                    <!-- Rating -->
+                    <div class="rating flex items-center gap-1">
+                      <svg
+                        class="w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="19"
+                        viewBox="0 0 20 19"
+                        fill="none"
+                      >
+                        <path
+                          d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                          fill="#EEB13C"
+                        />
+                      </svg>
+                      <span class="text-sm font-secondary">4.9</span>
+                    </div>
+                  </div>
+
+                  <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
+                    Canada Dry Ginger Ale – 2 L Bottle
+                  </p></div>
+
+                  <div class="flex justify-between items-center gap-1">
+                    <!-- Price -->
+                    <div
+                      class="price-box flex items-center gap-2 font-secondary"
+                    >
+                      <span
+                        class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                        >3,99€</span
+                      >
+                    </div>
+
+                    <!-- Button -->
+                    <button
+                      class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                          stroke="#624D9F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <span class="hidden md:block">Add</span>
+                    </button>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide best-sale-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+              >
+                <!-- Wishlist Icon -->
+                <button
+                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
+                >
+                  ♡
+                </button>
+
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
+                >
+                  <img
+                    src="./assets/img/home/best2.webp"
+                    alt="Product"
+                    class="object-contain"
+                  />
+                </div>
+
+                <!-- Details -->
+                <div class="details p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[130px] flex-col gap-2 justify-between bg-red-400">
+                  <div>
+                  <div class="flex justify-between items-center gap-1 mb-1">
+                    <h3
+                      class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
+                    >
+                      Encore Seafoods Stuffed Alaskan
+                    </h3>
+                    <!-- Rating -->
+                    <div class="rating flex items-center gap-1">
+                      <svg
+                        class="w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="19"
+                        viewBox="0 0 20 19"
+                        fill="none"
+                      >
+                        <path
+                          d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                          fill="#EEB13C"
+                        />
+                      </svg>
+                      <span class="text-sm font-secondary">4.9</span>
+                    </div>
+                  </div>
+
+                  <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
+                    1pec Encore Seafoods Stuffed Alaskan
+                  </p></div>
+
+                  <div class="flex justify-between items-center gap-1">
+                    <!-- Price -->
+                    <div
+                      class="price-box flex items-center gap-2 font-secondary"
+                    >
+                      <span
+                        class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                        >11,69€</span
+                      >
+                    </div>
+
+                    <!-- Button -->
+                    <button
+                      class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                          stroke="#624D9F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <span class="hidden md:block">Add</span>
+                    </button>
+                  </div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide best-sale-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+              >
+                <!-- Wishlist Icon -->
+                <button
+                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
+                >
+                  ♡
+                </button>
+
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
+                >
+                  <img
+                    src="./assets/img/home/best3.webp"
+                    alt="Product"
+                    class="object-contain"
+                  />
+                </div>
+
+                <!-- Details -->
+                <div class="details p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[130px] flex-col gap-2 justify-between bg-red-400">
+                  <div>
+                  <div class="flex justify-between items-center gap-1 mb-1">
+                    <h3
+                      class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
+                    >
+                      Angie’s Sweet & Salty Kettle Corn
+                    </h3>
+                    <!-- Rating -->
+                    <div class="rating flex items-center gap-1">
+                      <svg
+                        class="w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="19"
+                        viewBox="0 0 20 19"
+                        fill="none"
+                      >
+                        <path
+                          d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                          fill="#EEB13C"
+                        />
+                      </svg>
+                      <span class="text-sm font-secondary">4.9</span>
+                    </div>
+                  </div>
+
+                  <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
+                    500g Angie’s Sweet & Salty Kettle Corn
+                  </p></div>
+
+                  <div class="flex justify-between items-center gap-1">
+                    <!-- Price -->
+                    <div
+                      class="price-box flex items-center gap-2 font-secondary"
+                    >
+                      <span
+                        class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                        >6,99€</span
+                      >
+                    </div>
+
+                    <!-- Button -->
+                    <button
+                      class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                          stroke="#624D9F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <span class="hidden md:block">Add</span>
+                    </button>
+                  </div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide best-sale-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+              >
+                <!-- Wishlist Icon -->
+                <button
+                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
+                >
+                  ♡
+                </button>
+
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
+                >
+                  <img
+                    src="./assets/img/home/samar-sale1.webp"
+                    alt="Product"
+                    class="object-contain"
+                  />
+                </div>
+
+                <!-- Details -->
+                <div class="details p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[130px] flex-col gap-2 justify-between bg-red-400">
+                  <div>
+                  <div class="flex justify-between items-center gap-1 mb-1">
+                    <h3
+                      class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
+                    >
+                      Foster Farms Takeout Crispy Classic
+                    </h3>
+                    <!-- Rating -->
+                    <div class="rating flex items-center gap-1">
+                      <svg
+                        class="w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="19"
+                        viewBox="0 0 20 19"
+                        fill="none"
+                      >
+                        <path
+                          d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                          fill="#EEB13C"
+                        />
+                      </svg>
+                      <span class="text-sm font-secondary">4.9</span>
+                    </div>
+                  </div>
+
+                  <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
+                    200g Foster Farms Takeout Crispy Classic
+                  </p></div>
+
+                  <div class="flex justify-between items-center gap-1">
+                    <!-- Price -->
+                    <div
+                      class="price-box flex items-center gap-2 font-secondary"
+                    >
+                      <span
+                        class="old-price text-[var(--text2)] line-through text-sm"
+                        >7,79€</span
+                      >
+                      <span
+                        class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                        >6,62€</span
+                      >
+                    </div>
+
+                    <!-- Button -->
+                    <button
+                      class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                          stroke="#624D9F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <span class="hidden md:block">Add</span>
+                    </button>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide best-sale-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+              >
+                <!-- Badge -->
+                <span
+                  class="absolute top-2 left-2 bg-[var(--accent4)] text-xs text-[var(--text)] font-semibold px-2 py-1 rounded-[12px] rounded-br-[30px] rounded-tr-[30px]"
+                >
+                  20% OFF
+                </span>
+
+                <!-- Wishlist Icon -->
+                <button
+                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
+                >
+                  ♡
+                </button>
+
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
+                >
+                  <img
+                    src="./assets/img/home/samar-sale3.webp"
+                    alt="Product"
+                    class="object-contain"
+                  />
+                </div>
+
+                <!-- Details -->
+                <div class="details p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[130px] flex-col gap-2 justify-between bg-red-400">
+                  <div>
+                  <div class="flex justify-between items-center gap-1 mb-1">
+                    <h3
+                      class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
+                    >
+                      Blue Almonds Lightly Salted Vegetables
+                    </h3>
+                    <!-- Rating -->
+                    <div class="rating flex items-center gap-1">
+                      <svg
+                        class="w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="19"
+                        viewBox="0 0 20 19"
+                        fill="none"
+                      >
+                        <path
+                          d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                          fill="#EEB13C"
+                        />
+                      </svg>
+                      <span class="text-sm font-secondary">4.9</span>
+                    </div>
+                  </div>
+
+                  <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
+                    200g Blue Almonds Lightly Salted Vegetables
+                  </p></div>
+
+                  <div class="flex justify-between items-center gap-1">
+                    <!-- Price -->
+                    <div
+                      class="price-box flex items-center gap-2 font-secondary"
+                    >
+                      <span
+                        class="old-price text-[var(--text2)] line-through text-sm"
+                        >1,49€</span
+                      >
+                      <span
+                        class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                        >1,39€</span
+                      >
+                    </div>
+
+                    <!-- Button -->
+                    <button
+                      class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                          stroke="#624D9F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <span class="hidden md:block">Add</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <!-- Pagination -->
+          <div class="swiper-pagination block md:hidden"></div>
+        </div>
 
-          <!-- Dual Range Slider -->
-          <div class="mb-6">
-            <h3 class="text-md font-medium text-gray-700 mb-4">Price Range</h3>
-            <div class="range-slider">
-              <div class="slider-bg"></div>
-              <div id="sliderTrack" class="slider-track"></div>
-              <input
-                type="range"
-                id="minRange"
-                min="0"
-                max="500"
-                value="100"
-                step="10"
-              />
-              <input
-                type="range"
-                id="maxRange"
-                min="0"
-                max="500"
-                value="400"
-                step="10"
-              />
-            </div>
-            <div class="flex justify-between text-sm text-gray-600 mt-6">
-              <span id="minValue">€100</span>
-              <span id="maxValue">€400</span>
-            </div>
-          </div>
-
-          <button
-            class="bg-purple-600 text-white w-full py-2 rounded-md hover:bg-purple-700 transition"
+        <!-- Navigation -->
+        <div
+          class="swiper-button-next best-next !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -right-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
           >
-            Apply
-          </button>
+            <g filter="url(#filter0_d_2070_130)">
+              <path
+                d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_130"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_130"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_130"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
         </div>
-      </aside>
-
-      <!-- Main Content -->
-      <main class="w-full md:w-3/4">
         <div
-          class="flex justify-between items-center bg-white p-4 rounded-lg shadow-md mb-6"
+          class="swiper-button-prev best-prev !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -left-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
         >
-          <h2 class="text-lg font-semibold text-gray-800">All Products</h2>
-          <select id="sort-by" class="border-gray-300">
-            <option>Sort By</option>
-            <option>Price: Low to High</option>
-            <option>Price: High to Low</option>
-            <option>Newest</option>
-          </select>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+          >
+            <g filter="url(#filter0_d_2070_153)">
+              <path
+                d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_153"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_153"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_153"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
         </div>
+      </div>
+    </section>
 
-        <div
-          class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
-        >
-          <div class="bg-white p-4 rounded-lg shadow-md text-center">
-            <img
-              src="https://via.placeholder.com/150"
-              class="w-full h-32 object-contain mb-2"
-            />
-            <h3 class="font-medium text-gray-800">Product Name</h3>
-            <p class="text-sm text-gray-500">Description</p>
-            <p class="text-purple-600 font-bold mt-2">€19.99</p>
-            <button
-              class="bg-purple-600 text-white px-4 py-2 rounded-md mt-2 hover:bg-purple-700"
-            >
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </main>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Nice Select JS -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery-nice-select@1.1.0/js/jquery.nice-select.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        // Initialize nice select
-        $("#sort-by").niceSelect();
-
-        const niceSelect = $("#sort-by").next(".nice-select");
-
-        niceSelect.on("click", function () {
-          const dropdown = $(this).find(".list");
-          const wrapper = $(this);
-
-          dropdown.css({ visibility: "hidden", display: "block" });
-
-          const rect = dropdown[0].getBoundingClientRect();
-          const wrapperRect = wrapper[0].getBoundingClientRect();
-          const viewportWidth = window.innerWidth;
-          const viewportHeight = window.innerHeight;
-
-          dropdown.css({
-            left: "auto",
-            right: "auto",
-            top: "auto",
-            bottom: "auto",
-          });
-
-          if (wrapperRect.left + dropdown.outerWidth() > viewportWidth) {
-            dropdown.css({ right: "0px", left: "auto" });
-          } else {
-            dropdown.css({ left: "0px", right: "auto" });
-          }
-
-          if (wrapperRect.bottom + dropdown.outerHeight() > viewportHeight) {
-            dropdown.css({ bottom: "100%", top: "auto" });
-          } else {
-            dropdown.css({ top: "100%", bottom: "auto" });
-          }
-
-          dropdown.css({ visibility: "", display: "" });
-        });
-
-        // Brand select toggle
-        $(".brand-logo").on("click", function () {
-          $(this).toggleClass("selected");
-        });
-
-        // Dual range slider
-        const minRange = document.getElementById("minRange");
-        const maxRange = document.getElementById("maxRange");
-        const minValue = document.getElementById("minValue");
-        const maxValue = document.getElementById("maxValue");
-        const sliderTrack = document.getElementById("sliderTrack");
-        const max = parseInt(maxRange.max);
-
-        function fillTrack() {
-          let minPercent = (minRange.value / max) * 100;
-          let maxPercent = (maxRange.value / max) * 100;
-          sliderTrack.style.left = minPercent + "%";
-          sliderTrack.style.width = maxPercent - minPercent + "%";
-        }
-
-        minRange.addEventListener("input", function () {
-          if (parseInt(minRange.value) >= parseInt(maxRange.value)) {
-            minRange.value = maxRange.value - 10;
-          }
-          minValue.innerText = "€" + minRange.value;
-          fillTrack();
-        });
-
-        maxRange.addEventListener("input", function () {
-          if (parseInt(maxRange.value) <= parseInt(minRange.value)) {
-            maxRange.value = parseInt(minRange.value) + 10;
-          }
-          maxValue.innerText = "€" + maxRange.value;
-          fillTrack();
-        });
-
-        fillTrack();
-
-        // Mobile filter toggle
-        const filterToggle = $("#filterToggle");
-        const filterMenu = $("#filterMenu");
-
-        if ($(window).width() < 768) {
-          filterMenu.addClass("closed");
-        }
-
-        filterToggle.on("click", function () {
-          if (filterMenu.hasClass("closed")) {
-            filterMenu.removeClass("closed").addClass("open");
-          } else {
-            filterMenu.removeClass("open").addClass("closed");
-          }
-        });
-
-        $(window).on("resize", function () {
-          if ($(window).width() >= 768) {
-            filterMenu.removeClass("closed open").show();
-          } else if (
-            !filterMenu.hasClass("closed") &&
-            !filterMenu.hasClass("open")
-          ) {
-            filterMenu.addClass("closed");
-          }
-        });
-      });
-    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- JS Link -->
+    <script src="./assets/js/app.js"></script>
   </body>
 </html>
