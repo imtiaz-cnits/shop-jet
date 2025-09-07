@@ -165,9 +165,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const sidebar = document.getElementById("cart-sidebar");
 const overlay = document.getElementById("overlay");
-const cartIcon = document.getElementById("cart-icon");
+const cartIcons = document.querySelectorAll(".cart-icon"); // multiple icons
 const closeBtn = document.getElementById("close-sidebar-btn");
-const cartItemCount = document.getElementById("cart-item-count");
+const cartItemCounts = document.querySelectorAll(".cart-item-count"); // multiple counts
 const cartItemCountSidebar = document.getElementById("cart-item-count-sidebar");
 const subtotalElement = document.getElementById("subtotal");
 const checkoutPriceElement = document.getElementById("checkout-price");
@@ -202,12 +202,19 @@ function updateCartTotal() {
 
   subtotalElement.textContent = `${total.toFixed(2)}€`;
   checkoutPriceElement.textContent = `${total.toFixed(2)}€`;
-  cartItemCount.textContent = totalItems;
+
+  // Update all cart-item-count elements
+  cartItemCounts.forEach((el) => {
+    el.textContent = totalItems;
+  });
+
   cartItemCountSidebar.textContent = totalItems;
 }
 
 // Event Listeners
-cartIcon.addEventListener("click", openSidebar);
+cartIcons.forEach((icon) => {
+  icon.addEventListener("click", openSidebar);
+});
 closeBtn.addEventListener("click", closeSidebar);
 overlay.addEventListener("click", closeSidebar);
 
@@ -240,6 +247,7 @@ cartItemsContainer.addEventListener("click", (e) => {
 
 // Initial calculation
 updateCartTotal();
+
 //...........................................................................
 //...........................Cart Sidebar JS End.........................
 //...........................................................................
@@ -275,7 +283,7 @@ const summerSwiper = new Swiper(".summer-swiper", {
   spaceBetween: 15,
   loop: true,
   breakpoints: {
-    0: { slidesPerView: 2, spaceBetween: 20 },
+    0: { slidesPerView: 2.3, spaceBetween: 20 },
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 2, spaceBetween: 20 },
     992: { slidesPerView: 3, spaceBetween: 20 },
@@ -297,7 +305,7 @@ const bestSellerSwiper = new Swiper(".best-seller-swiper", {
   spaceBetween: 15,
   loop: true,
   breakpoints: {
-    0: { slidesPerView: 2, spaceBetween: 20 },
+    0: { slidesPerView: 2.3, spaceBetween: 20 },
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 2, spaceBetween: 20 },
     992: { slidesPerView: 3, spaceBetween: 20 },
@@ -319,7 +327,7 @@ const fruitsSellerSwiper = new Swiper(".fruits-swiper", {
   spaceBetween: 15,
   loop: true,
   breakpoints: {
-    0: { slidesPerView: 2, spaceBetween: 20 },
+    0: { slidesPerView: 2.3, spaceBetween: 20 },
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 2, spaceBetween: 20 },
     992: { slidesPerView: 3, spaceBetween: 20 },
@@ -341,7 +349,7 @@ const frozenSellerSwiper = new Swiper(".frozen-swiper", {
   spaceBetween: 15,
   loop: true,
   breakpoints: {
-    0: { slidesPerView: 2, spaceBetween: 20 },
+    0: { slidesPerView: 2.3, spaceBetween: 20 },
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 2, spaceBetween: 20 },
     992: { slidesPerView: 3, spaceBetween: 20 },
@@ -363,7 +371,7 @@ const arrivalSellerSwiper = new Swiper(".arrival-swiper", {
   spaceBetween: 15,
   loop: true,
   breakpoints: {
-    0: { slidesPerView: 2, spaceBetween: 20 },
+    0: { slidesPerView: 2.3, spaceBetween: 20 },
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 2, spaceBetween: 20 },
     992: { slidesPerView: 3, spaceBetween: 20 },
@@ -424,7 +432,6 @@ backToTopButton.addEventListener("click", () => {
 //.........................Back To Top JS End.........................
 //...........................................................................
 
-
 //......................................................................
 //..........................Navbar Search Filter Start................................
 
@@ -477,7 +484,10 @@ searchInputs.forEach((input) => {
           .map(
             (t) => `<div style="padding:5px 0; border-bottom:1px solid #eee;">
                 ${t.replace(
-                  new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"),
+                  new RegExp(
+                    query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+                    "gi"
+                  ),
                   (match) => `<mark>${match}</mark>`
                 )}
               </div>`
@@ -496,11 +506,133 @@ document.addEventListener("click", (e) => {
   const resultsBox = document.getElementById("search-results");
   const isClickInside =
     resultsBox.contains(e.target) ||
-    e.target.matches('input[placeholder="Search for rice, sweets, snacks, Beverages or more..."]');
+    e.target.matches(
+      'input[placeholder="Search for rice, sweets, snacks, Beverages or more..."]'
+    );
 
   if (!isClickInside) {
     resultsBox.style.display = "none";
   }
 });
 //........Navbar Search Filter End..............................
+//......................................................................
+
+//......................................................................
+//.................Product Page All Js Start...........................
+//......................................................................
+$(document).ready(function () {
+  // Initialize nice select
+  $("#sort-by").niceSelect();
+
+  const niceSelect = $("#sort-by").next(".nice-select");
+
+  niceSelect.on("click", function () {
+    const dropdown = $(this).find(".list");
+    const wrapper = $(this);
+
+    dropdown.css({ visibility: "hidden", display: "block" });
+
+    const rect = dropdown[0].getBoundingClientRect();
+    const wrapperRect = wrapper[0].getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    dropdown.css({
+      left: "auto",
+      right: "auto",
+      top: "auto",
+      bottom: "auto",
+    });
+
+    if (wrapperRect.left + dropdown.outerWidth() > viewportWidth) {
+      dropdown.css({ right: "0px", left: "auto" });
+    } else {
+      dropdown.css({ left: "0px", right: "auto" });
+    }
+
+    if (wrapperRect.bottom + dropdown.outerHeight() > viewportHeight) {
+      dropdown.css({ bottom: "100%", top: "auto" });
+    } else {
+      dropdown.css({ top: "100%", bottom: "auto" });
+    }
+
+    dropdown.css({ visibility: "", display: "" });
+  });
+
+  // Brand select toggle
+  $(".brand-logo").on("click", function () {
+    $(this).toggleClass("border-purple-600 border-1");
+    $(this)
+      .siblings(".brand-check")
+      .toggleClass("hidden flex items-center justify-center");
+  });
+
+  // Dual range slider
+  const minRange = document.getElementById("minRange");
+  const maxRange = document.getElementById("maxRange");
+  const minValue = document.getElementById("minValue");
+  const maxValue = document.getElementById("maxValue");
+  const sliderTrack = document.getElementById("sliderTrack");
+  const max = parseInt(maxRange.max);
+
+  function fillTrack() {
+    let minPercent = (minRange.value / max) * 100;
+    let maxPercent = (maxRange.value / max) * 100;
+    sliderTrack.style.left = minPercent + "%";
+    sliderTrack.style.width = maxPercent - minPercent + "%";
+  }
+
+  minRange.addEventListener("input", function () {
+    if (parseInt(minRange.value) >= parseInt(maxRange.value)) {
+      minRange.value = maxRange.value - 10;
+    }
+    minValue.innerText = "€" + minRange.value;
+    fillTrack();
+  });
+
+  maxRange.addEventListener("input", function () {
+    if (parseInt(maxRange.value) <= parseInt(minRange.value)) {
+      maxRange.value = parseInt(minRange.value) + 10;
+    }
+    maxValue.innerText = "€" + maxRange.value;
+    fillTrack();
+  });
+
+  fillTrack();
+
+  // Mobile filter toggle
+  const filterToggle = $("#filterToggle");
+  const filterMenu = $("#filterMenu");
+
+  if ($(window).width() < 992) {
+    filterMenu.addClass("max-h-0 opacity-0 pt-0 pb-0");
+  }
+
+  filterToggle.on("click", function () {
+    if (filterMenu.hasClass("max-h-0")) {
+      filterMenu
+        .removeClass("max-h-0 opacity-0 pt-0 pb-0")
+        .addClass("max-h-screen opacity-100");
+    } else {
+      filterMenu
+        .removeClass("max-h-screen opacity-100")
+        .addClass("max-h-0 opacity-0 pt-0 pb-0");
+    }
+  });
+
+  $(window).on("resize", function () {
+    if ($(window).width() >= 992) {
+      filterMenu
+        .removeClass("max-h-0 opacity-0 pt-0 pb-0 max-h-screen opacity-100")
+        .addClass("block");
+    } else if (
+      !filterMenu.hasClass("max-h-0") &&
+      !filterMenu.hasClass("max-h-screen")
+    ) {
+      filterMenu.addClass("max-h-0 opacity-0 pt-0 pb-0");
+    }
+  });
+});
+//......................................................................
+//.................Product Page All Js End..............................
 //......................................................................

@@ -69,6 +69,36 @@
     </div>
     <!-- Back to Top Button End -->
 
+    <!-- Fly Cart Start -->
+    <div
+      class="cart-icon fixed bottom-[90px] left-6 lg:bottom-8 lg:left-8 w-12 h-12 bg-[var(--primary-color)] hover:bg-[var(--black)] rounded-full cursor-pointer transition duration-300 z-[50] flex justify-center items-center"
+    >
+      <div class="relative flex justify-center items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+        >
+          <path
+            d="M4.00014 13H17.1359C18.1487 13 18.6551 13 19.0582 12.8112C19.4134 12.6448 19.7118 12.3777 19.9163 12.0432C20.1485 11.6633 20.2044 11.16 20.3163 10.1534L20.9013 4.88835C20.9355 4.58088 20.9525 4.42715 20.9031 4.30816C20.8597 4.20366 20.7821 4.11697 20.683 4.06228C20.5702 4 20.4155 4 20.1062 4H3.50014M1 1H2.24844C2.51306 1 2.64537 1 2.74889 1.05032C2.84002 1.09463 2.91554 1.16557 2.96544 1.25376C3.02212 1.35394 3.03037 1.48599 3.04688 1.7501L3.95312 16.2499C3.96963 16.514 3.97788 16.6461 4.03456 16.7462C4.08446 16.8344 4.15998 16.9054 4.25111 16.9497C4.35463 17 4.48694 17 4.75156 17H18M6.5 20.5H6.51M15.5 20.5H15.51M7 20.5C7 20.7761 6.77614 21 6.5 21C6.22386 21 6 20.7761 6 20.5C6 20.2239 6.22386 20 6.5 20C6.77614 20 7 20.2239 7 20.5ZM16 20.5C16 20.7761 15.7761 21 15.5 21C15.2239 21 15 20.7761 15 20.5C15 20.2239 15.2239 20 15.5 20C15.7761 20 16 20.2239 16 20.5Z"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
+      <span
+        class="cart-item-count absolute flex justify-center items-center w-6 h-6 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--black)] rounded-full"
+      >
+        0
+      </span>
+    </div>
+
+    <!-- Fly Cart End -->
+
     <!-- Top Bar Start -->
     <div class="topbar bg-[var(--primary-color)] py-2">
       <div class="custom-container">
@@ -135,6 +165,13 @@
     <nav class="navbar sticky top-0 left-0 bg-[var(--secondary-color)] z-50">
       <div class="header custom-container">
         <div class="flex justify-between items-center py-3">
+          <!-- Mobile Menu Button -->
+          <button
+            id="menu-btn"
+            class="lg:hidden text-[var(--text)] focus:outline-none text-2xl cursor-pointer"
+          >
+            ☰
+          </button>
           <!-- Logo -->
           <div class="flex items-center space-x-3">
             <a href="./index.html" class="w-[150px] object-contain">
@@ -262,8 +299,7 @@
 
             <a
               href="#"
-              id="cart-icon"
-              class="cart relative cursor-pointer hidden lg:flex"
+              class="cart-icon cart relative cursor-pointer hidden lg:flex"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -281,14 +317,15 @@
                 />
               </svg>
               <span
-                id="cart-item-count"
-                class="absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
+                class="cart-item-count absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
               >
                 0
               </span>
             </a>
 
-            <div class="bar w-[1px] h-[18px] bg-[var(--border)]"></div>
+            <div
+              class="bar hidden lg:block w-[1px] h-[18px] bg-[var(--border)]"
+            ></div>
 
             <a
               href="#"
@@ -298,14 +335,6 @@
                 class="far fa-user-circle text-[22px] text-[var(--primary-color)]"
               ></i>
             </a>
-
-            <!-- Mobile Menu Button -->
-            <button
-              id="menu-btn"
-              class="lg:hidden text-[var(--text)] focus:outline-none text-2xl cursor-pointer"
-            >
-              ☰
-            </button>
           </div>
         </div>
       </div>
@@ -2657,7 +2686,7 @@
     </div>
     <!-- Top Categories End -->
 
-    <!-- Samar Sale Start -->
+    <!-- Summer Sale Start -->
     <section class="summer-sale-section mt-[60px]">
       <div class="custom-container relative">
         <!-- Heading -->
@@ -2665,7 +2694,7 @@
           <h2
             class="text-2xl text-[var(--text)] font-bold mb-0 categories-title"
           >
-            Samar Sale
+            Summer Sale
           </h2>
           <a
             href="#"
@@ -2719,15 +2748,13 @@
                   <img
                     src="./assets/img/home/samar-sale1.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -2778,7 +2805,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -2790,7 +2817,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -2822,15 +2849,13 @@
                   <img
                     src="./assets/img/home/samar-sale2.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -2877,7 +2902,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -2889,7 +2914,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -2928,15 +2953,13 @@
                   <img
                     src="./assets/img/home/samar-sale3.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -2987,7 +3010,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -2999,7 +3022,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -3038,15 +3061,13 @@
                   <img
                     src="./assets/img/home/samar-sale4.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -3097,7 +3118,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -3109,7 +3130,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -3148,15 +3169,13 @@
                   <img
                     src="./assets/img/home/samar-sale3.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -3207,7 +3226,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -3219,7 +3238,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -3357,7 +3376,7 @@
         </div>
       </div>
     </section>
-    <!-- Samar Sale End -->
+    <!-- Summer Sale End -->
 
     <!-- Best Seller Start -->
     <section class="best-sale-section mt-[60px]">
@@ -3409,10 +3428,10 @@
                   <img
                     src="./assets/img/home/best1.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
-                <div class="details p-4 bg-[var(--accent1)]">
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
                   <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
@@ -3454,7 +3473,7 @@
                         >
                       </div>
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -3466,7 +3485,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -3495,10 +3514,10 @@
                   <img
                     src="./assets/img/home/best2.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
-                <div class="details p-4 bg-[var(--accent1)]">
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
                   <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
@@ -3540,7 +3559,7 @@
                         >
                       </div>
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -3552,7 +3571,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -3581,10 +3600,10 @@
                   <img
                     src="./assets/img/home/best3.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
-                <div class="details p-4 bg-[var(--accent1)]">
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
                   <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
@@ -3626,7 +3645,7 @@
                         >
                       </div>
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -3638,7 +3657,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -3667,10 +3686,10 @@
                   <img
                     src="./assets/img/home/samar-sale1.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
-                <div class="details p-4 bg-[var(--accent1)]">
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
                   <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
@@ -3716,7 +3735,7 @@
                         >
                       </div>
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -3728,7 +3747,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -3762,10 +3781,10 @@
                   <img
                     src="./assets/img/home/samar-sale3.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
-                <div class="details p-4 bg-[var(--accent1)]">
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
                   <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
@@ -3811,7 +3830,7 @@
                         >
                       </div>
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -3823,7 +3842,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -4022,15 +4041,13 @@
                   <img
                     src="./assets/img/home/fr-va1.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -4081,7 +4098,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -4093,7 +4110,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -4125,15 +4142,13 @@
                   <img
                     src="./assets/img/home/fr-va2.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -4180,7 +4195,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -4192,7 +4207,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -4224,15 +4239,13 @@
                   <img
                     src="./assets/img/home/fr-va3.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -4279,7 +4292,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -4291,7 +4304,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -4323,15 +4336,13 @@
                   <img
                     src="./assets/img/home/fr-va4.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -4378,7 +4389,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -4390,7 +4401,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -4422,15 +4433,13 @@
                   <img
                     src="./assets/img/home/fr-va3.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -4477,7 +4486,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -4489,7 +4498,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -4688,7 +4697,7 @@
                   Green Chutney
                 </h3>
                 <button
-                  class="mt-4 bg-orange-500 text-white px-5 py-2 rounded-full hover:bg-orange-600 font-semibold text-[16px]"
+                  class="mt-4 bg-[var(--primary-color)] text-[var(--secondary-color)] px-5 py-2 rounded-full hover:bg-[var(--black)] font-semibold text-[16px] transition duration-300"
                 >
                   Shop Now
                 </button>
@@ -4706,7 +4715,7 @@
                   August Deals
                 </h3>
                 <button
-                  class="mt-4 bg-orange-500 text-white px-5 py-2 rounded-full hover:bg-orange-600 font-semibold text-[16px]"
+                  class="mt-4 bg-[var(--primary-color)] text-[var(--secondary-color)] px-5 py-2 rounded-full hover:bg-[var(--black)] font-semibold text-[16px] transition duration-300"
                 >
                   Shop Now
                 </button>
@@ -4724,7 +4733,7 @@
                   Green Chutney
                 </h3>
                 <button
-                  class="mt-4 bg-orange-500 text-white px-5 py-2 rounded-full hover:bg-orange-600 font-semibold text-[16px]"
+                  class="mt-4 bg-[var(--primary-color)] text-[var(--secondary-color)] px-5 py-2 rounded-full hover:bg-[var(--black)] font-semibold text-[16px] transition duration-300"
                 >
                   Shop Now
                 </button>
@@ -4803,15 +4812,13 @@
                   <img
                     src="./assets/img/home/frozen1.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -4862,7 +4869,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -4874,7 +4881,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -4906,15 +4913,13 @@
                   <img
                     src="./assets/img/home/frozen2.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -4961,7 +4966,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -4973,7 +4978,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -5012,15 +5017,13 @@
                   <img
                     src="./assets/img/home/frozen3.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -5071,7 +5074,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -5083,7 +5086,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -5122,15 +5125,13 @@
                   <img
                     src="./assets/img/home/frozen4.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -5181,7 +5182,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -5193,7 +5194,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -5232,15 +5233,13 @@
                   <img
                     src="./assets/img/home/frozen3.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -5291,7 +5290,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -5303,7 +5302,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -5505,15 +5504,13 @@
                   <img
                     src="./assets/img/home/arrival1.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -5564,7 +5561,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -5576,7 +5573,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -5615,15 +5612,13 @@
                   <img
                     src="./assets/img/home/arrival2.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -5674,7 +5669,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -5686,7 +5681,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -5718,15 +5713,13 @@
                   <img
                     src="./assets/img/home/arrival3.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -5773,7 +5766,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -5785,7 +5778,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -5824,15 +5817,13 @@
                   <img
                     src="./assets/img/home/arrival4.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -5883,7 +5874,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -5895,7 +5886,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -5927,15 +5918,13 @@
                   <img
                     src="./assets/img/home/arrival3.webp"
                     alt="Product"
-                    class=" w-full aspect-[6/6] object-contain"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
                 <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div
-                    class="flex h-[140px] flex-col gap-2 justify-between"
-                  >
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
                     <div>
                       <div class="flex justify-between items-start gap-2 mb-1">
                         <h3
@@ -5982,7 +5971,7 @@
 
                       <!-- Button -->
                       <button
-                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
                         <svg
                           class="w-4 h-4"
@@ -5994,7 +5983,7 @@
                         >
                           <path
                             d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                            stroke="#624D9F"
+                            stroke="white"
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -6459,59 +6448,133 @@
             <p class="text-sm text-[var(--text2)] leading-relaxed">
               Contrary to popular belief, Lorem Ipsum is not simply random text.
             </p>
+
+            <div class="mt-4">
+              <h4 class="font-semibold text-lg mb-4">Follow Us:</h4>
+              <div class="flex space-x-2 justify-start">
+                <a
+                  href="#"
+                  class="h-8 w-8 rounded-full border border-[var(--black)] hover:border-[var(--primary-color)] flex items-center justify-center hover:bg-[var(--primary-color)] transition duration-300 group"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="11"
+                    height="22"
+                    viewBox="0 0 11 22"
+                    fill="none"
+                  >
+                    <path
+                      class="group-hover:fill-white"
+                      d="M10.0499 7.07914H6.71242V4.89022C6.71242 4.06817 7.25725 3.87652 7.64099 3.87652C8.02386 3.87652 9.99624 3.87652 9.99624 3.87652V0.26266L6.75259 0.25C3.15183 0.25 2.3324 2.94533 2.3324 4.67019V7.07914H0.25V10.803H2.3324C2.3324 15.5821 2.3324 21.3403 2.3324 21.3403H6.71242C6.71242 21.3403 6.71242 15.5253 6.71242 10.803H9.66795L10.0499 7.07914Z"
+                      fill="#202124"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="h-8 w-8 rounded-full border border-[var(--black)] hover:border-[var(--primary-color)] flex items-center justify-center hover:bg-[var(--primary-color)] transition duration-300 group"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="21"
+                    height="21"
+                    viewBox="0 0 21 21"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_170_948)">
+                      <mask
+                        id="mask0_170_948"
+                        style="mask-type: luminance"
+                        maskUnits="userSpaceOnUse"
+                        x="0"
+                        y="0"
+                        width="21"
+                        height="21"
+                      >
+                        <path d="M20.1712 0H0V20.625H20.1712V0Z" fill="white" />
+                      </mask>
+                      <g mask="url(#mask0_170_948)">
+                        <path
+                          class="group-hover:fill-white"
+                          d="M12.0046 8.7288L19.5137 0H17.7343L11.2141 7.57909L6.00643 0H0L7.87502 11.4609L0 20.6144H1.77953L8.66504 12.6106L14.1647 20.6144H20.1712L12.0041 8.7288H12.0046ZM9.56726 11.5619L8.76936 10.4207L2.42072 1.33961H5.15398L10.2774 8.6683L11.0753 9.80955L17.7351 19.3357H15.0019L9.56726 11.5623V11.5619Z"
+                          fill="#202124"
+                        />
+                      </g>
+                      <path
+                        class="group-hover:fill-white"
+                        d="M3.4375 0.6875H5.84375L19.25 19.9375H16.8438L3.4375 0.6875Z"
+                        fill="#202124"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_170_948">
+                        <rect width="20.1712" height="20.625" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="h-8 w-8 rounded-full border border-[var(--black)] hover:border-[var(--primary-color)] flex items-center justify-center hover:bg-[var(--primary-color)] transition duration-300 group"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    fill="none"
+                  >
+                    <path
+                      class="group-hover:fill-white"
+                      d="M13.9999 2.05371C10.7553 2.05371 10.3485 2.06746 9.07427 2.1256C7.80269 2.18365 6.93425 2.38557 6.17431 2.68092C5.38871 2.98622 4.72248 3.39472 4.05833 4.05886C3.39418 4.72301 2.98569 5.38925 2.68038 6.17484C2.38504 6.93474 2.18311 7.80318 2.12507 9.07476C2.06693 10.349 2.05322 10.7558 2.05322 14.0004C2.05322 17.2448 2.06693 17.6517 2.12507 18.9259C2.18311 20.1975 2.38504 21.0659 2.68038 21.8258C2.98569 22.6114 3.39418 23.2777 4.05833 23.9419C4.72248 24.606 5.38871 25.0145 6.17431 25.3198C6.93425 25.6151 7.80269 25.8171 9.07427 25.8751C10.3485 25.9332 10.7553 25.947 13.9999 25.947C17.2444 25.947 17.6512 25.9332 18.9254 25.8751C20.197 25.8171 21.0654 25.6151 21.8253 25.3198C22.6109 25.0145 23.2772 24.606 23.9414 23.9419C24.6055 23.2777 25.014 22.6114 25.3193 21.8258C25.6146 21.0659 25.8166 20.1975 25.8746 18.9259C25.9327 17.6517 25.9465 17.2448 25.9465 14.0004C25.9465 10.7558 25.9327 10.349 25.8746 9.07476C25.8166 7.80318 25.6146 6.93474 25.3193 6.17484C25.014 5.38925 24.6055 4.72301 23.9414 4.05886C23.2772 3.39472 22.6109 2.98622 21.8253 2.68092C21.0654 2.38557 20.197 2.18365 18.9254 2.1256C17.6512 2.06746 17.2444 2.05371 13.9999 2.05371ZM13.9999 4.2063C17.1897 4.2063 17.5676 4.21844 18.8273 4.27592C19.9921 4.32908 20.6247 4.5237 21.0456 4.68726C21.6033 4.90397 22.0012 5.1629 22.4193 5.58093C22.8373 5.99895 23.0962 6.39697 23.3129 6.95456C23.4765 7.37552 23.6712 8.00809 23.7243 9.17287C23.7817 10.4326 23.7939 10.8105 23.7939 14.0004C23.7939 17.1902 23.7817 17.5681 23.7243 18.8278C23.6712 19.9926 23.4765 20.6251 23.3129 21.0461C23.0962 21.6037 22.8373 22.0017 22.4193 22.4197C22.0012 22.8378 21.6033 23.0967 21.0456 23.3134C20.6247 23.477 19.9921 23.6716 18.8273 23.7248C17.5678 23.7822 17.19 23.7944 13.9999 23.7944C10.8097 23.7944 10.432 23.7822 9.17239 23.7248C8.0076 23.6716 7.37504 23.477 6.95407 23.3134C6.39643 23.0967 5.99846 22.8378 5.58039 22.4197C5.16236 22.0017 4.90344 21.6037 4.68677 21.0461C4.52316 20.6251 4.32854 19.9926 4.27538 18.8278C4.2179 17.5681 4.20576 17.1902 4.20576 14.0004C4.20576 10.8105 4.2179 10.4326 4.27538 9.17287C4.32854 8.00809 4.52316 7.37552 4.68677 6.95456C4.90344 6.39697 5.16236 5.99895 5.58039 5.58093C5.99846 5.1629 6.39643 4.90397 6.95407 4.68726C7.37504 4.5237 8.0076 4.32908 9.17239 4.27592C10.4321 4.21844 10.81 4.2063 13.9999 4.2063Z"
+                      fill="#202124"
+                    />
+                    <path
+                      class="group-hover:fill-white"
+                      d="M14 17.9822C11.8007 17.9822 10.0178 16.1993 10.0178 14C10.0178 11.8007 11.8007 10.0178 14 10.0178C16.1993 10.0178 17.9822 11.8007 17.9822 14C17.9822 16.1993 16.1993 17.9822 14 17.9822ZM14 7.86523C10.6118 7.86523 7.86523 10.6118 7.86523 14C7.86523 17.3881 10.6118 20.1347 14 20.1347C17.3881 20.1347 20.1347 17.3881 20.1347 14C20.1347 10.6118 17.3881 7.86523 14 7.86523Z"
+                      fill="#202124"
+                    />
+                    <path
+                      class="group-hover:fill-white"
+                      d="M21.8106 7.62303C21.8106 8.41479 21.1687 9.0566 20.3769 9.0566C19.5852 9.0566 18.9434 8.41479 18.9434 7.62303C18.9434 6.83127 19.5852 6.18945 20.3769 6.18945C21.1687 6.18945 21.8106 6.83127 21.8106 7.62303Z"
+                      fill="#202124"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="h-8 w-8 rounded-full border border-[var(--black)] hover:border-[var(--primary-color)] flex items-center justify-center hover:bg-[var(--primary-color)] transition duration-300 group"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="31"
+                    height="31"
+                    viewBox="0 0 31 31"
+                    fill="none"
+                  >
+                    <path
+                      class="group-hover:fill-white"
+                      d="M10.0833 23.9479H6.302V11.3438H10.0833V23.9479ZM23.9478 23.9479H20.1666V17.2148C20.1666 15.4603 19.5414 14.5868 18.3024 14.5868C17.3206 14.5868 16.6979 15.0758 16.3853 16.0552C16.3853 17.6458 16.3853 23.9479 16.3853 23.9479H12.6041C12.6041 23.9479 12.6545 12.6042 12.6041 11.3438H15.5888L15.8194 13.8646H15.8976C16.6727 12.6042 17.9117 11.7496 19.6107 11.7496C20.9027 11.7496 21.9476 12.1088 22.7454 13.0113C23.5483 13.915 23.9478 15.1275 23.9478 16.8303V23.9479Z"
+                      fill="#202124"
+                    />
+                    <path
+                      class="group-hover:fill-white"
+                      d="M8.19266 10.084C9.27163 10.084 10.1463 9.23752 10.1463 8.19336C10.1463 7.1492 9.27163 6.30273 8.19266 6.30273C7.11369 6.30273 6.23901 7.1492 6.23901 8.19336C6.23901 9.23752 7.11369 10.084 8.19266 10.084Z"
+                      fill="#202124"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
 
           <div
             class="grid grid-cols-2 col-span-2 gap-8 md:gap-4 md:grid-cols-2 md:text-left"
           >
-            <div>
-              <h4 class="font-semibold text-lg mb-4">Company</h4>
-              <ul class="space-y-2 text-sm text-[var(--text2)]">
-                <li>
-                  <a
-                    href="#"
-                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
-                    >About Us</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
-                    >Shipping Info</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
-                    >Contact Us</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
-                    >Blog</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
-                    >Career</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
-                    >FAQ's</a
-                  >
-                </li>
-              </ul>
-            </div>
-
             <div>
               <h4 class="font-semibold text-lg mb-4">Top Categories</h4>
               <ul class="space-y-2 text-sm text-[var(--text2)]">
@@ -6580,6 +6643,54 @@
                 </li>
               </ul>
             </div>
+
+            <div>
+              <h4 class="font-semibold text-lg mb-4">Company</h4>
+              <ul class="space-y-2 text-sm text-[var(--text2)]">
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Shipping Info</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Contact Us</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Blog</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Career</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >FAQ's</a
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div>
@@ -6587,7 +6698,7 @@
             <p class="text-sm text-[var(--text2)]">Mo-Fr 9:00am - 5:00pm</p>
             <p class="text-sm text-[var(--text2)] mb-4">+49 6258 130 4100</p>
 
-            <div class="flex items-center mb-6">
+            <div class="flex items-center mb-4">
               <div class="bg-[var(--primary-color)] p-2 rounded-full mr-2">
                 <svg
                   class="w-4 h-4"
@@ -6611,125 +6722,6 @@
                 class="text-sm text-[var(--text2)]"
                 >info@example.com</a
               >
-            </div>
-
-            <div class="flex space-x-2 mb-6 justify-start">
-              <a
-                href="#"
-                class="h-8 w-8 rounded-full border border-[var(--black)] flex items-center justify-center hover:bg-[var(--black)] transition duration-300 group"
-              >
-                <svg
-                  class="w-4 h-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="11"
-                  height="22"
-                  viewBox="0 0 11 22"
-                  fill="none"
-                >
-                  <path
-                    class="group-hover:fill-white"
-                    d="M10.0499 7.07914H6.71242V4.89022C6.71242 4.06817 7.25725 3.87652 7.64099 3.87652C8.02386 3.87652 9.99624 3.87652 9.99624 3.87652V0.26266L6.75259 0.25C3.15183 0.25 2.3324 2.94533 2.3324 4.67019V7.07914H0.25V10.803H2.3324C2.3324 15.5821 2.3324 21.3403 2.3324 21.3403H6.71242C6.71242 21.3403 6.71242 15.5253 6.71242 10.803H9.66795L10.0499 7.07914Z"
-                    fill="#202124"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="h-8 w-8 rounded-full border border-[var(--black)] flex items-center justify-center hover:bg-[var(--black)] transition duration-300 group"
-              >
-                <svg
-                  class="w-4 h-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="21"
-                  height="21"
-                  viewBox="0 0 21 21"
-                  fill="none"
-                >
-                  <g clip-path="url(#clip0_170_948)">
-                    <mask
-                      id="mask0_170_948"
-                      style="mask-type: luminance"
-                      maskUnits="userSpaceOnUse"
-                      x="0"
-                      y="0"
-                      width="21"
-                      height="21"
-                    >
-                      <path d="M20.1712 0H0V20.625H20.1712V0Z" fill="white" />
-                    </mask>
-                    <g mask="url(#mask0_170_948)">
-                      <path
-                        class="group-hover:fill-white"
-                        d="M12.0046 8.7288L19.5137 0H17.7343L11.2141 7.57909L6.00643 0H0L7.87502 11.4609L0 20.6144H1.77953L8.66504 12.6106L14.1647 20.6144H20.1712L12.0041 8.7288H12.0046ZM9.56726 11.5619L8.76936 10.4207L2.42072 1.33961H5.15398L10.2774 8.6683L11.0753 9.80955L17.7351 19.3357H15.0019L9.56726 11.5623V11.5619Z"
-                        fill="#202124"
-                      />
-                    </g>
-                    <path
-                      class="group-hover:fill-white"
-                      d="M3.4375 0.6875H5.84375L19.25 19.9375H16.8438L3.4375 0.6875Z"
-                      fill="#202124"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_170_948">
-                      <rect width="20.1712" height="20.625" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="h-8 w-8 rounded-full border border-[var(--black)] flex items-center justify-center hover:bg-[var(--black)] transition duration-300 group"
-              >
-                <svg
-                  class="w-4 h-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="28"
-                  height="28"
-                  viewBox="0 0 28 28"
-                  fill="none"
-                >
-                  <path
-                    class="group-hover:fill-white"
-                    d="M13.9999 2.05371C10.7553 2.05371 10.3485 2.06746 9.07427 2.1256C7.80269 2.18365 6.93425 2.38557 6.17431 2.68092C5.38871 2.98622 4.72248 3.39472 4.05833 4.05886C3.39418 4.72301 2.98569 5.38925 2.68038 6.17484C2.38504 6.93474 2.18311 7.80318 2.12507 9.07476C2.06693 10.349 2.05322 10.7558 2.05322 14.0004C2.05322 17.2448 2.06693 17.6517 2.12507 18.9259C2.18311 20.1975 2.38504 21.0659 2.68038 21.8258C2.98569 22.6114 3.39418 23.2777 4.05833 23.9419C4.72248 24.606 5.38871 25.0145 6.17431 25.3198C6.93425 25.6151 7.80269 25.8171 9.07427 25.8751C10.3485 25.9332 10.7553 25.947 13.9999 25.947C17.2444 25.947 17.6512 25.9332 18.9254 25.8751C20.197 25.8171 21.0654 25.6151 21.8253 25.3198C22.6109 25.0145 23.2772 24.606 23.9414 23.9419C24.6055 23.2777 25.014 22.6114 25.3193 21.8258C25.6146 21.0659 25.8166 20.1975 25.8746 18.9259C25.9327 17.6517 25.9465 17.2448 25.9465 14.0004C25.9465 10.7558 25.9327 10.349 25.8746 9.07476C25.8166 7.80318 25.6146 6.93474 25.3193 6.17484C25.014 5.38925 24.6055 4.72301 23.9414 4.05886C23.2772 3.39472 22.6109 2.98622 21.8253 2.68092C21.0654 2.38557 20.197 2.18365 18.9254 2.1256C17.6512 2.06746 17.2444 2.05371 13.9999 2.05371ZM13.9999 4.2063C17.1897 4.2063 17.5676 4.21844 18.8273 4.27592C19.9921 4.32908 20.6247 4.5237 21.0456 4.68726C21.6033 4.90397 22.0012 5.1629 22.4193 5.58093C22.8373 5.99895 23.0962 6.39697 23.3129 6.95456C23.4765 7.37552 23.6712 8.00809 23.7243 9.17287C23.7817 10.4326 23.7939 10.8105 23.7939 14.0004C23.7939 17.1902 23.7817 17.5681 23.7243 18.8278C23.6712 19.9926 23.4765 20.6251 23.3129 21.0461C23.0962 21.6037 22.8373 22.0017 22.4193 22.4197C22.0012 22.8378 21.6033 23.0967 21.0456 23.3134C20.6247 23.477 19.9921 23.6716 18.8273 23.7248C17.5678 23.7822 17.19 23.7944 13.9999 23.7944C10.8097 23.7944 10.432 23.7822 9.17239 23.7248C8.0076 23.6716 7.37504 23.477 6.95407 23.3134C6.39643 23.0967 5.99846 22.8378 5.58039 22.4197C5.16236 22.0017 4.90344 21.6037 4.68677 21.0461C4.52316 20.6251 4.32854 19.9926 4.27538 18.8278C4.2179 17.5681 4.20576 17.1902 4.20576 14.0004C4.20576 10.8105 4.2179 10.4326 4.27538 9.17287C4.32854 8.00809 4.52316 7.37552 4.68677 6.95456C4.90344 6.39697 5.16236 5.99895 5.58039 5.58093C5.99846 5.1629 6.39643 4.90397 6.95407 4.68726C7.37504 4.5237 8.0076 4.32908 9.17239 4.27592C10.4321 4.21844 10.81 4.2063 13.9999 4.2063Z"
-                    fill="#202124"
-                  />
-                  <path
-                    class="group-hover:fill-white"
-                    d="M14 17.9822C11.8007 17.9822 10.0178 16.1993 10.0178 14C10.0178 11.8007 11.8007 10.0178 14 10.0178C16.1993 10.0178 17.9822 11.8007 17.9822 14C17.9822 16.1993 16.1993 17.9822 14 17.9822ZM14 7.86523C10.6118 7.86523 7.86523 10.6118 7.86523 14C7.86523 17.3881 10.6118 20.1347 14 20.1347C17.3881 20.1347 20.1347 17.3881 20.1347 14C20.1347 10.6118 17.3881 7.86523 14 7.86523Z"
-                    fill="#202124"
-                  />
-                  <path
-                    class="group-hover:fill-white"
-                    d="M21.8106 7.62303C21.8106 8.41479 21.1687 9.0566 20.3769 9.0566C19.5852 9.0566 18.9434 8.41479 18.9434 7.62303C18.9434 6.83127 19.5852 6.18945 20.3769 6.18945C21.1687 6.18945 21.8106 6.83127 21.8106 7.62303Z"
-                    fill="#202124"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="h-8 w-8 rounded-full border border-[var(--black)] flex items-center justify-center hover:bg-[var(--black)] transition duration-300 group"
-              >
-                <svg
-                  class="w-6 h-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="31"
-                  height="31"
-                  viewBox="0 0 31 31"
-                  fill="none"
-                >
-                  <path
-                    class="group-hover:fill-white"
-                    d="M10.0833 23.9479H6.302V11.3438H10.0833V23.9479ZM23.9478 23.9479H20.1666V17.2148C20.1666 15.4603 19.5414 14.5868 18.3024 14.5868C17.3206 14.5868 16.6979 15.0758 16.3853 16.0552C16.3853 17.6458 16.3853 23.9479 16.3853 23.9479H12.6041C12.6041 23.9479 12.6545 12.6042 12.6041 11.3438H15.5888L15.8194 13.8646H15.8976C16.6727 12.6042 17.9117 11.7496 19.6107 11.7496C20.9027 11.7496 21.9476 12.1088 22.7454 13.0113C23.5483 13.915 23.9478 15.1275 23.9478 16.8303V23.9479Z"
-                    fill="#202124"
-                  />
-                  <path
-                    class="group-hover:fill-white"
-                    d="M8.19266 10.084C9.27163 10.084 10.1463 9.23752 10.1463 8.19336C10.1463 7.1492 9.27163 6.30273 8.19266 6.30273C7.11369 6.30273 6.23901 7.1492 6.23901 8.19336C6.23901 9.23752 7.11369 10.084 8.19266 10.084Z"
-                    fill="#202124"
-                  />
-                </svg>
-              </a>
             </div>
 
             <div class="mt-4 md:mt-0">
@@ -6766,7 +6758,7 @@
           class="copyright flex flex-col md:flex-row gap-1 items-center justify-between border-t border-[var(--border)] mt-[20px] py-[20px] text-center md:text-left"
         >
           <p class="mb-2 md:mb-0 text-sm text-[var(--text2)]">
-            &copy; 2025 Shop Jet Food. All rights reserved.
+            &copy; 2025 Shop Jet. All rights reserved.
           </p>
           <div class="flex items-center space-x-2">
             <p

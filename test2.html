@@ -4,670 +4,625 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home | Grocery E-Commerce</title>
-    <!-- Fav Icon -->
     <link rel="icon" type="image/x-icon" href="./assets/icon/fav.png" />
 
-    <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
 
-    <!-- Swiper CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
 
-    <!-- Tailwind CSS -->
     <link rel="stylesheet" href="./src/output.css" />
   </head>
   <body>
-    <section class="best-sale-section mt-[60px]">
-      <div class="custom-container relative">
-        <!-- Heading -->
-        <div class="header-box flex items-center justify-between mb-4">
-          <h2
-            class="text-2xl text-[var(--text)] font-bold mb-0 best-sale-title"
+    <div
+      id="cart-icon"
+      class="fixed bottom-[90px] left-6 lg:bottom-8 lg:left-8 w-12 h-12 bg-[var(--primary-color)] hover:bg-[var(--black)] rounded-full cursor-pointer transition duration-300 z-[50] flex justify-center items-center"
+    >
+      <div class="relative flex justify-center items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+        >
+          <path
+            d="M4.00014 13H17.1359C18.1487 13 18.6551 13 19.0582 12.8112C19.4134 12.6448 19.7118 12.3777 19.9163 12.0432C20.1485 11.6633 20.2044 11.16 20.3163 10.1534L20.9013 4.88835C20.9355 4.58088 20.9525 4.42715 20.9031 4.30816C20.8597 4.20366 20.7821 4.11697 20.683 4.06228C20.5702 4 20.4155 4 20.1062 4H3.50014M1 1H2.24844C2.51306 1 2.64537 1 2.74889 1.05032C2.84002 1.09463 2.91554 1.16557 2.96544 1.25376C3.02212 1.35394 3.03037 1.48599 3.04688 1.7501L3.95312 16.2499C3.96963 16.514 3.97788 16.6461 4.03456 16.7462C4.08446 16.8344 4.15998 16.9054 4.25111 16.9497C4.35463 17 4.48694 17 4.75156 17H18M6.5 20.5H6.51M15.5 20.5H15.51M7 20.5C7 20.7761 6.77614 21 6.5 21C6.22386 21 6 20.7761 6 20.5C6 20.2239 6.22386 20 6.5 20C6.77614 20 7 20.2239 7 20.5ZM16 20.5C16 20.7761 15.7761 21 15.5 21C15.2239 21 15 20.7761 15 20.5C15 20.2239 15.2239 20 15.5 20C15.7761 20 16 20.2239 16 20.5Z"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
+      <span
+        id="cart-item-count"
+        class="absolute flex justify-center items-center w-6 h-6 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--black)] rounded-full"
+      >
+        0
+      </span>
+    </div>
+
+    <nav class="navbar sticky top-0 left-0 bg-[var(--secondary-color)] z-50">
+      <div class="header custom-container">
+        <div class="flex justify-between items-center py-3">
+          <button
+            id="menu-btn"
+            class="lg:hidden text-[var(--text)] focus:outline-none text-2xl cursor-pointer"
           >
-            Best Seller
-          </h2>
-          <a
-            href="#"
-            class="inline-flex items-center gap-[4px] font-secondary text-[16px] text-[var(--text)] font-semibold hover:underline categories-link group transition duration-300"
-            >See All
-            <svg
-              class="group-hover:rotate-45 transition duration-300"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="21"
-              viewBox="0 0 20 21"
-              fill="none"
+            ☰
+          </button>
+          <div class="flex items-center space-x-3">
+            <a href="./index.html" class="w-[150px] object-contain">
+              <img src="./assets/icon/logo.png" alt="" />
+            </a>
+
+          </div>
+
+          <div class="hidden w-full max-w-[50%] lg:flex flex-1 mx-4">
+            <input
+              type="text"
+              placeholder="Search for rice, sweets, snacks, Beverages or more..."
+              class="w-full bg-[var(--accent1)] border border-[var(--border2)] rounded-bl-full rounded-tl-full px-3 py-2 focus:outline-none text-sm"
+            />
+            <button
+              class="flex justify-center items-center gap-[6px] bg-[var(--primary-color)] rounded-br-full rounded-tr-full border border-[var(--border2)] text-[var(--secondary-color)] text-sm font-normal px-3 rounded-r-md cursor-pointer"
             >
-              <path
-                d="M5.83325 14.6666L14.1666 6.33331M14.1666 6.33331H5.83325M14.1666 6.33331V14.6666"
-                stroke="#202124"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </a>
+              Search
+              <svg
+                class="w-4 h-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+              >
+                <path
+                  d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="flex items-center space-x-4 rounded-lg">
+            <div id="language-selector" class="relative font-primary">
+              <div
+                class="flex items-center space-x-2 p-[8px] pr-[12px] rounded-full cursor-pointer bg-[var(--accent1)] transition-colors duration-200"
+              >
+                <img
+                  id="language-flag"
+                  src="https://flagcdn.com/gb.svg"
+                  alt="UK Flag"
+                  class="w-6 h-6 rounded-full object-cover"
+                />
+                <span id="language-text" class="text-[var(--text)] font-medium"
+                  >EN</span
+                >
+                <i class="fas fa-chevron-down text-[var(--text)] text-xs"></i>
+              </div>
+
+              <div
+                id="language-dropdown"
+                class="absolute top-full mt-1 w-full bg-[var(--secondary-color)] border border-[var(--border)] rounded-md shadow-lg hidden z-50"
+              >
+                <div
+                  class="flex items-center space-x-2 px-2 py-1 cursor-pointer hover:bg-[var(--accent1)]"
+                  data-lang="en"
+                >
+                  <img
+                    src="https://flagcdn.com/gb.svg"
+                    alt="UK Flag"
+                    class="w-6 h-4"
+                  />
+                  <span>EN</span>
+                </div>
+                <div
+                  class="flex items-center space-x-2 px-2 py-1 cursor-pointer hover:bg-[var(--accent1)]"
+                  data-lang="es"
+                >
+                  <img
+                    src="https://flagcdn.com/es.svg"
+                    alt="Spanish Flag"
+                    class="w-6 h-4"
+                  />
+                  <span>ES</span>
+                </div>
+                <div
+                  class="flex items-center space-x-2 px-2 py-1 cursor-pointer hover:bg-[var(--accent1)]"
+                  data-lang="fr"
+                >
+                  <img
+                    src="https://flagcdn.com/fr.svg"
+                    alt="French Flag"
+                    class="w-6 h-4"
+                  />
+                  <span>FR</span>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="whichlist relative cursor-pointer hidden lg:flex"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="20"
+                viewBox="0 0 22 20"
+                fill="none"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M10.9932 3.13581C8.9938 0.7984 5.65975 0.169643 3.15469 2.31001C0.649644 4.45038 0.296968 8.02898 2.2642 10.5604C3.89982 12.6651 8.84977 17.1041 10.4721 18.5408C10.6536 18.7016 10.7444 18.7819 10.8502 18.8135C10.9426 18.8411 11.0437 18.8411 11.1361 18.8135C11.2419 18.7819 11.3327 18.7016 11.5142 18.5408C13.1365 17.1041 18.0865 12.6651 19.7221 10.5604C21.6893 8.02898 21.3797 4.42787 18.8316 2.31001C16.2835 0.192157 12.9925 0.7984 10.9932 3.13581Z"
+                  stroke="#202124"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span
+                class="absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
+              >
+                0
+              </span>
+            </a>
+
+            <a
+              href="#"
+              id="cart-icon"
+              class="cart relative cursor-pointer hidden lg:flex"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 22 22"
+                fill="none"
+              >
+                <path
+                  d="M4.00014 13H17.1359C18.1487 13 18.6551 13 19.0582 12.8112C19.4134 12.6448 19.7118 12.3777 19.9163 12.0432C20.1485 11.6633 20.2044 11.16 20.3163 10.1534L20.9013 4.88835C20.9355 4.58088 20.9525 4.42715 20.9031 4.30816C20.8597 4.20366 20.7821 4.11697 20.683 4.06228C20.5702 4 20.4155 4 20.1062 4H3.50014M1 1H2.24844C2.51306 1 2.64537 1 2.74889 1.05032C2.84002 1.09463 2.91554 1.16557 2.96544 1.25376C3.02212 1.35394 3.03037 1.48599 3.04688 1.7501L3.95312 16.2499C3.96963 16.514 3.97788 16.6461 4.03456 16.7462C4.08446 16.8344 4.15998 16.9054 4.25111 16.9497C4.35463 17 4.48694 17 4.75156 17H18M6.5 20.5H6.51M15.5 20.5H15.51M7 20.5C7 20.7761 6.77614 22 6.5 22C6.22386 22 6 21.7761 6 21.5C6 21.2239 6.22386 21 6.5 21C6.77614 21 7 21.2239 7 21.5ZM16 21.5C16 21.7761 15.7761 22 15.5 22C15.2239 22 15 21.7761 15 21.5C15 21.2239 15.2239 21 15.5 21C15.7761 21 17 21.2239 17 21.5Z"
+                  stroke="#202124"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span
+                id="cart-item-count"
+                class="absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
+              >
+                0
+              </span>
+            </a>
+
+            <div
+              class="bar hidden lg:block w-[1px] h-[18px] bg-[var(--border)]"
+            ></div>
+
+            <a
+              href="#"
+              class="profile items-center justify-center rounded-full cursor-pointer p-2 bg-[var(--accent1)] hidden lg:flex m-0"
+            >
+              <i
+                class="far fa-user-circle text-[22px] text-[var(--primary-color)]"
+              ></i>
+            </a>
+          </div>
         </div>
+      </div>
 
-        <!-- Swiper -->
-        <div class="swiper best-seller-swiper overflow-visible">
-          <div class="swiper-wrapper py-2 pb-10 md:pb-2">
-            <!-- Card -->
-            <div class="swiper-slide best-sale-card">
-              <div
-                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+      <div
+        id="overlay"
+        class="fixed inset-0 bg-black opacity-50 z-40 hidden"
+      ></div>
+
+      <div
+        id="cart-sidebar"
+        class="fixed top-0 right-0 h-full w-full md:w-96 bg-[var(--secondary-color)] shadow-lg transition-all duration-300 ease-in-out z-[150]"
+        style="transform: translateX(100%)"
+      >
+        <div class="wrapper p-4 pt-0">
+          <div
+            class="sticky bg-[var(--secondary-color)] top-0 left-0 flex justify-between items-center py-3"
+          >
+            <h2 class="my-cart text-xl font-semibold">
+              Review Your Cart (<span id="cart-item-count-sidebar">0</span>)
+            </h2>
+            <button
+              class="text-[var(--text)] hover:text-[var(--primary-color)] focus:outline-none"
+              id="close-sidebar-btn"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                <!-- Wishlist Icon -->
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div
+            id="cart-items"
+            class="mb-2 overflow-y-auto min-h-0 max-h-[calc(100vh-280px)]"
+          >
+            </div>
+
+          <div class="bottom-box pb-[20px] bg-[var(--secondery-color)]">
+            <div class="mb-2">
+              <h4 class="title text-[var(--text)] font-medium mb-1">
+                Got a discount code?
+              </h4>
+              <div class="flex items-center cupon-box">
+                <input
+                  type="text"
+                  placeholder="Coupon Code"
+                  class="flex-1 text-sm text-[var(--text)] border border-[var(--border)] rounded-tl-full rounded-bl-full p-2 px-3 focus:outline-none focus:border-[var(--primary-color)] transition duration-300"
+                />
                 <button
-                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
+                  class="apply-btn bg-[var(--primary-color)] border border-[var(--primary-color)] text-sm text-[var(--secondary-color)] rounded-tr-full rounded-br-full px-4 py-2 hover:bg-[var(--black)] transition duration-300"
                 >
-                  ♡
+                  Apply
                 </button>
-
-                <!-- Image -->
-                <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
-                >
-                  <img
-                    src="./assets/img/home/best1.webp"
-                    alt="Product"
-                    class="object-contain"
-                  />
-                </div>
-
-                <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div class="flex h-[130px] flex-col gap-2 justify-between bg-red-400">
-                  <div>
-                  <div class="flex justify-between items-center gap-1 mb-1">
-                    <h3
-                      class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
-                    >
-                      Canada Dry Ginger Ale – 2 L Bottle
-                    </h3>
-                    <!-- Rating -->
-                    <div class="rating flex items-center gap-1">
-                      <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="19"
-                        viewBox="0 0 20 19"
-                        fill="none"
-                      >
-                        <path
-                          d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
-                          fill="#EEB13C"
-                        />
-                      </svg>
-                      <span class="text-sm font-secondary">4.9</span>
-                    </div>
-                  </div>
-
-                  <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    Canada Dry Ginger Ale – 2 L Bottle
-                  </p></div>
-
-                  <div class="flex justify-between items-center gap-1">
-                    <!-- Price -->
-                    <div
-                      class="price-box flex items-center gap-2 font-secondary"
-                    >
-                      <span
-                        class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
-                        >3,99€</span
-                      >
-                    </div>
-
-                    <!-- Button -->
-                    <button
-                      class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
-                    >
-                      <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                          stroke="#624D9F"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <span class="hidden md:block">Add</span>
-                    </button>
-                  </div>
-                </div>
-                </div>
               </div>
             </div>
 
-            <div class="swiper-slide best-sale-card">
-              <div
-                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
-              >
-                <!-- Wishlist Icon -->
-                <button
-                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
+            <div class="mb-4">
+              <div class="flex justify-between font-medium">
+                <h4 class="title text-[var(--text)] font-medium">Subtotal</h4>
+                <span id="subtotal" class="text-lg text-[var(--primary-color)]"
+                  >0.00€</span
                 >
-                  ♡
-                </button>
-
-                <!-- Image -->
-                <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
-                >
-                  <img
-                    src="./assets/img/home/best2.webp"
-                    alt="Product"
-                    class="object-contain"
-                  />
-                </div>
-
-                <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div class="flex h-[130px] flex-col gap-2 justify-between bg-red-400">
-                  <div>
-                  <div class="flex justify-between items-center gap-1 mb-1">
-                    <h3
-                      class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
-                    >
-                      Encore Seafoods Stuffed Alaskan
-                    </h3>
-                    <!-- Rating -->
-                    <div class="rating flex items-center gap-1">
-                      <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="19"
-                        viewBox="0 0 20 19"
-                        fill="none"
-                      >
-                        <path
-                          d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
-                          fill="#EEB13C"
-                        />
-                      </svg>
-                      <span class="text-sm font-secondary">4.9</span>
-                    </div>
-                  </div>
-
-                  <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    1pec Encore Seafoods Stuffed Alaskan
-                  </p></div>
-
-                  <div class="flex justify-between items-center gap-1">
-                    <!-- Price -->
-                    <div
-                      class="price-box flex items-center gap-2 font-secondary"
-                    >
-                      <span
-                        class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
-                        >11,69€</span
-                      >
-                    </div>
-
-                    <!-- Button -->
-                    <button
-                      class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
-                    >
-                      <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                          stroke="#624D9F"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <span class="hidden md:block">Add</span>
-                    </button>
-                  </div></div>
-                </div>
               </div>
+              <p class="desc text-sm text-[var(--text2)] mb-0 line-clamp-1">
+                Shipping & taxes may be re-calculated at checkout
+              </p>
             </div>
 
-            <div class="swiper-slide best-sale-card">
-              <div
-                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+            <button
+              class="continue-btn w-full bg-[var(--primary-color)] border border-[var(--primary-color)] text-[16px] text-[var(--secondary-color)] rounded-full px-3 py-2 hover:bg-[var(--black)] transition duration-300"
+            >
+              Checkout <span id="checkout-price">0.00€</span>
+            </button>
+
+            <div class="text-center mt-2">
+              <a
+                href="#"
+                class="text-blue-600 hover:text-blue-700"
+                onclick="closeSidebar()"
+                >Continue Shopping</a
               >
-                <!-- Wishlist Icon -->
-                <button
-                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
-                >
-                  ♡
-                </button>
-
-                <!-- Image -->
-                <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
-                >
-                  <img
-                    src="./assets/img/home/best3.webp"
-                    alt="Product"
-                    class="object-contain"
-                  />
-                </div>
-
-                <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div class="flex h-[130px] flex-col gap-2 justify-between bg-red-400">
-                  <div>
-                  <div class="flex justify-between items-center gap-1 mb-1">
-                    <h3
-                      class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
-                    >
-                      Angie’s Sweet & Salty Kettle Corn
-                    </h3>
-                    <!-- Rating -->
-                    <div class="rating flex items-center gap-1">
-                      <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="19"
-                        viewBox="0 0 20 19"
-                        fill="none"
-                      >
-                        <path
-                          d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
-                          fill="#EEB13C"
-                        />
-                      </svg>
-                      <span class="text-sm font-secondary">4.9</span>
-                    </div>
-                  </div>
-
-                  <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    500g Angie’s Sweet & Salty Kettle Corn
-                  </p></div>
-
-                  <div class="flex justify-between items-center gap-1">
-                    <!-- Price -->
-                    <div
-                      class="price-box flex items-center gap-2 font-secondary"
-                    >
-                      <span
-                        class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
-                        >6,99€</span
-                      >
-                    </div>
-
-                    <!-- Button -->
-                    <button
-                      class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
-                    >
-                      <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                          stroke="#624D9F"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <span class="hidden md:block">Add</span>
-                    </button>
-                  </div></div>
-                </div>
-              </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <div class="swiper-slide best-sale-card">
+    </nav>
+    <div class="swiper-slide w-48 summer-sale-card">
               <div
                 class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
               >
-                <!-- Wishlist Icon -->
+                <span
+                id="offer-save"
+                  class="absolute top-2 left-2 bg-[var(--accent4)] text-xs text-[var(--text)] font-semibold px-2 py-1 rounded-[12px] rounded-br-[30px] rounded-tr-[30px]"
+                >
+                  30% OFF
+                </span>
+
                 <button
                   class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
                 >
                   ♡
                 </button>
 
-                <!-- Image -->
                 <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--secondary-color)]"
                 >
                   <img
                     src="./assets/img/home/samar-sale1.webp"
                     alt="Product"
-                    class="object-contain"
+                    id="cart-image-product"
+                    class="w-full aspect-[6/6] object-contain"
                   />
                 </div>
 
-                <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div class="flex h-[130px] flex-col gap-2 justify-between bg-red-400">
-                  <div>
-                  <div class="flex justify-between items-center gap-1 mb-1">
-                    <h3
-                      class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
-                    >
-                      Foster Farms Takeout Crispy Classic
-                    </h3>
-                    <!-- Rating -->
-                    <div class="rating flex items-center gap-1">
-                      <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="19"
-                        viewBox="0 0 20 19"
-                        fill="none"
-                      >
-                        <path
-                          d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
-                          fill="#EEB13C"
-                        />
-                      </svg>
-                      <span class="text-sm font-secondary">4.9</span>
-                    </div>
-                  </div>
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
+                    <div>
+                      <div class="flex justify-between items-start gap-2 mb-1">
+                        <h3
+                        id="cart-product-name"
+                          class="title text-[16px] text-[var(--text)] line-clamp-2 font-semibold"
+                        >
+                          Canada Dry Ginger Ale – 2 L Bottle
+                        </h3>
+                        <div class="rating flex items-center gap-1">
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="19"
+                            viewBox="0 0 20 19"
+                            fill="none"
+                          >
+                            <path
+                              d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                              fill="#EEB13C"
+                            />
+                          </svg>
+                          <span class="text-sm font-secondary">4.9</span>
+                        </div>
+                      </div>
 
-                  <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    200g Foster Farms Takeout Crispy Classic
-                  </p></div>
-
-                  <div class="flex justify-between items-center gap-1">
-                    <!-- Price -->
-                    <div
-                      class="price-box flex items-center gap-2 font-secondary"
-                    >
-                      <span
-                        class="old-price text-[var(--text2)] line-through text-sm"
-                        >7,79€</span
+                      <p
+                        class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2"
                       >
-                      <span
-                        class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
-                        >6,62€</span
-                      >
+                        200g Canada Dry Ginger Ale
+                      </p>
                     </div>
 
-                    <!-- Button -->
-                    <button
-                      class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
-                    >
-                      <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
+                    <div class="flex justify-between items-center gap-1">
+                      <div
+                        class="price-box flex items-center gap-2 font-secondary"
                       >
-                        <path
-                          d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                          stroke="#624D9F"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <span class="hidden md:block">Add</span>
-                    </button>
-                  </div>
-                </div>
-                </div>
-              </div>
-            </div>
+                        <span
+                          id="cart-old-price-product"
+                          class="old-price text-[var(--text2)] line-through text-sm"
+                          data-price="1.49"
+                          >1,49€</span
+                        >
+                        <span
+                          id="cart-current-price-product"
+                          class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                          data-price="1.39"
+                          >1,39€</span
+                        >
+                      </div>
 
-            <div class="swiper-slide best-sale-card">
-              <div
-                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
-              >
-                <!-- Badge -->
-                <span
-                  class="absolute top-2 left-2 bg-[var(--accent4)] text-xs text-[var(--text)] font-semibold px-2 py-1 rounded-[12px] rounded-br-[30px] rounded-tr-[30px]"
-                >
-                  20% OFF
-                </span>
-
-                <!-- Wishlist Icon -->
-                <button
-                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
-                >
-                  ♡
-                </button>
-
-                <!-- Image -->
-                <div
-                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 py-6 bg-[var(--secondary-color)]"
-                >
-                  <img
-                    src="./assets/img/home/samar-sale3.webp"
-                    alt="Product"
-                    class="object-contain"
-                  />
-                </div>
-
-                <!-- Details -->
-                <div class="details p-4 bg-[var(--accent1)]">
-                  <div class="flex h-[130px] flex-col gap-2 justify-between bg-red-400">
-                  <div>
-                  <div class="flex justify-between items-center gap-1 mb-1">
-                    <h3
-                      class="title text-[16px] text-[var(--text)] line-clamp-1 font-semibold"
-                    >
-                      Blue Almonds Lightly Salted Vegetables
-                    </h3>
-                    <!-- Rating -->
-                    <div class="rating flex items-center gap-1">
-                      <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="19"
-                        viewBox="0 0 20 19"
-                        fill="none"
+                      <button
+                        id="add-cart-btn-dynamic"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
                       >
-                        <path
-                          d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
-                          fill="#EEB13C"
-                        />
-                      </svg>
-                      <span class="text-sm font-secondary">4.9</span>
+                        <svg
+                          class="w-4 h-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        <span class="hidden md:block">Add</span>
+                      </button>
                     </div>
-                  </div>
-
-                  <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">
-                    200g Blue Almonds Lightly Salted Vegetables
-                  </p></div>
-
-                  <div class="flex justify-between items-center gap-1">
-                    <!-- Price -->
-                    <div
-                      class="price-box flex items-center gap-2 font-secondary"
-                    >
-                      <span
-                        class="old-price text-[var(--text2)] line-through text-sm"
-                        >1,49€</span
-                      >
-                      <span
-                        class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
-                        >1,39€</span
-                      >
-                    </div>
-
-                    <!-- Button -->
-                    <button
-                      class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--accent1)] text-sm text-[var(--primary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
-                    >
-                      <svg
-                        class="w-4 h-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
-                          stroke="#624D9F"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <span class="hidden md:block">Add</span>
-                    </button>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- Pagination -->
-          <div class="swiper-pagination block md:hidden"></div>
-        </div>
+    <script>
+const sidebar = document.getElementById("cart-sidebar");
+const overlay = document.getElementById("overlay");
+const cartIcons = document.querySelectorAll("#cart-icon"); // multiple icons
+const closeBtn = document.getElementById("close-sidebar-btn");
+const cartItemCounts = document.querySelectorAll("#cart-item-count"); // multiple counts
+const cartItemCountSidebar = document.getElementById("cart-item-count-sidebar");
+const subtotalElement = document.getElementById("subtotal");
+const checkoutPriceElement = document.getElementById("checkout-price");
+const cartItemsContainer = document.getElementById("cart-items");
 
-        <!-- Navigation -->
-        <div
-          class="swiper-button-next best-next !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -right-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="54"
-            height="54"
-            viewBox="0 0 54 54"
-            fill="none"
-          >
-            <g filter="url(#filter0_d_2070_130)">
-              <path
-                d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </g>
-            <defs>
-              <filter
-                id="filter0_d_2070_130"
-                x="-5"
-                y="-5"
-                width="64"
-                height="64"
-                filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
-              >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                <feColorMatrix
-                  in="SourceAlpha"
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                  result="hardAlpha"
-                />
-                <feOffset />
-                <feGaussianBlur stdDeviation="8" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix
-                  type="matrix"
-                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
-                />
-                <feBlend
-                  mode="normal"
-                  in2="BackgroundImageFix"
-                  result="effect1_dropShadow_2070_130"
-                />
-                <feBlend
-                  mode="normal"
-                  in="SourceGraphic"
-                  in2="effect1_dropShadow_2070_130"
-                  result="shape"
-                />
-              </filter>
-            </defs>
-          </svg>
-        </div>
-        <div
-          class="swiper-button-prev best-prev !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -left-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="54"
-            height="54"
-            viewBox="0 0 54 54"
-            fill="none"
-          >
-            <g filter="url(#filter0_d_2070_153)">
-              <path
-                d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
-                stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </g>
-            <defs>
-              <filter
-                id="filter0_d_2070_153"
-                x="-5"
-                y="-5"
-                width="64"
-                height="64"
-                filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
-              >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                <feColorMatrix
-                  in="SourceAlpha"
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                  result="hardAlpha"
-                />
-                <feOffset />
-                <feGaussianBlur stdDeviation="8" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix
-                  type="matrix"
-                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
-                />
-                <feBlend
-                  mode="normal"
-                  in2="BackgroundImageFix"
-                  result="effect1_dropShadow_2070_153"
-                />
-                <feBlend
-                  mode="normal"
-                  in="SourceGraphic"
-                  in2="effect1_dropShadow_2070_153"
-                  result="shape"
-                />
-              </filter>
-            </defs>
-          </svg>
-        </div>
-      </div>
-    </section>
+// New IDs for product card elements
+const addCartBtn = document.getElementById("add-cart-btn-dynamic");
+const offerSave = document.getElementById("offer-save");
+const cartImageProduct = document.getElementById("cart-image-product");
+const cartProductName = document.getElementById("cart-product-name");
+const cartOldPriceProduct = document.getElementById("cart-old-price-product");
+const cartCurrentPriceProduct = document.getElementById("cart-current-price-product");
 
-    <!-- Swiper JS -->
+// Functions
+function openSidebar() {
+  sidebar.style.transform = "translateX(0)";
+  overlay.style.display = "block";
+}
+
+function closeSidebar() {
+  sidebar.style.transform = "translateX(100%)";
+  overlay.style.display = "none";
+}
+
+function updateCartTotal() {
+  let total = 0;
+  const itemElements = cartItemsContainer.querySelectorAll(
+    ".cart-product-items"
+  );
+  let totalItems = 0;
+
+  itemElements.forEach((item) => {
+    const qtyElement = item.querySelector(".item-qty");
+    const priceElement = item.querySelector(".discounted-price");
+    const qty = parseInt(qtyElement.textContent, 10);
+    const price = parseFloat(priceElement.dataset.price);
+    total += qty * price;
+    totalItems += qty;
+  });
+
+  subtotalElement.textContent = `${total.toFixed(2)}€`;
+  checkoutPriceElement.textContent = `${total.toFixed(2)}€`;
+
+  // Update all cart-item-count elements
+  cartItemCounts.forEach((el) => {
+    el.textContent = totalItems;
+  });
+
+  cartItemCountSidebar.textContent = totalItems;
+}
+
+function addToCart() {
+  // Get product details from the product card using their new IDs
+  const productName = cartProductName.textContent;
+  const productImage = cartImageProduct.src;
+  const productAlt = cartImageProduct.alt;
+  const discountText = offerSave.textContent;
+  const oldPrice = parseFloat(cartOldPriceProduct.dataset.price);
+  const currentPrice = parseFloat(cartCurrentPriceProduct.dataset.price);
+
+  // Check if the item already exists in the cart
+  const existingItem = Array.from(cartItemsContainer.querySelectorAll(".cart-product-items")).find(item => {
+    const name = item.querySelector(".item-name").textContent;
+    return name === productName;
+  });
+
+  if (existingItem) {
+    // If item exists, increase its quantity
+    const qtyElement = existingItem.querySelector(".item-qty");
+    let currentQty = parseInt(qtyElement.textContent, 10);
+    currentQty++;
+    qtyElement.textContent = currentQty;
+  } else {
+    // If item doesn't exist, create a new one dynamically
+    const newItem = document.createElement("div");
+    newItem.className = "cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative";
+
+    // Create and configure all child elements
+    const removeButton = document.createElement("button");
+    removeButton.className = "remove-item absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none cursor-pointer";
+    const removeSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    removeSvg.setAttribute("class", "w-4 h-4");
+    removeSvg.setAttribute("fill", "none");
+    removeSvg.setAttribute("stroke", "currentColor");
+    removeSvg.setAttribute("viewBox", "0 0 24 24");
+    const removePath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    removePath.setAttribute("stroke-linecap", "round");
+    removePath.setAttribute("stroke-linejoin", "round");
+    removePath.setAttribute("stroke-width", "2");
+    removePath.setAttribute("d", "M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16");
+    removeSvg.appendChild(removePath);
+    removeButton.appendChild(removeSvg);
+    newItem.appendChild(removeButton);
+
+    const img = document.createElement("img");
+    img.className = "w-[40px] h-[40px] object-cover add-cart-img rounded-md";
+    img.src = productImage;
+    img.alt = productAlt;
+    newItem.appendChild(img);
+
+    const detailsDiv = document.createElement("div");
+    detailsDiv.className = "flex-1";
+    const name = document.createElement("h3");
+    name.className = "item-name name font-medium text-[15px] line-clamp-1";
+    name.textContent = productName;
+    detailsDiv.appendChild(name);
+    
+    const priceContainer = document.createElement("div");
+    priceContainer.className = "flex items-center space-x-2";
+    const originalPrice = document.createElement("p");
+    originalPrice.className = "text-[var(--text2)] line-through text-[14px] original-price";
+    originalPrice.dataset.price = oldPrice.toFixed(2);
+    originalPrice.textContent = `${oldPrice.toFixed(2)}€`;
+    priceContainer.appendChild(originalPrice);
+    const discountedPrice = document.createElement("p");
+    discountedPrice.className = "text-[14px] font-bold discounted-price text-[var(--primary-color)]";
+    discountedPrice.dataset.price = currentPrice.toFixed(2);
+    discountedPrice.textContent = `${currentPrice.toFixed(2)}€`;
+    priceContainer.appendChild(discountedPrice);
+    detailsDiv.appendChild(priceContainer);
+    newItem.appendChild(detailsDiv);
+
+    const qtyDiscountDiv = document.createElement("div");
+    const qtyContainer = document.createElement("div");
+    qtyContainer.className = "flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden";
+    const decreaseBtn = document.createElement("button");
+    decreaseBtn.className = "decrease-qty text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] cursor-pointer";
+    decreaseBtn.textContent = "-";
+    const qtySpan = document.createElement("span");
+    qtySpan.className = "text-sm item-qty";
+    qtySpan.textContent = "1";
+    const increaseBtn = document.createElement("button");
+    increaseBtn.className = "increase-qty text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] cursor-pointer";
+    increaseBtn.textContent = "+";
+    qtyContainer.appendChild(decreaseBtn);
+    qtyContainer.appendChild(qtySpan);
+    qtyContainer.appendChild(increaseBtn);
+    qtyDiscountDiv.appendChild(qtyContainer);
+
+    const discountSpan = document.createElement("span");
+    discountSpan.className = "text-green-600 text-sm";
+    discountSpan.textContent = discountText;
+    qtyDiscountDiv.appendChild(discountSpan);
+    newItem.appendChild(qtyDiscountDiv);
+    
+    // Append the new item to the cart items container
+    cartItemsContainer.appendChild(newItem);
+  }
+  
+  // Update the cart total and item count
+  updateCartTotal();
+}
+
+// Event Listeners
+cartIcons.forEach((icon) => {
+  icon.addEventListener("click", openSidebar);
+});
+closeBtn.addEventListener("click", closeSidebar);
+overlay.addEventListener("click", closeSidebar);
+
+// Add event listener for the add to cart button
+addCartBtn.addEventListener("click", addToCart);
+
+// Add event listeners for quantity buttons and remove buttons
+cartItemsContainer.addEventListener("click", (e) => {
+  const button = e.target.closest("button");
+  if (!button) return;
+
+  const itemElement = button.closest(".cart-product-items");
+  if (!itemElement) return;
+
+  if (button.classList.contains("remove-item")) {
+    itemElement.remove();
+  } else {
+    const qtyElement = itemElement.querySelector(".item-qty");
+    let currentQty = parseInt(qtyElement.textContent, 10);
+    if (button.classList.contains("increase-qty")) {
+      currentQty++;
+    } else if (button.classList.contains("decrease-qty")) {
+      if (currentQty > 1) {
+        currentQty--;
+      }
+    }
+    qtyElement.textContent = currentQty;
+  }
+
+  updateCartTotal();
+});
+
+// Initial calculation
+updateCartTotal();
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- JS Link -->
     <script src="./assets/js/app.js"></script>
   </body>
 </html>

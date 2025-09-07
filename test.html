@@ -14,24 +14,7 @@
       href="https://cdn.jsdelivr.net/npm/jquery-nice-select@1.1.0/css/nice-select.css"
     />
     <style>
-      .brand-logo.selected {
-        border: 2px solid #8b5cf6 !important;
-        position: relative;
-      }
-      .brand-logo.selected::after {
-        content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="14" viewBox="0 0 14 10" fill="none"><path d="M12.3957 1L5.06234 8.33333L1.729 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-        position: absolute;
-        width: 20px;
-        height: 16px;
-        display: flex;
-        border-bottom-left-radius: 30px;
-        align-items: center;
-        justify-content: center;
-        top: 0px;
-        right: 0px;
-        background: rgb(75, 4, 82);
-      }
-      /* Range slider overlap fix */
+      /* Range slider styles restored from original */
       .range-slider {
         position: relative;
         width: 100%;
@@ -61,7 +44,6 @@
         position: relative;
         z-index: 5;
       }
-   
       .slider-track {
         position: absolute;
         height: 6px;
@@ -74,28 +56,12 @@
       .slider-bg {
         position: absolute;
         height: 6px;
-        background: #d1d5db; /* gray-300 */
+        background: #d1d5db;
         border-radius: 9999px;
         top: 50%;
         transform: translateY(-50%);
         width: 100%;
         z-index: 1;
-      }
-
-      /* Smooth mobile toggle */
-      #filterMenu {
-        transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
-        overflow: hidden;
-      }
-      #filterMenu.closed {
-        max-height: 0;
-        opacity: 0;
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-      #filterMenu.open {
-        max-height: 100vh; /* large enough for content */
-        opacity: 1;
       }
     </style>
   </head>
@@ -113,6 +79,7 @@
           <button
             id="filterToggle"
             class="md:hidden p-2 text-gray-500 hover:text-gray-700"
+            aria-label="Toggle filter menu"
           >
             <svg
               class="w-6 h-6"
@@ -131,13 +98,19 @@
           </button>
         </div>
 
-        <div id="filterMenu" class="md:block">
+        <div
+          id="filterMenu"
+          class="md:block transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0 md:max-h-full md:opacity-100"
+          data-closed="max-h-0 opacity-0 pt-0 pb-0"
+          data-open="max-h-screen opacity-100"
+        >
           <!-- Search Input -->
           <div class="mb-6">
             <input
               type="text"
               placeholder="Search products..."
               class="w-full p-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+              aria-label="Search products"
             />
           </div>
 
@@ -174,21 +147,84 @@
           <div class="mb-6">
             <h3 class="text-md font-medium text-gray-700 mb-2">Brand</h3>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-2">
-              <img
-                src="https://via.placeholder.com/60x30?text=Brand1"
-                alt="Brand1"
-                class="brand-logo border border-gray-300 rounded cursor-pointer"
-              />
-              <img
-                src="https://via.placeholder.com/60x30?text=Brand2"
-                alt="Brand2"
-                class="brand-logo border border-gray-300 rounded cursor-pointer"
-              />
-              <img
-                src="https://via.placeholder.com/60x30?text=Brand3"
-                alt="Brand3"
-                class="brand-logo border border-gray-300 rounded cursor-pointer"
-              />
+              <div class="relative">
+                <img
+                  src="https://via.placeholder.com/60x30?text=Brand1"
+                  alt="Brand1"
+                  class="brand-logo border border-gray-300 rounded cursor-pointer w-full"
+                />
+                <span
+                  class="brand-check hidden absolute top-0 right-0 bg-purple-900 text-white rounded-bl-full p-1"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="14"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                  >
+                    <path
+                      d="M12.3957 1L5.06234 8.33333L1.729 5"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div class="relative">
+                <img
+                  src="https://via.placeholder.com/60x30?text=Brand2"
+                  alt="Brand2"
+                  class="brand-logo border border-gray-300 rounded cursor-pointer w-full"
+                />
+                <span
+                  class="brand-check hidden absolute top-0 right-0 bg-purple-900 text-white rounded-bl-full p-1"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="14"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                  >
+                    <path
+                      d="M12.3957 1L5.06234 8.33333L1.729 5"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div class="relative">
+                <img
+                  src="https://via.placeholder.com/60x30?text=Brand3"
+                  alt="Brand3"
+                  class="brand-logo border border-gray-300 rounded cursor-pointer w-full"
+                />
+                <span
+                  class="brand-check hidden absolute top-0 right-0 bg-purple-900 text-white rounded-bl-full p-1"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="14"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                  >
+                    <path
+                      d="M12.3957 1L5.06234 8.33333L1.729 5"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </div>
             </div>
           </div>
 
@@ -250,6 +286,7 @@
             <img
               src="https://via.placeholder.com/150"
               class="w-full h-32 object-contain mb-2"
+              alt="Product Name"
             />
             <h3 class="font-medium text-gray-800">Product Name</h3>
             <p class="text-sm text-gray-500">Description</p>
@@ -309,7 +346,10 @@
 
         // Brand select toggle
         $(".brand-logo").on("click", function () {
-          $(this).toggleClass("selected");
+          $(this).toggleClass("border-purple-600 border-2");
+          $(this)
+            .siblings(".brand-check")
+            .toggleClass("hidden flex items-center justify-center");
         });
 
         // Dual range slider
@@ -350,25 +390,31 @@
         const filterMenu = $("#filterMenu");
 
         if ($(window).width() < 768) {
-          filterMenu.addClass("closed");
+          filterMenu.addClass("max-h-0 opacity-0 pt-0 pb-0");
         }
 
         filterToggle.on("click", function () {
-          if (filterMenu.hasClass("closed")) {
-            filterMenu.removeClass("closed").addClass("open");
+          if (filterMenu.hasClass("max-h-0")) {
+            filterMenu
+              .removeClass("max-h-0 opacity-0 pt-0 pb-0")
+              .addClass("max-h-screen opacity-100");
           } else {
-            filterMenu.removeClass("open").addClass("closed");
+            filterMenu
+              .removeClass("max-h-screen opacity-100")
+              .addClass("max-h-0 opacity-0 pt-0 pb-0");
           }
         });
 
         $(window).on("resize", function () {
           if ($(window).width() >= 768) {
-            filterMenu.removeClass("closed open").show();
+            filterMenu
+              .removeClass("max-h-0 opacity-0 pt-0 pb-0 max-h-screen opacity-100")
+              .addClass("block");
           } else if (
-            !filterMenu.hasClass("closed") &&
-            !filterMenu.hasClass("open")
+            !filterMenu.hasClass("max-h-0") &&
+            !filterMenu.hasClass("max-h-screen")
           ) {
-            filterMenu.addClass("closed");
+            filterMenu.addClass("max-h-0 opacity-0 pt-0 pb-0");
           }
         });
       });

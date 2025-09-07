@@ -13,6 +13,12 @@
       rel="stylesheet"
     />
 
+    <!-- Nice Select CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/jquery-nice-select@1.1.0/css/nice-select.css"
+    />
+
     <!-- Swiper CSS -->
     <link
       rel="stylesheet"
@@ -68,6 +74,35 @@
       </svg>
     </div>
     <!-- Back to Top Button End -->
+
+    <!-- Fly Cart Start -->
+    <div
+      class="cart-icon fixed bottom-[90px] left-6 lg:bottom-8 lg:left-8 w-12 h-12 bg-[var(--primary-color)] hover:bg-[var(--black)] rounded-full cursor-pointer transition duration-300 z-[50] flex justify-center items-center"
+    >
+      <div class="relative flex justify-center items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+        >
+          <path
+            d="M4.00014 13H17.1359C18.1487 13 18.6551 13 19.0582 12.8112C19.4134 12.6448 19.7118 12.3777 19.9163 12.0432C20.1485 11.6633 20.2044 11.16 20.3163 10.1534L20.9013 4.88835C20.9355 4.58088 20.9525 4.42715 20.9031 4.30816C20.8597 4.20366 20.7821 4.11697 20.683 4.06228C20.5702 4 20.4155 4 20.1062 4H3.50014M1 1H2.24844C2.51306 1 2.64537 1 2.74889 1.05032C2.84002 1.09463 2.91554 1.16557 2.96544 1.25376C3.02212 1.35394 3.03037 1.48599 3.04688 1.7501L3.95312 16.2499C3.96963 16.514 3.97788 16.6461 4.03456 16.7462C4.08446 16.8344 4.15998 16.9054 4.25111 16.9497C4.35463 17 4.48694 17 4.75156 17H18M6.5 20.5H6.51M15.5 20.5H15.51M7 20.5C7 20.7761 6.77614 21 6.5 21C6.22386 21 6 20.7761 6 20.5C6 20.2239 6.22386 20 6.5 20C6.77614 20 7 20.2239 7 20.5ZM16 20.5C16 20.7761 15.7761 21 15.5 21C15.2239 21 15 20.7761 15 20.5C15 20.2239 15.2239 20 15.5 20C15.7761 20 16 20.2239 16 20.5Z"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
+      <span
+        class="cart-item-count absolute flex justify-center items-center w-6 h-6 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--black)] rounded-full"
+      >
+        0
+      </span>
+    </div>
+    <!-- Fly Cart End -->
 
     <!-- Top Bar Start -->
     <div class="topbar bg-[var(--primary-color)] py-2">
@@ -135,6 +170,13 @@
     <nav class="navbar sticky top-0 left-0 bg-[var(--secondary-color)] z-50">
       <div class="header custom-container">
         <div class="flex justify-between items-center py-3">
+          <!-- Mobile Menu Button -->
+          <button
+            id="menu-btn"
+            class="lg:hidden text-[var(--text)] focus:outline-none text-2xl cursor-pointer"
+          >
+            ☰
+          </button>
           <!-- Logo -->
           <div class="flex items-center space-x-3">
             <a href="./index.html" class="w-[150px] object-contain">
@@ -262,8 +304,7 @@
 
             <a
               href="#"
-              id="cart-icon"
-              class="cart relative cursor-pointer hidden lg:flex"
+              class="cart-icon cart relative cursor-pointer hidden lg:flex"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -281,14 +322,15 @@
                 />
               </svg>
               <span
-                id="cart-item-count"
-                class="absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
+                class="cart-item-count absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
               >
                 0
               </span>
             </a>
 
-            <div class="bar w-[1px] h-[18px] bg-[var(--border)]"></div>
+            <div
+              class="bar hidden lg:block w-[1px] h-[18px] bg-[var(--border)]"
+            ></div>
 
             <a
               href="#"
@@ -298,14 +340,6 @@
                 class="far fa-user-circle text-[22px] text-[var(--primary-color)]"
               ></i>
             </a>
-
-            <!-- Mobile Menu Button -->
-            <button
-              id="menu-btn"
-              class="lg:hidden text-[var(--text)] focus:outline-none text-2xl cursor-pointer"
-            >
-              ☰
-            </button>
           </div>
         </div>
       </div>
@@ -351,17 +385,16 @@
           <!-- Cart Item -->
           <div
             id="cart-items"
-            class="mb-4 overflow-y-auto min-h-0 max-h-[calc(100vh-330px)]"
+            class="mb-2 overflow-y-auto min-h-0 max-h-[calc(100vh-280px)]"
           >
-            <!-- <div id="cart-items" class="mb-4 overflow-y-auto h-[calc(100vh-330px)]"> -->
             <div
-              class="cart-product-items flex gap-2 items-center pb-2 mb-2 border-b border-b-[var(--border)] relative"
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
             >
               <button
-                class="absolute left-0 top-0 p-1 bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
               >
                 <svg
-                  class="w-5 h-5"
+                  class="w-4 h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -378,53 +411,55 @@
               <img
                 src="./assets/img/home/frozen1.webp"
                 alt="Chobani Complete Vanilla Greek Yogurt"
-                class="w-20 h-20 object-cover rounded-md"
+                class="w-[40px] h-[40px] object-cover rounded-md"
               />
               <div class="flex-1">
-                <h3 class="name font-medium text-lg line-clamp-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
                   Chobani Complete Vanilla Greek Yogurt
                 </h3>
                 <div class="flex items-center space-x-2">
                   <p
-                    class="text-[var(--text2)] line-through original-price"
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
                     data-price="155.00"
                   >
                     155.00€
                   </p>
                   <p
-                    class="text-md font-bold discounted-price text-[var(--primary-color)]"
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
                     data-price="139.00"
                   >
                     139.00€
                   </p>
                 </div>
-                <span class="text-green-600 text-sm">Save 16%</span>
               </div>
 
-              <div
-                class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
-              >
-                <button
-                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
                 >
-                  -
-                </button>
-                <span class="text-sm item-qty" data-qty="1">1</span>
-                <button
-                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
-                >
-                  +
-                </button>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
               </div>
             </div>
             <div
-              class="cart-product-items flex gap-2 items-center pb-2 mb-2 border-b border-b-[var(--border)] relative"
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
             >
               <button
-                class="absolute left-0 top-0 p-1 bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
               >
                 <svg
-                  class="w-5 h-5"
+                  class="w-4 h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -441,53 +476,55 @@
               <img
                 src="./assets/img/home/frozen1.webp"
                 alt="Chobani Complete Vanilla Greek Yogurt"
-                class="w-20 h-20 object-cover rounded-md"
+                class="w-[40px] h-[40px] object-cover rounded-md"
               />
               <div class="flex-1">
-                <h3 class="name font-medium text-lg line-clamp-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
                   Chobani Complete Vanilla Greek Yogurt
                 </h3>
                 <div class="flex items-center space-x-2">
                   <p
-                    class="text-[var(--text2)] line-through original-price"
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
                     data-price="155.00"
                   >
                     155.00€
                   </p>
                   <p
-                    class="text-md font-bold discounted-price text-[var(--primary-color)]"
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
                     data-price="139.00"
                   >
                     139.00€
                   </p>
                 </div>
-                <span class="text-green-600 text-sm">Save 16%</span>
               </div>
 
-              <div
-                class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
-              >
-                <button
-                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
                 >
-                  -
-                </button>
-                <span class="text-sm item-qty" data-qty="1">1</span>
-                <button
-                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
-                >
-                  +
-                </button>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
               </div>
             </div>
             <div
-              class="cart-product-items flex gap-2 items-center pb-2 mb-2 border-b border-b-[var(--border)] relative"
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
             >
               <button
-                class="absolute left-0 top-0 p-1 bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
               >
                 <svg
-                  class="w-5 h-5"
+                  class="w-4 h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -504,53 +541,55 @@
               <img
                 src="./assets/img/home/frozen1.webp"
                 alt="Chobani Complete Vanilla Greek Yogurt"
-                class="w-20 h-20 object-cover rounded-md"
+                class="w-[40px] h-[40px] object-cover rounded-md"
               />
               <div class="flex-1">
-                <h3 class="name font-medium text-lg line-clamp-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
                   Chobani Complete Vanilla Greek Yogurt
                 </h3>
                 <div class="flex items-center space-x-2">
                   <p
-                    class="text-[var(--text2)] line-through original-price"
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
                     data-price="155.00"
                   >
                     155.00€
                   </p>
                   <p
-                    class="text-md font-bold discounted-price text-[var(--primary-color)]"
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
                     data-price="139.00"
                   >
                     139.00€
                   </p>
                 </div>
-                <span class="text-green-600 text-sm">Save 16%</span>
               </div>
 
-              <div
-                class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
-              >
-                <button
-                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
                 >
-                  -
-                </button>
-                <span class="text-sm item-qty" data-qty="1">1</span>
-                <button
-                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
-                >
-                  +
-                </button>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
               </div>
             </div>
             <div
-              class="cart-product-items flex gap-2 items-center pb-2 mb-2 border-b border-b-[var(--border)] relative"
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
             >
               <button
-                class="absolute left-0 top-0 p-1 bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
               >
                 <svg
-                  class="w-5 h-5"
+                  class="w-4 h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -567,51 +606,183 @@
               <img
                 src="./assets/img/home/frozen1.webp"
                 alt="Chobani Complete Vanilla Greek Yogurt"
-                class="w-20 h-20 object-cover rounded-md"
+                class="w-[40px] h-[40px] object-cover rounded-md"
               />
               <div class="flex-1">
-                <h3 class="name font-medium text-lg line-clamp-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
                   Chobani Complete Vanilla Greek Yogurt
                 </h3>
                 <div class="flex items-center space-x-2">
                   <p
-                    class="text-[var(--text2)] line-through original-price"
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
                     data-price="155.00"
                   >
                     155.00€
                   </p>
                   <p
-                    class="text-md font-bold discounted-price text-[var(--primary-color)]"
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
                     data-price="139.00"
                   >
                     139.00€
                   </p>
                 </div>
-                <span class="text-green-600 text-sm">Save 16%</span>
               </div>
 
-              <div
-                class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
               >
-                <button
-                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  -
-                </button>
-                <span class="text-sm item-qty" data-qty="1">1</span>
-                <button
-                  class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
                 >
-                  +
-                </button>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
               </div>
             </div>
           </div>
 
           <!-- Bottom box  -->
           <div class="bottom-box pb-[20px] bg-[var(--secondery-color)]">
-            <div class="mb-4">
-              <h4 class="title text-[var(--text)] font-medium mb-2">
+            <div class="mb-2">
+              <h4 class="title text-[var(--text)] font-medium mb-1">
                 Got a discount code?
               </h4>
               <div class="flex items-center cupon-box">
@@ -630,10 +801,10 @@
 
             <div class="mb-4">
               <div class="flex justify-between font-medium">
-                <h4 class="title text-[var(--text)] font-medium mb-2">
-                  Subtotal
-                </h4>
-                <span id="subtotal">₹253.00</span>
+                <h4 class="title text-[var(--text)] font-medium">Subtotal</h4>
+                <span id="subtotal" class="text-lg text-[var(--primary-color)]"
+                  >253.00€</span
+                >
               </div>
               <p class="desc text-sm text-[var(--text2)] mb-0 line-clamp-1">
                 Shipping & taxes may be re-calculated at checkout
@@ -641,12 +812,12 @@
             </div>
 
             <button
-              class="continue-btn w-full bg-[var(--primary-color)] border border-[var(--primary-color)] text-[16px] text-[var(--secondary-color)] rounded-full px-4 py-3 hover:bg-[var(--black)] transition duration-300"
+              class="continue-btn w-full bg-[var(--primary-color)] border border-[var(--primary-color)] text-[16px] text-[var(--secondary-color)] rounded-full px-3 py-2 hover:bg-[var(--black)] transition duration-300"
             >
-              Checkout <span id="checkout-price">₹253.00</span>
+              Checkout <span id="checkout-price">253.00€</span>
             </button>
 
-            <div class="text-center mt-4">
+            <div class="text-center mt-2">
               <a
                 href="#"
                 class="text-blue-600 hover:text-blue-700"
@@ -1447,12 +1618,18 @@
           </ul>
         </div>
       </div>
+
+      <!-- Search Result container -->
+      <div
+        id="search-results"
+        class="bg-[var(--neutral-50)] shadow rounded hidden !max-h-[100px] overflow-auto p-5"
+      ></div>
     </nav>
 
     <!-- Sidebar Mobile Menu -->
     <div
       id="mobile-menu"
-      class="fixed top-0 left-0 h-full w-72 bg-[var(--secondary-color)] shadow-lg transform -translate-x-full transition-transform duration-300 z-50 overflow-hidden"
+      class="fixed top-0 left-0 h-full w-[88%] bg-[var(--secondary-color)] shadow-lg transform -translate-x-full transition-transform duration-300 z-50 overflow-hidden"
     >
       <div class="p-3 flex flex-col h-full w-full">
         <div
@@ -2026,7 +2203,7 @@
 
     <!-- Mobile Bottom Navbar -->
     <div
-      class="mobile-navigation font-primary fixed bottom-0 bg-[var(--accent1)] left-0 w-full p-2 lg:hidden z-50"
+      class="mobile-navigation font-primary fixed bottom-0 bg-transparent left-0 w-full p-2 pt-0 lg:hidden z-50"
     >
       <div
         class="navigation-wrap py-2 bg-[var(--secondary-color)] border border-[var(--border)] rounded-lg"
@@ -2174,7 +2351,665 @@
     </div>
     <!-- Navbar End -->
 
-   
+    <!-- Hero Start -->
+    <div class="page-hero">
+      <div class="custom-container">
+        <div
+          class="wrapper px-[10px] rounded-[16px] py-[60px] md:py-[120px] text-center bg-[url(../assets/img/product/page-hero.png)] bg-no-repeat bg-cover bg-center"
+        >
+          <h1
+            class="title text-[32px] md:text-[44px] text-base/12 md:text-base/14 font-bold text-[var(--secondary-color)]"
+          >
+            Get 10% Cashback
+          </h1>
+          <h1
+            class="title text-[32px] md:text-[44px] text-base/12 md:text-base/14 font-bold text-[var(--secondary-color)]"
+          >
+            on Shopping €150
+          </h1>
+        </div>
+      </div>
+    </div>
+    <!-- Hero End -->
+
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb">
+      <div class="custom-container">
+        <ol
+          class="flex justify-center font-secondary px-5 py-5 items-center space-x-1 md:space-x-3"
+        >
+          <li class="inline-flex items-center">
+            <a
+              href="./index.html"
+              class="item inline-flex items-center text-[var(--text2)] text-[16px] font-semibold hover:text-[var(--primary-color)]"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <svg
+                class="w-6 h-6 text-[var(--text2)]"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M7.05 4.55L11.5 9l-4.45 4.45L8.5 15l6-6-6-6-1.45 1.45z"
+                />
+              </svg>
+              <span
+                class="item active ml-1 text-[16px] font-semibold font-secondary text-[var(--primary-color)] md:ml-2"
+                >All Products</span
+              >
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Product Page Start -->
+    <div class="product-page">
+      <div class="custom-container">
+        <div class="main-wrapper py-6 flex flex-col lg:flex-row gap-6">
+          <!-- Sidebar Filter -->
+          <aside
+            class="w-full lg:w-1/4 bg-[ver(--secondary-color)] p-4 rounded-[16px] border border-[var(--border)]"
+          >
+            <div class="flex justify-between items-center">
+              <h3
+                class="side-title text-lg font-semibold lg:mb-2 text-[var(--text)]"
+              >
+                Filter
+              </h3>
+              <button
+                id="filterToggle"
+                class="lg:hidden p-2 text-gray-500 hover:text-[var(--text)] cursor-pointer"
+                aria-label="Toggle filter menu"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+
+            <div
+              id="filterMenu"
+              class="lg:block transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0 lg:max-h-full lg:opacity-100"
+              data-closed="max-h-0 opacity-0 pt-0 pb-0"
+              data-open="max-h-screen opacity-100"
+            >
+              <!-- Filter Search Input -->
+              <div class="w-full flex items-center filter-search-box mb-5">
+                <input
+                  type="text"
+                  placeholder="Search products.."
+                  class="text-sm w-full text-[var(--text)] border border-[var(--border)] rounded-tl-full rounded-bl-full p-2 px-3 focus:outline-none focus:border-[var(--primary-color)] transition duration-300"
+                />
+                <button
+                  class="filter-src-btn bg-[var(--primary-color)] border border-[var(--primary-color)] text-sm text-[var(--secondary-color)] rounded-tr-full rounded-br-full px-3 py-2 hover:bg-[var(--black)] transition duration-300 cursor-pointer"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Category Radio -->
+              <div class="categorie-box">
+                <h3
+                  class="side-title text-lg font-semibold mb-2 text-[var(--text)]"
+                >
+                  Category
+                </h3>
+                <label
+                  class="flex items-center mb-2 text-[15px] font-semibold text-[var(--text)] cursor-pointer px-2 py-1 rounded-full has-[:checked]:bg-[#f5f6f6] transition"
+                >
+                  <input type="radio" name="category" class="form-radio mr-2" />
+                  Fruits & Vegetables (128)
+                </label>
+                <label
+                  class="flex items-center mb-2 text-[15px] font-semibold text-[var(--text)] cursor-pointer px-2 py-1 rounded-full has-[:checked]:bg-[#f5f6f6] transition"
+                >
+                  <input type="radio" name="category" class="form-radio mr-2" />
+                  New Arrivals (30)
+                </label>
+                <label
+                  class="flex items-center mb-2 text-[15px] font-semibold text-[var(--text)] cursor-pointer px-2 py-1 rounded-full has-[:checked]:bg-[#f5f6f6] transition"
+                >
+                  <input type="radio" name="category" class="form-radio mr-2" />
+                  Summer Sale (56)
+                </label>
+                <label
+                  class="flex items-center mb-2 text-[15px] font-semibold text-[var(--text)] cursor-pointer px-2 py-1 rounded-full has-[:checked]:bg-[#f5f6f6] transition"
+                >
+                  <input type="radio" name="category" class="form-radio mr-2" />
+                  Best Seller (108)
+                </label>
+                <label
+                  class="flex items-center mb-2 text-[15px] font-semibold text-[var(--text)] cursor-pointer px-2 py-1 rounded-full has-[:checked]:bg-[#f5f6f6] transition"
+                >
+                  <input type="radio" name="category" class="form-radio mr-2" />
+                  Basmati Rice (32)
+                </label>
+                <label
+                  class="flex items-center mb-2 text-[15px] font-semibold text-[var(--text)] cursor-pointer px-2 py-1 rounded-full has-[:checked]:bg-[#f5f6f6] transition"
+                >
+                  <input type="radio" name="category" class="form-radio mr-2" />
+                  Flour & Flatbreads (19)
+                </label>
+                <label
+                  class="flex items-center mb-2 text-[15px] font-semibold text-[var(--text)] cursor-pointer px-2 py-1 rounded-full has-[:checked]:bg-[#f5f6f6] transition"
+                >
+                  <input type="radio" name="category" class="form-radio mr-2" />
+                  Fresh & Frozen (48)
+                </label>
+                <label
+                  class="flex items-center mb-2 text-[15px] font-semibold text-[var(--text)] cursor-pointer px-2 py-1 rounded-full has-[:checked]:bg-[#f5f6f6] transition"
+                >
+                  <input type="radio" name="category" class="form-radio mr-2" />
+                  Fruits & Vegetables (24)
+                </label>
+                <label
+                  class="flex items-center mb-2 text-[15px] font-semibold text-[var(--text)] cursor-pointer px-2 py-1 rounded-full has-[:checked]:bg-[#f5f6f6] transition"
+                >
+                  <input type="radio" name="category" class="form-radio mr-2" />
+                  Ready to Eat (15)
+                </label>
+
+                <button
+                  class="categorie-btn w-full bg-[var(--primary-color)] border border-[var(--primary-color)] text-[16px] text-[var(--secondary-color)] rounded-full px-3 py-2 hover:bg-[var(--black)] transition duration-300 cursor-pointer mt-3"
+                >
+                  More Categories
+                </button>
+              </div>
+
+              <hr class="my-6 border-[var(--border)]" />
+
+              <!-- Brand -->
+              <div class="mb-6">
+                <h3
+                  class="side-title text-lg font-semibold mb-2 text-[var(--text)]"
+                >
+                  Brand
+                </h3>
+                <div
+                  class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-2"
+                >
+                  <div class="relative">
+                    <div
+                      class="brand-logo border border-[var(--border)] rounded-[6px] cursor-pointer text-center p-2 w-full flex flex-col items-center gap-1"
+                    >
+                      <img
+                        src="./assets/img/product/brnd-sl1.png"
+                        alt="Brand1"
+                        class="brand"
+                      />
+                      <span class="brnd-nm text-[var(--text)] font-medium"
+                        >Aashirvaad</span
+                      >
+                    </div>
+                    <span
+                      class="brand-check hidden absolute top-0 right-0 bg-[var(--primary-color)] text-[var(--secondary-color)] rounded-bl-full rounded-tr-[6px] pl-2 pb-2 pt-1 pr-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M12.3957 1L5.06234 8.33333L1.729 5"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="relative">
+                    <div
+                      class="brand-logo border border-[var(--border)] rounded-[6px] cursor-pointer text-center p-2 w-full flex flex-col items-center gap-1"
+                    >
+                      <img
+                        src="./assets/img/product/brnd-sl1.png"
+                        alt="Brand1"
+                        class="brand"
+                      />
+                      <span class="brnd-nm text-[var(--text)] font-medium"
+                        >Aashirvaad</span
+                      >
+                    </div>
+                    <span
+                      class="brand-check hidden absolute top-0 right-0 bg-[var(--primary-color)] text-[var(--secondary-color)] rounded-bl-full rounded-tr-[6px] pl-2 pb-2 pt-1 pr-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M12.3957 1L5.06234 8.33333L1.729 5"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="relative">
+                    <div
+                      class="brand-logo border border-[var(--border)] rounded-[6px] cursor-pointer text-center p-2 w-full flex flex-col items-center gap-1"
+                    >
+                      <img
+                        src="./assets/img/product/brnd-sl1.png"
+                        alt="Brand1"
+                        class="brand"
+                      />
+                      <span class="brnd-nm text-[var(--text)] font-medium"
+                        >Aashirvaad</span
+                      >
+                    </div>
+                    <span
+                      class="brand-check hidden absolute top-0 right-0 bg-[var(--primary-color)] text-[var(--secondary-color)] rounded-bl-full rounded-tr-[6px] pl-2 pb-2 pt-1 pr-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M12.3957 1L5.06234 8.33333L1.729 5"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="relative">
+                    <div
+                      class="brand-logo border border-[var(--border)] rounded-[6px] cursor-pointer text-center p-2 w-full flex flex-col items-center gap-1"
+                    >
+                      <img
+                        src="./assets/img/product/brnd-sl1.png"
+                        alt="Brand1"
+                        class="brand"
+                      />
+                      <span class="brnd-nm text-[var(--text)] font-medium"
+                        >Aashirvaad</span
+                      >
+                    </div>
+                    <span
+                      class="brand-check hidden absolute top-0 right-0 bg-[var(--primary-color)] text-[var(--secondary-color)] rounded-bl-full rounded-tr-[6px] pl-2 pb-2 pt-1 pr-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M12.3957 1L5.06234 8.33333L1.729 5"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="relative">
+                    <div
+                      class="brand-logo border border-[var(--border)] rounded-[6px] cursor-pointer text-center p-2 w-full flex flex-col items-center gap-1"
+                    >
+                      <img
+                        src="./assets/img/product/brnd-sl1.png"
+                        alt="Brand1"
+                        class="brand"
+                      />
+                      <span class="brnd-nm text-[var(--text)] font-medium"
+                        >Aashirvaad</span
+                      >
+                    </div>
+                    <span
+                      class="brand-check hidden absolute top-0 right-0 bg-[var(--primary-color)] text-[var(--secondary-color)] rounded-bl-full rounded-tr-[6px] pl-2 pb-2 pt-1 pr-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M12.3957 1L5.06234 8.33333L1.729 5"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="relative">
+                    <div
+                      class="brand-logo border border-[var(--border)] rounded-[6px] cursor-pointer text-center p-2 w-full flex flex-col items-center gap-1"
+                    >
+                      <img
+                        src="./assets/img/product/brnd-sl1.png"
+                        alt="Brand1"
+                        class="brand"
+                      />
+                      <span class="brnd-nm text-[var(--text)] font-medium"
+                        >Aashirvaad</span
+                      >
+                    </div>
+                    <span
+                      class="brand-check hidden absolute top-0 right-0 bg-[var(--primary-color)] text-[var(--secondary-color)] rounded-bl-full rounded-tr-[6px] pl-2 pb-2 pt-1 pr-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M12.3957 1L5.06234 8.33333L1.729 5"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="relative">
+                    <div
+                      class="brand-logo border border-[var(--border)] rounded-[6px] cursor-pointer text-center p-2 w-full flex flex-col items-center gap-1"
+                    >
+                      <img
+                        src="./assets/img/product/brnd-sl1.png"
+                        alt="Brand1"
+                        class="brand"
+                      />
+                      <span class="brnd-nm text-[var(--text)] font-medium"
+                        >Aashirvaad</span
+                      >
+                    </div>
+                    <span
+                      class="brand-check hidden absolute top-0 right-0 bg-[var(--primary-color)] text-[var(--secondary-color)] rounded-bl-full rounded-tr-[6px] pl-2 pb-2 pt-1 pr-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M12.3957 1L5.06234 8.33333L1.729 5"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="relative">
+                    <div
+                      class="brand-logo border border-[var(--border)] rounded-[6px] cursor-pointer text-center p-2 w-full flex flex-col items-center gap-1"
+                    >
+                      <img
+                        src="./assets/img/product/brnd-sl1.png"
+                        alt="Brand1"
+                        class="brand"
+                      />
+                      <span class="brnd-nm text-[var(--text)] font-medium"
+                        >Aashirvaad</span
+                      >
+                    </div>
+                    <span
+                      class="brand-check hidden absolute top-0 right-0 bg-[var(--primary-color)] text-[var(--secondary-color)] rounded-bl-full rounded-tr-[6px] pl-2 pb-2 pt-1 pr-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M12.3957 1L5.06234 8.33333L1.729 5"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="relative">
+                    <div
+                      class="brand-logo border border-[var(--border)] rounded-[6px] cursor-pointer text-center p-2 w-full flex flex-col items-center gap-1"
+                    >
+                      <img
+                        src="./assets/img/product/brnd-sl1.png"
+                        alt="Brand1"
+                        class="brand"
+                      />
+                      <span class="brnd-nm text-[var(--text)] font-medium"
+                        >Aashirvaad</span
+                      >
+                    </div>
+                    <span
+                      class="brand-check hidden absolute top-0 right-0 bg-[var(--primary-color)] text-[var(--secondary-color)] rounded-bl-full rounded-tr-[6px] pl-2 pb-2 pt-1 pr-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M12.3957 1L5.06234 8.33333L1.729 5"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="relative">
+                    <div
+                      class="brand-logo border border-[var(--border)] rounded-[6px] cursor-pointer text-center p-2 w-full flex flex-col items-center gap-1"
+                    >
+                      <img
+                        src="./assets/img/product/brnd-sl1.png"
+                        alt="Brand1"
+                        class="brand"
+                      />
+                      <span class="brnd-nm text-[var(--text)] font-medium"
+                        >Aashirvaad</span
+                      >
+                    </div>
+                    <span
+                      class="brand-check hidden absolute top-0 right-0 bg-[var(--primary-color)] text-[var(--secondary-color)] rounded-bl-full rounded-tr-[6px] pl-2 pb-2 pt-1 pr-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="10"
+                        viewBox="0 0 14 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M12.3957 1L5.06234 8.33333L1.729 5"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <button
+                  class="more-categorie-btn w-full bg-[var(--primary-color)] border border-[var(--primary-color)] text-[16px] text-[var(--secondary-color)] rounded-full px-3 py-2 hover:bg-[var(--black)] transition duration-300 cursor-pointer mt-6"
+                >
+                  More Categories
+                </button>
+
+                <hr class="my-6 border-[var(--border)]" />
+              </div>
+
+              <!-- Dual Range Slider -->
+              <div class="Range-Slider mb-4">
+                <h3
+                  class="side-title text-lg font-semibold mb-4 text-[var(--text)]"
+                >
+                  Price Range
+                </h3>
+                <div class="range-slider">
+                  <div class="slider-bg"></div>
+                  <div id="sliderTrack" class="slider-track"></div>
+                  <input
+                    type="range"
+                    id="minRange"
+                    min="0"
+                    max="1000"
+                    value="100"
+                    step="1"
+                  />
+                  <input
+                    type="range"
+                    id="maxRange"
+                    min="0"
+                    max="1000"
+                    value="500"
+                    step="1"
+                  />
+                </div>
+                <div
+                  class="flex justify-between text-sm text-[var(--text)] mt-4"
+                >
+                  <div class="flex flex-col items-center">
+                    <span
+                      id="minValue"
+                      class="border border-[var(--border)] py-1 px-3 rounded-full font-semibold text-[14px]"
+                      >€100</span
+                    >
+                    <span
+                      class="text-[14px] font-semibold text-[var(--primary-color)]"
+                      >Low</span
+                    >
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <span
+                      id="maxValue"
+                      class="border border-[var(--border)] py-1 px-3 rounded-full font-semibold text-[14px]"
+                      >€500</span
+                    >
+                    <span
+                      class="text-[14px] font-semibold text-[var(--primary-color)]"
+                      >High</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="apply-btn w-full bg-[var(--primary-color)] border border-[var(--primary-color)] text-[16px] text-[var(--secondary-color)] rounded-full px-3 py-2 hover:bg-[var(--black)] transition duration-300 cursor-pointer mt-4"
+              >
+                Apply
+              </button>
+              <button
+                class="reset-btn w-full hover:bg-[var(--black)] border border-[var(--border)] font-semibold text-[16px] text-[var(--text)] hover:text-[var(--secondary-color)] rounded-full px-3 py-2 transition duration-300 cursor-pointer mt-2"
+              >
+                Reset
+              </button>
+            </div>
+          </aside>
+
+          <!-- Product Content -->
+          <main class="all-product-side w-full lg:w-3/4">
+            <div class="flex justify-between items-center pb-4 mb-4">
+              <h2 class="row-per-view text-sm font-medium text-[var(--text2)]">
+                30 of 500 Products
+              </h2>
+              <select
+                id="sort-by"
+                class="border-[var(--border)] !rounded-full text-sm text-[var(--text)] focus:outline-none focus:!border-[var(--primary-color)] transition duration-300"
+              >
+                <option>Sort By</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Newest</option>
+              </select>
+            </div>
+
+            <div
+              class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+            >
+              <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                <img
+                  src="https://via.placeholder.com/150"
+                  class="w-full h-32 object-contain mb-2"
+                  alt="Product Name"
+                />
+                <h3 class="font-medium text-[var(--text)]">Product Name</h3>
+                <p class="text-sm text-gray-500">Description</p>
+                <p class="font-bold mt-2">€19.99</p>
+                <button
+                  class="bg-purple-600 text-white px-4 py-2 rounded-md mt-2 hover:bg-purple-700"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+    <!-- Product Page End -->
 
     <!-- Banner Start -->
     <div class="banner my-[60px]">
@@ -2228,59 +3063,133 @@
             <p class="text-sm text-[var(--text2)] leading-relaxed">
               Contrary to popular belief, Lorem Ipsum is not simply random text.
             </p>
+
+            <div class="mt-4">
+              <h4 class="font-semibold text-lg mb-4">Follow Us:</h4>
+              <div class="flex space-x-2 justify-start">
+                <a
+                  href="#"
+                  class="h-8 w-8 rounded-full border border-[var(--black)] hover:border-[var(--primary-color)] flex items-center justify-center hover:bg-[var(--primary-color)] transition duration-300 group"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="11"
+                    height="22"
+                    viewBox="0 0 11 22"
+                    fill="none"
+                  >
+                    <path
+                      class="group-hover:fill-white"
+                      d="M10.0499 7.07914H6.71242V4.89022C6.71242 4.06817 7.25725 3.87652 7.64099 3.87652C8.02386 3.87652 9.99624 3.87652 9.99624 3.87652V0.26266L6.75259 0.25C3.15183 0.25 2.3324 2.94533 2.3324 4.67019V7.07914H0.25V10.803H2.3324C2.3324 15.5821 2.3324 21.3403 2.3324 21.3403H6.71242C6.71242 21.3403 6.71242 15.5253 6.71242 10.803H9.66795L10.0499 7.07914Z"
+                      fill="#202124"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="h-8 w-8 rounded-full border border-[var(--black)] hover:border-[var(--primary-color)] flex items-center justify-center hover:bg-[var(--primary-color)] transition duration-300 group"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="21"
+                    height="21"
+                    viewBox="0 0 21 21"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_170_948)">
+                      <mask
+                        id="mask0_170_948"
+                        style="mask-type: luminance"
+                        maskUnits="userSpaceOnUse"
+                        x="0"
+                        y="0"
+                        width="21"
+                        height="21"
+                      >
+                        <path d="M20.1712 0H0V20.625H20.1712V0Z" fill="white" />
+                      </mask>
+                      <g mask="url(#mask0_170_948)">
+                        <path
+                          class="group-hover:fill-white"
+                          d="M12.0046 8.7288L19.5137 0H17.7343L11.2141 7.57909L6.00643 0H0L7.87502 11.4609L0 20.6144H1.77953L8.66504 12.6106L14.1647 20.6144H20.1712L12.0041 8.7288H12.0046ZM9.56726 11.5619L8.76936 10.4207L2.42072 1.33961H5.15398L10.2774 8.6683L11.0753 9.80955L17.7351 19.3357H15.0019L9.56726 11.5623V11.5619Z"
+                          fill="#202124"
+                        />
+                      </g>
+                      <path
+                        class="group-hover:fill-white"
+                        d="M3.4375 0.6875H5.84375L19.25 19.9375H16.8438L3.4375 0.6875Z"
+                        fill="#202124"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_170_948">
+                        <rect width="20.1712" height="20.625" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="h-8 w-8 rounded-full border border-[var(--black)] hover:border-[var(--primary-color)] flex items-center justify-center hover:bg-[var(--primary-color)] transition duration-300 group"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    fill="none"
+                  >
+                    <path
+                      class="group-hover:fill-white"
+                      d="M13.9999 2.05371C10.7553 2.05371 10.3485 2.06746 9.07427 2.1256C7.80269 2.18365 6.93425 2.38557 6.17431 2.68092C5.38871 2.98622 4.72248 3.39472 4.05833 4.05886C3.39418 4.72301 2.98569 5.38925 2.68038 6.17484C2.38504 6.93474 2.18311 7.80318 2.12507 9.07476C2.06693 10.349 2.05322 10.7558 2.05322 14.0004C2.05322 17.2448 2.06693 17.6517 2.12507 18.9259C2.18311 20.1975 2.38504 21.0659 2.68038 21.8258C2.98569 22.6114 3.39418 23.2777 4.05833 23.9419C4.72248 24.606 5.38871 25.0145 6.17431 25.3198C6.93425 25.6151 7.80269 25.8171 9.07427 25.8751C10.3485 25.9332 10.7553 25.947 13.9999 25.947C17.2444 25.947 17.6512 25.9332 18.9254 25.8751C20.197 25.8171 21.0654 25.6151 21.8253 25.3198C22.6109 25.0145 23.2772 24.606 23.9414 23.9419C24.6055 23.2777 25.014 22.6114 25.3193 21.8258C25.6146 21.0659 25.8166 20.1975 25.8746 18.9259C25.9327 17.6517 25.9465 17.2448 25.9465 14.0004C25.9465 10.7558 25.9327 10.349 25.8746 9.07476C25.8166 7.80318 25.6146 6.93474 25.3193 6.17484C25.014 5.38925 24.6055 4.72301 23.9414 4.05886C23.2772 3.39472 22.6109 2.98622 21.8253 2.68092C21.0654 2.38557 20.197 2.18365 18.9254 2.1256C17.6512 2.06746 17.2444 2.05371 13.9999 2.05371ZM13.9999 4.2063C17.1897 4.2063 17.5676 4.21844 18.8273 4.27592C19.9921 4.32908 20.6247 4.5237 21.0456 4.68726C21.6033 4.90397 22.0012 5.1629 22.4193 5.58093C22.8373 5.99895 23.0962 6.39697 23.3129 6.95456C23.4765 7.37552 23.6712 8.00809 23.7243 9.17287C23.7817 10.4326 23.7939 10.8105 23.7939 14.0004C23.7939 17.1902 23.7817 17.5681 23.7243 18.8278C23.6712 19.9926 23.4765 20.6251 23.3129 21.0461C23.0962 21.6037 22.8373 22.0017 22.4193 22.4197C22.0012 22.8378 21.6033 23.0967 21.0456 23.3134C20.6247 23.477 19.9921 23.6716 18.8273 23.7248C17.5678 23.7822 17.19 23.7944 13.9999 23.7944C10.8097 23.7944 10.432 23.7822 9.17239 23.7248C8.0076 23.6716 7.37504 23.477 6.95407 23.3134C6.39643 23.0967 5.99846 22.8378 5.58039 22.4197C5.16236 22.0017 4.90344 21.6037 4.68677 21.0461C4.52316 20.6251 4.32854 19.9926 4.27538 18.8278C4.2179 17.5681 4.20576 17.1902 4.20576 14.0004C4.20576 10.8105 4.2179 10.4326 4.27538 9.17287C4.32854 8.00809 4.52316 7.37552 4.68677 6.95456C4.90344 6.39697 5.16236 5.99895 5.58039 5.58093C5.99846 5.1629 6.39643 4.90397 6.95407 4.68726C7.37504 4.5237 8.0076 4.32908 9.17239 4.27592C10.4321 4.21844 10.81 4.2063 13.9999 4.2063Z"
+                      fill="#202124"
+                    />
+                    <path
+                      class="group-hover:fill-white"
+                      d="M14 17.9822C11.8007 17.9822 10.0178 16.1993 10.0178 14C10.0178 11.8007 11.8007 10.0178 14 10.0178C16.1993 10.0178 17.9822 11.8007 17.9822 14C17.9822 16.1993 16.1993 17.9822 14 17.9822ZM14 7.86523C10.6118 7.86523 7.86523 10.6118 7.86523 14C7.86523 17.3881 10.6118 20.1347 14 20.1347C17.3881 20.1347 20.1347 17.3881 20.1347 14C20.1347 10.6118 17.3881 7.86523 14 7.86523Z"
+                      fill="#202124"
+                    />
+                    <path
+                      class="group-hover:fill-white"
+                      d="M21.8106 7.62303C21.8106 8.41479 21.1687 9.0566 20.3769 9.0566C19.5852 9.0566 18.9434 8.41479 18.9434 7.62303C18.9434 6.83127 19.5852 6.18945 20.3769 6.18945C21.1687 6.18945 21.8106 6.83127 21.8106 7.62303Z"
+                      fill="#202124"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="h-8 w-8 rounded-full border border-[var(--black)] hover:border-[var(--primary-color)] flex items-center justify-center hover:bg-[var(--primary-color)] transition duration-300 group"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="31"
+                    height="31"
+                    viewBox="0 0 31 31"
+                    fill="none"
+                  >
+                    <path
+                      class="group-hover:fill-white"
+                      d="M10.0833 23.9479H6.302V11.3438H10.0833V23.9479ZM23.9478 23.9479H20.1666V17.2148C20.1666 15.4603 19.5414 14.5868 18.3024 14.5868C17.3206 14.5868 16.6979 15.0758 16.3853 16.0552C16.3853 17.6458 16.3853 23.9479 16.3853 23.9479H12.6041C12.6041 23.9479 12.6545 12.6042 12.6041 11.3438H15.5888L15.8194 13.8646H15.8976C16.6727 12.6042 17.9117 11.7496 19.6107 11.7496C20.9027 11.7496 21.9476 12.1088 22.7454 13.0113C23.5483 13.915 23.9478 15.1275 23.9478 16.8303V23.9479Z"
+                      fill="#202124"
+                    />
+                    <path
+                      class="group-hover:fill-white"
+                      d="M8.19266 10.084C9.27163 10.084 10.1463 9.23752 10.1463 8.19336C10.1463 7.1492 9.27163 6.30273 8.19266 6.30273C7.11369 6.30273 6.23901 7.1492 6.23901 8.19336C6.23901 9.23752 7.11369 10.084 8.19266 10.084Z"
+                      fill="#202124"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
 
           <div
             class="grid grid-cols-2 col-span-2 gap-8 md:gap-4 md:grid-cols-2 md:text-left"
           >
-            <div>
-              <h4 class="font-semibold text-lg mb-4">Company</h4>
-              <ul class="space-y-2 text-sm text-[var(--text2)]">
-                <li>
-                  <a
-                    href="#"
-                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
-                    >About Us</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
-                    >Shipping Info</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
-                    >Contact Us</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
-                    >Blog</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
-                    >Career</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
-                    >FAQ's</a
-                  >
-                </li>
-              </ul>
-            </div>
-
             <div>
               <h4 class="font-semibold text-lg mb-4">Top Categories</h4>
               <ul class="space-y-2 text-sm text-[var(--text2)]">
@@ -2349,6 +3258,54 @@
                 </li>
               </ul>
             </div>
+
+            <div>
+              <h4 class="font-semibold text-lg mb-4">Company</h4>
+              <ul class="space-y-2 text-sm text-[var(--text2)]">
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Shipping Info</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Contact Us</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Blog</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Career</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >FAQ's</a
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div>
@@ -2356,7 +3313,7 @@
             <p class="text-sm text-[var(--text2)]">Mo-Fr 9:00am - 5:00pm</p>
             <p class="text-sm text-[var(--text2)] mb-4">+49 6258 130 4100</p>
 
-            <div class="flex items-center mb-6">
+            <div class="flex items-center mb-4">
               <div class="bg-[var(--primary-color)] p-2 rounded-full mr-2">
                 <svg
                   class="w-4 h-4"
@@ -2380,125 +3337,6 @@
                 class="text-sm text-[var(--text2)]"
                 >info@example.com</a
               >
-            </div>
-
-            <div class="flex space-x-2 mb-6 justify-start">
-              <a
-                href="#"
-                class="h-8 w-8 rounded-full border border-[var(--black)] flex items-center justify-center hover:bg-[var(--black)] transition duration-300 group"
-              >
-                <svg
-                  class="w-4 h-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="11"
-                  height="22"
-                  viewBox="0 0 11 22"
-                  fill="none"
-                >
-                  <path
-                    class="group-hover:fill-white"
-                    d="M10.0499 7.07914H6.71242V4.89022C6.71242 4.06817 7.25725 3.87652 7.64099 3.87652C8.02386 3.87652 9.99624 3.87652 9.99624 3.87652V0.26266L6.75259 0.25C3.15183 0.25 2.3324 2.94533 2.3324 4.67019V7.07914H0.25V10.803H2.3324C2.3324 15.5821 2.3324 21.3403 2.3324 21.3403H6.71242C6.71242 21.3403 6.71242 15.5253 6.71242 10.803H9.66795L10.0499 7.07914Z"
-                    fill="#202124"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="h-8 w-8 rounded-full border border-[var(--black)] flex items-center justify-center hover:bg-[var(--black)] transition duration-300 group"
-              >
-                <svg
-                  class="w-4 h-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="21"
-                  height="21"
-                  viewBox="0 0 21 21"
-                  fill="none"
-                >
-                  <g clip-path="url(#clip0_170_948)">
-                    <mask
-                      id="mask0_170_948"
-                      style="mask-type: luminance"
-                      maskUnits="userSpaceOnUse"
-                      x="0"
-                      y="0"
-                      width="21"
-                      height="21"
-                    >
-                      <path d="M20.1712 0H0V20.625H20.1712V0Z" fill="white" />
-                    </mask>
-                    <g mask="url(#mask0_170_948)">
-                      <path
-                        class="group-hover:fill-white"
-                        d="M12.0046 8.7288L19.5137 0H17.7343L11.2141 7.57909L6.00643 0H0L7.87502 11.4609L0 20.6144H1.77953L8.66504 12.6106L14.1647 20.6144H20.1712L12.0041 8.7288H12.0046ZM9.56726 11.5619L8.76936 10.4207L2.42072 1.33961H5.15398L10.2774 8.6683L11.0753 9.80955L17.7351 19.3357H15.0019L9.56726 11.5623V11.5619Z"
-                        fill="#202124"
-                      />
-                    </g>
-                    <path
-                      class="group-hover:fill-white"
-                      d="M3.4375 0.6875H5.84375L19.25 19.9375H16.8438L3.4375 0.6875Z"
-                      fill="#202124"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_170_948">
-                      <rect width="20.1712" height="20.625" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="h-8 w-8 rounded-full border border-[var(--black)] flex items-center justify-center hover:bg-[var(--black)] transition duration-300 group"
-              >
-                <svg
-                  class="w-4 h-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="28"
-                  height="28"
-                  viewBox="0 0 28 28"
-                  fill="none"
-                >
-                  <path
-                    class="group-hover:fill-white"
-                    d="M13.9999 2.05371C10.7553 2.05371 10.3485 2.06746 9.07427 2.1256C7.80269 2.18365 6.93425 2.38557 6.17431 2.68092C5.38871 2.98622 4.72248 3.39472 4.05833 4.05886C3.39418 4.72301 2.98569 5.38925 2.68038 6.17484C2.38504 6.93474 2.18311 7.80318 2.12507 9.07476C2.06693 10.349 2.05322 10.7558 2.05322 14.0004C2.05322 17.2448 2.06693 17.6517 2.12507 18.9259C2.18311 20.1975 2.38504 21.0659 2.68038 21.8258C2.98569 22.6114 3.39418 23.2777 4.05833 23.9419C4.72248 24.606 5.38871 25.0145 6.17431 25.3198C6.93425 25.6151 7.80269 25.8171 9.07427 25.8751C10.3485 25.9332 10.7553 25.947 13.9999 25.947C17.2444 25.947 17.6512 25.9332 18.9254 25.8751C20.197 25.8171 21.0654 25.6151 21.8253 25.3198C22.6109 25.0145 23.2772 24.606 23.9414 23.9419C24.6055 23.2777 25.014 22.6114 25.3193 21.8258C25.6146 21.0659 25.8166 20.1975 25.8746 18.9259C25.9327 17.6517 25.9465 17.2448 25.9465 14.0004C25.9465 10.7558 25.9327 10.349 25.8746 9.07476C25.8166 7.80318 25.6146 6.93474 25.3193 6.17484C25.014 5.38925 24.6055 4.72301 23.9414 4.05886C23.2772 3.39472 22.6109 2.98622 21.8253 2.68092C21.0654 2.38557 20.197 2.18365 18.9254 2.1256C17.6512 2.06746 17.2444 2.05371 13.9999 2.05371ZM13.9999 4.2063C17.1897 4.2063 17.5676 4.21844 18.8273 4.27592C19.9921 4.32908 20.6247 4.5237 21.0456 4.68726C21.6033 4.90397 22.0012 5.1629 22.4193 5.58093C22.8373 5.99895 23.0962 6.39697 23.3129 6.95456C23.4765 7.37552 23.6712 8.00809 23.7243 9.17287C23.7817 10.4326 23.7939 10.8105 23.7939 14.0004C23.7939 17.1902 23.7817 17.5681 23.7243 18.8278C23.6712 19.9926 23.4765 20.6251 23.3129 21.0461C23.0962 21.6037 22.8373 22.0017 22.4193 22.4197C22.0012 22.8378 21.6033 23.0967 21.0456 23.3134C20.6247 23.477 19.9921 23.6716 18.8273 23.7248C17.5678 23.7822 17.19 23.7944 13.9999 23.7944C10.8097 23.7944 10.432 23.7822 9.17239 23.7248C8.0076 23.6716 7.37504 23.477 6.95407 23.3134C6.39643 23.0967 5.99846 22.8378 5.58039 22.4197C5.16236 22.0017 4.90344 21.6037 4.68677 21.0461C4.52316 20.6251 4.32854 19.9926 4.27538 18.8278C4.2179 17.5681 4.20576 17.1902 4.20576 14.0004C4.20576 10.8105 4.2179 10.4326 4.27538 9.17287C4.32854 8.00809 4.52316 7.37552 4.68677 6.95456C4.90344 6.39697 5.16236 5.99895 5.58039 5.58093C5.99846 5.1629 6.39643 4.90397 6.95407 4.68726C7.37504 4.5237 8.0076 4.32908 9.17239 4.27592C10.4321 4.21844 10.81 4.2063 13.9999 4.2063Z"
-                    fill="#202124"
-                  />
-                  <path
-                    class="group-hover:fill-white"
-                    d="M14 17.9822C11.8007 17.9822 10.0178 16.1993 10.0178 14C10.0178 11.8007 11.8007 10.0178 14 10.0178C16.1993 10.0178 17.9822 11.8007 17.9822 14C17.9822 16.1993 16.1993 17.9822 14 17.9822ZM14 7.86523C10.6118 7.86523 7.86523 10.6118 7.86523 14C7.86523 17.3881 10.6118 20.1347 14 20.1347C17.3881 20.1347 20.1347 17.3881 20.1347 14C20.1347 10.6118 17.3881 7.86523 14 7.86523Z"
-                    fill="#202124"
-                  />
-                  <path
-                    class="group-hover:fill-white"
-                    d="M21.8106 7.62303C21.8106 8.41479 21.1687 9.0566 20.3769 9.0566C19.5852 9.0566 18.9434 8.41479 18.9434 7.62303C18.9434 6.83127 19.5852 6.18945 20.3769 6.18945C21.1687 6.18945 21.8106 6.83127 21.8106 7.62303Z"
-                    fill="#202124"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="h-8 w-8 rounded-full border border-[var(--black)] flex items-center justify-center hover:bg-[var(--black)] transition duration-300 group"
-              >
-                <svg
-                  class="w-6 h-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="31"
-                  height="31"
-                  viewBox="0 0 31 31"
-                  fill="none"
-                >
-                  <path
-                    class="group-hover:fill-white"
-                    d="M10.0833 23.9479H6.302V11.3438H10.0833V23.9479ZM23.9478 23.9479H20.1666V17.2148C20.1666 15.4603 19.5414 14.5868 18.3024 14.5868C17.3206 14.5868 16.6979 15.0758 16.3853 16.0552C16.3853 17.6458 16.3853 23.9479 16.3853 23.9479H12.6041C12.6041 23.9479 12.6545 12.6042 12.6041 11.3438H15.5888L15.8194 13.8646H15.8976C16.6727 12.6042 17.9117 11.7496 19.6107 11.7496C20.9027 11.7496 21.9476 12.1088 22.7454 13.0113C23.5483 13.915 23.9478 15.1275 23.9478 16.8303V23.9479Z"
-                    fill="#202124"
-                  />
-                  <path
-                    class="group-hover:fill-white"
-                    d="M8.19266 10.084C9.27163 10.084 10.1463 9.23752 10.1463 8.19336C10.1463 7.1492 9.27163 6.30273 8.19266 6.30273C7.11369 6.30273 6.23901 7.1492 6.23901 8.19336C6.23901 9.23752 7.11369 10.084 8.19266 10.084Z"
-                    fill="#202124"
-                  />
-                </svg>
-              </a>
             </div>
 
             <div class="mt-4 md:mt-0">
@@ -2535,7 +3373,7 @@
           class="copyright flex flex-col md:flex-row gap-1 items-center justify-between border-t border-[var(--border)] mt-[20px] py-[20px] text-center md:text-left"
         >
           <p class="mb-2 md:mb-0 text-sm text-[var(--text2)]">
-            &copy; 2025 Shop Jet Food. All rights reserved.
+            &copy; 2025 Shop Jet. All rights reserved.
           </p>
           <div class="flex items-center space-x-2">
             <p
@@ -2554,6 +3392,10 @@
     </footer>
     <!-- Footer End -->
 
+    <!-- JQUERY JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Nice Select JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-nice-select@1.1.0/js/jquery.nice-select.min.js"></script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- JS Link -->
