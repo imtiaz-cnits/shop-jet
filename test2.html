@@ -1,175 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product Tabs</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-white text-gray-800 font-sans">
-  <div class="max-w-6xl mx-auto px-4 py-8">
-    <!-- Tabs -->
-    <div class="flex border-b border-gray-200 mb-6">
-      <button id="desc-tab" class="tab-btn text-blue-600 font-semibold border-b-2 border-blue-600 px-4 py-2">
-        Product Description
-      </button>
-      <button id="review-tab" class="tab-btn text-gray-500 px-4 py-2">
-        Reviews
-      </button>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Tabs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-white text-gray-800 font-sans">
+    <div class="bg-gray-50 min-h-screen py-8 font-sans">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <a
+          href="#"
+          class="flex items-center text-gray-500 hover:text-gray-700 mb-6 text-sm font-medium"
+        >
+          <svg
+            class="w-4 h-4 mr-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            ></path>
+          </svg>
+          Back to Ripens
+        </a>
 
-    <!-- Tab Contents -->
-    <div id="desc-content">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Left Column -->
-        <div class="lg:col-span-2 space-y-6">
-          <p>
-            Pani Puri – also known as Golgappa – is a popular snack in northern India, Nepal,
-            Bengal and Pakistan that is combined with various spices and sauces. The dish
-            consists of a round, hollow dough shell made of wheat flour, which is filled with
-            a specially prepared spicy potato-based filling and a watery sauce. A popular
-            mix of spices for this is chat masalas.
-          </p>
+        <div class="flex flex-col lg:flex-row gap-8">
+          <div class="w-full lg:w-3/5 space-y-8">
+            <div class="bg-white p-8 rounded-lg shadow-sm">
+              <h2 class="text-xl font-semibold mb-6 text-gray-800">
+                Delivery Information
+              </h2>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                <div>
+                  <label
+                    for="full-name"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Full Name</label
+                  >
+                  <input
+                    type="text"
+                    id="full-name"
+                    placeholder="Enter your name..."
+                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none placeholder-gray-400 text-gray-700"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="email"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="example@gmail.com"
+                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none placeholder-gray-400 text-gray-700"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="phone"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Phone Number</label
+                  >
+                  <div class="flex">
+                    <input
+                      type="tel"
+                      id="phone"
+                      placeholder="XXXX XXX XXX"
+                      class="flex-1 w-full px-4 py-3 rounded-lg bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none placeholder-gray-400 text-gray-700"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    for="country"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Country</label
+                  >
+                  <select
+                    id="country"
+                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none text-gray-400"
+                  >
+                    <option disabled selected>Select here...</option>
+                    <option>Country A</option>
+                    <option>Country B</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    for="city"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >City</label
+                  >
+                  <select
+                    id="city"
+                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none text-gray-400"
+                  >
+                    <option disabled selected>Select here...</option>
+                    <option>City A</option>
+                    <option>City B</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    for="postal-code"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Postal Code</label
+                  >
+                  <input
+                    type="text"
+                    id="postal-code"
+                    placeholder="Enter your postal code..."
+                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none placeholder-gray-400 text-gray-700"
+                  />
+                </div>
+                <div class="md:col-span-2">
+                  <label
+                    for="street"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Street & House Number</label
+                  >
+                  <input
+                    type="text"
+                    id="street"
+                    placeholder="Enter your street & house number..."
+                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none placeholder-gray-400 text-gray-700"
+                  />
+                </div>
+              </form>
+            </div>
 
-          <div>
-            <h3 class="font-semibold text-lg mb-2">Shipping, Quality & Freshness</h3>
-            <div class="space-y-4 text-sm">
-              <div>
-                <p class="font-semibold">
-                  How can I enjoy free shipping on my order?
-                </p>
-                <p>
-                  Enjoy free shipping on orders over 39€ to Germany. For shipping rates to other
-                  countries
-                </p>
+            <div class="bg-white p-8 rounded-lg shadow-sm">
+              <h2 class="text-xl font-semibold mb-6 text-gray-800">
+                Payment Method
+              </h2>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <input
+                    type="radio"
+                    id="paypal"
+                    name="payment-method"
+                    class="hidden peer"
+                    checked
+                  />
+                  <label
+                    for="paypal"
+                    class="flex items-center justify-center p-4 border rounded-lg cursor-pointer transition-colors peer-checked:border-indigo-500 peer-checked:ring-2 peer-checked:ring-indigo-500"
+                  >
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+                      alt="PayPal"
+                      class="h-6"
+                    />
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="credit-card"
+                    name="payment-method"
+                    class="hidden peer"
+                  />
+                  <label
+                    for="credit-card"
+                    class="flex flex-col items-center justify-center p-4 border rounded-lg cursor-pointer transition-colors peer-checked:border-indigo-500 peer-checked:ring-2 peer-checked:ring-indigo-500"
+                  >
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"
+                      alt="Visa"
+                      class="h-6 mb-2"
+                    />
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg"
+                      alt="Mastercard"
+                      class="h-6"
+                    />
+                  </label>
+                </div>
+                <div>
+                  
+                  <label
+                    for="klarna"
+                    class="flex flex-col gap-1 items-center justify-center p-4 border rounded-lg cursor-pointer transition-colors peer-checked:border-indigo-500 peer-checked:ring-2 peer-checked:ring-indigo-500"
+                  >
+                  <div class="flex items-center gap-2">
+                    <input
+                    type="radio"
+                    id="klarna"
+                    name="payment-method"
+                    class=" peer"
+                  />
+                  <span>Klarna Pay</span>
+                  </div>
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Klarna_logo.svg"
+                      alt="Klarna Pay"
+                      class="h-6"
+                    />
+                  </label>
+                </div>
               </div>
-              <div>
-                <p class="font-semibold">
-                  How do we guarantee the quality and secure packaging of your order?
-                </p>
-                <p>
-                  Every product we send undergoes meticulous quality checks to ensure it’s perfect.
-                  We securely pack your order with eco-friendly, sturdy materials, ensuring it arrives
-                  in excellent condition for you to enjoy.
-                </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-sm">
+              <h2 class="text-xl font-semibold mb-6 text-gray-800">
+                Billing Address
+              </h2>
+              <div class="flex items-center flex-col sm:flex-row gap-4">
+                <label
+                  for="same-address"
+                  class="flex gap-2 items-center w-full text-center px-4 py-3 border rounded-lg cursor-pointer transition-colors font-medium text-sm peer-checked:border-indigo-500 peer-checked:ring-2 peer-checked:ring-indigo-500 peer-checked:text-indigo-600"
+                >
+                  <input
+                    type="radio"
+                    id="same-address"
+                    name="billing-address"
+                    class="peer"
+                    checked
+                  />
+                  Same as shipping address
+                </label>
+                <label
+                  for="different-address"
+                  class="flex gap-2 items-center w-full text-center px-4 py-3 border rounded-lg cursor-pointer transition-colors font-medium text-sm peer-checked:border-indigo-500 peer-checked:ring-2 peer-checked:ring-indigo-500 peer-checked:text-indigo-600"
+                >
+                  <input
+                    type="radio"
+                    id="different-address"
+                    name="billing-address"
+                    class="peer"
+                    checked
+                  />
+                  Use a different billing address
+                </label>
               </div>
-              <div>
-                <p class="font-semibold">
-                  When do we ship fresh Fruits & Vegetables items to ensure their freshness?
-                </p>
-                <p>
-                  We only ship fresh Fruits & Vegetables items from Monday to Thursday to guarantee
-                  freshness!
-                </p>
+            </div>
+          </div>
+
+          <div class="w-full lg:w-2/5">
+            <div class="bg-white p-8 rounded-lg shadow-sm sticky top-8">
+              <h2 class="text-xl font-semibold mb-6 text-gray-800">
+                Product Details
+              </h2>
+              <div class="flex items-center mb-6 pb-6">
+                <img
+                  src="https://via.placeholder.com/64"
+                  alt="Product Image"
+                  class="w-16 h-16 rounded-lg mr-4"
+                />
+                <div class="flex-1">
+                  <h3 class="font-medium text-gray-800">Anjasaar</h3>
+                  <p class="text-sm text-gray-500">
+                    200g Pori Puri Chips (Kalpappas)
+                  </p>
+                </div>
+                <div class="flex items-center text-gray-500 text-lg">
+                  <button
+                    id="quantity-minus"
+                    class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors"
+                  >
+                    -
+                  </button>
+                  <span
+                    id="quantity-value"
+                    class="mx-3 text-base text-gray-800 font-semibold"
+                    >1</span
+                  >
+                  <button
+                    id="quantity-plus"
+                    class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-lg font-semibold ml-4 text-indigo-600"
+                  >€1.49</span
+                >
               </div>
-              <div>
-                <p class="font-semibold">Need more info?</p>
-                <p>
-                  If you want to know more about shipping, ordering, quality control, and many other
-                  topics, you can access our full Frequently Asked Questions
-                </p>
+
+              <div class="mb-6">
+                <h3 class="text-sm font-medium text-gray-800 mb-2">
+                  Have any promo code?
+                </h3>
+                <div class="flex space-x-2">
+                  <input
+                    type="text"
+                    placeholder="Enter promo code..."
+                    class="flex-1 px-4 py-2 rounded-lg bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none text-gray-700 placeholder-gray-400"
+                  />
+                  <button
+                    class="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors"
+                  >
+                    Apply
+                  </button>
+                </div>
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex justify-between text-sm text-gray-600">
+                  <span>Subtotal</span>
+                  <span>€1.49</span>
+                </div>
+                <div class="flex justify-between text-sm text-gray-600">
+                  <span>Delivery Fee</span>
+                  <span>€0.40</span>
+                </div>
+                <div class="flex justify-between text-sm text-gray-600">
+                  <span>Campaign Discount</span>
+                  <span class="text-green-600">-€0.00</span>
+                </div>
+                <div class="flex justify-between text-sm text-gray-600">
+                  <span>Taxes</span>
+                  <span>€0.39</span>
+                </div>
+              </div>
+
+              <div
+                class="flex justify-between items-center text-xl font-semibold mt-6 pt-6 border-t border-gray-200"
+              >
+                <span>Total</span>
+                <span class="text-indigo-600">€2.18</span>
+              </div>
+
+              <button
+                class="mt-6 w-full bg-indigo-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-indigo-700 transition-colors"
+              >
+                Confirm Order
+              </button>
+
+              <div
+                class="mt-4 flex justify-center text-xs text-gray-500 space-x-4"
+              >
+                <a href="#" class="hover:underline">Privacy Policy</a>
+                <a href="#" class="hover:underline">Shipping</a>
+                <a href="#" class="hover:underline">Refund and Policy</a>
+                <a href="#" class="hover:underline">Terms of Service</a>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Right Column -->
-        <div class="bg-gray-50 p-4 rounded-lg shadow-sm space-y-6">
-          <!-- Table -->
-          <div>
-            <h3 class="font-semibold text-lg mb-3">Nutritional Facts, Ingredients & Origin</h3>
-            <table class="w-full text-sm border border-gray-200">
-              <thead class="bg-gray-100">
-                <tr>
-                  <th class="text-left font-medium p-2 border-b border-gray-200">Nutrition</th>
-                  <th class="text-left font-medium p-2 border-b border-gray-200">per 100g</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="p-2 border-b">Energy</td>
-                  <td class="p-2 border-b">1628kJ / 389kcal</td>
-                </tr>
-                <tr>
-                  <td class="p-2 border-b">Fat</td>
-                  <td class="p-2 border-b">12g</td>
-                </tr>
-                <tr>
-                  <td class="p-2 border-b">Saturated Fatty Acids</td>
-                  <td class="p-2 border-b">0.2g</td>
-                </tr>
-                <tr>
-                  <td class="p-2 border-b">Carbohydrates</td>
-                  <td class="p-2 border-b">61g</td>
-                </tr>
-                <tr>
-                  <td class="p-2 border-b">Sugar</td>
-                  <td class="p-2 border-b">7g</td>
-                </tr>
-                <tr>
-                  <td class="p-2 border-b">Protein</td>
-                  <td class="p-2 border-b">11g</td>
-                </tr>
-                <tr>
-                  <td class="p-2 border-b">Fiber</td>
-                  <td class="p-2 border-b">0g</td>
-                </tr>
-                <tr>
-                  <td class="p-2">Salt</td>
-                  <td class="p-2">0.4g</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Ingredients & Origin -->
-          <div class="text-sm">
-            <p class="font-semibold">Ingredients</p>
-            <p>Wheat flour, corn flour, tapioca starch, salt, sodiumbicarbonate, turmeric, sunflower oil</p>
-          </div>
-          <div class="text-sm">
-            <p class="font-semibold">Origin</p>
-            <p>India</p>
-          </div>
-        </div>
       </div>
     </div>
-
-    <!-- Reviews Content -->
-    <div id="review-content" class="hidden">
-      <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
-        <h3 class="text-lg font-semibold mb-4">Customer Reviews</h3>
-        <p class="text-sm text-gray-600">No reviews yet. Be the first to write a review!</p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const descTab = document.getElementById("desc-tab");
-    const reviewTab = document.getElementById("review-tab");
-    const descContent = document.getElementById("desc-content");
-    const reviewContent = document.getElementById("review-content");
-
-    function activateTab(tab) {
-      if (tab === "desc") {
-        descContent.classList.remove("hidden");
-        reviewContent.classList.add("hidden");
-        descTab.classList.add("text-blue-600", "border-b-2", "border-blue-600", "font-semibold");
-        descTab.classList.remove("text-gray-500");
-        reviewTab.classList.remove("text-blue-600", "border-b-2", "border-blue-600", "font-semibold");
-        reviewTab.classList.add("text-gray-500");
-      } else {
-        reviewContent.classList.remove("hidden");
-        descContent.classList.add("hidden");
-        reviewTab.classList.add("text-blue-600", "border-b-2", "border-blue-600", "font-semibold");
-        reviewTab.classList.remove("text-gray-500");
-        descTab.classList.remove("text-blue-600", "border-b-2", "border-blue-600", "font-semibold");
-        descTab.classList.add("text-gray-500");
-      }
-    }
-
-    descTab.addEventListener("click", () => activateTab("desc"));
-    reviewTab.addEventListener("click", () => activateTab("review"));
-  </script>
-</body>
+  </body>
 </html>
