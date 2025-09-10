@@ -1,0 +1,3073 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Single | Grocery E-Commerce</title>
+    <!-- Fav Icon -->
+    <link rel="icon" type="image/x-icon" href="./assets/icon/fav.png" />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Nice Select CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/jquery-nice-select@1.1.0/css/nice-select.css"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="./src/output.css" />
+  </head>
+  <body>
+    <!-- Preloader Start -->
+    <!-- <div
+      id="pagePreloader"
+      class="fixed inset-0 w-full h-full bg-[var(--primary-color)] flex flex-col justify-center items-center z-[9999] transition-opacity duration-500 ease-in-out"
+    >
+      <div
+        class="w-[50px] h-[50px] border-[6px] border-solid border-gray-200 border-t-[6px] border-t-black rounded-full animate-custom-spin mb-[20px]"
+      ></div>
+      <div class="text-center font-bold mb-[20px]">
+        <img
+          src="./assets/images/navbar-light-logo.png"
+          alt="Company Logo"
+          class="mx-auto w-[120px] object-contain"
+        />
+      </div>
+    </div> -->
+    <!-- Preloader End -->
+
+    <!-- Back to Top Button Start -->
+    <div
+      id="back-to-top"
+      class="fixed bottom-[90px] right-6 lg:bottom-8 lg:right-8 w-14 h-14 flex justify-center items-center rounded-full cursor-pointer opacity-0 invisible transition-opacity duration-500 z-[50]"
+    >
+      <svg
+        class="w-14 h-14 transition-colors duration-300 group"
+        viewBox="0 0 100 119"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- Background -->
+        <path
+          d="M76.4787 22.9461L50 11L23.5213 22.9461L50 3.7082L76.4787 22.9461ZM10.0556 29.0213L12.3536 36.0938C4.66128 44.887 0 56.3992 0 69C0 96.6142 22.3858 119 50 119C77.6142 119 100 96.6142 100 69C100 56.3992 95.3387 44.887 87.6464 36.0938L89.9444 29.0213L50 0L10.0556 29.0213Z"
+          class="fill-[var(--primary-color)] group-hover:fill-[var(--black)] transition-colors duration-300"
+        />
+        <!-- Arrow -->
+        <path
+          d="M50 85V53M50 53L38 65M50 53L62 65"
+          class="stroke-[var(--secondary-color)] transition-colors duration-300"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+    <!-- Back to Top Button End -->
+
+    <!-- Fly Cart Start -->
+    <div
+      class="cart-icon fixed bottom-[90px] left-6 lg:bottom-8 lg:left-8 w-12 h-12 bg-[var(--primary-color)] hover:bg-[var(--black)] rounded-full cursor-pointer transition duration-300 z-[50] flex justify-center items-center"
+    >
+      <div class="relative flex justify-center items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+        >
+          <path
+            d="M4.00014 13H17.1359C18.1487 13 18.6551 13 19.0582 12.8112C19.4134 12.6448 19.7118 12.3777 19.9163 12.0432C20.1485 11.6633 20.2044 11.16 20.3163 10.1534L20.9013 4.88835C20.9355 4.58088 20.9525 4.42715 20.9031 4.30816C20.8597 4.20366 20.7821 4.11697 20.683 4.06228C20.5702 4 20.4155 4 20.1062 4H3.50014M1 1H2.24844C2.51306 1 2.64537 1 2.74889 1.05032C2.84002 1.09463 2.91554 1.16557 2.96544 1.25376C3.02212 1.35394 3.03037 1.48599 3.04688 1.7501L3.95312 16.2499C3.96963 16.514 3.97788 16.6461 4.03456 16.7462C4.08446 16.8344 4.15998 16.9054 4.25111 16.9497C4.35463 17 4.48694 17 4.75156 17H18M6.5 20.5H6.51M15.5 20.5H15.51M7 20.5C7 20.7761 6.77614 21 6.5 21C6.22386 21 6 20.7761 6 20.5C6 20.2239 6.22386 20 6.5 20C6.77614 20 7 20.2239 7 20.5ZM16 20.5C16 20.7761 15.7761 21 15.5 21C15.2239 21 15 20.7761 15 20.5C15 20.2239 15.2239 20 15.5 20C15.7761 20 16 20.2239 16 20.5Z"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
+      <span
+        class="cart-item-count absolute flex justify-center items-center w-6 h-6 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--black)] rounded-full"
+      >
+        0
+      </span>
+    </div>
+    <!-- Fly Cart End -->
+
+    <!-- Top Bar Start -->
+    <div class="topbar bg-[var(--primary-color)] py-2">
+      <div class="custom-container">
+        <div class="topbar-wrap">
+          <div
+            class="flex flex-col md:flex-row justify-center items-center gap-1 md:gap-[40px]"
+          >
+            <p
+              class="flex justify-center items-center gap-[6px] text-[var(--secondary-color)] text-sm font-normal"
+            >
+              <svg
+                class="w-5 h-5"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+              >
+                <path
+                  d="M17.0833 6.56479L9.99997 10.5M9.99997 10.5L2.91664 6.56479M9.99997 10.5L10 18.4167M17.5 13.8821V7.11787C17.5 6.83234 17.5 6.68957 17.4579 6.56224C17.4207 6.44959 17.3599 6.34619 17.2795 6.25895C17.1886 6.16033 17.0638 6.091 16.8142 5.95233L10.6475 2.5264C10.4112 2.3951 10.293 2.32945 10.1679 2.30372C10.0571 2.28094 9.94288 2.28094 9.83213 2.30372C9.70698 2.32945 9.58881 2.3951 9.35248 2.5264L3.18581 5.95233C2.93621 6.091 2.8114 6.16033 2.72053 6.25895C2.64013 6.34619 2.57929 6.44959 2.54207 6.56224C2.5 6.68957 2.5 6.83234 2.5 7.11787V13.8821C2.5 14.1677 2.5 14.3104 2.54207 14.4378C2.57929 14.5504 2.64013 14.6538 2.72053 14.7411C2.8114 14.8397 2.93621 14.909 3.18581 15.0477L9.35248 18.4736C9.58881 18.6049 9.70698 18.6705 9.83213 18.6963C9.94288 18.7191 10.0571 18.7191 10.1679 18.6963C10.293 18.6705 10.4112 18.6049 10.6475 18.4736L16.8142 15.0477C17.0638 14.909 17.1886 14.8397 17.2795 14.7411C17.3599 14.6538 17.4207 14.5504 17.4579 14.4378C17.5 14.3104 17.5 14.1677 17.5 13.8821Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M13.75 8.41667L6.25 4.25"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              FREE Shipping over 39€+
+            </p>
+            <p
+              class="flex justify-center items-center gap-[6px] text-[var(--secondary-color)] text-sm font-normal"
+            >
+              <svg
+                class="w-5 h-5"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+              >
+                <path
+                  d="M5.83333 13.0752V18.8333L9.75241 17.2657C9.84387 17.2291 9.88961 17.2108 9.93683 17.2036C9.9787 17.1972 10.0213 17.1972 10.0632 17.2036C10.1104 17.2108 10.1561 17.2291 10.2476 17.2657L14.1667 18.8333V13.0752M16.25 8.41667C16.25 11.8684 13.4518 14.6667 10 14.6667C6.54822 14.6667 3.75 11.8684 3.75 8.41667C3.75 4.96489 6.54822 2.16667 10 2.16667C13.4518 2.16667 16.25 4.96489 16.25 8.41667Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Europe’s #1 Indian Grocery Store
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Top Bar End -->
+
+    <!-- Navbar -->
+    <nav class="navbar sticky top-0 left-0 bg-[var(--secondary-color)] z-50">
+      <div class="header custom-container">
+        <div class="flex justify-between items-center py-3">
+          <!-- Mobile Menu Button -->
+          <button
+            id="menu-btn"
+            class="lg:hidden text-[var(--text)] focus:outline-none text-2xl cursor-pointer"
+          >
+            ☰
+          </button>
+          <!-- Logo -->
+          <div class="flex items-center space-x-3">
+            <a href="./index.html" class="w-[150px] object-contain">
+              <img src="./assets/icon/logo.png" alt="" />
+            </a>
+          </div>
+
+          <!-- Search Box -->
+          <div class="hidden w-full max-w-[50%] lg:flex flex-1 mx-4">
+            <input
+              type="text"
+              placeholder="Search for rice, sweets, snacks, Beverages or more..."
+              class="w-full bg-[var(--accent1)] border border-[var(--border2)] rounded-bl-full rounded-tl-full px-3 py-2 focus:outline-none text-sm"
+            />
+            <button
+              class="flex justify-center items-center gap-[6px] bg-[var(--primary-color)] rounded-br-full rounded-tr-full border border-[var(--border2)] text-[var(--secondary-color)] text-sm font-normal px-3 rounded-r-md cursor-pointer"
+            >
+              Search
+              <svg
+                class="w-4 h-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+              >
+                <path
+                  d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Right Icons -->
+          <div class="flex items-center space-x-4 rounded-lg">
+            <!-- Language -->
+            <div
+              id="language-selector"
+              class="relative font-primary m-0 lg:mr-[16px]"
+            >
+              <div
+                class="flex items-center space-x-2 p-[8px] pr-[12px] rounded-full cursor-pointer bg-[var(--accent1)] transition-colors duration-200"
+              >
+                <img
+                  id="language-flag"
+                  src="https://flagcdn.com/gb.svg"
+                  alt="UK Flag"
+                  class="w-6 h-6 rounded-full object-cover"
+                />
+                <span id="language-text" class="text-[var(--text)] font-medium"
+                  >EN</span
+                >
+                <i class="fas fa-chevron-down text-[var(--text)] text-xs"></i>
+              </div>
+
+              <div
+                id="language-dropdown"
+                class="absolute top-full mt-1 w-full bg-[var(--secondary-color)] border border-[var(--border)] rounded-md shadow-lg hidden z-50"
+              >
+                <div
+                  class="flex items-center space-x-2 px-2 py-1 cursor-pointer hover:bg-[var(--accent1)]"
+                  data-lang="en"
+                >
+                  <img
+                    src="https://flagcdn.com/gb.svg"
+                    alt="UK Flag"
+                    class="w-6 h-4"
+                  />
+                  <span>EN</span>
+                </div>
+                <div
+                  class="flex items-center space-x-2 px-2 py-1 cursor-pointer hover:bg-[var(--accent1)]"
+                  data-lang="es"
+                >
+                  <img
+                    src="https://flagcdn.com/es.svg"
+                    alt="Spanish Flag"
+                    class="w-6 h-4"
+                  />
+                  <span>ES</span>
+                </div>
+                <div
+                  class="flex items-center space-x-2 px-2 py-1 cursor-pointer hover:bg-[var(--accent1)]"
+                  data-lang="fr"
+                >
+                  <img
+                    src="https://flagcdn.com/fr.svg"
+                    alt="French Flag"
+                    class="w-6 h-4"
+                  />
+                  <span>FR</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Icon -->
+            <a
+              href="#"
+              class="whichlist relative cursor-pointer hidden lg:flex"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="20"
+                viewBox="0 0 22 20"
+                fill="none"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M10.9932 3.13581C8.9938 0.7984 5.65975 0.169643 3.15469 2.31001C0.649644 4.45038 0.296968 8.02898 2.2642 10.5604C3.89982 12.6651 8.84977 17.1041 10.4721 18.5408C10.6536 18.7016 10.7444 18.7819 10.8502 18.8135C10.9426 18.8411 11.0437 18.8411 11.1361 18.8135C11.2419 18.7819 11.3327 18.7016 11.5142 18.5408C13.1365 17.1041 18.0865 12.6651 19.7221 10.5604C21.6893 8.02898 21.3797 4.42787 18.8316 2.31001C16.2835 0.192157 12.9925 0.7984 10.9932 3.13581Z"
+                  stroke="#202124"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span
+                class="absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
+              >
+                0
+              </span>
+            </a>
+
+            <a
+              href="#"
+              class="cart-icon cart relative cursor-pointer hidden lg:flex"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 22 22"
+                fill="none"
+              >
+                <path
+                  d="M4.00014 13H17.1359C18.1487 13 18.6551 13 19.0582 12.8112C19.4134 12.6448 19.7118 12.3777 19.9163 12.0432C20.1485 11.6633 20.2044 11.16 20.3163 10.1534L20.9013 4.88835C20.9355 4.58088 20.9525 4.42715 20.9031 4.30816C20.8597 4.20366 20.7821 4.11697 20.683 4.06228C20.5702 4 20.4155 4 20.1062 4H3.50014M1 1H2.24844C2.51306 1 2.64537 1 2.74889 1.05032C2.84002 1.09463 2.91554 1.16557 2.96544 1.25376C3.02212 1.35394 3.03037 1.48599 3.04688 1.7501L3.95312 16.2499C3.96963 16.514 3.97788 16.6461 4.03456 16.7462C4.08446 16.8344 4.15998 16.9054 4.25111 16.9497C4.35463 17 4.48694 17 4.75156 17H18M6.5 20.5H6.51M15.5 20.5H15.51M7 20.5C7 20.7761 6.77614 21 6.5 21C6.22386 21 6 20.7761 6 20.5C6 20.2239 6.22386 20 6.5 20C6.77614 20 7 20.2239 7 20.5ZM16 20.5C16 20.7761 15.7761 21 15.5 21C15.2239 21 15 20.7761 15 20.5C15 20.2239 15.2239 20 15.5 20C15.7761 20 16 20.2239 16 20.5Z"
+                  stroke="#202124"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span
+                class="cart-item-count absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
+              >
+                0
+              </span>
+            </a>
+
+            <div
+              class="bar hidden lg:block w-[1px] h-[18px] bg-[var(--border)]"
+            ></div>
+
+            <a
+              href="#"
+              class="profile items-center justify-center rounded-full cursor-pointer p-2 bg-[var(--accent1)] hidden lg:flex m-0"
+            >
+              <i
+                class="far fa-user-circle text-[22px] text-[var(--primary-color)]"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Sidebar -->
+      <div
+        id="overlay"
+        class="fixed inset-0 bg-black opacity-50 z-40 hidden"
+      ></div>
+
+      <div
+        id="cart-sidebar"
+        class="fixed top-0 right-0 h-full w-full md:w-96 bg-[var(--secondary-color)] shadow-lg transition-all duration-300 ease-in-out z-[150]"
+        style="transform: translateX(100%)"
+      >
+        <div class="wrapper p-4 pt-0">
+          <div
+            class="sticky bg-[var(--secondary-color)] top-0 left-0 flex justify-between items-center py-3"
+          >
+            <h2 class="my-cart text-xl font-semibold">
+              Review Your Cart (<span id="cart-item-count-sidebar">3</span>)
+            </h2>
+            <button
+              class="text-[var(--text)] hover:text-[var(--primary-color)] focus:outline-none"
+              id="close-sidebar-btn"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Cart Item -->
+          <div
+            id="cart-items"
+            class="mb-2 overflow-y-auto min-h-0 max-h-[calc(100vh-280px)]"
+          >
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom box  -->
+          <div class="bottom-box pb-[20px] bg-[var(--secondery-color)]">
+            <div class="mb-2">
+              <h4 class="title text-[var(--text)] font-medium mb-1">
+                Got a discount code?
+              </h4>
+              <div class="flex items-center cupon-box">
+                <input
+                  type="text"
+                  placeholder="Coupon Code"
+                  class="flex-1 text-sm text-[var(--text)] border border-[var(--border)] rounded-tl-full rounded-bl-full p-2 px-3 focus:outline-none focus:border-[var(--primary-color)] transition duration-300"
+                />
+                <button
+                  class="apply-btn bg-[var(--primary-color)] border border-[var(--primary-color)] text-sm text-[var(--secondary-color)] rounded-tr-full rounded-br-full px-4 py-2 hover:bg-[var(--black)] transition duration-300"
+                >
+                  Apply
+                </button>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex justify-between font-medium">
+                <h4 class="title text-[var(--text)] font-medium">Subtotal</h4>
+                <span id="subtotal" class="text-lg text-[var(--primary-color)]"
+                  >253.00€</span
+                >
+              </div>
+              <p class="desc text-sm text-[var(--text2)] mb-0 line-clamp-1">
+                Shipping & taxes may be re-calculated at checkout
+              </p>
+            </div>
+
+            <button
+              class="continue-btn w-full bg-[var(--primary-color)] border border-[var(--primary-color)] text-[16px] text-[var(--secondary-color)] rounded-full px-3 py-2 hover:bg-[var(--black)] transition duration-300"
+            >
+              Checkout <span id="checkout-price">253.00€</span>
+            </button>
+
+            <div class="text-center mt-2">
+              <a
+                href="#"
+                class="text-blue-600 hover:text-blue-700"
+                onclick="closeSidebar()"
+                >Continue Shopping</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="menu-bar hidden lg:block border-[var(--border)]">
+        <div class="custom-container py-3 relative">
+          <ul
+            class="flex items-center space-x-4 gap-2 justify-center text-[var(--text)] font-medium"
+          >
+            <li class="group m-0">
+              <a
+                href="#"
+                class="menu-item flex items-center space-x-1 hover:text-[var(--primary-color)] p-2 px-3 rounded-full group-hover:bg-[var(--accent1)] bg-[var(--accent1)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+              >
+                <span>All Categories</span>
+                <i
+                  class="fas fa-chevron-down group-hover:rotate-180 group-hover:text-[var(--primary-color)] rotate-on-hover text-[var(--text)] text-xs transition duration-300"
+                ></i>
+              </a>
+              <!-- Mega Dropdown -->
+              <div
+                class="absolute !left-[-0px] top-[80%] pt-1 hidden group-hover:block w-[100%] animate-fadeIn"
+              >
+                <div class="custom-container">
+                  <div
+                    class="mx-auto grid grid-cols-5 gap-1 text-sm bg-[var(--secondary-color)] shadow-sm p-[30px] rounded-[12px]"
+                  >
+                    <div>
+                      <h4 class="font-bold mb-4">Instant Food & Mixes</h4>
+                      <ul class="space-y-5">
+                        <li>
+                          <a
+                            href="#"
+                            class="hover:text-[var(--primary-color)] p-2 rounded-full bg-[var(--accent1)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >All Instant Food & Mix</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Ready to Eat</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Instant Noodles</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Dessert Mix</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Savory Mix</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 class="font-bold mb-4">Oil, Ghee & Sauces</h4>
+                      <ul class="space-y-3">
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >All Oils, Ghee & Sauces</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Food Oil</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Butter</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Ghee</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Sauces</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 class="font-bold mb-4">Snacks & Sweets</h4>
+                      <ul class="space-y-3">
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >All Snacks & Sweets</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Home Made Sweets</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Snacks</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Sweets</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Chips</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Cookies & Rusk</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Dry Fruits & Seeds</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 class="font-bold mb-4">Pickles & Condiments</h4>
+                      <ul class="space-y-3">
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Pickles & Condiments</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Pastes</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Chutneys</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Pulp & Jam</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Soy Products</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Coconut Products</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 class="font-bold mb-4">Beverages</h4>
+                      <ul class="space-y-3">
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >All Beverages</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Soft Drinks</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Milk Powder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Tea</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Alcoholic Beverage</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="m-0">
+              <a
+                href="#"
+                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-3 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+                >New Arrivals</a
+              >
+            </li>
+            <li class="m-0">
+              <a
+                href="#"
+                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-3 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+                >Best Sellers</a
+              >
+            </li>
+
+            <li class="group m-0">
+              <a
+                href="#"
+                class="menu-item flex items-center space-x-1 hover:text-[var(--primary-color)] p-2 px-3 rounded-full group-hover:bg-[var(--accent1)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+              >
+                <span>Essentials</span>
+                <i
+                  class="fas fa-chevron-down group-hover:rotate-180 group-hover:text-[var(--primary-color)] rotate-on-hover text-[var(--text)] text-xs transition duration-300"
+                ></i>
+              </a>
+              <!-- Mega Dropdown -->
+              <div
+                class="absolute !left-[-0px] top-[80%] pt-1 hidden group-hover:block w-[100%] animate-fadeIn"
+              >
+                <div class="custom-container">
+                  <div
+                    class="mx-auto grid grid-cols-5 gap-1 text-sm bg-[var(--secondary-color)] shadow-sm p-[30px] rounded-[12px]"
+                  >
+                    <div>
+                      <h4 class="font-bold mb-4">Instant Food & Mixes</h4>
+                      <ul class="space-y-5">
+                        <li>
+                          <a
+                            href="#"
+                            class="hover:text-[var(--primary-color)] p-2 rounded-full bg-[var(--accent1)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >All Instant Food & Mix</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Ready to Eat</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Instant Noodles</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Dessert Mix</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Savory Mix</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 class="font-bold mb-4">Oil, Ghee & Sauces</h4>
+                      <ul class="space-y-3">
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >All Oils, Ghee & Sauces</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Food Oil</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Butter</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Ghee</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Sauces</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 class="font-bold mb-4">Snacks & Sweets</h4>
+                      <ul class="space-y-3">
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >All Snacks & Sweets</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Home Made Sweets</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Snacks</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Sweets</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Chips</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Cookies & Rusk</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Dry Fruits & Seeds</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 class="font-bold mb-4">Pickles & Condiments</h4>
+                      <ul class="space-y-3">
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Pickles & Condiments</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Pastes</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Chutneys</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Pulp & Jam</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Soy Products</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Coconut Products</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 class="font-bold mb-4">Beverages</h4>
+                      <ul class="space-y-3">
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >All Beverages</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Soft Drinks</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Milk Powder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Tea</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Alcoholic Beverage</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="m-0">
+              <a
+                href="#"
+                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-3 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+                >Fruits & Vegetables</a
+              >
+            </li>
+
+            <li class="group m-0">
+              <a
+                href="#"
+                class="menu-item flex items-center space-x-1 hover:text-[var(--primary-color)] p-2 px-3 rounded-full group-hover:bg-[var(--accent1)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+              >
+                <span>Fresh & Frozen</span>
+                <i
+                  class="fas fa-chevron-down group-hover:rotate-180 group-hover:text-[var(--primary-color)] rotate-on-hover text-[var(--text)] text-xs transition duration-300"
+                ></i>
+              </a>
+              <!-- Mega Dropdown -->
+              <div
+                class="absolute !left-[-0px] top-[80%] pt-1 hidden group-hover:block w-[100%] animate-fadeIn"
+              >
+                <div class="custom-container">
+                  <div
+                    class="mx-auto grid grid-cols-5 gap-1 text-sm bg-[var(--secondary-color)] shadow-sm p-[30px] rounded-[12px]"
+                  >
+                    <div>
+                      <h4 class="font-bold mb-4">Instant Food & Mixes</h4>
+                      <ul class="space-y-5">
+                        <li>
+                          <a
+                            href="#"
+                            class="hover:text-[var(--primary-color)] p-2 rounded-full bg-[var(--accent1)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >All Instant Food & Mix</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Ready to Eat</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Instant Noodles</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Dessert Mix</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Savory Mix</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 class="font-bold mb-4">Oil, Ghee & Sauces</h4>
+                      <ul class="space-y-3">
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >All Oils, Ghee & Sauces</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Food Oil</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Butter</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Ghee</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Sauces</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 class="font-bold mb-4">Snacks & Sweets</h4>
+                      <ul class="space-y-3">
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >All Snacks & Sweets</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Home Made Sweets</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Snacks</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Sweets</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Chips</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Cookies & Rusk</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Dry Fruits & Seeds</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 class="font-bold mb-4">Pickles & Condiments</h4>
+                      <ul class="space-y-3">
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Pickles & Condiments</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Pastes</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Chutneys</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Pulp & Jam</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Soy Products</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Coconut Products</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 class="font-bold mb-4">Beverages</h4>
+                      <ul class="space-y-3">
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >All Beverages</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Soft Drinks</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Milk Powder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Tea</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="item p-2 rounded-full hover:text-[var(--primary-color)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)]"
+                            >Alcoholic Beverage</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="m-0">
+              <a
+                href="#"
+                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-3 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+                >Blog</a
+              >
+            </li>
+            <li class="m-0">
+              <a
+                href="#"
+                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-3 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Search Result container -->
+      <div
+        id="search-results"
+        class="bg-[var(--neutral-50)] shadow rounded hidden !max-h-[100px] overflow-auto p-5"
+      ></div>
+    </nav>
+
+    <!-- Sidebar Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="fixed top-0 left-0 h-full w-[88%] bg-[var(--secondary-color)] shadow-lg transform -translate-x-full transition-transform duration-300 z-50 overflow-hidden"
+    >
+      <div class="p-3 flex flex-col h-full w-full">
+        <div
+          class="flex justify-between items-center border-b border-[var(--border)] p-3"
+        >
+          <span class="font-bold text-[var(--primary-color)] text-lg"
+            >Menu</span
+          >
+          <button
+            id="close-menu"
+            class="text-[var(--primary-color)] text-xl cursor-pointer"
+          >
+            <i class="fa-solid fa-circle-xmark"></i>
+          </button>
+        </div>
+        <ul
+          class="flex flex-col p-4 pb-[70px] text-[var(--text)] font-medium overflow-y-auto"
+        >
+          <li>
+            <button
+              data-target="all-categories"
+              class="flex justify-between hover:text-[var(--primary-color)] items-center w-full py-2 dropdown-btn cursor-pointer"
+            >
+              <span>All Categories</span>
+              <i class="fas fa-chevron-right text-[var(--text)] text-xs"></i>
+            </button>
+          </li>
+
+          <li>
+            <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
+              >New Arrivals</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
+              >Best Sellers</a
+            >
+          </li>
+
+          <li>
+            <button
+              data-target="essentials"
+              class="flex justify-between hover:text-[var(--primary-color)] items-center w-full py-2 dropdown-btn cursor-pointer"
+            >
+              <span>Essentials</span>
+              <i class="fas fa-chevron-right text-[var(--text)] text-xs"></i>
+            </button>
+          </li>
+
+          <li>
+            <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
+              >Fruits & Vegetables</a
+            >
+          </li>
+
+          <li>
+            <button
+              data-target="fresh-frozen"
+              class="flex justify-between hover:text-[var(--primary-color)] items-center w-full py-2 dropdown-btn cursor-pointer"
+            >
+              <span>Fresh & Frozen</span>
+              <i class="fas fa-chevron-right text-[var(--text)] text-xs"></i>
+            </button>
+          </li>
+
+          <li>
+            <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
+              >Blog</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block py-2 hover:text-[var(--primary-color)]"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div
+        id="all-categories"
+        class="dropdown-panel absolute top-0 right-0 h-full w-full bg-[var(--secondary-color)] transform translate-x-full transition-transform duration-300"
+      >
+        <div class="p-3 flex items-center border-b border-[var(--border)]">
+          <button
+            class="back-btn text-[var(--primary-color)] text-xl cursor-pointer mr-4"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <span class="font-bold text-[var(--primary-color)] text-lg"
+            >All Categories</span
+          >
+        </div>
+        <ul
+          class="flex flex-col p-4 pb-[40px] space-y-2 text-sm text-[var(--text)] overflow-y-auto h-[calc(100%-120px)]"
+        >
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Instant Food & Mixes
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Instant Food & Mix</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Ready to Eat</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Instant Noodles</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dessert Mix</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Savoury Mix</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Oil, Ghee & Sauces
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Oil, Ghee & Sauces</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Food Oil</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Butter</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Ghee</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Seasoning Sauce</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Snacks & Sweets
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Snacks & Sweets</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Home Made Sweets</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Snacks</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Sweets</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Chips</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Biscuits, Cookies & Rusk</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dry Fruits & Seeds</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Pickles & Condiments
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Pickles & Condiments</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Pastes</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Chutneys</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Pulp & Jam</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Soy Products</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Coconut Products</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dry Fruits & Seeds</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Beverages
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Beverages</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Soft Drinks & Juices</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Milk Powder</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Tea</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Alcoholic Beverage</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div
+        id="essentials"
+        class="dropdown-panel absolute top-0 right-0 h-full w-full bg-[var(--secondary-color)] transform translate-x-full transition-transform duration-300"
+      >
+        <div class="p-3 flex items-center border-b border-[var(--border)]">
+          <button
+            class="back-btn text-[var(--primary-color)] text-xl cursor-pointer mr-4"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <span class="font-bold text-[var(--primary-color)] text-lg"
+            >Essentials</span
+          >
+        </div>
+        <ul
+          class="flex flex-col p-4 pb-[40px] space-y-2 text-sm text-[var(--text)] overflow-y-auto h-[calc(100%-120px)]"
+        >
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Instant Food & Mixes
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Instant Food & Mix</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Ready to Eat</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Instant Noodles</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dessert Mix</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Savoury Mix</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Oil, Ghee & Sauces
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Oil, Ghee & Sauces</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Food Oil</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Butter</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Ghee</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Seasoning Sauce</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Snacks & Sweets
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Snacks & Sweets</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Home Made Sweets</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Snacks</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Sweets</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Chips</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Biscuits, Cookies & Rusk</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dry Fruits & Seeds</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Pickles & Condiments
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Pickles & Condiments</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Pastes</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Chutneys</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Pulp & Jam</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Soy Products</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Coconut Products</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dry Fruits & Seeds</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Beverages
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Beverages</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Soft Drinks & Juices</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Milk Powder</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Tea</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Alcoholic Beverage</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div
+        id="fresh-frozen"
+        class="dropdown-panel absolute top-0 right-0 h-full w-full bg-[var(--secondary-color)] transform translate-x-full transition-transform duration-300"
+      >
+        <div class="p-3 flex items-center border-b border-[var(--border)]">
+          <button
+            class="back-btn text-[var(--primary-color)] text-xl cursor-pointer mr-4"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <span class="font-bold text-[var(--primary-color)] text-lg"
+            >Fresh & Frozen</span
+          >
+        </div>
+        <ul
+          class="flex flex-col p-4 pb-[40px] space-y-2 text-sm text-[var(--text)] overflow-y-auto h-[calc(100%-120px)]"
+        >
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Instant Food & Mixes
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Instant Food & Mix</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Ready to Eat</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Instant Noodles</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dessert Mix</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Savoury Mix</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Oil, Ghee & Sauces
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Oil, Ghee & Sauces</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Food Oil</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Butter</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Ghee</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Seasoning Sauce</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Snacks & Sweets
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Snacks & Sweets</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Home Made Sweets</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Snacks</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Sweets</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Chips</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Biscuits, Cookies & Rusk</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dry Fruits & Seeds</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Pickles & Condiments
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Pickles & Condiments</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Pastes</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Chutneys</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Pulp & Jam</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Soy Products</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Coconut Products</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Dry Fruits & Seeds</a
+            >
+          </li>
+
+          <h3 class="title font-bold text-[var(--primary-color)] underline">
+            Beverages
+          </h3>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >All Beverages</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Soft Drinks & Juices</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Milk Powder</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]">Tea</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-[var(--primary-color)]"
+              >Alcoholic Beverage</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mobile Bottom Navbar -->
+    <div
+      class="mobile-navigation font-primary fixed bottom-0 bg-[var(--primary-color)] p-1 left-0 w-full p-2 pt-0 lg:hidden z-50"
+    >
+      <div
+        class="navigation-wrap py-2 bg-[var(--secondary-color)] border border-[var(--border)] rounded-lg"
+      >
+        <div class="wrap">
+          <div class="flex">
+            <div class="flex-1 group">
+              <div
+                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+              >
+                <a href="#" class="whichlist pt-1">
+                  <h2 class="w-5 h-5 mx-auto relative cursor-pointer">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="20"
+                      viewBox="0 0 22 20"
+                      fill="none"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M10.9932 3.13581C8.9938 0.7984 5.65975 0.169643 3.15469 2.31001C0.649644 4.45038 0.296968 8.02898 2.2642 10.5604C3.89982 12.6651 8.84977 17.1041 10.4721 18.5408C10.6536 18.7016 10.7444 18.7819 10.8502 18.8135C10.9426 18.8411 11.0437 18.8411 11.1361 18.8135C11.2419 18.7819 11.3327 18.7016 11.5142 18.5408C13.1365 17.1041 18.0865 12.6651 19.7221 10.5604C21.6893 8.02898 21.3797 4.42787 18.8316 2.31001C16.2835 0.192157 12.9925 0.7984 10.9932 3.13581Z"
+                        stroke="#202124"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <span
+                      class="absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
+                    >
+                      0
+                    </span>
+                  </h2>
+                  <span class="block text-sm mt-1">wishlist</span>
+                  <span
+                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                  ></span>
+                </a>
+              </div>
+            </div>
+            <div class="flex-1 group">
+              <div
+                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+              >
+                <a href="#" class="cart pt-1">
+                  <h2 class="w-5 h-5 mx-auto relative cursor-pointer">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                    >
+                      <path
+                        d="M4.00014 13H17.1359C18.1487 13 18.6551 13 19.0582 12.8112C19.4134 12.6448 19.7118 12.3777 19.9163 12.0432C20.1485 11.6633 20.2044 11.16 20.3163 10.1534L20.9013 4.88835C20.9355 4.58088 20.9525 4.42715 20.9031 4.30816C20.8597 4.20366 20.7821 4.11697 20.683 4.06228C20.5702 4 20.4155 4 20.1062 4H3.50014M1 1H2.24844C2.51306 1 2.64537 1 2.74889 1.05032C2.84002 1.09463 2.91554 1.16557 2.96544 1.25376C3.02212 1.35394 3.03037 1.48599 3.04688 1.7501L3.95312 16.2499C3.96963 16.514 3.97788 16.6461 4.03456 16.7462C4.08446 16.8344 4.15998 16.9054 4.25111 16.9497C4.35463 17 4.48694 17 4.75156 17H18M6.5 20.5H6.51M15.5 20.5H15.51M7 20.5C7 20.7761 6.77614 21 6.5 21C6.22386 21 6 20.7761 6 20.5C6 20.2239 6.22386 20 6.5 20C6.77614 20 7 20.2239 7 20.5ZM16 20.5C16 20.7761 15.7761 21 15.5 21C15.2239 21 15 20.7761 15 20.5C15 20.2239 15.2239 20 15.5 20C15.7761 20 16 20.2239 16 20.5Z"
+                        stroke="#202124"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <span
+                      class="absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 px-1 py-0.5 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full"
+                    >
+                      0
+                    </span>
+                  </h2>
+                  <span class="block text-sm mt-1">Cart</span>
+                  <span
+                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                  ></span>
+                </a>
+              </div>
+            </div>
+            <div class="flex-1 group">
+              <div
+                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+              >
+                <a href="#" class="profile pt-1">
+                  <h2 class="w-5 h-5 mx-auto cursor-pointer">
+                    <i
+                      class="fa-solid fa-house text-[22px] text-[var(--black)]"
+                    ></i>
+                  </h2>
+                  <span class="block text-sm mt-1">Home</span>
+                  <span
+                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                  ></span>
+                </a>
+              </div>
+            </div>
+
+            <div class="flex-1 group">
+              <div
+                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+              >
+                <a href="#" class="search pt-1">
+                  <h2 class="w-5 h-5 mx-auto cursor-pointer">
+                    <svg
+                      class="w-6 h-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z"
+                        stroke="black"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </h2>
+                  <span class="block text-sm mt-1">Search</span>
+                  <span
+                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                  ></span>
+                </a>
+              </div>
+            </div>
+            <div class="flex-1 group">
+              <div
+                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+              >
+                <a href="#" class="profile pt-1">
+                  <h2 class="w-5 h-5 mx-auto cursor-pointer">
+                    <i
+                      class="far fa-user-circle text-[22px] text-[var(--black)]"
+                    ></i>
+                  </h2>
+                  <span class="block text-sm mt-1">Profile</span>
+                  <span
+                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                  ></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb">
+      <div class="custom-container">
+        <ol
+          class="flex justify-start font-secondary py-5 items-center space-x-1 md:space-x-3"
+        >
+          <li class="inline-flex items-center">
+            <a
+              href="./index.html"
+              class="item inline-flex items-center text-[var(--text2)] text-[16px] font-semibold hover:text-[var(--primary-color)]"
+            >
+              Home
+            </a>
+          </li>
+          <li class="inline-flex items-center">
+            <svg
+              class="w-6 h-6 text-[var(--text2)] mr-2"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M7.05 4.55L11.5 9l-4.45 4.45L8.5 15l6-6-6-6-1.45 1.45z"
+              />
+            </svg>
+            <a
+              href="./index.html"
+              class="item inline-flex items-center text-[var(--text2)] text-[16px] font-semibold hover:text-[var(--primary-color)]"
+            >
+              All Products
+            </a>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <svg
+                class="w-6 h-6 text-[var(--text2)]"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M7.05 4.55L11.5 9l-4.45 4.45L8.5 15l6-6-6-6-1.45 1.45z"
+                />
+              </svg>
+              <span
+                class="item active ml-1 text-[16px] font-semibold font-secondary text-[var(--primary-color)] md:ml-2"
+                >Seeds of Change Organic Red Rice</span
+              >
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Single Product Start -->
+    <div class="product-page">
+      <div class="custom-container">
+        <div class="content-box max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="single-slide space-y-4">
+              <div
+                class="relative overflow-hidden bg-[var(--secondary-color)] rounded-lg border border-[var(--border)] p-4"
+              >
+                <div
+                  id="mainSlider"
+                  class="flex transition-transform duration-300 ease-in-out"
+                >
+                  <div class="min-w-full flex-shrink-0">
+                    <div
+                      class="zoom-container group cursor-default md:cursor-crosshair relative"
+                      onmousemove="handleZoom(event, this)"
+                      onmouseleave="resetZoom(this)"
+                    >
+                      <img
+                        src="./assets/img/home/frozen1.webp"
+                        alt="Anjappar Pani Puri Chips Front"
+                        class="zoom-image origin-center w-full h-96 object-contain"
+                      />
+                      <div
+                        class="zoom-lens hidden md:block pointer-events-none group-hover:opacity-[1] transition duration-300 absolute border-1 !border-[var(--primery-color)] w-24 h-24 rounded-full opacity-0"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="min-w-full flex-shrink-0">
+                    <div
+                      class="zoom-container group cursor-default md:cursor-crosshair relative"
+                      onmousemove="handleZoom(event, this)"
+                      onmouseleave="resetZoom(this)"
+                    >
+                      <img
+                        src="./assets/img/home/frozen1.webp"
+                        alt="Anjappar Pani Puri Chips Back"
+                        class="zoom-image origin-center w-full h-96 object-contain p-4"
+                      />
+                      <div
+                        class="zoom-lens hidden md:block pointer-events-none group-hover:opacity-[1] transition duration-300 absolute border-1 !border-[var(--primery-color)] w-24 h-24 rounded-full opacity-0"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="min-w-full flex-shrink-0">
+                    <div
+                      class="zoom-container group cursor-default md:cursor-crosshair relative"
+                      onmousemove="handleZoom(event, this)"
+                      onmouseleave="resetZoom(this)"
+                    >
+                      <img
+                        src="./assets/img/home/frozen1.webp"
+                        alt="Anjappar Pani Puri Chips Opened"
+                        class="zoom-image origin-center w-full h-96 object-contain p-4"
+                      />
+                      <div
+                        class="zoom-lens hidden md:block pointer-events-none group-hover:opacity-[1] transition duration-300 absolute border-1 !border-[var(--primery-color)] w-24 h-24 rounded-full opacity-0"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="min-w-full flex-shrink-0">
+                    <div
+                      class="zoom-container group cursor-default md:cursor-crosshair relative"
+                      onmousemove="handleZoom(event, this)"
+                      onmouseleave="resetZoom(this)"
+                    >
+                      <img
+                        src="./assets/img/home/frozen1.webp"
+                        alt="Anjappar Pani Puri Chips Served"
+                        class="zoom-image origin-center w-full h-96 object-contain p-4"
+                      />
+                      <div
+                        class="zoom-lens hidden md:block pointer-events-none group-hover:opacity-[1] transition duration-300 absolute border-1 !border-[var(--primery-color)] w-24 h-24 rounded-full opacity-0"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Prev/next Button -->
+                <button
+                  class="hidden absolute top-1/2 -translate-y-1/2 left-4 bg-black/50 text-[var(--secondary-color)] w-10 h-10 rounded-full items-center justify-center cursor-pointer z-10 hover:bg-black/70 transition-colors"
+                  onclick="prevSlide()"
+                >
+                  ‹
+                </button>
+                <button
+                  class="hidden absolute top-1/2 -translate-y-1/2 right-4 bg-black/50 text-[var(--secondary-color)] w-10 h-10 rounded-full items-center justify-center cursor-pointer z-10 hover:bg-black/70 transition-colors"
+                  onclick="nextSlide()"
+                >
+                  ›
+                </button>
+                <!-- Prev/next Button -->
+              </div>
+
+              <div class="multiple-img-box flex gap-2 justify-center">
+                <img
+                  src="./assets/img/home/frozen1.webp"
+                  alt="Thumbnail 1"
+                  class="thumbnail w-16 h-16 object-cover rounded-lg border-2 border-[var(--border)] p-1 cursor-pointer transition-opacity"
+                  onclick="goToSlide(0)"
+                />
+                <img
+                  src="./assets/img/home/frozen1.webp"
+                  alt="Thumbnail 2"
+                  class="thumbnail w-16 h-16 object-cover rounded-lg border-2 border-[var(--border)] p-1 cursor-pointer transition-opacity"
+                  onclick="goToSlide(1)"
+                />
+                <img
+                  src="./assets/img/home/frozen1.webp"
+                  alt="Thumbnail 3"
+                  class="thumbnail w-16 h-16 object-cover rounded-lg border-2 border-[var(--border)] p-1 cursor-pointer transition-opacity"
+                  onclick="goToSlide(2)"
+                />
+                <img
+                  src="./assets/img/home/frozen1.webp"
+                  alt="Thumbnail 4"
+                  class="thumbnail w-16 h-16 object-cover rounded-lg border-2 border-[var(--border)] p-1 cursor-pointer transition-opacity"
+                  onclick="goToSlide(3)"
+                />
+              </div>
+
+              <!-- Pagination -->
+              <div class="pagination hidden justify-center gap-2 mt-4">
+                <div
+                  class="slider-dot w-3 h-3 rounded-full bg-[var(--text2)] cursor-pointer transition-colors active-dot-bg"
+                  onclick="goToSlide(0)"
+                ></div>
+                <div
+                  class="slider-dot w-3 h-3 rounded-full bg-[var(--text2)] cursor-pointer transition-colors"
+                  onclick="goToSlide(1)"
+                ></div>
+                <div
+                  class="slider-dot w-3 h-3 rounded-full bg-[var(--text2)] cursor-pointer transition-colors"
+                  onclick="goToSlide(2)"
+                ></div>
+                <div
+                  class="slider-dot w-3 h-3 rounded-full bg-[var(--text2)] cursor-pointer transition-colors"
+                  onclick="goToSlide(3)"
+                ></div>
+              </div>
+            </div>
+            <!-- Pagination -->
+
+            <div class="space-y-6">
+              <div>
+                <h1 class="text-xl lg:text-3xl font-bold text-[var(--text)] mb-2">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h1>
+
+                <div class="flex items-center gap-2 my-4">
+                  <div class="star-wrap flex text-yellow-500">
+                    <span class="star text-[20px]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 20 19" fill="none">
+  <path d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z" fill="#EEB13C"/>
+</svg>
+                    </span>
+                  </div>
+                  <p class="ratting text-sm text-[var(--text2)]"
+                    ><strong>4.9 Rating </strong> (15 reviews)</p
+                  >
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex items-center gap-4">
+                  <div class="flex flex-col items-baseline gap-2">
+                  <span class="text-lg text-[var(--text2)] line-through">229€</span>
+                  <span class="text-3xl font-bold text-[var(--primary-color)]">149€</span>
+                  
+                </div>
+                <div class="flex flex-col items-baseline gap-2">
+                  <span
+                    class="text-sm text-[var(--text)] bg-[var(--accent4)] px-2 py-1 rounded-full font-medium"
+                    >35% OFF</span
+                  >
+                  <p class="text-sm font-semibold text-[var(--primary-color)] p-2 rounded-lg bg-[var(--accent1)]">
+                  Incl. Tax excl. Shipping costs
+                </p>
+                </div>
+                </div>
+                
+              </div>
+
+              <hr class="border-[var(--border)]" />
+
+              <div class="quantity space-y-3">
+                <label class="title block text-sm font-medium text-[var(--primary-color)]"
+                  >Quantity</label
+                >
+                <div class="inline-flex p-1 items-center gap-3 border border-[var(--border)] rounded-full">
+                  <button
+                    onclick="decreaseQuantity()"
+                    class="w-10 h-10 rounded-full border border-[var(--text2)] flex items-center justify-center hover:bg-gray-50 transition-colors"
+                  >
+                    −
+                  </button>
+                  <span id="quantity" class="w-12 text-center font-medium"
+                    >1</span
+                  >
+                  <button
+                    onclick="increaseQuantity()"
+                    class="w-10 h-10 rounded-full bg-emerald-600 text-[var(--secondary-color)] flex items-center justify-center hover:bg-emerald-700 transition-colors"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <div class="space-y-3">
+                <button
+                  class="w-full bg-emerald-600 text-[var(--secondary-color)] py-3 px-6 rounded-lg font-medium hover:bg-emerald-700 transition-colors"
+                >
+                  🛒 Add to Cart
+                </button>
+                <button
+                  class="w-full border border-[var(--text2)] text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                >
+                  ♡ Add to Wishlist
+                </button>
+              </div>
+
+              <div class="space-y-4">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h3 class="font-medium text-[var(--text)] mb-2">
+                    Secure your payment guarantee
+                  </h3>
+                  <div class="flex gap-2 flex-wrap">
+                    <div
+                      class="bg-blue-600 text-[var(--secondary-color)] px-2 py-1 rounded text-xs"
+                    >
+                      VISA
+                    </div>
+                    <div
+                      class="bg-red-600 text-[var(--secondary-color)] px-2 py-1 rounded text-xs"
+                    >
+                      MC
+                    </div>
+                    <div
+                      class="bg-blue-800 text-[var(--secondary-color)] px-2 py-1 rounded text-xs"
+                    >
+                      AMEX
+                    </div>
+                    <div
+                      class="bg-gray-600 text-[var(--secondary-color)] px-2 py-1 rounded text-xs"
+                    >
+                      PayPal
+                    </div>
+                  </div>
+                </div>
+
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center gap-2">
+                    <span class="text-green-600">🚚</span>
+                    <span>Free Shipping Over ₹30</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-blue-600">📦</span>
+                    <span>Delivery 3-4 business days / Express 1 day</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-purple-600">📤</span>
+                    <span>Share</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Single Product Page End -->
+
+    <!-- Banner Start -->
+    <div class="banner my-[60px]">
+      <div class="custom-container">
+        <div
+          class="wrapper w-full md:max-w-[80%] rounded-lg flex flex-col lg:flex-row items-center justify-between mx-auto p-6 bg-[url(../assets/img/home/CTA-bg.png)] bg-no-repeat bg-cover"
+        >
+          <!-- Details -->
+          <div class="details py-8 w-full lg:w-1/2">
+            <span
+              class="bg-[#78C841] text-[var(--text)] text-xs font-semibold px-3 py-1 rounded-full font-primary"
+              >Only This Week</span
+            >
+            <h3
+              class="text-[28px] lg:text-[34px] leading-snug font-bold text-[var(--secondary-color)] title mt-2"
+            >
+              Provides you the quality that’s you expected
+            </h3>
+            <button
+              class="mt-8 lg:mt-10 bg-[var(--accent4)] text-[var(--text)] font-semibold text-[16px] px-5 py-2 rounded-full hover:bg-[var(--secondary-color)] cursor-pointer transition duration-300 shop-btn"
+            >
+              Shop Now
+            </button>
+          </div>
+
+          <!-- Image -->
+          <div class="img-box w-full lg:w-1/2 flex justify-center mt-6 lg:mt-0">
+            <img
+              src="./assets/img/home/banner.png"
+              alt="Banner"
+              class="w-48 md:w-56 lg:w-72"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Banner End -->
+
+    <!-- Footer Start -->
+    <footer class="footer bg-[var(--accent1)] pt-[50px] lg:mb-0 mb-[78.16px]">
+      <div class="custom-container">
+        <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div
+            class="flex flex-col items-center md:items-start text-center md:text-left"
+          >
+            <div class="flex items-center mb-4">
+              <a href="./index.html" class="w-[150px] object-contain">
+                <img src="./assets/icon/logo.png" alt="" />
+              </a>
+            </div>
+            <p class="text-sm text-[var(--text2)] leading-relaxed">
+              Contrary to popular belief, Lorem Ipsum is not simply random text.
+            </p>
+
+            <div class="mt-4">
+              <h4 class="font-semibold text-lg mb-4">Follow Us:</h4>
+              <div class="flex space-x-2 justify-start">
+                <a
+                  href="#"
+                  class="h-8 w-8 rounded-full border border-[var(--black)] hover:border-[var(--primary-color)] flex items-center justify-center hover:bg-[var(--primary-color)] transition duration-300 group"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="11"
+                    height="22"
+                    viewBox="0 0 11 22"
+                    fill="none"
+                  >
+                    <path
+                      class="group-hover:fill-white"
+                      d="M10.0499 7.07914H6.71242V4.89022C6.71242 4.06817 7.25725 3.87652 7.64099 3.87652C8.02386 3.87652 9.99624 3.87652 9.99624 3.87652V0.26266L6.75259 0.25C3.15183 0.25 2.3324 2.94533 2.3324 4.67019V7.07914H0.25V10.803H2.3324C2.3324 15.5821 2.3324 21.3403 2.3324 21.3403H6.71242C6.71242 21.3403 6.71242 15.5253 6.71242 10.803H9.66795L10.0499 7.07914Z"
+                      fill="#202124"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="h-8 w-8 rounded-full border border-[var(--black)] hover:border-[var(--primary-color)] flex items-center justify-center hover:bg-[var(--primary-color)] transition duration-300 group"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="21"
+                    height="21"
+                    viewBox="0 0 21 21"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_170_948)">
+                      <mask
+                        id="mask0_170_948"
+                        style="mask-type: luminance"
+                        maskUnits="userSpaceOnUse"
+                        x="0"
+                        y="0"
+                        width="21"
+                        height="21"
+                      >
+                        <path d="M20.1712 0H0V20.625H20.1712V0Z" fill="white" />
+                      </mask>
+                      <g mask="url(#mask0_170_948)">
+                        <path
+                          class="group-hover:fill-white"
+                          d="M12.0046 8.7288L19.5137 0H17.7343L11.2141 7.57909L6.00643 0H0L7.87502 11.4609L0 20.6144H1.77953L8.66504 12.6106L14.1647 20.6144H20.1712L12.0041 8.7288H12.0046ZM9.56726 11.5619L8.76936 10.4207L2.42072 1.33961H5.15398L10.2774 8.6683L11.0753 9.80955L17.7351 19.3357H15.0019L9.56726 11.5623V11.5619Z"
+                          fill="#202124"
+                        />
+                      </g>
+                      <path
+                        class="group-hover:fill-white"
+                        d="M3.4375 0.6875H5.84375L19.25 19.9375H16.8438L3.4375 0.6875Z"
+                        fill="#202124"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_170_948">
+                        <rect width="20.1712" height="20.625" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="h-8 w-8 rounded-full border border-[var(--black)] hover:border-[var(--primary-color)] flex items-center justify-center hover:bg-[var(--primary-color)] transition duration-300 group"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    fill="none"
+                  >
+                    <path
+                      class="group-hover:fill-white"
+                      d="M13.9999 2.05371C10.7553 2.05371 10.3485 2.06746 9.07427 2.1256C7.80269 2.18365 6.93425 2.38557 6.17431 2.68092C5.38871 2.98622 4.72248 3.39472 4.05833 4.05886C3.39418 4.72301 2.98569 5.38925 2.68038 6.17484C2.38504 6.93474 2.18311 7.80318 2.12507 9.07476C2.06693 10.349 2.05322 10.7558 2.05322 14.0004C2.05322 17.2448 2.06693 17.6517 2.12507 18.9259C2.18311 20.1975 2.38504 21.0659 2.68038 21.8258C2.98569 22.6114 3.39418 23.2777 4.05833 23.9419C4.72248 24.606 5.38871 25.0145 6.17431 25.3198C6.93425 25.6151 7.80269 25.8171 9.07427 25.8751C10.3485 25.9332 10.7553 25.947 13.9999 25.947C17.2444 25.947 17.6512 25.9332 18.9254 25.8751C20.197 25.8171 21.0654 25.6151 21.8253 25.3198C22.6109 25.0145 23.2772 24.606 23.9414 23.9419C24.6055 23.2777 25.014 22.6114 25.3193 21.8258C25.6146 21.0659 25.8166 20.1975 25.8746 18.9259C25.9327 17.6517 25.9465 17.2448 25.9465 14.0004C25.9465 10.7558 25.9327 10.349 25.8746 9.07476C25.8166 7.80318 25.6146 6.93474 25.3193 6.17484C25.014 5.38925 24.6055 4.72301 23.9414 4.05886C23.2772 3.39472 22.6109 2.98622 21.8253 2.68092C21.0654 2.38557 20.197 2.18365 18.9254 2.1256C17.6512 2.06746 17.2444 2.05371 13.9999 2.05371ZM13.9999 4.2063C17.1897 4.2063 17.5676 4.21844 18.8273 4.27592C19.9921 4.32908 20.6247 4.5237 21.0456 4.68726C21.6033 4.90397 22.0012 5.1629 22.4193 5.58093C22.8373 5.99895 23.0962 6.39697 23.3129 6.95456C23.4765 7.37552 23.6712 8.00809 23.7243 9.17287C23.7817 10.4326 23.7939 10.8105 23.7939 14.0004C23.7939 17.1902 23.7817 17.5681 23.7243 18.8278C23.6712 19.9926 23.4765 20.6251 23.3129 21.0461C23.0962 21.6037 22.8373 22.0017 22.4193 22.4197C22.0012 22.8378 21.6033 23.0967 21.0456 23.3134C20.6247 23.477 19.9921 23.6716 18.8273 23.7248C17.5678 23.7822 17.19 23.7944 13.9999 23.7944C10.8097 23.7944 10.432 23.7822 9.17239 23.7248C8.0076 23.6716 7.37504 23.477 6.95407 23.3134C6.39643 23.0967 5.99846 22.8378 5.58039 22.4197C5.16236 22.0017 4.90344 21.6037 4.68677 21.0461C4.52316 20.6251 4.32854 19.9926 4.27538 18.8278C4.2179 17.5681 4.20576 17.1902 4.20576 14.0004C4.20576 10.8105 4.2179 10.4326 4.27538 9.17287C4.32854 8.00809 4.52316 7.37552 4.68677 6.95456C4.90344 6.39697 5.16236 5.99895 5.58039 5.58093C5.99846 5.1629 6.39643 4.90397 6.95407 4.68726C7.37504 4.5237 8.0076 4.32908 9.17239 4.27592C10.4321 4.21844 10.81 4.2063 13.9999 4.2063Z"
+                      fill="#202124"
+                    />
+                    <path
+                      class="group-hover:fill-white"
+                      d="M14 17.9822C11.8007 17.9822 10.0178 16.1993 10.0178 14C10.0178 11.8007 11.8007 10.0178 14 10.0178C16.1993 10.0178 17.9822 11.8007 17.9822 14C17.9822 16.1993 16.1993 17.9822 14 17.9822ZM14 7.86523C10.6118 7.86523 7.86523 10.6118 7.86523 14C7.86523 17.3881 10.6118 20.1347 14 20.1347C17.3881 20.1347 20.1347 17.3881 20.1347 14C20.1347 10.6118 17.3881 7.86523 14 7.86523Z"
+                      fill="#202124"
+                    />
+                    <path
+                      class="group-hover:fill-white"
+                      d="M21.8106 7.62303C21.8106 8.41479 21.1687 9.0566 20.3769 9.0566C19.5852 9.0566 18.9434 8.41479 18.9434 7.62303C18.9434 6.83127 19.5852 6.18945 20.3769 6.18945C21.1687 6.18945 21.8106 6.83127 21.8106 7.62303Z"
+                      fill="#202124"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="h-8 w-8 rounded-full border border-[var(--black)] hover:border-[var(--primary-color)] flex items-center justify-center hover:bg-[var(--primary-color)] transition duration-300 group"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="31"
+                    height="31"
+                    viewBox="0 0 31 31"
+                    fill="none"
+                  >
+                    <path
+                      class="group-hover:fill-white"
+                      d="M10.0833 23.9479H6.302V11.3438H10.0833V23.9479ZM23.9478 23.9479H20.1666V17.2148C20.1666 15.4603 19.5414 14.5868 18.3024 14.5868C17.3206 14.5868 16.6979 15.0758 16.3853 16.0552C16.3853 17.6458 16.3853 23.9479 16.3853 23.9479H12.6041C12.6041 23.9479 12.6545 12.6042 12.6041 11.3438H15.5888L15.8194 13.8646H15.8976C16.6727 12.6042 17.9117 11.7496 19.6107 11.7496C20.9027 11.7496 21.9476 12.1088 22.7454 13.0113C23.5483 13.915 23.9478 15.1275 23.9478 16.8303V23.9479Z"
+                      fill="#202124"
+                    />
+                    <path
+                      class="group-hover:fill-white"
+                      d="M8.19266 10.084C9.27163 10.084 10.1463 9.23752 10.1463 8.19336C10.1463 7.1492 9.27163 6.30273 8.19266 6.30273C7.11369 6.30273 6.23901 7.1492 6.23901 8.19336C6.23901 9.23752 7.11369 10.084 8.19266 10.084Z"
+                      fill="#202124"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="grid grid-cols-2 col-span-2 gap-8 md:gap-4 md:grid-cols-2 md:text-left"
+          >
+            <div>
+              <h4 class="font-semibold text-lg mb-4">Top Categories</h4>
+              <ul class="space-y-2 text-sm text-[var(--text2)]">
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Weekly Deals</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Basmati Rice</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Fresh & Frozen</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Flour & Flatbreads</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Fruits & Vegetables</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Ready to Eat</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Rakhi</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Snacks & Sweet</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >More...</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-lg mb-4">Company</h4>
+              <ul class="space-y-2 text-sm text-[var(--text2)]">
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Shipping Info</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Contact Us</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Blog</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >Career</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="item hover:underline hover:text-[var(--primary-color)] font-medium font-secondary"
+                    >FAQ's</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-lg mb-4">Hotline:</h4>
+            <p class="text-sm text-[var(--text2)]">Mo-Fr 9:00am - 5:00pm</p>
+            <p class="text-sm text-[var(--text2)] mb-4">+49 6258 130 4100</p>
+
+            <div class="flex items-center mb-4">
+              <div class="bg-[var(--primary-color)] p-2 rounded-full mr-2">
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="18"
+                  viewBox="0 0 22 18"
+                  fill="none"
+                >
+                  <path
+                    d="M1 4L9.16492 9.71544C9.82609 10.1783 10.1567 10.4097 10.5163 10.4993C10.8339 10.5785 11.1661 10.5785 11.4837 10.4993C11.8433 10.4097 12.1739 10.1783 12.8351 9.71544L21 4M5.8 17H16.2C17.8802 17 18.7202 17 19.362 16.673C19.9265 16.3854 20.3854 15.9265 20.673 15.362C21 14.7202 21 13.8802 21 12.2V5.8C21 4.11984 21 3.27976 20.673 2.63803C20.3854 2.07354 19.9265 1.6146 19.362 1.32698C18.7202 1 17.8802 1 16.2 1H5.8C4.11984 1 3.27976 1 2.63803 1.32698C2.07354 1.6146 1.6146 2.07354 1.32698 2.63803C1 3.27976 1 4.11984 1 5.8V12.2C1 13.8802 1 14.7202 1.32698 15.362C1.6146 15.9265 2.07354 16.3854 2.63803 16.673C3.27976 17 4.11984 17 5.8 17Z"
+                    stroke="#E7E7E7"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <a
+                href="mailto:info@example.com"
+                class="text-sm text-[var(--text2)]"
+                >info@example.com</a
+              >
+            </div>
+
+            <div class="mt-4 md:mt-0">
+              <h4 class="font-semibold text-lg mb-2">Pay With:</h4>
+              <div class="flex flex-wrap items-center gap-2">
+                <img src="./assets/img/pay1.png" alt="" class="h-5 w-auto" />
+                <img src="./assets/img/pay2.png" alt="" class="h-5 w-auto" />
+                <img
+                  src="./assets/img/pay3.png"
+                  alt="Visa"
+                  class="h-5 w-auto"
+                />
+                <img
+                  src="./assets/img/pay4.png"
+                  alt="Mastercard"
+                  class="h-5 w-auto"
+                />
+                <img
+                  src="./assets/img/pay5.png"
+                  alt="Amex"
+                  class="h-5 w-auto"
+                />
+                <img
+                  src="./assets/img/pay6.png"
+                  alt="Discover"
+                  class="h-5 w-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="copyright flex flex-col md:flex-row gap-1 items-center justify-between border-t border-[var(--border)] mt-[20px] py-[20px] text-center md:text-left"
+        >
+          <p class="mb-2 md:mb-0 text-sm text-[var(--text2)]">
+            &copy; 2025 Shop Jet. All rights reserved.
+          </p>
+          <div class="flex items-center space-x-2">
+            <p
+              class="text font-medium font-secondary text-sm text-[var(--text2)]"
+            >
+              Terms and Conditions
+            </p>
+            <a
+              href="#"
+              class="link text-sm hover:underline text-[var(--text2)] hover:text-[var(--primary-color)] font-medium font-secondary"
+              >Privacy Policy</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- JQUERY JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Nice Select JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-nice-select@1.1.0/js/jquery.nice-select.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- JS Link -->
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

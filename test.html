@@ -3,421 +3,379 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-commerce Store</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <!-- Nice Select CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/jquery-nice-select@1.1.0/css/nice-select.css"
-    />
+    <title>Anjappar - 200g Pani Puri Chips (Golgappa)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* Range slider styles restored from original */
-      .range-slider {
-        position: relative;
-        width: 100%;
-        height: 6px;
+      /* This is the only custom CSS block. It's necessary for the image zoom functionality
+           because there's no direct Tailwind utility for `transform-origin` with variable values
+           or for dynamically positioning an element relative to the mouse cursor.
+           The rest of the styles are purely Tailwind. */
+      .zoom-container {
+        cursor: crosshair;
       }
-      .range-slider input[type="range"] {
-        -webkit-appearance: none;
-        width: 100%;
-        height: 6px;
-        background: transparent;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+
+      .zoom-lens {
         pointer-events: none;
-        z-index: 3;
+        transition: opacity 0.2s;
       }
-      .range-slider input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: #e6ddfa;
-        cursor: pointer;
-        border: 1px solid black;
-        pointer-events: all;
-        position: relative;
-        z-index: 5;
+
+      .zoom-container:hover .zoom-lens {
+        opacity: 1;
       }
-      .slider-track {
-        position: absolute;
-        height: 6px;
-        background: #8b5cf6;
-        border-radius: 9999px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 2;
+
+      .zoom-image {
+        transition: transform 0.1s ease-out;
+        transform-origin: center;
       }
-      .slider-bg {
-        position: absolute;
-        height: 6px;
-        background: #d1d5db;
-        border-radius: 9999px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        z-index: 1;
+
+      @media (max-width: 1024px) {
+        .zoom-container {
+          cursor: default;
+        }
+
+        .zoom-lens {
+          display: none;
+        }
       }
     </style>
   </head>
-  <body class="bg-gray-100 font-sans">
-    <header class="bg-purple-700 text-white p-4 md:p-6 text-center">
-      <h1 class="text-xl md:text-3xl font-bold">Get 10% Cashback</h1>
-      <p class="text-md md:text-lg mt-2">on Shopping €150</p>
-    </header>
-
-    <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row gap-6">
-      <!-- Sidebar Filter -->
-      <aside class="w-full md:w-1/4 bg-white p-4 rounded-lg shadow-md">
-        <div class="flex justify-between items-center">
-          <h2 class="text-lg font-semibold text-gray-800">Filter</h2>
-          <button
-            id="filterToggle"
-            class="md:hidden p-2 text-gray-500 hover:text-gray-700"
-            aria-label="Toggle filter menu"
-          >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+  <body class="bg-gray-50 font-sans">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <div class="relative overflow-hidden bg-white rounded-lg shadow-sm">
+            <div
+              id="mainSlider"
+              class="flex transition-transform duration-300 ease-in-out"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
-            </svg>
-          </button>
-        </div>
-
-        <div
-          id="filterMenu"
-          class="md:block transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0 md:max-h-full md:opacity-100"
-          data-closed="max-h-0 opacity-0 pt-0 pb-0"
-          data-open="max-h-screen opacity-100"
-        >
-          <!-- Search Input -->
-          <div class="mb-6">
-            <input
-              type="text"
-              placeholder="Search products..."
-              class="w-full p-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
-              aria-label="Search products"
-            />
-          </div>
-
-          <!-- Category Radio -->
-          <div class="mb-6">
-            <h3 class="text-md font-medium text-gray-700 mb-2">Category</h3>
-            <label class="flex items-center mb-2 text-sm text-gray-700">
-              <input
-                type="radio"
-                name="category"
-                class="form-radio text-purple-600 mr-2"
-              />
-              Fruits & Vegetables (128)
-            </label>
-            <label class="flex items-center mb-2 text-sm text-gray-700">
-              <input
-                type="radio"
-                name="category"
-                class="form-radio text-purple-600 mr-2"
-              />
-              Dairy & Breakfast (90)
-            </label>
-            <label class="flex items-center mb-2 text-sm text-gray-700">
-              <input
-                type="radio"
-                name="category"
-                class="form-radio text-purple-600 mr-2"
-              />
-              Snacks (56)
-            </label>
-          </div>
-
-          <!-- Brand -->
-          <div class="mb-6">
-            <h3 class="text-md font-medium text-gray-700 mb-2">Brand</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-2">
-              <div class="relative">
-                <img
-                  src="https://via.placeholder.com/60x30?text=Brand1"
-                  alt="Brand1"
-                  class="brand-logo border border-gray-300 rounded cursor-pointer w-full"
-                />
-                <span
-                  class="brand-check hidden absolute top-0 right-0 bg-purple-900 text-white rounded-bl-full p-1"
+              <div class="min-w-full flex-shrink-0">
+                <div
+                  class="zoom-container relative"
+                  onmousemove="handleZoom(event, this)"
+                  onmouseleave="resetZoom(this)"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="10"
-                    height="14"
-                    viewBox="0 0 14 10"
-                    fill="none"
-                  >
-                    <path
-                      d="M12.3957 1L5.06234 8.33333L1.729 5"
-                      stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </span>
+                  <img
+                    src="./assets/img/home/arrival1.webp"
+                    alt="Anjappar Pani Puri Chips Front"
+                    class="zoom-image w-full h-96 object-contain p-4"
+                  />
+                  <div
+                    class="zoom-lens absolute border-2 border-emerald-600 bg-emerald-600/10 w-24 h-24 rounded-full opacity-0"
+                  ></div>
+                </div>
               </div>
-              <div class="relative">
-                <img
-                  src="https://via.placeholder.com/60x30?text=Brand2"
-                  alt="Brand2"
-                  class="brand-logo border border-gray-300 rounded cursor-pointer w-full"
-                />
-                <span
-                  class="brand-check hidden absolute top-0 right-0 bg-purple-900 text-white rounded-bl-full p-1"
+              <div class="min-w-full flex-shrink-0">
+                <div
+                  class="zoom-container relative"
+                  onmousemove="handleZoom(event, this)"
+                  onmouseleave="resetZoom(this)"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="10"
-                    height="14"
-                    viewBox="0 0 14 10"
-                    fill="none"
-                  >
-                    <path
-                      d="M12.3957 1L5.06234 8.33333L1.729 5"
-                      stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </span>
+                  <img
+                    src="./assets/img/home/arrival1.webp"
+                    alt="Anjappar Pani Puri Chips Back"
+                    class="zoom-image w-full h-96 object-contain p-4"
+                  />
+                  <div
+                    class="zoom-lens absolute border-2 border-emerald-600 bg-emerald-600/10 w-24 h-24 rounded-full opacity-0"
+                  ></div>
+                </div>
               </div>
-              <div class="relative">
-                <img
-                  src="https://via.placeholder.com/60x30?text=Brand3"
-                  alt="Brand3"
-                  class="brand-logo border border-gray-300 rounded cursor-pointer w-full"
-                />
-                <span
-                  class="brand-check hidden absolute top-0 right-0 bg-purple-900 text-white rounded-bl-full p-1"
+              <div class="min-w-full flex-shrink-0">
+                <div
+                  class="zoom-container relative"
+                  onmousemove="handleZoom(event, this)"
+                  onmouseleave="resetZoom(this)"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="10"
-                    height="14"
-                    viewBox="0 0 14 10"
-                    fill="none"
-                  >
-                    <path
-                      d="M12.3957 1L5.06234 8.33333L1.729 5"
-                      stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </span>
+                  <img
+                    src="./assets/img/home/arrival1.webp"
+                    alt="Anjappar Pani Puri Chips Opened"
+                    class="zoom-image w-full h-96 object-contain p-4"
+                  />
+                  <div
+                    class="zoom-lens absolute border-2 border-emerald-600 bg-emerald-600/10 w-24 h-24 rounded-full opacity-0"
+                  ></div>
+                </div>
+              </div>
+              <div class="min-w-full flex-shrink-0">
+                <div
+                  class="zoom-container relative"
+                  onmousemove="handleZoom(event, this)"
+                  onmouseleave="resetZoom(this)"
+                >
+                  <img
+                    src="./assets/img/home/arrival1.webp"
+                    alt="Anjappar Pani Puri Chips Served"
+                    class="zoom-image w-full h-96 object-contain p-4"
+                  />
+                  <div
+                    class="zoom-lens absolute border-2 border-emerald-600 bg-emerald-600/10 w-24 h-24 rounded-full opacity-0"
+                  ></div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Dual Range Slider -->
-          <div class="mb-6">
-            <h3 class="text-md font-medium text-gray-700 mb-4">Price Range</h3>
-            <div class="range-slider">
-              <div class="slider-bg"></div>
-              <div id="sliderTrack" class="slider-track"></div>
-              <input
-                type="range"
-                id="minRange"
-                min="0"
-                max="1000"
-                value="100"
-                step="1"
-              />
-              <input
-                type="range"
-                id="maxRange"
-                min="0"
-                max="1000"
-                value="500"
-                step="1"
-              />
-            </div>
-            <div class="flex justify-between text-sm text-gray-600 mt-6">
-              <span id="minValue">€100</span>
-              <span id="maxValue">€500</span>
-            </div>
-          </div>
-
-          <button
-            class="bg-purple-600 text-white w-full py-2 rounded-md hover:bg-purple-700 transition"
-          >
-            Apply
-          </button>
-        </div>
-      </aside>
-
-      <!-- Main Content -->
-      <main class="w-full md:w-3/4">
-        <div
-          class="flex justify-between items-center bg-white p-4 rounded-lg shadow-md mb-6"
-        >
-          <h2 class="text-lg font-semibold text-gray-800">All Products</h2>
-          <select id="sort-by" class="border-gray-300">
-            <option>Sort By</option>
-            <option>Price: Low to High</option>
-            <option>Price: High to Low</option>
-            <option>Newest</option>
-          </select>
-        </div>
-
-        <div
-          class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
-        >
-          <div class="bg-white p-4 rounded-lg shadow-md text-center">
-            <img
-              src="https://via.placeholder.com/150"
-              class="w-full h-32 object-contain mb-2"
-              alt="Product Name"
-            />
-            <h3 class="font-medium text-gray-800">Product Name</h3>
-            <p class="text-sm text-gray-500">Description</p>
-            <p class="text-purple-600 font-bold mt-2">€19.99</p>
             <button
-              class="bg-purple-600 text-white px-4 py-2 rounded-md mt-2 hover:bg-purple-700"
+              class="absolute top-1/2 -translate-y-1/2 left-4 bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer z-10 hover:bg-black/70 transition-colors"
+              onclick="prevSlide()"
             >
-              Add to Cart
+              ‹
+            </button>
+            <button
+              class="absolute top-1/2 -translate-y-1/2 right-4 bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer z-10 hover:bg-black/70 transition-colors"
+              onclick="nextSlide()"
+            >
+              ›
             </button>
           </div>
+
+          <div class="flex gap-2 justify-center">
+            <img
+              src="./assets/img/home/arrival1.webp"
+              alt="Thumbnail 1"
+              class="thumbnail w-16 h-16 object-cover rounded border-2 border-transparent cursor-pointer transition-opacity active-thumb-border"
+              onclick="goToSlide(0)"
+            />
+            <img
+              src="./assets/img/home/arrival1.webp"
+              alt="Thumbnail 2"
+              class="thumbnail w-16 h-16 object-cover rounded border-2 border-transparent cursor-pointer transition-opacity"
+              onclick="goToSlide(1)"
+            />
+            <img
+              src="./assets/img/home/arrival1.webp"
+              alt="Thumbnail 3"
+              class="thumbnail w-16 h-16 object-cover rounded border-2 border-transparent cursor-pointer transition-opacity"
+              onclick="goToSlide(2)"
+            />
+            <img
+              src="./assets/img/home/arrival1.webp"
+              alt="Thumbnail 4"
+              class="thumbnail w-16 h-16 object-cover rounded border-2 border-transparent cursor-pointer transition-opacity"
+              onclick="goToSlide(3)"
+            />
+          </div>
+
+          <div class="flex justify-center gap-2 mt-4">
+            <div
+              class="slider-dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer transition-colors active-dot-bg"
+              onclick="goToSlide(0)"
+            ></div>
+            <div
+              class="slider-dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer transition-colors"
+              onclick="goToSlide(1)"
+            ></div>
+            <div
+              class="slider-dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer transition-colors"
+              onclick="goToSlide(2)"
+            ></div>
+            <div
+              class="slider-dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer transition-colors"
+              onclick="goToSlide(3)"
+            ></div>
+          </div>
         </div>
-      </main>
+
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
+              Anjappar - 200g Pani Puri Chips (Golgappa)
+            </h1>
+
+            <div class="flex items-center gap-2 mb-4">
+              <div class="flex text-yellow-400">
+                <span>★★★★★</span>
+              </div>
+              <span class="text-sm text-gray-600">4.9 Rating (15 reviews)</span>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span
+                class="text-sm text-red-600 bg-red-100 px-2 py-1 rounded text-xs font-medium"
+                >35% OFF</span
+              >
+            </div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl font-bold text-emerald-600">₹149</span>
+              <span class="text-lg text-gray-500 line-through">₹229</span>
+            </div>
+            <p class="text-sm text-gray-600">Incl. Tax excl. Shipping costs</p>
+          </div>
+
+          <div class="space-y-3">
+            <label class="block text-sm font-medium text-gray-700"
+              >Quantity</label
+            >
+            <div class="flex items-center gap-3">
+              <button
+                onclick="decreaseQuantity()"
+                class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-colors"
+              >
+                −
+              </button>
+              <span id="quantity" class="w-12 text-center font-medium">1</span>
+              <button
+                onclick="increaseQuantity()"
+                class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-700 transition-colors"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <button
+              class="w-full bg-emerald-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-emerald-700 transition-colors"
+            >
+              🛒 Add to Cart
+            </button>
+            <button
+              class="w-full border border-gray-300 text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+            >
+              ♡ Add to Wishlist
+            </button>
+          </div>
+
+          <div class="space-y-4">
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h3 class="font-medium text-gray-900 mb-2">
+                Secure your payment guarantee
+              </h3>
+              <div class="flex gap-2 flex-wrap">
+                <div class="bg-blue-600 text-white px-2 py-1 rounded text-xs">
+                  VISA
+                </div>
+                <div class="bg-red-600 text-white px-2 py-1 rounded text-xs">
+                  MC
+                </div>
+                <div class="bg-blue-800 text-white px-2 py-1 rounded text-xs">
+                  AMEX
+                </div>
+                <div class="bg-gray-600 text-white px-2 py-1 rounded text-xs">
+                  PayPal
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-2 text-sm">
+              <div class="flex items-center gap-2">
+                <span class="text-green-600">🚚</span>
+                <span>Free Shipping Over ₹30</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-blue-600">📦</span>
+                <span>Delivery 3-4 business days / Express 1 day</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-purple-600">📤</span>
+                <span>Share</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Nice Select JS -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery-nice-select@1.1.0/js/jquery.nice-select.min.js"></script>
     <script>
-      $(document).ready(function () {
-        // Initialize nice select
-        $("#sort-by").niceSelect();
+      let currentSlide = 0;
+      const totalSlides = 4;
+      let quantity = 1;
 
-        const niceSelect = $("#sort-by").next(".nice-select");
+      function updateSlider() {
+        const slider = document.getElementById("mainSlider");
+        const containerWidth = slider.parentElement.offsetWidth;
+        const slideWidth = slider.children[0].offsetWidth;
 
-        niceSelect.on("click", function () {
-          const dropdown = $(this).find(".list");
-          const wrapper = $(this);
-
-          dropdown.css({ visibility: "hidden", display: "block" });
-
-          const rect = dropdown[0].getBoundingClientRect();
-          const wrapperRect = wrapper[0].getBoundingClientRect();
-          const viewportWidth = window.innerWidth;
-          const viewportHeight = window.innerHeight;
-
-          dropdown.css({
-            left: "auto",
-            right: "auto",
-            top: "auto",
-            bottom: "auto",
-          });
-
-          if (wrapperRect.left + dropdown.outerWidth() > viewportWidth) {
-            dropdown.css({ right: "0px", left: "auto" });
-          } else {
-            dropdown.css({ left: "0px", right: "auto" });
-          }
-
-          if (wrapperRect.bottom + dropdown.outerHeight() > viewportHeight) {
-            dropdown.css({ bottom: "100%", top: "auto" });
-          } else {
-            dropdown.css({ top: "100%", bottom: "auto" });
-          }
-
-          dropdown.css({ visibility: "", display: "" });
-        });
-
-        // Brand select toggle
-        $(".brand-logo").on("click", function () {
-          $(this).toggleClass("border-purple-600 border-2");
-          $(this)
-            .siblings(".brand-check")
-            .toggleClass("hidden flex items-center justify-center");
-        });
-
-        // Dual range slider
-        const minRange = document.getElementById("minRange");
-        const maxRange = document.getElementById("maxRange");
-        const minValue = document.getElementById("minValue");
-        const maxValue = document.getElementById("maxValue");
-        const sliderTrack = document.getElementById("sliderTrack");
-        const max = parseInt(maxRange.max);
-
-        function fillTrack() {
-          let minPercent = (minRange.value / max) * 100;
-          let maxPercent = (maxRange.value / max) * 100;
-          sliderTrack.style.left = minPercent + "%";
-          sliderTrack.style.width = maxPercent - minPercent + "%";
+        if (window.innerWidth <= 1024) {
+          // Mobile: center the active slide
+          const translateX =
+            -currentSlide * slideWidth + (containerWidth - slideWidth) / 2;
+          slider.style.transform = `translateX(${translateX}px)`;
+        } else {
+          // Desktop: full width slides
+          const translateX = -currentSlide * 100;
+          slider.style.transform = `translateX(${translateX}%)`;
         }
 
-        minRange.addEventListener("input", function () {
-          if (parseInt(minRange.value) >= parseInt(maxRange.value)) {
-            minRange.value = maxRange.value - 10;
-          }
-          minValue.innerText = "€" + minRange.value;
-          fillTrack();
+        // Update dots
+        document.querySelectorAll(".slider-dot").forEach((dot, index) => {
+          dot.classList.toggle("bg-emerald-600", index === currentSlide);
+          dot.classList.toggle("bg-gray-300", index !== currentSlide);
         });
 
-        maxRange.addEventListener("input", function () {
-          if (parseInt(maxRange.value) <= parseInt(minRange.value)) {
-            maxRange.value = parseInt(minRange.value) + 10;
-          }
-          maxValue.innerText = "€" + maxRange.value;
-          fillTrack();
+        // Update thumbnails
+        document.querySelectorAll(".thumbnail").forEach((thumb, index) => {
+          thumb.classList.toggle("border-emerald-600", index === currentSlide);
+          thumb.classList.toggle("border-transparent", index !== currentSlide);
         });
+      }
 
-        fillTrack();
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+      }
 
-        // Mobile filter toggle
-        const filterToggle = $("#filterToggle");
-        const filterMenu = $("#filterMenu");
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+      }
 
-        if ($(window).width() < 768) {
-          filterMenu.addClass("max-h-0 opacity-0 pt-0 pb-0");
+      function goToSlide(index) {
+        currentSlide = index;
+        updateSlider();
+      }
+
+      function increaseQuantity() {
+        quantity++;
+        document.getElementById("quantity").textContent = quantity;
+      }
+
+      function decreaseQuantity() {
+        if (quantity > 1) {
+          quantity--;
+          document.getElementById("quantity").textContent = quantity;
         }
+      }
 
-        filterToggle.on("click", function () {
-          if (filterMenu.hasClass("max-h-0")) {
-            filterMenu
-              .removeClass("max-h-0 opacity-0 pt-0 pb-0")
-              .addClass("max-h-screen opacity-100");
-          } else {
-            filterMenu
-              .removeClass("max-h-screen opacity-100")
-              .addClass("max-h-0 opacity-0 pt-0 pb-0");
-          }
-        });
+      function handleZoom(event, container) {
+        if (window.innerWidth <= 1024) return; // disable zoom on mobile
 
-        $(window).on("resize", function () {
-          if ($(window).width() >= 768) {
-            filterMenu
-              .removeClass("max-h-0 opacity-0 pt-0 pb-0 max-h-screen opacity-100")
-              .addClass("block");
-          } else if (
-            !filterMenu.hasClass("max-h-0") &&
-            !filterMenu.hasClass("max-h-screen")
-          ) {
-            filterMenu.addClass("max-h-0 opacity-0 pt-0 pb-0");
-          }
-        });
-      });
+        const rect = container.getBoundingClientRect();
+        const image = container.querySelector(".zoom-image");
+        const lens = container.querySelector(".zoom-lens");
+
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        const xPercent = (x / rect.width) * 100;
+        const yPercent = (y / rect.height) * 100;
+
+        const lensSize = 96; // w-24 h-24
+        lens.style.left = x - lensSize / 2 + "px";
+        lens.style.top = y - lensSize / 2 + "px";
+
+        const zoomLevel = 2;
+        image.style.transform = `scale(${zoomLevel})`;
+        image.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+      }
+
+      function resetZoom(container) {
+        const image = container.querySelector(".zoom-image");
+        image.style.transform = "scale(1)";
+        image.style.transformOrigin = "center";
+      }
+
+      // Update slider on window resize to recalc mobile centering
+      window.addEventListener("resize", updateSlider);
+
+      // Initial call to set up the slider
+      updateSlider();
+
+      // Auto-slide functionality (optional)
+      setInterval(() => {
+        nextSlide();
+      }, 5000);
     </script>
   </body>
 </html>

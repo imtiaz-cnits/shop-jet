@@ -520,15 +520,16 @@ document.addEventListener("click", (e) => {
 //......................................................................
 //.................Product Page All Js Start...........................
 //......................................................................
+
 $(document).ready(function () {
-  // Initialize nice select
+  // Nice Select Initialization and Dropdown Position Fix
   $("#sort-by").niceSelect();
 
   const niceSelect = $("#sort-by").next(".nice-select");
+  const dropdown = niceSelect.find(".list");
 
-  niceSelect.on("click", function () {
-    const dropdown = $(this).find(".list");
-    const wrapper = $(this);
+  function fixDropdownPosition() {
+    const wrapper = niceSelect;
 
     dropdown.css({ visibility: "hidden", display: "block" });
 
@@ -557,7 +558,15 @@ $(document).ready(function () {
     }
 
     dropdown.css({ visibility: "", display: "" });
-  });
+  }
+
+  fixDropdownPosition();
+
+  niceSelect.on("click", fixDropdownPosition);
+
+  $(window).on("resize", fixDropdownPosition);
+
+  // Nice Select Initialization and Dropdown Position Fix
 
   // Brand select toggle
   $(".brand-logo").on("click", function () {
@@ -612,7 +621,7 @@ $(document).ready(function () {
     if (filterMenu.hasClass("max-h-0")) {
       filterMenu
         .removeClass("max-h-0 opacity-0 pt-0 pb-0")
-        .addClass("max-h-screen opacity-100");
+        .addClass("max-h-screen overflow-y-auto opacity-100 mt-6");
     } else {
       filterMenu
         .removeClass("max-h-screen opacity-100")
@@ -635,4 +644,201 @@ $(document).ready(function () {
 });
 //......................................................................
 //.................Product Page All Js End..............................
+//......................................................................
+
+//......................................................................
+//................. Single Product All Js End...........................
+//......................................................................
+let currentSlide = 0;
+      const totalSlides = 4;
+      let quantity = 1;
+
+      function updateSlider() {
+        const slider = document.getElementById("mainSlider");
+        const containerWidth = slider.parentElement.offsetWidth;
+        const slideWidth = slider.children[0].offsetWidth;
+
+        if (window.innerWidth <= 1024) {
+          const translateX =
+            -currentSlide * slideWidth + (containerWidth - slideWidth) / 2;
+          slider.style.transform = `translateX(${translateX}px)`;
+        } else {
+          const translateX = -currentSlide * 100;
+          slider.style.transform = `translateX(${translateX}%)`;
+        }
+
+        // Update dots
+        document.querySelectorAll(".slider-dot").forEach((dot, index) => {
+          dot.classList.toggle("bg-emerald-600", index === currentSlide);
+          dot.classList.toggle("bg-gray-300", index !== currentSlide);
+        });
+
+        // Update thumbnail borders via JS
+        document.querySelectorAll(".thumbnail").forEach((thumb, index) => {
+          thumb.style.borderColor = index === currentSlide ? "var(--primary-color)" : "#d1d5db";
+        });
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+      }
+
+      function goToSlide(index) {
+        currentSlide = index;
+        updateSlider();
+      }
+
+      function increaseQuantity() {
+        quantity++;
+        document.getElementById("quantity").textContent = quantity;
+      }
+
+      function decreaseQuantity() {
+        if (quantity > 1) {
+          quantity--;
+          document.getElementById("quantity").textContent = quantity;
+        }
+      }
+
+      function handleZoom(event, container) {
+        if (window.innerWidth <= 1024) return;
+
+        const rect = container.getBoundingClientRect();
+        const image = container.querySelector(".zoom-image");
+        const lens = container.querySelector(".zoom-lens");
+
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        const xPercent = (x / rect.width) * 100;
+        const yPercent = (y / rect.height) * 100;
+
+        const lensSize = 96; 
+        lens.style.left = x - lensSize / 2 + "px";
+        lens.style.top = y - lensSize / 2 + "px";
+
+        const zoomLevel = 2;
+        image.style.transform = `scale(${zoomLevel})`;
+        image.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+      }
+
+      function resetZoom(container) {
+        const image = container.querySelector(".zoom-image");
+        image.style.transform = "scale(1)";
+        image.style.transformOrigin = "center";
+      }
+
+      window.addEventListener("resize", updateSlider);
+      updateSlider();
+
+      // Auto-slide every 5s
+      setInterval(() => {
+        nextSlide();
+      }, 5000);
+// let currentSlide = 0;
+// const totalSlides = 4;
+// let quantity = 1;
+
+// function updateSlider() {
+//   const slider = document.getElementById("mainSlider");
+//   const containerWidth = slider.parentElement.offsetWidth;
+//   const slideWidth = slider.children[0].offsetWidth;
+
+//   if (window.innerWidth <= 1024) {
+//     // Mobile: center the active slide
+//     const translateX =
+//       -currentSlide * slideWidth + (containerWidth - slideWidth) / 2;
+//     slider.style.transform = `translateX(${translateX}px)`;
+//   } else {
+//     // Desktop: full width slides
+//     const translateX = -currentSlide * 100;
+//     slider.style.transform = `translateX(${translateX}%)`;
+//   }
+
+//   // Update dots
+//   document.querySelectorAll(".slider-dot").forEach((dot, index) => {
+//     dot.classList.toggle("bg-emerald-600", index === currentSlide);
+//     dot.classList.toggle("bg-gray-300", index !== currentSlide);
+//   });
+
+//   // Update thumbnails
+//   document.querySelectorAll(".thumbnail").forEach((thumb, index) => {
+//     thumb.classList.toggle("border-red-600", index === currentSlide);
+//     thumb.classList.toggle("border-transparent", index !== currentSlide);
+//   });
+// }
+
+// function nextSlide() {
+//   currentSlide = (currentSlide + 1) % totalSlides;
+//   updateSlider();
+// }
+
+// function prevSlide() {
+//   currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+//   updateSlider();
+// }
+
+// function goToSlide(index) {
+//   currentSlide = index;
+//   updateSlider();
+// }
+
+// function increaseQuantity() {
+//   quantity++;
+//   document.getElementById("quantity").textContent = quantity;
+// }
+
+// function decreaseQuantity() {
+//   if (quantity > 1) {
+//     quantity--;
+//     document.getElementById("quantity").textContent = quantity;
+//   }
+// }
+
+// function handleZoom(event, container) {
+//   if (window.innerWidth <= 1024) return; // disable zoom on mobile
+
+//   const rect = container.getBoundingClientRect();
+//   const image = container.querySelector(".zoom-image");
+//   const lens = container.querySelector(".zoom-lens");
+
+//   const x = event.clientX - rect.left;
+//   const y = event.clientY - rect.top;
+
+//   const xPercent = (x / rect.width) * 100;
+//   const yPercent = (y / rect.height) * 100;
+
+//   const lensSize = 96; // w-24 h-24
+//   lens.style.left = x - lensSize / 2 + "px";
+//   lens.style.top = y - lensSize / 2 + "px";
+
+//   const zoomLevel = 2;
+//   image.style.transform = `scale(${zoomLevel})`;
+//   image.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+// }
+
+// function resetZoom(container) {
+//   const image = container.querySelector(".zoom-image");
+//   image.style.transform = "scale(1)";
+//   image.style.transformOrigin = "center";
+// }
+
+// // Update slider on window resize to recalc mobile centering
+// window.addEventListener("resize", updateSlider);
+
+// // Initial call to set up the slider
+// updateSlider();
+
+// // Auto-slide functionality (optional)
+// setInterval(() => {
+//   nextSlide();
+// }, 5000);
+//......................................................................
+//................. Single Product All Js End...........................
 //......................................................................
