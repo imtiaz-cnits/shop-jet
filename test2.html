@@ -1,298 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anjappar - 200g Pani Puri Chips (Golgappa)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      :root {
-        --primary-color: #10b981; /* active border color */
-        --secondary-color: #ffffff;
-        --border: #e5e7eb;
-      }
-    </style>
-  </head>
-  <body class="bg-gray-50 font-sans">
-    <div class="max-w-7xl mx-auto px-4 py-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div class="single-slide space-y-4">
-          <div
-            class="relative overflow-hidden bg-[var(--secondary-color)] rounded-lg border border-[var(--border)] p-4"
-          >
-            <div
-              id="mainSlider"
-              class="flex transition-transform duration-300 ease-in-out"
-            >
-              <!-- Slide 1 -->
-              <div class="min-w-full flex-shrink-0">
-                <div
-                  class="zoom-container group cursor-default md:cursor-crosshair relative"
-                  onmousemove="handleZoom(event, this)"
-                  onmouseleave="resetZoom(this)"
-                >
-                  <img
-                    src="./assets/img/home/arrival1.webp"
-                    alt="Anjappar Pani Puri Chips Front"
-                    class="zoom-image origin-center w-full h-96 object-contain"
-                  />
-                  <div
-                    class="zoom-lens hidden md:block pointer-events-none group-hover:opacity-[1] transition duration-300 absolute border-1 !border-[var(--primary-color)] w-24 h-24 rounded-full opacity-0"
-                  ></div>
-                </div>
-              </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Tabs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <!-- Tabs -->
+    <div class="flex border-b border-gray-200 mb-6">
+      <button id="desc-tab" class="tab-btn text-blue-600 font-semibold border-b-2 border-blue-600 px-4 py-2">
+        Product Description
+      </button>
+      <button id="review-tab" class="tab-btn text-gray-500 px-4 py-2">
+        Reviews
+      </button>
+    </div>
 
-              <!-- Slide 2 -->
-              <div class="min-w-full flex-shrink-0">
-                <div
-                  class="zoom-container group cursor-default md:cursor-crosshair relative"
-                  onmousemove="handleZoom(event, this)"
-                  onmouseleave="resetZoom(this)"
-                >
-                  <img
-                    src="./assets/img/home/arrival1.webp"
-                    alt="Anjappar Pani Puri Chips Back"
-                    class="zoom-image origin-center w-full h-96 object-contain p-4"
-                  />
-                  <div
-                    class="zoom-lens hidden md:block pointer-events-none group-hover:opacity-[1] transition duration-300 absolute border-1 !border-[var(--primary-color)] w-24 h-24 rounded-full opacity-0"
-                  ></div>
-                </div>
-              </div>
+    <!-- Tab Contents -->
+    <div id="desc-content">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Left Column -->
+        <div class="lg:col-span-2 space-y-6">
+          <p>
+            Pani Puri – also known as Golgappa – is a popular snack in northern India, Nepal,
+            Bengal and Pakistan that is combined with various spices and sauces. The dish
+            consists of a round, hollow dough shell made of wheat flour, which is filled with
+            a specially prepared spicy potato-based filling and a watery sauce. A popular
+            mix of spices for this is chat masalas.
+          </p>
 
-              <!-- Slide 3 -->
-              <div class="min-w-full flex-shrink-0">
-                <div
-                  class="zoom-container group cursor-default md:cursor-crosshair relative"
-                  onmousemove="handleZoom(event, this)"
-                  onmouseleave="resetZoom(this)"
-                >
-                  <img
-                    src="./assets/img/home/arrival1.webp"
-                    alt="Anjappar Pani Puri Chips Opened"
-                    class="zoom-image origin-center w-full h-96 object-contain p-4"
-                  />
-                  <div
-                    class="zoom-lens hidden md:block pointer-events-none group-hover:opacity-[1] transition duration-300 absolute border-1 !border-[var(--primary-color)] w-24 h-24 rounded-full opacity-0"
-                  ></div>
-                </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-2">Shipping, Quality & Freshness</h3>
+            <div class="space-y-4 text-sm">
+              <div>
+                <p class="font-semibold">
+                  How can I enjoy free shipping on my order?
+                </p>
+                <p>
+                  Enjoy free shipping on orders over 39€ to Germany. For shipping rates to other
+                  countries
+                </p>
               </div>
-
-              <!-- Slide 4 -->
-              <div class="min-w-full flex-shrink-0">
-                <div
-                  class="zoom-container group cursor-default md:cursor-crosshair relative"
-                  onmousemove="handleZoom(event, this)"
-                  onmouseleave="resetZoom(this)"
-                >
-                  <img
-                    src="./assets/img/home/arrival1.webp"
-                    alt="Anjappar Pani Puri Chips Served"
-                    class="zoom-image origin-center w-full h-96 object-contain p-4"
-                  />
-                  <div
-                    class="zoom-lens hidden md:block pointer-events-none group-hover:opacity-[1] transition duration-300 absolute border-1 !border-[var(--primary-color)] w-24 h-24 rounded-full opacity-0"
-                  ></div>
-                </div>
+              <div>
+                <p class="font-semibold">
+                  How do we guarantee the quality and secure packaging of your order?
+                </p>
+                <p>
+                  Every product we send undergoes meticulous quality checks to ensure it’s perfect.
+                  We securely pack your order with eco-friendly, sturdy materials, ensuring it arrives
+                  in excellent condition for you to enjoy.
+                </p>
+              </div>
+              <div>
+                <p class="font-semibold">
+                  When do we ship fresh Fruits & Vegetables items to ensure their freshness?
+                </p>
+                <p>
+                  We only ship fresh Fruits & Vegetables items from Monday to Thursday to guarantee
+                  freshness!
+                </p>
+              </div>
+              <div>
+                <p class="font-semibold">Need more info?</p>
+                <p>
+                  If you want to know more about shipping, ordering, quality control, and many other
+                  topics, you can access our full Frequently Asked Questions
+                </p>
               </div>
             </div>
-
-            <!-- Prev/next Button -->
-            <button
-              class="hidden absolute top-1/2 -translate-y-1/2 left-4 bg-black/50 text-[var(--secondary-color)] w-10 h-10 rounded-full items-center justify-center cursor-pointer z-10 hover:bg-black/70 transition-colors"
-              onclick="prevSlide()"
-            >
-              ‹
-            </button>
-            <button
-              class="hidden absolute top-1/2 -translate-y-1/2 right-4 bg-black/50 text-[var(--secondary-color)] w-10 h-10 rounded-full items-center justify-center cursor-pointer z-10 hover:bg-black/70 transition-colors"
-              onclick="nextSlide()"
-            >
-              ›
-            </button>
-
-          </div>
-
-          <!-- Thumbnails -->
-          <div class="multiple-img-box flex gap-2 justify-center mt-2">
-            <img src="./assets/img/home/arrival1.webp" alt="Thumbnail 1" class="thumbnail w-16 h-16 object-cover rounded-lg p-1 cursor-pointer transition-opacity border" onclick="goToSlide(0)"/>
-            <img src="./assets/img/home/arrival1.webp" alt="Thumbnail 2" class="thumbnail w-16 h-16 object-cover rounded-lg p-1 cursor-pointer transition-opacity border" onclick="goToSlide(1)"/>
-            <img src="./assets/img/home/arrival1.webp" alt="Thumbnail 3" class="thumbnail w-16 h-16 object-cover rounded-lg p-1 cursor-pointer transition-opacity border" onclick="goToSlide(2)"/>
-            <img src="./assets/img/home/arrival1.webp" alt="Thumbnail 4" class="thumbnail w-16 h-16 object-cover rounded-lg p-1 cursor-pointer transition-opacity border" onclick="goToSlide(3)"/>
-          </div>
-
-          <!-- Pagination Dots -->
-          <div class="pagination hidden flex justify-center gap-2 mt-4">
-            <div class="slider-dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer transition-colors" onclick="goToSlide(0)"></div>
-            <div class="slider-dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer transition-colors" onclick="goToSlide(1)"></div>
-            <div class="slider-dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer transition-colors" onclick="goToSlide(2)"></div>
-            <div class="slider-dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer transition-colors" onclick="goToSlide(3)"></div>
           </div>
         </div>
 
-        <!-- Product Info -->
-        <div class="space-y-6">
+        <!-- Right Column -->
+        <div class="bg-gray-50 p-4 rounded-lg shadow-sm space-y-6">
+          <!-- Table -->
           <div>
-            <h1 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
-              Anjappar - 200g Pani Puri Chips (Golgappa)
-            </h1>
-
-            <div class="flex items-center gap-2 mb-4">
-              <div class="flex text-yellow-400">
-                <span>★★★★★</span>
-              </div>
-              <span class="text-sm text-gray-600">4.9 Rating (15 reviews)</span>
-            </div>
+            <h3 class="font-semibold text-lg mb-3">Nutritional Facts, Ingredients & Origin</h3>
+            <table class="w-full text-sm border border-gray-200">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="text-left font-medium p-2 border-b border-gray-200">Nutrition</th>
+                  <th class="text-left font-medium p-2 border-b border-gray-200">per 100g</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="p-2 border-b">Energy</td>
+                  <td class="p-2 border-b">1628kJ / 389kcal</td>
+                </tr>
+                <tr>
+                  <td class="p-2 border-b">Fat</td>
+                  <td class="p-2 border-b">12g</td>
+                </tr>
+                <tr>
+                  <td class="p-2 border-b">Saturated Fatty Acids</td>
+                  <td class="p-2 border-b">0.2g</td>
+                </tr>
+                <tr>
+                  <td class="p-2 border-b">Carbohydrates</td>
+                  <td class="p-2 border-b">61g</td>
+                </tr>
+                <tr>
+                  <td class="p-2 border-b">Sugar</td>
+                  <td class="p-2 border-b">7g</td>
+                </tr>
+                <tr>
+                  <td class="p-2 border-b">Protein</td>
+                  <td class="p-2 border-b">11g</td>
+                </tr>
+                <tr>
+                  <td class="p-2 border-b">Fiber</td>
+                  <td class="p-2 border-b">0g</td>
+                </tr>
+                <tr>
+                  <td class="p-2">Salt</td>
+                  <td class="p-2">0.4g</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
-          <div class="space-y-2">
-            <div class="flex items-center gap-2">
-              <span class="text-sm text-red-600 bg-red-100 px-2 py-1 rounded text-xs font-medium">35% OFF</span>
-            </div>
-            <div class="flex items-baseline gap-2">
-              <span class="text-3xl font-bold text-emerald-600">₹149</span>
-              <span class="text-lg text-gray-500 line-through">₹229</span>
-            </div>
-            <p class="text-sm text-gray-600">Incl. Tax excl. Shipping costs</p>
+          <!-- Ingredients & Origin -->
+          <div class="text-sm">
+            <p class="font-semibold">Ingredients</p>
+            <p>Wheat flour, corn flour, tapioca starch, salt, sodiumbicarbonate, turmeric, sunflower oil</p>
           </div>
-
-          <div class="space-y-3">
-            <label class="block text-sm font-medium text-gray-700">Quantity</label>
-            <div class="flex items-center gap-3">
-              <button onclick="decreaseQuantity()" class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-colors">−</button>
-              <span id="quantity" class="w-12 text-center font-medium">1</span>
-              <button onclick="increaseQuantity()" class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-700 transition-colors">+</button>
-            </div>
-          </div>
-
-          <div class="space-y-3">
-            <button class="w-full bg-emerald-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-emerald-700 transition-colors">🛒 Add to Cart</button>
-            <button class="w-full border border-gray-300 text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-50 transition-colors">♡ Add to Wishlist</button>
-          </div>
-
-          <div class="space-y-4">
-            <div class="bg-gray-50 p-4 rounded-lg">
-              <h3 class="font-medium text-gray-900 mb-2">Secure your payment guarantee</h3>
-              <div class="flex gap-2 flex-wrap">
-                <div class="bg-blue-600 text-white px-2 py-1 rounded text-xs">VISA</div>
-                <div class="bg-red-600 text-white px-2 py-1 rounded text-xs">MC</div>
-                <div class="bg-blue-800 text-white px-2 py-1 rounded text-xs">AMEX</div>
-                <div class="bg-gray-600 text-white px-2 py-1 rounded text-xs">PayPal</div>
-              </div>
-            </div>
-
-            <div class="space-y-2 text-sm">
-              <div class="flex items-center gap-2">
-                <span class="text-green-600">🚚</span>
-                <span>Free Shipping Over ₹30</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-blue-600">📦</span>
-                <span>Delivery 3-4 business days / Express 1 day</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-purple-600">📤</span>
-                <span>Share</span>
-              </div>
-            </div>
+          <div class="text-sm">
+            <p class="font-semibold">Origin</p>
+            <p>India</p>
           </div>
         </div>
       </div>
     </div>
 
-    <script>
-      let currentSlide = 0;
-      const totalSlides = 4;
-      let quantity = 1;
+    <!-- Reviews Content -->
+    <div id="review-content" class="hidden">
+      <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+        <h3 class="text-lg font-semibold mb-4">Customer Reviews</h3>
+        <p class="text-sm text-gray-600">No reviews yet. Be the first to write a review!</p>
+      </div>
+    </div>
+  </div>
 
-      function updateSlider() {
-        const slider = document.getElementById("mainSlider");
-        const containerWidth = slider.parentElement.offsetWidth;
-        const slideWidth = slider.children[0].offsetWidth;
+  <script>
+    const descTab = document.getElementById("desc-tab");
+    const reviewTab = document.getElementById("review-tab");
+    const descContent = document.getElementById("desc-content");
+    const reviewContent = document.getElementById("review-content");
 
-        if (window.innerWidth <= 1024) {
-          const translateX =
-            -currentSlide * slideWidth + (containerWidth - slideWidth) / 2;
-          slider.style.transform = `translateX(${translateX}px)`;
-        } else {
-          const translateX = -currentSlide * 100;
-          slider.style.transform = `translateX(${translateX}%)`;
-        }
-
-        // Update dots
-        document.querySelectorAll(".slider-dot").forEach((dot, index) => {
-          dot.classList.toggle("bg-emerald-600", index === currentSlide);
-          dot.classList.toggle("bg-gray-300", index !== currentSlide);
-        });
-
-        // Update thumbnail borders via JS
-        document.querySelectorAll(".thumbnail").forEach((thumb, index) => {
-          thumb.style.borderColor = index === currentSlide ? "var(--primary-color)" : "#d1d5db";
-        });
+    function activateTab(tab) {
+      if (tab === "desc") {
+        descContent.classList.remove("hidden");
+        reviewContent.classList.add("hidden");
+        descTab.classList.add("text-blue-600", "border-b-2", "border-blue-600", "font-semibold");
+        descTab.classList.remove("text-gray-500");
+        reviewTab.classList.remove("text-blue-600", "border-b-2", "border-blue-600", "font-semibold");
+        reviewTab.classList.add("text-gray-500");
+      } else {
+        reviewContent.classList.remove("hidden");
+        descContent.classList.add("hidden");
+        reviewTab.classList.add("text-blue-600", "border-b-2", "border-blue-600", "font-semibold");
+        reviewTab.classList.remove("text-gray-500");
+        descTab.classList.remove("text-blue-600", "border-b-2", "border-blue-600", "font-semibold");
+        descTab.classList.add("text-gray-500");
       }
+    }
 
-      function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateSlider();
-      }
-
-      function prevSlide() {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateSlider();
-      }
-
-      function goToSlide(index) {
-        currentSlide = index;
-        updateSlider();
-      }
-
-      function increaseQuantity() {
-        quantity++;
-        document.getElementById("quantity").textContent = quantity;
-      }
-
-      function decreaseQuantity() {
-        if (quantity > 1) {
-          quantity--;
-          document.getElementById("quantity").textContent = quantity;
-        }
-      }
-
-      function handleZoom(event, container) {
-        if (window.innerWidth <= 1024) return;
-
-        const rect = container.getBoundingClientRect();
-        const image = container.querySelector(".zoom-image");
-        const lens = container.querySelector(".zoom-lens");
-
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-
-        const xPercent = (x / rect.width) * 100;
-        const yPercent = (y / rect.height) * 100;
-
-        const lensSize = 96; 
-        lens.style.left = x - lensSize / 2 + "px";
-        lens.style.top = y - lensSize / 2 + "px";
-
-        const zoomLevel = 2;
-        image.style.transform = `scale(${zoomLevel})`;
-        image.style.transformOrigin = `${xPercent}% ${yPercent}%`;
-      }
-
-      function resetZoom(container) {
-        const image = container.querySelector(".zoom-image");
-        image.style.transform = "scale(1)";
-        image.style.transformOrigin = "center";
-      }
-
-      window.addEventListener("resize", updateSlider);
-      updateSlider();
-
-      // Auto-slide every 5s
-      setInterval(() => {
-        nextSlide();
-      }, 5000);
-    </script>
-  </body>
+    descTab.addEventListener("click", () => activateTab("desc"));
+    reviewTab.addEventListener("click", () => activateTab("review"));
+  </script>
+</body>
 </html>

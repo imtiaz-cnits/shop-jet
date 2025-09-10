@@ -281,6 +281,10 @@ const swiper = new Swiper(".myHeroSwiper", {
 const summerSwiper = new Swiper(".summer-swiper", {
   slidesPerView: 1,
   spaceBetween: 15,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
   loop: true,
   breakpoints: {
     0: { slidesPerView: 2.3, spaceBetween: 20 },
@@ -303,6 +307,10 @@ const summerSwiper = new Swiper(".summer-swiper", {
 const bestSellerSwiper = new Swiper(".best-seller-swiper", {
   slidesPerView: 1,
   spaceBetween: 15,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
   loop: true,
   breakpoints: {
     0: { slidesPerView: 2.3, spaceBetween: 20 },
@@ -325,6 +333,10 @@ const bestSellerSwiper = new Swiper(".best-seller-swiper", {
 const fruitsSellerSwiper = new Swiper(".fruits-swiper", {
   slidesPerView: 1,
   spaceBetween: 15,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
   loop: true,
   breakpoints: {
     0: { slidesPerView: 2.3, spaceBetween: 20 },
@@ -347,6 +359,10 @@ const fruitsSellerSwiper = new Swiper(".fruits-swiper", {
 const frozenSellerSwiper = new Swiper(".frozen-swiper", {
   slidesPerView: 1,
   spaceBetween: 15,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
   loop: true,
   breakpoints: {
     0: { slidesPerView: 2.3, spaceBetween: 20 },
@@ -365,10 +381,40 @@ const frozenSellerSwiper = new Swiper(".frozen-swiper", {
   },
 });
 
+// Initialize Swiper for .frozen-swiper
+const alsoLikeSellerSwiper = new Swiper(".alsoLike-swiper", {
+  slidesPerView: 1,
+  spaceBetween: 15,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  loop: true,
+  breakpoints: {
+    0: { slidesPerView: 2.3, spaceBetween: 20 },
+    640: { slidesPerView: 2, spaceBetween: 20 },
+    768: { slidesPerView: 2, spaceBetween: 20 },
+    992: { slidesPerView: 3, spaceBetween: 20 },
+    1100: { slidesPerView: 4, spaceBetween: 20 },
+  },
+  navigation: {
+    nextEl: ".alsoLike-next",
+    prevEl: ".alsoLike-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+
 // Initialize Swiper for .arrival-swiper
 const arrivalSellerSwiper = new Swiper(".arrival-swiper", {
   slidesPerView: 1,
   spaceBetween: 15,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
   loop: true,
   breakpoints: {
     0: { slidesPerView: 2.3, spaceBetween: 20 },
@@ -396,6 +442,10 @@ const arrivalSellerSwiper = new Swiper(".arrival-swiper", {
 const dealsSwiper = new Swiper(".dealsSwiper", {
   slidesPerView: 1,
   spaceBetween: 20,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -650,195 +700,162 @@ $(document).ready(function () {
 //................. Single Product All Js End...........................
 //......................................................................
 let currentSlide = 0;
-      const totalSlides = 4;
-      let quantity = 1;
+const totalSlides = 4;
+let quantity = 1;
 
-      function updateSlider() {
-        const slider = document.getElementById("mainSlider");
-        const containerWidth = slider.parentElement.offsetWidth;
-        const slideWidth = slider.children[0].offsetWidth;
+function updateSlider() {
+  const slider = document.getElementById("mainSlider");
+  const containerWidth = slider.parentElement.offsetWidth;
+  const slideWidth = slider.children[0].offsetWidth;
 
-        if (window.innerWidth <= 1024) {
-          const translateX =
-            -currentSlide * slideWidth + (containerWidth - slideWidth) / 2;
-          slider.style.transform = `translateX(${translateX}px)`;
-        } else {
-          const translateX = -currentSlide * 100;
-          slider.style.transform = `translateX(${translateX}%)`;
-        }
+  if (window.innerWidth <= 1024) {
+    const translateX =
+      -currentSlide * slideWidth + (containerWidth - slideWidth) / 2;
+    slider.style.transform = `translateX(${translateX}px)`;
+  } else {
+    const translateX = -currentSlide * 100;
+    slider.style.transform = `translateX(${translateX}%)`;
+  }
 
-        // Update dots
-        document.querySelectorAll(".slider-dot").forEach((dot, index) => {
-          dot.classList.toggle("bg-emerald-600", index === currentSlide);
-          dot.classList.toggle("bg-gray-300", index !== currentSlide);
-        });
+  // Update dots
+  document.querySelectorAll(".slider-dot").forEach((dot, index) => {
+    dot.classList.toggle("bg-emerald-600", index === currentSlide);
+    dot.classList.toggle("bg-gray-300", index !== currentSlide);
+  });
 
-        // Update thumbnail borders via JS
-        document.querySelectorAll(".thumbnail").forEach((thumb, index) => {
-          thumb.style.borderColor = index === currentSlide ? "var(--primary-color)" : "#d1d5db";
-        });
-      }
+  // Update thumbnail borders via JS
+  document.querySelectorAll(".thumbnail").forEach((thumb, index) => {
+    thumb.style.borderColor =
+      index === currentSlide ? "var(--primary-color)" : "#d1d5db";
+  });
+}
 
-      function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateSlider();
-      }
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  updateSlider();
+}
 
-      function prevSlide() {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateSlider();
-      }
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  updateSlider();
+}
 
-      function goToSlide(index) {
-        currentSlide = index;
-        updateSlider();
-      }
+function goToSlide(index) {
+  currentSlide = index;
+  updateSlider();
+}
 
-      function increaseQuantity() {
-        quantity++;
-        document.getElementById("quantity").textContent = quantity;
-      }
+function increaseQuantity() {
+  quantity++;
+  document.getElementById("quantity").textContent = quantity;
+}
 
-      function decreaseQuantity() {
-        if (quantity > 1) {
-          quantity--;
-          document.getElementById("quantity").textContent = quantity;
-        }
-      }
+function decreaseQuantity() {
+  if (quantity > 1) {
+    quantity--;
+    document.getElementById("quantity").textContent = quantity;
+  }
+}
 
-      function handleZoom(event, container) {
-        if (window.innerWidth <= 1024) return;
+function handleZoom(event, container) {
+  if (window.innerWidth <= 1024) return;
 
-        const rect = container.getBoundingClientRect();
-        const image = container.querySelector(".zoom-image");
-        const lens = container.querySelector(".zoom-lens");
+  const rect = container.getBoundingClientRect();
+  const image = container.querySelector(".zoom-image");
+  const lens = container.querySelector(".zoom-lens");
 
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
 
-        const xPercent = (x / rect.width) * 100;
-        const yPercent = (y / rect.height) * 100;
+  const xPercent = (x / rect.width) * 100;
+  const yPercent = (y / rect.height) * 100;
 
-        const lensSize = 96; 
-        lens.style.left = x - lensSize / 2 + "px";
-        lens.style.top = y - lensSize / 2 + "px";
+  const lensSize = 96;
+  lens.style.left = x - lensSize / 2 + "px";
+  lens.style.top = y - lensSize / 2 + "px";
 
-        const zoomLevel = 2;
-        image.style.transform = `scale(${zoomLevel})`;
-        image.style.transformOrigin = `${xPercent}% ${yPercent}%`;
-      }
+  const zoomLevel = 2;
+  image.style.transform = `scale(${zoomLevel})`;
+  image.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+}
 
-      function resetZoom(container) {
-        const image = container.querySelector(".zoom-image");
-        image.style.transform = "scale(1)";
-        image.style.transformOrigin = "center";
-      }
+function resetZoom(container) {
+  const image = container.querySelector(".zoom-image");
+  image.style.transform = "scale(1)";
+  image.style.transformOrigin = "center";
+}
 
-      window.addEventListener("resize", updateSlider);
-      updateSlider();
+window.addEventListener("resize", updateSlider);
+updateSlider();
 
-      // Auto-slide every 5s
-      setInterval(() => {
-        nextSlide();
-      }, 5000);
-// let currentSlide = 0;
-// const totalSlides = 4;
-// let quantity = 1;
+// Auto-slide every 5s
+setInterval(() => {
+  nextSlide();
+}, 5000);
 
-// function updateSlider() {
-//   const slider = document.getElementById("mainSlider");
-//   const containerWidth = slider.parentElement.offsetWidth;
-//   const slideWidth = slider.children[0].offsetWidth;
-
-//   if (window.innerWidth <= 1024) {
-//     // Mobile: center the active slide
-//     const translateX =
-//       -currentSlide * slideWidth + (containerWidth - slideWidth) / 2;
-//     slider.style.transform = `translateX(${translateX}px)`;
-//   } else {
-//     // Desktop: full width slides
-//     const translateX = -currentSlide * 100;
-//     slider.style.transform = `translateX(${translateX}%)`;
-//   }
-
-//   // Update dots
-//   document.querySelectorAll(".slider-dot").forEach((dot, index) => {
-//     dot.classList.toggle("bg-emerald-600", index === currentSlide);
-//     dot.classList.toggle("bg-gray-300", index !== currentSlide);
-//   });
-
-//   // Update thumbnails
-//   document.querySelectorAll(".thumbnail").forEach((thumb, index) => {
-//     thumb.classList.toggle("border-red-600", index === currentSlide);
-//     thumb.classList.toggle("border-transparent", index !== currentSlide);
-//   });
-// }
-
-// function nextSlide() {
-//   currentSlide = (currentSlide + 1) % totalSlides;
-//   updateSlider();
-// }
-
-// function prevSlide() {
-//   currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-//   updateSlider();
-// }
-
-// function goToSlide(index) {
-//   currentSlide = index;
-//   updateSlider();
-// }
-
-// function increaseQuantity() {
-//   quantity++;
-//   document.getElementById("quantity").textContent = quantity;
-// }
-
-// function decreaseQuantity() {
-//   if (quantity > 1) {
-//     quantity--;
-//     document.getElementById("quantity").textContent = quantity;
-//   }
-// }
-
-// function handleZoom(event, container) {
-//   if (window.innerWidth <= 1024) return; // disable zoom on mobile
-
-//   const rect = container.getBoundingClientRect();
-//   const image = container.querySelector(".zoom-image");
-//   const lens = container.querySelector(".zoom-lens");
-
-//   const x = event.clientX - rect.left;
-//   const y = event.clientY - rect.top;
-
-//   const xPercent = (x / rect.width) * 100;
-//   const yPercent = (y / rect.height) * 100;
-
-//   const lensSize = 96; // w-24 h-24
-//   lens.style.left = x - lensSize / 2 + "px";
-//   lens.style.top = y - lensSize / 2 + "px";
-
-//   const zoomLevel = 2;
-//   image.style.transform = `scale(${zoomLevel})`;
-//   image.style.transformOrigin = `${xPercent}% ${yPercent}%`;
-// }
-
-// function resetZoom(container) {
-//   const image = container.querySelector(".zoom-image");
-//   image.style.transform = "scale(1)";
-//   image.style.transformOrigin = "center";
-// }
-
-// // Update slider on window resize to recalc mobile centering
-// window.addEventListener("resize", updateSlider);
-
-// // Initial call to set up the slider
-// updateSlider();
-
-// // Auto-slide functionality (optional)
-// setInterval(() => {
-//   nextSlide();
-// }, 5000);
 //......................................................................
 //................. Single Product All Js End...........................
 //......................................................................
+
+//.............................................................................
+//.............................Product Description Tab JS End............................
+document.addEventListener("DOMContentLoaded", function () {
+  // Inject CSS styles
+  const style = document.createElement("style");
+  style.innerHTML = `
+          .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+          }
+          .tab-content.active {
+            display: block;
+          }
+          .tab-content.fade-in {
+            opacity: 1;
+          }
+        `;
+  document.head.appendChild(style);
+
+  // Activate tab logic
+  const tabButtons = document.querySelectorAll(".description-tab-btn");
+  const tabContents = document.querySelectorAll(".tab-content");
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetTab = button.dataset.tab;
+
+      // Update button classes for all buttons
+      tabButtons.forEach((btn) => {
+        // Remove active tab styles
+        btn.classList.remove("underline", "text-purple-900", "bg-transparent");
+        // Add unselected tab styles
+        btn.classList.add("text-black", "bg-transparent");
+      });
+
+      // Apply new styles to the clicked button
+      button.classList.add("underline", "text-purple-900", "bg-transparent");
+      button.classList.remove("text-black", "bg-transparent");
+
+      // Update tab content
+      tabContents.forEach((content) => {
+        content.classList.remove("active", "fade-in");
+      });
+
+      const selectedContent = document.getElementById(targetTab);
+      selectedContent.classList.add("active");
+      setTimeout(() => {
+        selectedContent.classList.add("fade-in");
+      }, 10);
+    });
+  });
+
+  // Activate default tab
+  const defaultTab = document.querySelector(
+    ".description-tab-btn[data-tab='product-des']"
+  );
+  if (defaultTab) defaultTab.click();
+});
+
+//..........................Product Description Tab JS End................................
+//.............................................................................
