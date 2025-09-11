@@ -573,10 +573,23 @@ document.addEventListener("click", (e) => {
 
 $(document).ready(function () {
   // Nice Select Initialization and Dropdown Position Fix
-  $("#sort-by").niceSelect();
+  $(".sort-by-select").niceSelect();
 
-  const niceSelect = $("#sort-by").next(".nice-select");
+  const niceSelect = $(".sort-by-select").next(".nice-select");
   const dropdown = niceSelect.find(".list");
+
+  // Set the desired height
+  const desiredHeight = 48;
+
+  // Set the initial height and line-height using JavaScript
+  niceSelect.css({
+    height: `${desiredHeight}px`,
+    "line-height": `${desiredHeight}px`,
+  });
+
+  niceSelect.find(".current, .list li").css({
+    "line-height": `${desiredHeight}px`,
+  });
 
   function fixDropdownPosition() {
     const wrapper = niceSelect;
@@ -696,6 +709,40 @@ $(document).ready(function () {
 //.................Product Page All Js End..............................
 //......................................................................
 
+
+//......................................................................
+//................. Quantity Js Start...........................
+//......................................................................
+function setupQuantities() {
+  document.querySelectorAll(".quantity-container").forEach((container) => {
+    let quantity = 1; // default value
+    const valueEl = container.querySelector(".quantity-value");
+    const increaseBtn = container.querySelector(".increase-btn");
+    const decreaseBtn = container.querySelector(".decrease-btn");
+
+    // initial value set
+    valueEl.textContent = quantity;
+
+    increaseBtn.addEventListener("click", () => {
+      quantity++;
+      valueEl.textContent = quantity;
+    });
+
+    decreaseBtn.addEventListener("click", () => {
+      if (quantity > 1) {
+        quantity--;
+        valueEl.textContent = quantity;
+      }
+    });
+  });
+}
+
+// Call this after DOM load
+document.addEventListener("DOMContentLoaded", setupQuantities);
+//......................................................................
+//................. Quantity Js End...........................
+//......................................................................
+
 //......................................................................
 //................. Single Product All Js End...........................
 //......................................................................
@@ -796,6 +843,7 @@ setInterval(() => {
 //......................................................................
 //................. Single Product All Js End...........................
 //......................................................................
+
 
 //.............................................................................
 //.............................Product Description Tab JS End............................

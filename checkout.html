@@ -35,7 +35,7 @@
       class="fixed inset-0 w-full h-full bg-[var(--primary-color)] flex flex-col justify-center items-center z-[9999] transition-opacity duration-500 ease-in-out"
     >
       <div
-        class="w-[50px] h-[50px] border-[6px] border-solid border-gray-200 border-t-[6px] border-t-black rounded-full animate-custom-spin mb-[20px]"
+        class="w-[50px] h-[50px] border-[6px] border-solid border-var(--border) border-t-[6px] border-t-black rounded-full animate-custom-spin mb-[20px]"
       ></div>
       <div class="text-center font-bold mb-[20px]">
         <img
@@ -278,7 +278,7 @@
 
             <!-- Icon -->
             <a
-              href="#"
+              href="./wishlist.html"
               class="whichlist relative cursor-pointer hidden lg:flex"
             >
               <svg
@@ -2206,7 +2206,7 @@
 
     <!-- Mobile Bottom Navbar -->
     <div
-      class="mobile-navigation font-primary fixed bottom-0 bg-[var(--primary-color)] p-1 left-0 w-full p-2 pt-0 lg:hidden z-50"
+      class="mobile-navigation font-primary fixed bottom-0 bg-[var(--primary-color)] left-0 w-full p-2 pt-0 lg:hidden z-50"
     >
       <div
         class="navigation-wrap py-2 bg-[var(--secondary-color)] border border-[var(--border)] rounded-[16px]"
@@ -2217,7 +2217,7 @@
               <div
                 class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
               >
-                <a href="#" class="whichlist pt-1">
+                <a href="./wishlist.html" class="whichlist pt-1">
                   <h2 class="w-5 h-5 mx-auto relative cursor-pointer">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -2359,23 +2359,28 @@
       <div class="custom-container">
         <a
           href="#"
-          class="flex items-center text-gray-500 hover:text-gray-700 text-sm font-medium"
+          class="flex gap-2 items-center text-[var(--text)] hover:text-[var(--text2)] text-[18px] font-primary font-semibold"
         >
-          <svg
-            class="w-4 h-4 mr-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            class="flex items-center justify-center w-12 h-12 border icon border-[var(--border)] rounded-full"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            ></path>
-          </svg>
-          Back to Ripens
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M15 8H1M1 8L8 15M1 8L8 1"
+                stroke="#202124"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          Back to Home
         </a>
       </div>
     </div>
@@ -2392,60 +2397,72 @@
               <div
                 class="delivery-information bg-[var(--secondary-color)] p-4 rounded-[16px] border border-[var(--border)]"
               >
-                <h2 class="text-xl font-semibold mb-6 text-gray-800">
+                <h2
+                  class="title text-[26px] font-semibold mb-6 text-[var(--text)]"
+                >
                   Delivery Information
                 </h2>
                 <form class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
                   <div>
                     <label
                       for="full-name"
-                      class="block text-sm font-medium text-gray-700 mb-1"
+                      class="block text-[18px] font-primary font-medium text-[var(--text)] mb-1"
                       >Full Name</label
                     >
                     <input
                       type="text"
                       id="full-name"
                       placeholder="Enter your name..."
-                      class="w-full px-4 py-3 rounded-[16px] bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none placeholder-gray-400 text-gray-700"
+                      class="w-full px-4 py-3 rounded-[30px] bg-[var(--accent1)] border-none focus:ring-1 focus:ring-[var(--primary-color)] focus:outline-none placeh[18px] font-primaryder-gray-400 text-[var(--text)]"
                     />
                   </div>
                   <div>
                     <label
                       for="email"
-                      class="block text-sm font-medium text-gray-700 mb-1"
+                      class="block text-[18px] font-primary font-medium text-[var(--text)] mb-1"
                       >Email</label
                     >
                     <input
                       type="email"
                       id="email"
                       placeholder="example@gmail.com"
-                      class="w-full px-4 py-3 rounded-[16px] bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none placeholder-gray-400 text-gray-700"
+                      class="w-full px-4 py-3 rounded-[30px] bg-[var(--accent1)] border-none focus:ring-1 focus:ring-[var(--primary-color)] focus:outline-none placeh[18px] font-primaryder-gray-400 text-[var(--text)]"
                     />
                   </div>
                   <div>
                     <label
                       for="phone"
-                      class="block text-sm font-medium text-gray-700 mb-1"
+                      class="block text-[18px] font-primary font-medium text-[var(--text)] mb-1"
                       >Phone Number</label
                     >
-                    <div class="flex">
+                    <div
+                      class="rounded-[30px] !h-[48px] !py-1 flex items-center justify-center cursor-pointer transition-colors ring-1 ring-transparent focus-within:ring-[var(--primary-color)] bg-[var(--accent1)]"
+                    >
+                      <select
+                        class="flex items-center sort-by-select !rounded-[30px] !bg-[var(--secondary-color)] border border-[var(--accent1)] focus:outline-none text-[var(--text)]"
+                      >
+                        <option disabled selected>AUS</option>
+                        <option>BD</option>
+                        <option>US</option>
+                        <option>IND</option>
+                      </select>
+
                       <input
                         type="tel"
                         id="phone"
                         placeholder="XXXX XXX XXX"
-                        class="flex-1 w-full px-4 py-3 rounded-[16px] bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none placeholder-gray-400 text-gray-700"
+                        class="flex-1 w-full h-[48px] px-4 py-3 rounded-r-[30px] bg-[var(--accent1)] border-none focus:outline-none placeholder-gray-400 text-[var(--text)]"
                       />
                     </div>
                   </div>
                   <div>
                     <label
-                      for="country"
-                      class="block text-sm font-medium text-gray-700 mb-1"
+                      for="sort-by"
+                      class="block text-[18px] font-primary font-medium text-[var(--text)] mb-1"
                       >Country</label
                     >
                     <select
-                      id="country"
-                      class="w-full px-4 py-3 rounded-[16px] bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none text-gray-400"
+                      class="flex items-center sort-by-select !w-full !rounded-[30px] !bg-[var(--accent1)] !border-none focus:ring-1 focus:!ring-[var(--primary-color)] focus:outline-none text-[var(--text)]"
                     >
                       <option disabled selected>Select here...</option>
                       <option>Country A</option>
@@ -2454,13 +2471,12 @@
                   </div>
                   <div>
                     <label
-                      for="city"
-                      class="block text-sm font-medium text-gray-700 mb-1"
+                      for="sort-by"
+                      class="block text-[18px] font-primary font-medium text-[var(--text)] mb-1"
                       >City</label
                     >
                     <select
-                      id="city"
-                      class="w-full px-4 py-3 rounded-[16px] bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none text-gray-400"
+                      class="flex items-center sort-by-select !w-full !rounded-[30px] !bg-[var(--accent1)] !border-none focus:ring-1 focus:!ring-[var(--primary-color)] focus:outline-none text-[var(--text)]"
                     >
                       <option disabled selected>Select here...</option>
                       <option>City A</option>
@@ -2470,138 +2486,129 @@
                   <div>
                     <label
                       for="postal-code"
-                      class="block text-sm font-medium text-gray-700 mb-1"
+                      class="block text-[18px] font-primary font-medium text-[var(--text)] mb-1"
                       >Postal Code</label
                     >
                     <input
                       type="text"
                       id="postal-code"
                       placeholder="Enter your postal code..."
-                      class="w-full px-4 py-3 rounded-[16px] bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none placeholder-gray-400 text-gray-700"
+                      class="w-full px-4 py-3 rounded-[30px] bg-[var(--accent1)] border-none focus:ring-1 focus:ring-[var(--primary-color)] focus:outline-none placeh[18px] font-primaryder-gray-400 text-[var(--text)]"
                     />
                   </div>
                   <div class="md:col-span-2">
                     <label
                       for="street"
-                      class="block text-sm font-medium text-gray-700 mb-1"
+                      class="block text-[18px] font-primary font-medium text-[var(--text)] mb-1"
                       >Street & House Number</label
                     >
                     <input
                       type="text"
                       id="street"
                       placeholder="Enter your street & house number..."
-                      class="w-full px-4 py-3 rounded-[16px] bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none placeholder-gray-400 text-gray-700"
+                      class="w-full px-4 py-3 rounded-[30px] bg-[var(--accent1)] border-none focus:ring-1 focus:ring-[var(--primary-color)] focus:outline-none placeh[18px] font-primaryder-gray-400 text-[var(--text)]"
                     />
                   </div>
                 </form>
-              </div>
 
-              <div
-                class="bg-[var(--secondary-color)] p-8 rounded-[16px] border border-[var(--border)]"
-              >
-                <h2 class="text-xl font-semibold mb-6 text-gray-800">
-                  Payment Method
-                </h2>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div>
-                    <input
-                      type="radio"
-                      id="paypal"
-                      name="payment-method"
-                      class="hidden peer"
-                      checked
-                    />
-                    <label
-                      for="paypal"
-                      class="flex items-center justify-center p-4 border rounded-[16px] cursor-pointer transition-colors peer-checked:border-indigo-500 peer-checked:ring-2 peer-checked:ring-indigo-500"
-                    >
-                      <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
-                        alt="PayPal"
-                        class="h-6"
-                      />
-                    </label>
-                  </div>
-                  <div>
-                    <input
-                      type="radio"
-                      id="credit-card"
-                      name="payment-method"
-                      class="hidden peer"
-                    />
-                    <label
-                      for="credit-card"
-                      class="flex flex-col items-center justify-center p-4 border rounded-[16px] cursor-pointer transition-colors peer-checked:border-indigo-500 peer-checked:ring-2 peer-checked:ring-indigo-500"
-                    >
-                      <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"
-                        alt="Visa"
-                        class="h-6 mb-2"
-                      />
-                      <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg"
-                        alt="Mastercard"
-                        class="h-6"
-                      />
-                    </label>
-                  </div>
-                  <div>
-                    <label
-                      for="klarna"
-                      class="flex flex-col gap-1 items-center justify-center p-4 border rounded-[16px] cursor-pointer transition-colors peer-checked:border-indigo-500 peer-checked:ring-2 peer-checked:ring-indigo-500"
-                    >
-                      <div class="flex items-center gap-2">
-                        <input
-                          type="radio"
-                          id="klarna"
-                          name="payment-method"
-                          class="peer"
+                <div class="payment-methode bg-[var(--secondary-color)] mt-6">
+                  <h2 class="text-[26px] font-semibold mb-6 text-[var(--text)]">
+                    Payment Method
+                  </h2>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                      <label
+                        for="paypal"
+                        class="group flex flex-col gap-1 items-center justify-center p-4 border border-[var(--border)] rounded-[16px] cursor-pointer transition-colors has-[:checked]:border-[var(--primary-color)] has-[:checked]:ring-1 has-[:checked]:ring-[var(--primary-color)] bg-[var(--white)] has-[:checked]:bg-[var(--accent1)]"
+                      >
+                        <div
+                          class="flex items-center gap-2 text-[var(--text)] font-primary font-semibold text-[18px]"
+                        >
+                          <input
+                            type="radio"
+                            id="paypal"
+                            name="payment-method"
+                          />
+                          <span>PayPal</span>
+                        </div>
+                        <img
+                          src="./assets/img/paypal.png"
+                          alt="Paypal"
+                          class="h-12 object-contain"
                         />
-                        <span>Klarna Pay</span>
-                      </div>
-                      <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Klarna_logo.svg"
-                        alt="Klarna Pay"
-                        class="h-6"
-                      />
-                    </label>
+                      </label>
+                    </div>
+                    <div>
+                      <label
+                        for="Visa"
+                        class="group flex flex-col gap-1 items-center justify-center p-4 border border-[var(--border)] rounded-[16px] cursor-pointer transition-colors has-[:checked]:border-[var(--primary-color)] has-[:checked]:ring-1 has-[:checked]:ring-[var(--primary-color)] bg-[var(--white)] has-[:checked]:bg-[var(--accent1)]"
+                      >
+                        <div
+                          class="flex items-center gap-2 text-[var(--text)] font-primary font-semibold text-[18px]"
+                        >
+                          <input type="radio" id="Visa" name="payment-method" />
+                          <span>Visa</span>
+                        </div>
+                        <img
+                          src="./assets/img/visa.png"
+                          alt="Visa"
+                          class="h-12 object-contain"
+                        />
+                      </label>
+                    </div>
+                    <div>
+                      <label
+                        for="Klarna"
+                        class="group flex flex-col gap-1 items-center justify-center p-4 border border-[var(--border)] rounded-[16px] cursor-pointer transition-colors has-[:checked]:border-[var(--primary-color)] has-[:checked]:ring-1 has-[:checked]:ring-[var(--primary-color)] bg-[var(--white)] has-[:checked]:bg-[var(--accent1)]"
+                      >
+                        <div
+                          class="flex items-center gap-2 text-[var(--text)] font-primary font-semibold text-[18px]"
+                        >
+                          <input
+                            type="radio"
+                            id="Klarna"
+                            name="payment-method"
+                          />
+                          <span>Klarna</span>
+                        </div>
+                        <img
+                          src="./assets/img/klarna.png"
+                          alt="Klarna"
+                          class="h-12 object-contain"
+                        />
+                      </label>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div
-                class="bg-[var(--secondary-color)] p-8 rounded-[16px] border border-[var(--border)]"
-              >
-                <h2 class="text-xl font-semibold mb-6 text-gray-800">
-                  Billing Address
-                </h2>
-                <div class="flex items-center flex-col sm:flex-row gap-4">
-                  <label
-                    for="same-address"
-                    class="flex gap-2 items-center w-full text-center px-4 py-3 border rounded-[16px] cursor-pointer transition-colors font-medium text-sm peer-checked:border-indigo-500 peer-checked:ring-2 peer-checked:ring-indigo-500 peer-checked:text-indigo-600"
-                  >
-                    <input
-                      type="radio"
-                      id="same-address"
-                      name="billing-address"
-                      class="peer"
-                      checked
-                    />
-                    Same as shipping address
-                  </label>
-                  <label
-                    for="different-address"
-                    class="flex gap-2 items-center w-full text-center px-4 py-3 border rounded-[16px] cursor-pointer transition-colors font-medium text-sm peer-checked:border-indigo-500 peer-checked:ring-2 peer-checked:ring-indigo-500 peer-checked:text-indigo-600"
-                  >
-                    <input
-                      type="radio"
-                      id="different-address"
-                      name="billing-address"
-                      class="peer"
-                      checked
-                    />
-                    Use a different billing address
-                  </label>
+                <div class="bg-[var(--secondary-color)] pt-6 pb-4">
+                  <h2 class="text-[26px] font-semibold mb-6 text-[var(--text)]">
+                    Billing Address
+                  </h2>
+                  <div class="flex items-center flex-col sm:flex-row gap-4">
+                    <label
+                      for="same-address"
+                      class="flex gap-2 items-center w-full group justify-center p-4 border border-[var(--border)] rounded-[16px] cursor-pointer transition-colors has-[:checked]:border-[var(--primary-color)] has-[:checked]:ring-1 has-[:checked]:ring-[var(--primary-color)] bg-[var(--white)] has-[:checked]:bg-[var(--accent1)]"
+                    >
+                      <input
+                        type="radio"
+                        id="same-address"
+                        name="billing-address"
+                      />
+                      Same as shipping address
+                    </label>
+                    <label
+                      for="different-address"
+                      class="flex gap-2 items-center w-full group justify-center p-4 border border-[var(--border)] rounded-[16px] cursor-pointer transition-colors has-[:checked]:border-[var(--primary-color)] has-[:checked]:ring-1 has-[:checked]:ring-[var(--primary-color)] bg-[var(--white)] has-[:checked]:bg-[var(--accent1)]"
+                    >
+                      <input
+                        type="radio"
+                        id="different-address"
+                        name="billing-address"
+                      />
+                      Use a different billing address
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2610,60 +2617,137 @@
               <div
                 class="bg-[var(--secondary-color)] p-4 rounded-[16px] border border-[var(--border)]"
               >
-                <h2 class="text-xl font-semibold mb-6 text-gray-800">
+                <h2 class="text-[26px] font-semibold mb-6 text-[var(--text)]">
                   Product Details
                 </h2>
-                <div class="flex items-start mb-6 pb-6">
-                  <img
-                    src="./assets/img/home/frozen1.webp"
-                    alt="Product Image"
-                    class="w-16 h-16 rounded-md border border-[var(--border)] mr-4"
-                  />
-                  <div class="flex-1">
-                    <h3 class="font-medium text-gray-800 line-clamp-1">
-                      Chobani Complete Vanilla Greek Yogurt
-                    </h3>
-                    <p class="text-sm text-gray-500 line-clamp-1">
-                      200g Pori Puri Chips (Kalpappas)
-                    </p>
-                    <div
-                      class="inline-flex p-1 items-center gap-1 border border-[var(--border)] rounded-full"
-                    >
-                      <button
-                        onclick="decreaseQuantity()"
-                        class="decreaseQuantity w-6 h-6 rounded-full flex items-center justify-center text-[16px] text-[var(--text)] hover:bg-[var(--primary-color)] bg-[var(--accent1)] hover:text-[var(--secondary-color)] transition-colors"
+                <div class="details min-h-0 max-h-[250px] overflow-auto">
+                  <div class="item flex items-start mb-2">
+                    <img
+                      src="./assets/img/home/frozen1.webp"
+                      alt="Product Image"
+                      class="w-16 h-16 rounded-md border border-[var(--border)] mr-4"
+                    />
+                    <div class="flex-1">
+                      <h3 class="font-medium text-[var(--text)] line-clamp-1">
+                        Chobani Complete Vanilla Greek Yogurt
+                      </h3>
+                      <p class="text-sm text-[var(--text2)] line-clamp-1">
+                        200g Pori Puri Chips (Kalpappas)
+                      </p>
+                      <div
+                        class="quantity-container inline-flex p-1 mt-2 items-center gap-1 border border-[var(--border)] rounded-full"
                       >
-                        −
-                      </button>
-                      <span id="quantity" class="w-6 text-center font-medium"
-                        >1</span
-                      >
-                      <button
-                        onclick="increaseQuantity()"
-                        class="increaseQuantity w-6 h-6 rounded-full flex items-center justify-center text-[16px] text-[var(--text)] hover:bg-[var(--primary-color)] bg-[var(--accent1)] hover:text-[var(--secondary-color)] transition-colors"
-                      >
-                        +
-                      </button>
+                        <button
+                          class="decrease-btn w-6 h-6 rounded-full flex items-center justify-center text-[16px] text-[var(--text)] hover:bg-[var(--primary-color)] bg-[var(--accent1)] hover:text-[var(--secondary-color)] transition-colors cursor-pointer"
+                        >
+                          −
+                        </button>
+                        <span class="quantity-value w-6 text-center font-medium"
+                          >1</span
+                        >
+                        <button
+                          class="increase-btn w-6 h-6 rounded-full flex items-center justify-center text-[16px] text-[var(--text)] hover:bg-[var(--primary-color)] bg-[var(--accent1)] hover:text-[var(--secondary-color)] transition-colors cursor-pointer"
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
-                  </div>
 
-                  <span class="text-lg font-semibold ml-4 text-indigo-600"
-                    >€1.49</span
-                  >
+                    <span
+                      class="price text-lg font-semibold ml-4 text-[var(--primary-color)]"
+                      >€1.49</span
+                    >
+                  </div>
+                  <div class="item flex items-start mb-2">
+                    <img
+                      src="./assets/img/home/frozen1.webp"
+                      alt="Product Image"
+                      class="w-16 h-16 rounded-md border border-[var(--border)] mr-4"
+                    />
+                    <div class="flex-1">
+                      <h3 class="font-medium text-[var(--text)] line-clamp-1">
+                        Chobani Complete Vanilla Greek Yogurt
+                      </h3>
+                      <p class="text-sm text-[var(--text2)] line-clamp-1">
+                        200g Pori Puri Chips (Kalpappas)
+                      </p>
+                      <div
+                        class="quantity-container inline-flex p-1 mt-2 items-center gap-1 border border-[var(--border)] rounded-full"
+                      >
+                        <button
+                          class="decrease-btn w-6 h-6 rounded-full flex items-center justify-center text-[16px] text-[var(--text)] hover:bg-[var(--primary-color)] bg-[var(--accent1)] hover:text-[var(--secondary-color)] transition-colors cursor-pointer"
+                        >
+                          −
+                        </button>
+                        <span class="quantity-value w-6 text-center font-medium"
+                          >1</span
+                        >
+                        <button
+                          class="increase-btn w-6 h-6 rounded-full flex items-center justify-center text-[16px] text-[var(--text)] hover:bg-[var(--primary-color)] bg-[var(--accent1)] hover:text-[var(--secondary-color)] transition-colors cursor-pointer"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+
+                    <span
+                      class="price text-lg font-semibold ml-4 text-[var(--primary-color)]"
+                      >€1.49</span
+                    >
+                  </div>
+                  <div class="item flex items-start mb-2">
+                    <img
+                      src="./assets/img/home/frozen1.webp"
+                      alt="Product Image"
+                      class="w-16 h-16 rounded-md border border-[var(--border)] mr-4"
+                    />
+                    <div class="flex-1">
+                      <h3 class="font-medium text-[var(--text)] line-clamp-1">
+                        Chobani Complete Vanilla Greek Yogurt
+                      </h3>
+                      <p class="text-sm text-[var(--text2)] line-clamp-1">
+                        200g Pori Puri Chips (Kalpappas)
+                      </p>
+                      <div
+                        class="quantity-container inline-flex p-1 mt-2 items-center gap-1 border border-[var(--border)] rounded-full"
+                      >
+                        <button
+                          class="decrease-btn w-6 h-6 rounded-full flex items-center justify-center text-[16px] text-[var(--text)] hover:bg-[var(--primary-color)] bg-[var(--accent1)] hover:text-[var(--secondary-color)] transition-colors cursor-pointer"
+                        >
+                          −
+                        </button>
+                        <span class="quantity-value w-6 text-center font-medium"
+                          >1</span
+                        >
+                        <button
+                          class="increase-btn w-6 h-6 rounded-full flex items-center justify-center text-[16px] text-[var(--text)] hover:bg-[var(--primary-color)] bg-[var(--accent1)] hover:text-[var(--secondary-color)] transition-colors cursor-pointer"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+
+                    <span
+                      class="price text-lg font-semibold ml-4 text-[var(--primary-color)]"
+                      >€1.49</span
+                    >
+                  </div>
                 </div>
 
-                <div class="mb-6">
-                  <h3 class="text-sm font-medium text-gray-800 mb-2">
+                <div class="mb-6 pt-8">
+                  <h3
+                    class="block text-[18px] font-primary font-medium text-[var(--text)] mb-2"
+                  >
                     Have any promo code?
                   </h3>
-                  <div class="flex space-x-2">
+                  <div class="flex items-center cupon-box">
                     <input
                       type="text"
-                      placeholder="Enter promo code..."
-                      class="flex-1 px-4 py-2 rounded-[16px] bg-gray-100 border-none focus:ring-2 focus:ring-indigo-500 focus:outline-none text-gray-700 placeholder-gray-400"
+                      placeholder="Enter Promo Code"
+                      class="flex-1 text-sm text-[var(--text)] border border-[var(--border)] rounded-tl-full rounded-bl-full p-2 px-3 focus:outline-none focus:border-[var(--primary-color)] transition duration-300"
                     />
                     <button
-                      class="bg-indigo-600 text-white px-5 py-2 rounded-[16px] text-sm font-medium hover:bg-indigo-700 transition-colors"
+                      class="apply-btn bg-[var(--primary-color)] border border-[var(--primary-color)] text-sm text-[var(--secondary-color)] rounded-tr-full rounded-br-full px-4 py-2 hover:bg-[var(--black)] transition duration-300"
                     >
                       Apply
                     </button>
@@ -2671,44 +2755,74 @@
                 </div>
 
                 <div class="space-y-3">
-                  <div class="flex justify-between text-sm text-gray-600">
+                  <div
+                    class="flex justify-between text-[16px] list font-secondary text-[var(--text2)]"
+                  >
                     <span>Subtotal</span>
                     <span>€1.49</span>
                   </div>
-                  <div class="flex justify-between text-sm text-gray-600">
+                  <div
+                    class="flex justify-between text-[16px] list font-secondary text-[var(--text2)]"
+                  >
                     <span>Delivery Fee</span>
                     <span>€0.40</span>
                   </div>
-                  <div class="flex justify-between text-sm text-gray-600">
+                  <div
+                    class="flex justify-between text-[16px] list font-secondary text-[var(--text2)]"
+                  >
                     <span>Campaign Discount</span>
-                    <span class="text-green-600">-€0.00</span>
+                    <span>-€0.00</span>
                   </div>
-                  <div class="flex justify-between text-sm text-gray-600">
+                  <div
+                    class="flex justify-between text-[16px] list font-secondary text-[var(--text2)]"
+                  >
                     <span>Taxes</span>
                     <span>€0.39</span>
                   </div>
                 </div>
 
                 <div
-                  class="flex justify-between items-center text-xl font-semibold mt-6 pt-6 border-t border-gray-200"
+                  class="flex justify-between items-center mt-3 pt-3 border-t border-t-[var(--border)]"
                 >
-                  <span>Total</span>
-                  <span class="text-indigo-600">€2.18</span>
+                  <span
+                    class="block text-[18px] font-primary font-medium text-[var(--text)] mb-2"
+                    >Total</span
+                  >
+                  <span
+                    class="price text-[18px] font-bold text-[var(--primary-color)]"
+                    >€2.18</span
+                  >
                 </div>
 
                 <button
-                  class="mt-6 w-full bg-indigo-600 text-white py-3 rounded-[16px] text-lg font-semibold hover:bg-indigo-700 transition-colors"
+                  class="w-full mt-6 bg-[var(--primary-color)] text-[var(--secondary-color)] px-5 py-2 rounded-full hover:bg-[var(--black)] font-semibold text-[16px] transition duration-300"
                 >
                   Confirm Order
                 </button>
 
                 <div
-                  class="mt-4 flex justify-center text-xs text-gray-500 space-x-4"
+                  class="mt-6 mb-2 flex justify-center text-xs text-[var(--text2)] space-x-4"
                 >
-                  <a href="#" class="hover:underline">Privacy Policy</a>
-                  <a href="#" class="hover:underline">Shipping</a>
-                  <a href="#" class="hover:underline">Refund and Policy</a>
-                  <a href="#" class="hover:underline">Terms of Service</a>
+                  <a
+                    href="#"
+                    class="hover:underline hover:text-[var(--primary-color)]"
+                    >Privacy Policy</a
+                  >
+                  <a
+                    href="#"
+                    class="hover:underline hover:text-[var(--primary-color)]"
+                    >Shipping</a
+                  >
+                  <a
+                    href="#"
+                    class="hover:underline hover:text-[var(--primary-color)]"
+                    >Refund and Policy</a
+                  >
+                  <a
+                    href="#"
+                    class="hover:underline hover:text-[var(--primary-color)]"
+                    >Terms of Service</a
+                  >
                 </div>
               </div>
             </div>
