@@ -30,21 +30,21 @@
   </head>
   <body>
     <!-- Preloader Start -->
-    <!-- <div
+    <div
       id="pagePreloader"
-      class="fixed inset-0 w-full h-full bg-[var(--primary-color)] flex flex-col justify-center items-center z-[9999] transition-opacity duration-500 ease-in-out"
+      class="fixed inset-0 w-full h-full bg-[var(--secondary-color)] flex flex-col justify-center items-center z-[9999] transition-opacity duration-500 ease-in-out"
     >
       <div
-        class="w-[50px] h-[50px] border-[6px] border-solid border-var(--border) border-t-[6px] border-t-black rounded-full animate-custom-spin mb-[20px]"
+        class="w-[50px] h-[50px] border-[6px] border-solid border-[var(--accent1)] border-t-[6px] border-t-[var(--primary-color)] rounded-full animate-custom-spin mb-[20px]"
       ></div>
       <div class="text-center font-bold mb-[20px]">
         <img
-          src="./assets/images/navbar-light-logo.png"
+          src="./assets/icon/logo.png"
           alt="Company Logo"
           class="mx-auto w-[120px] object-contain"
         />
       </div>
-    </div> -->
+    </div>
     <!-- Preloader End -->
 
     <!-- Back to Top Button Start -->
@@ -215,7 +215,7 @@
           </div>
 
           <!-- Right Icons -->
-          <div class="flex items-center space-x-4 rounded-[16px]">
+          <div class="flex items-center space-x-4 rounded-lg">
             <!-- Language -->
             <div
               id="language-selector"
@@ -854,7 +854,7 @@
               >
                 <div class="custom-container">
                   <div
-                    class="mx-auto shadow-sm grid grid-cols-5 gap-1 text-sm bg-[var(--secondary-color)] p-[30px] rounded-[12px]"
+                    class="mx-auto shadow-sm grid grid-cols-5 gap-1 text-sm bg-[var(--secondary-color)] shadow-sm p-[30px] rounded-[12px]"
                   >
                     <div>
                       <h4 class="font-bold mb-4">Instant Food & Mixes</h4>
@@ -1116,7 +1116,7 @@
               >
                 <div class="custom-container">
                   <div
-                    class="mx-auto shadow-sm grid grid-cols-5 gap-1 text-sm bg-[var(--secondary-color)] p-[30px] rounded-[12px]"
+                    class="mx-auto shadow-sm grid grid-cols-5 gap-1 text-sm bg-[var(--secondary-color)] shadow-sm p-[30px] rounded-[12px]"
                   >
                     <div>
                       <h4 class="font-bold mb-4">Instant Food & Mixes</h4>
@@ -1372,7 +1372,7 @@
               >
                 <div class="custom-container">
                   <div
-                    class="mx-auto shadow-sm grid grid-cols-5 gap-1 text-sm bg-[var(--secondary-color)] p-[30px] rounded-[12px]"
+                    class="mx-auto grid grid-cols-5 gap-1 text-sm bg-[var(--secondary-color)] shadow-sm p-[30px] rounded-[12px]"
                   >
                     <div>
                       <h4 class="font-bold mb-4">Instant Food & Mixes</h4>
@@ -1690,7 +1690,7 @@
 
           <li>
             <button
-              data-target="also-like"
+              data-target="fresh-frozen"
               class="flex justify-between hover:text-[var(--primary-color)] items-center w-full py-2 dropdown-btn cursor-pointer"
             >
               <span>Fresh & Frozen</span>
@@ -1728,9 +1728,11 @@
         <ul
           class="flex flex-col p-4 pb-[40px] space-y-2 text-sm text-[var(--text)] overflow-y-auto h-[calc(100%-120px)]"
         >
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Instant Food & Mixes
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Instant Food & Mixes
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >All Instant Food & Mix</a
@@ -1757,9 +1759,11 @@
             >
           </li>
 
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Oil, Ghee & Sauces
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Oil, Ghee & Sauces
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >All Oil, Ghee & Sauces</a
@@ -1780,9 +1784,11 @@
             >
           </li>
 
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Snacks & Sweets
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Snacks & Sweets
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >Snacks & Sweets</a
@@ -1813,9 +1819,11 @@
             >
           </li>
 
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Pickles & Condiments
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Pickles & Condiments
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >Pickles & Condiments</a
@@ -1846,9 +1854,11 @@
             >
           </li>
 
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Beverages
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Beverages
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >All Beverages</a
@@ -1892,9 +1902,11 @@
         <ul
           class="flex flex-col p-4 pb-[40px] space-y-2 text-sm text-[var(--text)] overflow-y-auto h-[calc(100%-120px)]"
         >
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Instant Food & Mixes
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Instant Food & Mixes
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >All Instant Food & Mix</a
@@ -1921,9 +1933,11 @@
             >
           </li>
 
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Oil, Ghee & Sauces
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Oil, Ghee & Sauces
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >All Oil, Ghee & Sauces</a
@@ -1944,9 +1958,11 @@
             >
           </li>
 
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Snacks & Sweets
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Snacks & Sweets
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >Snacks & Sweets</a
@@ -1977,9 +1993,11 @@
             >
           </li>
 
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Pickles & Condiments
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Pickles & Condiments
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >Pickles & Condiments</a
@@ -2010,9 +2028,11 @@
             >
           </li>
 
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Beverages
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Beverages
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >All Beverages</a
@@ -2040,7 +2060,7 @@
       </div>
 
       <div
-        id="also-like"
+        id="fresh-frozen"
         class="dropdown-panel absolute top-0 right-0 h-full w-full bg-[var(--secondary-color)] transform translate-x-full transition-transform duration-300"
       >
         <div class="p-3 flex items-center border-b border-[var(--border)]">
@@ -2056,9 +2076,11 @@
         <ul
           class="flex flex-col p-4 pb-[40px] space-y-2 text-sm text-[var(--text)] overflow-y-auto h-[calc(100%-120px)]"
         >
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Instant Food & Mixes
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Instant Food & Mixes
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >All Instant Food & Mix</a
@@ -2085,9 +2107,11 @@
             >
           </li>
 
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Oil, Ghee & Sauces
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Oil, Ghee & Sauces
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >All Oil, Ghee & Sauces</a
@@ -2108,9 +2132,11 @@
             >
           </li>
 
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Snacks & Sweets
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Snacks & Sweets
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >Snacks & Sweets</a
@@ -2141,9 +2167,11 @@
             >
           </li>
 
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Pickles & Condiments
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Pickles & Condiments
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >Pickles & Condiments</a
@@ -2174,9 +2202,11 @@
             >
           </li>
 
-          <h3 class="title font-bold text-[var(--primary-color)] underline">
-            Beverages
-          </h3>
+          <li>
+            <h3 class="title font-bold text-[var(--primary-color)] underline">
+              Beverages
+            </h3>
+          </li>
           <li>
             <a href="#" class="hover:text-[var(--primary-color)]"
               >All Beverages</a
@@ -2206,10 +2236,10 @@
 
     <!-- Mobile Bottom Navbar -->
     <div
-      class="mobile-navigation font-primary fixed bottom-0 bg-[var(--primary-color)] left-0 w-full p-2 pt-0 lg:hidden z-50"
+      class="mobile-navigation font-primary fixed bottom-0 bg-transparent left-0 w-full p-2 pt-0 lg:hidden z-50"
     >
       <div
-        class="navigation-wrap py-2 bg-[var(--secondary-color)] border border-[var(--border)] rounded-[16px]"
+        class="navigation-wrap py-2 bg-[var(--secondary-color)] border border-[var(--border)] rounded-lg"
       >
         <div class="wrap">
           <div class="flex">
@@ -2253,7 +2283,7 @@
               <div
                 class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
               >
-                <a href="#" class="cart pt-1">
+                <a href="#" class="cart-icon pt-1">
                   <h2 class="w-5 h-5 mx-auto relative cursor-pointer">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -2288,11 +2318,11 @@
                 class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
               >
                 <a href="#" class="profile pt-1">
-                  <h2 class="w-5 h-5 mx-auto cursor-pointer">
+                  <span class="w-5 h-5 mx-auto cursor-pointer">
                     <i
                       class="fa-solid fa-house text-[22px] text-[var(--black)]"
                     ></i>
-                  </h2>
+                  </span>
                   <span class="block text-sm mt-1">Home</span>
                   <span
                     class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
@@ -2306,7 +2336,7 @@
                 class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
               >
                 <a href="#" class="search pt-1">
-                  <h2 class="w-5 h-5 mx-auto cursor-pointer">
+                  <span class="w-5 h-5 mx-auto cursor-pointer">
                     <svg
                       class="w-6 h-6"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2323,7 +2353,7 @@
                         stroke-linejoin="round"
                       />
                     </svg>
-                  </h2>
+                  </span>
                   <span class="block text-sm mt-1">Search</span>
                   <span
                     class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
@@ -2336,11 +2366,11 @@
                 class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
               >
                 <a href="#" class="profile pt-1">
-                  <h2 class="w-5 h-5 mx-auto cursor-pointer">
+                  <span class="w-5 h-5 mx-auto cursor-pointer">
                     <i
                       class="far fa-user-circle text-[22px] text-[var(--black)]"
                     ></i>
-                  </h2>
+                  </span>
                   <span class="block text-sm mt-1">Profile</span>
                   <span
                     class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
@@ -2358,7 +2388,7 @@
     <div class="breadcrumb my-6">
       <div class="custom-container">
         <a
-          href="#"
+          href="./index.html"
           class="flex gap-2 items-center text-[var(--text)] hover:text-[var(--text2)] text-[18px] font-primary font-semibold"
         >
           <span
@@ -2457,7 +2487,6 @@
                   </div>
                   <div>
                     <label
-                      for="sort-by"
                       class="block text-[18px] font-primary font-medium text-[var(--text)] mb-1"
                       >Country</label
                     >
@@ -2471,7 +2500,6 @@
                   </div>
                   <div>
                     <label
-                      for="sort-by"
                       class="block text-[18px] font-primary font-medium text-[var(--text)] mb-1"
                       >City</label
                     >
@@ -2521,7 +2549,7 @@
                         for="paypal"
                         class="group flex flex-col gap-1 items-center justify-center p-4 border border-[var(--border)] rounded-[16px] cursor-pointer transition-colors has-[:checked]:border-[var(--primary-color)] has-[:checked]:ring-1 has-[:checked]:ring-[var(--primary-color)] bg-[var(--white)] has-[:checked]:bg-[var(--accent1)]"
                       >
-                        <div
+                        <span
                           class="flex items-center gap-2 text-[var(--text)] font-primary font-semibold text-[18px]"
                         >
                           <input
@@ -2529,8 +2557,8 @@
                             id="paypal"
                             name="payment-method"
                           />
-                          <span>PayPal</span>
-                        </div>
+                          PayPal
+                        </span>
                         <img
                           src="./assets/img/paypal.png"
                           alt="Paypal"
@@ -2543,12 +2571,12 @@
                         for="Visa"
                         class="group flex flex-col gap-1 items-center justify-center p-4 border border-[var(--border)] rounded-[16px] cursor-pointer transition-colors has-[:checked]:border-[var(--primary-color)] has-[:checked]:ring-1 has-[:checked]:ring-[var(--primary-color)] bg-[var(--white)] has-[:checked]:bg-[var(--accent1)]"
                       >
-                        <div
+                        <span
                           class="flex items-center gap-2 text-[var(--text)] font-primary font-semibold text-[18px]"
                         >
                           <input type="radio" id="Visa" name="payment-method" />
-                          <span>Visa</span>
-                        </div>
+                          Visa
+                        </span>
                         <img
                           src="./assets/img/visa.png"
                           alt="Visa"
@@ -2561,7 +2589,7 @@
                         for="Klarna"
                         class="group flex flex-col gap-1 items-center justify-center p-4 border border-[var(--border)] rounded-[16px] cursor-pointer transition-colors has-[:checked]:border-[var(--primary-color)] has-[:checked]:ring-1 has-[:checked]:ring-[var(--primary-color)] bg-[var(--white)] has-[:checked]:bg-[var(--accent1)]"
                       >
-                        <div
+                        <span
                           class="flex items-center gap-2 text-[var(--text)] font-primary font-semibold text-[18px]"
                         >
                           <input
@@ -2569,8 +2597,8 @@
                             id="Klarna"
                             name="payment-method"
                           />
-                          <span>Klarna</span>
-                        </div>
+                          Klarna
+                        </span>
                         <img
                           src="./assets/img/klarna.png"
                           alt="Klarna"

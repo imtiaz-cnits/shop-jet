@@ -1,90 +1,708 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart Table</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grocery E-Commerce</title>
+  <!-- Fav Icon -->
+  <link rel="icon" type="image/x-icon" href="./assets/icon/fav.png" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="./src/output.css" />
 </head>
-<body class="bg-white text-black font-sans">
+<body class="bg-[var(--neutral-50)]">
 
-  <div class="max-w-6xl mx-auto px-4 py-8">
-    <div class="overflow-x-auto">
-      <table class="w-full border-collapse">
-        <thead>
-          <tr class="text-left border-b">
-            <th class="py-3 px-2">Product</th>
-            <th class="py-3 px-2">Price</th>
-            <th class="py-3 px-2">Date Added</th>
-            <th class="py-3 px-2">Stock</th>
-            <th class="py-3 px-2">Add to cart</th>
-          </tr>
-        </thead>
-        <tbody class="text-sm">
-          <!-- Row 1 -->
-          <tr class="border-b">
-            <td class="flex items-center gap-3 py-3 px-2">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Blackberries.jpg" alt="Blackberries" class="w-12 h-12 object-contain">
-              <span>Blackberries - 6oz</span>
-            </td>
-            <td class="py-3 px-2">
-              <span class="line-through text-gray-500 mr-1">$4.99</span>
-              <span class="text-red-700">$2.99</span>
-            </td>
-            <td class="py-3 px-2">September 10, 2025</td>
-            <td class="py-3 px-2 text-green-600">In Stock</td>
-            <td class="py-3 px-2 flex items-center gap-3">
-              <button class="bg-purple-700 hover:bg-purple-800 text-white rounded-lg px-4 py-2">
-                Add to cart
-              </button>
-              <button class="text-gray-500 border rounded-full w-6 h-6 flex items-center justify-center hover:bg-gray-200">×</button>
-            </td>
-          </tr>
-          <!-- Row 2 -->
-          <tr class="border-b">
-            <td class="flex items-center gap-3 py-3 px-2">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg" alt="Bananas" class="w-12 h-12 object-contain">
-              <span>Marketside Fresh Organic Bananas, Bunch</span>
-            </td>
-            <td class="py-3 px-2">
-              <span class="line-through text-gray-500 mr-1">$1.99</span>
-              <span class="text-red-700">$0.89</span>
-            </td>
-            <td class="py-3 px-2">September 10, 2025</td>
-            <td class="py-3 px-2 text-green-600">In Stock</td>
-            <td class="py-3 px-2 flex items-center gap-3">
-              <button class="bg-purple-700 hover:bg-purple-800 text-white rounded-lg px-4 py-2">
-                Add to cart
-              </button>
-              <button class="text-gray-500 border rounded-full w-6 h-6 flex items-center justify-center hover:bg-gray-200">×</button>
-            </td>
-          </tr>
-          <!-- Row 3 -->
-          <tr>
-            <td class="flex items-center gap-3 py-3 px-2">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Cauliflower.jpg" alt="Cauliflower" class="w-12 h-12 object-contain">
-              <span>Fresh Cauliflower, Each</span>
-            </td>
-            <td class="py-3 px-2">
-              <span class="line-through text-gray-500 mr-1">$14.79</span>
-              <span class="text-red-700">$12.79</span>
-            </td>
-            <td class="py-3 px-2">September 10, 2025</td>
-            <td class="py-3 px-2 text-green-600">In Stock</td>
-            <td class="py-3 px-2 flex items-center gap-3">
-              <button class="bg-purple-700 hover:bg-purple-800 text-white rounded-lg px-4 py-2">
-                Add to cart
-              </button>
-              <button class="text-gray-500 border rounded-full w-6 h-6 flex items-center justify-center hover:bg-gray-200">×</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+<!-- Navbar -->
+<nav class="navbar sticky top-0 left-0 bg-[var(--secondary-color)] z-50">
+  <div class="header custom-container">
+    <div class="flex justify-between items-center py-3">
+      <!-- Logo -->
+      <div class="flex items-center space-x-3">
+        <a href="./index.html" class="w-[150px] object-contain">
+          <img src="./assets/icon/logo.png" alt="Logo" />
+        </a>
+      </div>
+      <!-- Right Icons -->
+      <div class="flex items-center space-x-4 rounded-lg">
+        <a href="#" class="cart-icon cart relative cursor-pointer hidden lg:flex">
+          <i class="fas fa-shopping-cart text-xl"></i>
+          <span class="cart-item-count absolute flex justify-center items-center w-4 h-4 top-0 right-0 -mt-1 -mr-1 text-xs font-semibold text-[var(--secondary-color)] bg-[var(--primary-color)] rounded-full">0</span>
+        </a>
+      </div>
     </div>
+  </div>
 
-    <!-- Social Icons -->
-    <div class="flex items-center gap-2 mt-6">
-      <span class="mr-2">Share on:</span>
-      <a href="#" class="bg-blue-600 text-white p-2 rounded"><i class="fab fa-facebook-f"></i>F</a>
-      <a href="#" class="bg-sky-500 text-white p-2 rounded">T</a>
-      <a href=
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black opacity-50 z-40 hidden"></div>
+
+  <!-- Cart Sidebar -->
+   <div
+        id="cart-sidebar"
+        class="fixed top-0 right-0 h-full w-full md:w-96 bg-[var(--secondary-color)] shadow-lg transition-all duration-300 ease-in-out z-[150]"
+        style="transform: translateX(100%)"
+      >
+        <div class="wrapper p-4 pt-0">
+          <div
+            class="sticky bg-[var(--secondary-color)] top-0 left-0 flex justify-between items-center py-3"
+          >
+            <h2 class="my-cart text-xl font-semibold">
+              Review Your Cart (<span id="cart-item-count-sidebar">3</span>)
+            </h2>
+            <button
+              class="text-[var(--text)] hover:text-[var(--primary-color)] focus:outline-none"
+              id="close-sidebar-btn"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Cart Item -->
+          <div
+            id="cart-items"
+            class="mb-2 overflow-y-auto min-h-0 max-h-[calc(100vh-280px)]"
+          >
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+            <div
+              class="cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative"
+            >
+              <button
+                class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  ></path>
+                </svg>
+              </button>
+              <img
+                src="./assets/img/home/frozen1.webp"
+                alt="Chobani Complete Vanilla Greek Yogurt"
+                class="w-[40px] h-[40px] object-cover rounded-md"
+              />
+              <div class="flex-1">
+                <h3 class="name font-medium text-[15px] line-clamp-1">
+                  Chobani Complete Vanilla Greek Yogurt
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <p
+                    class="text-[var(--text2)] line-through text-[14px] original-price"
+                    data-price="155.00"
+                  >
+                    155.00€
+                  </p>
+                  <p
+                    class="text-[14px] font-bold discounted-price text-[var(--primary-color)]"
+                    data-price="139.00"
+                  >
+                    139.00€
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div
+                  class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden"
+                >
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer"
+                  >
+                    -
+                  </button>
+                  <span class="text-sm item-qty" data-qty="1">1</span>
+                  <button
+                    class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer"
+                  >
+                    +
+                  </button>
+                </div>
+                <span class="text-green-600 text-sm">Save 16%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom box  -->
+          <div class="bottom-box pb-[20px] bg-[var(--secondery-color)]">
+            <div class="mb-2">
+              <h4 class="title text-[var(--text)] font-medium mb-1">
+                Got a discount code?
+              </h4>
+              <div class="flex items-center cupon-box">
+                <input
+                  type="text"
+                  placeholder="Coupon Code"
+                  class="flex-1 text-sm text-[var(--text)] border border-[var(--border)] rounded-tl-full rounded-bl-full p-2 px-3 focus:outline-none focus:border-[var(--primary-color)] transition duration-300"
+                />
+                <button
+                  class="apply-btn bg-[var(--primary-color)] border border-[var(--primary-color)] text-sm text-[var(--secondary-color)] rounded-tr-full rounded-br-full px-4 py-2 hover:bg-[var(--black)] transition duration-300"
+                >
+                  Apply
+                </button>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="flex justify-between font-medium">
+                <h4 class="title text-[var(--text)] font-medium">Subtotal</h4>
+                <span id="subtotal" class="text-lg text-[var(--primary-color)]"
+                  >253.00€</span
+                >
+              </div>
+              <p class="desc text-sm text-[var(--text2)] mb-0 line-clamp-1">
+                Shipping & taxes may be re-calculated at checkout
+              </p>
+            </div>
+
+            <button
+              class="continue-btn w-full bg-[var(--primary-color)] border border-[var(--primary-color)] text-[16px] text-[var(--secondary-color)] rounded-full px-3 py-2 hover:bg-[var(--black)] transition duration-300"
+            >
+              Checkout <span id="checkout-price">253.00€</span>
+            </button>
+
+            <div class="text-center mt-2">
+              <a
+                href="#"
+                class="text-blue-600 hover:text-blue-700"
+                onclick="closeSidebar()"
+                >Continue Shopping</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+</nav>
+
+<!-- Example Product -->
+<div class=" product-card">
+  <div class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative">
+    <!-- Badge -->
+    <span class="absolute top-2 left-2 bg-[var(--accent4)] text-xs text-[var(--text)] font-semibold px-2 py-1 rounded-[12px] rounded-br-[30px] rounded-tr-[30px]">20% OFF</span>
+
+    <!-- Wishlist Icon -->
+    <button class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]">♡</button>
+
+    <!-- Image -->
+    <div
+                  class="product-box"
+                >
+                  <img
+                    src="./assets/img/home/samar-sale3.webp"
+                    alt="Product"
+                    class="w-full aspect-[6/6] object-contain"
+                  />
+                </div>
+
+    <!-- Details -->
+    <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+      <div class="flex h-[140px] flex-col gap-2 justify-between">
+        <div>
+          <div class="flex justify-between items-start gap-2 mb-1">
+            <h3 class="title text-[16px] text-[var(--text)] line-clamp-2 font-semibold">Blue Almonds Lightly Salted Vegetables</h3>
+            <!-- Rating -->
+            <div class="rating flex items-center gap-1">
+              ⭐<span class="text-sm font-secondary">4.9</span>
+            </div>
+          </div>
+          <p class="desc text-sm text-[var(--text2)] mb-3 line-clamp-2">200g Lightly Salted Vegetables</p>
+        </div>
+        <div class="flex justify-between items-center gap-1">
+          <!-- Price -->
+          <div class="price-box flex items-center gap-2 font-secondary">
+            <span class="old-price text-[var(--text2)] line-through text-sm">1.49</span>
+            <span class="current-price text-[16px] font-semibold text-[var(--primary-color)]">1.39</span>
+          </div>
+          <!-- Button -->
+          <button
+            class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+            data-id="p1"
+            data-name="Blue Almonds Lightly Salted Vegetables"
+            data-img="./assets/img/home/samar-sale3.webp"
+            data-price="1.39"
+            data-original-price="1.49"
+            data-qty="1"
+          >
+            <i class="fas fa-cart-plus"></i>
+            <span class="hidden md:block">Add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script>
+// ------------------- Elements -------------------
+const sidebar = document.getElementById("cart-sidebar");
+const overlay = document.getElementById("overlay");
+const cartIcons = document.querySelectorAll(".cart-icon");
+const closeBtn = document.getElementById("close-sidebar-btn");
+const cartItemCounts = document.querySelectorAll(".cart-item-count");
+const cartItemCountSidebar = document.getElementById("cart-item-count-sidebar");
+const subtotalElement = document.getElementById("subtotal");
+const checkoutPriceElement = document.getElementById("checkout-price");
+const cartItemsContainer = document.getElementById("cart-items");
+
+// ------------------- Sidebar Open/Close -------------------
+function openSidebar() {
+  sidebar.style.transform = "translateX(0)";
+  overlay.style.display = "block";
+}
+function closeSidebar() {
+  sidebar.style.transform = "translateX(100%)";
+  overlay.style.display = "none";
+}
+cartIcons.forEach((icon) => icon.addEventListener("click", openSidebar));
+closeBtn.addEventListener("click", closeSidebar);
+overlay.addEventListener("click", closeSidebar);
+
+// ------------------- Update Cart Total -------------------
+function updateCartTotal() {
+  let total = 0;
+  let totalItems = 0;
+  const itemElements = cartItemsContainer.querySelectorAll(".cart-product-items");
+
+  itemElements.forEach((item) => {
+    const qtyElement = item.querySelector(".item-qty");
+    const priceElement = item.querySelector(".discounted-price");
+    const qty = parseInt(qtyElement.textContent, 10);
+    const price = parseFloat(priceElement.dataset.price);
+    total += qty * price;
+    totalItems += qty;
+  });
+
+  subtotalElement.textContent = `${total.toFixed(2)}€`;
+  checkoutPriceElement.textContent = `${total.toFixed(2)}€`;
+  cartItemCounts.forEach((el) => (el.textContent = totalItems));
+  cartItemCountSidebar.textContent = totalItems;
+}
+
+// ------------------- Add Item to Cart -------------------
+function addItemToCart(product) {
+  const existingItem = cartItemsContainer.querySelector(`[data-id='${product.id}']`);
+  if (existingItem) {
+    const qtyEl = existingItem.querySelector(".item-qty");
+    qtyEl.textContent = parseInt(qtyEl.textContent) + product.qty;
+  } else {
+    const div = document.createElement("div");
+    div.className = "cart-product-items flex gap-2 items-center pb-1 mb-1 border-b border-b-[var(--border)] relative";
+    div.dataset.id = product.id;
+    div.innerHTML = `
+      <button class="absolute left-0 top-0 p-[2px] bg-red-500 rounded-[4px] text-[var(--secondary-color)] focus:outline-none remove-item cursor-pointer">&times;</button>
+      <img src="${product.img}" class="w-[40px] h-[40px] object-cover rounded-md" />
+      <div class="flex-1">
+        <h3 class="name font-medium text-[15px] line-clamp-1">${product.name}</h3>
+        <div class="flex items-center space-x-2">
+          <p class="text-[var(--text2)] line-through text-[14px]">${product.originalPrice.toFixed(2)}€</p>
+          <p class="discounted-price text-[14px] font-bold text-[var(--primary-color)]" data-price="${product.price}">${product.price.toFixed(2)}€</p>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center space-x-2 border border-[var(--border)] rounded-md overflow-hidden">
+          <button class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] decrease-qty cursor-pointer">-</button>
+          <span class="text-sm item-qty">${product.qty}</span>
+          <button class="text-sm px-2 py-1 text-[var(--text)] hover:bg-[var(--accent1)] increase-qty cursor-pointer">+</button>
+        </div>
+        <span class="text-green-600 text-sm">Save ${(product.originalPrice - product.price).toFixed(2)}€</span>
+      </div>
+    `;
+    cartItemsContainer.appendChild(div);
+  }
+
+  updateCartTotal();
+  openSidebar();
+}
+
+// ------------------- Quantity & Remove Buttons -------------------
+cartItemsContainer.addEventListener("click", (e) => {
+  const button = e.target.closest("button");
+  if (!button) return;
+
+  const itemElement = button.closest(".cart-product-items");
+  if (!itemElement) return;
+
+  const qtyElement = itemElement.querySelector(".item-qty");
+  let currentQty = parseInt(qtyElement.textContent, 10);
+
+  if (button.classList.contains("remove-item")) {
+    itemElement.remove();
+  } else if (button.classList.contains("increase-qty")) {
+    currentQty++;
+    qtyElement.textContent = currentQty;
+  } else if (button.classList.contains("decrease-qty")) {
+    if (currentQty > 1) {
+      currentQty--;
+      qtyElement.textContent = currentQty;
+    }
+  }
+
+  updateCartTotal();
+});
+
+// ------------------- Add to Cart Buttons -------------------
+const addCartBtns = document.querySelectorAll(".add-cart-btn");
+addCartBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const product = {
+      id: btn.dataset.id,
+      name: btn.dataset.name,
+      img: btn.dataset.img,
+      price: parseFloat(btn.dataset.price),
+      originalPrice: parseFloat(btn.dataset.originalPrice),
+      qty: parseInt(btn.dataset.qty),
+    };
+    addItemToCart(product);
+  });
+});
+
+// ------------------- Initial Calculation -------------------
+updateCartTotal();
+</script>
+
+</body>
+</html>

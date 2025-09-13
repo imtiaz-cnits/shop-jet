@@ -570,67 +570,73 @@ document.addEventListener("click", (e) => {
 //......................................................................
 //.................Product Page All Js Start...........................
 //......................................................................
-
 $(document).ready(function () {
   // Nice Select Initialization and Dropdown Position Fix
-  $(".sort-by-select").niceSelect();
+  if ($(".sort-by-select").length) {
+    $(".sort-by-select").niceSelect();
 
-  const niceSelect = $(".sort-by-select").next(".nice-select");
-  const dropdown = niceSelect.find(".list");
+    const niceSelect = $(".sort-by-select").next(".nice-select");
+    
+    // Only proceed if niceSelect exists
+    if (niceSelect.length) {
+      const dropdown = niceSelect.find(".list");
 
-  // Set the desired height
-  const desiredHeight = 48;
+      // Set the desired height
+      const desiredHeight = 48;
 
-  // Set the initial height and line-height using JavaScript
-  niceSelect.css({
-    height: `${desiredHeight}px`,
-    "line-height": `${desiredHeight}px`,
-  });
+      // Set the initial height and line-height using JavaScript
+      niceSelect.css({
+        height: `${desiredHeight}px`,
+        "line-height": `${desiredHeight}px`,
+      });
 
-  niceSelect.find(".current, .list li").css({
-    "line-height": `${desiredHeight}px`,
-  });
+      niceSelect.find(".current, .list li").css({
+        "line-height": `${desiredHeight}px`,
+      });
 
-  function fixDropdownPosition() {
-    const wrapper = niceSelect;
+      function fixDropdownPosition() {
+        const wrapper = niceSelect;
 
-    dropdown.css({ visibility: "hidden", display: "block" });
+        dropdown.css({ visibility: "hidden", display: "block" });
 
-    const rect = dropdown[0].getBoundingClientRect();
-    const wrapperRect = wrapper[0].getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
+        // Check if dropdown exists before trying to access it
+        if (dropdown.length && wrapper.length) {
+          const rect = dropdown[0].getBoundingClientRect();
+          const wrapperRect = wrapper[0].getBoundingClientRect();
+          const viewportWidth = window.innerWidth;
+          const viewportHeight = window.innerHeight;
 
-    dropdown.css({
-      left: "auto",
-      right: "auto",
-      top: "auto",
-      bottom: "auto",
-    });
+          dropdown.css({
+            left: "auto",
+            right: "auto",
+            top: "auto",
+            bottom: "auto",
+          });
 
-    if (wrapperRect.left + dropdown.outerWidth() > viewportWidth) {
-      dropdown.css({ right: "0px", left: "auto" });
-    } else {
-      dropdown.css({ left: "0px", right: "auto" });
+          if (wrapperRect.left + dropdown.outerWidth() > viewportWidth) {
+            dropdown.css({ right: "0px", left: "auto" });
+          } else {
+            dropdown.css({ left: "0px", right: "auto" });
+          }
+
+          if (wrapperRect.bottom + dropdown.outerHeight() > viewportHeight) {
+            dropdown.css({ bottom: "100%", top: "auto" });
+          } else {
+            dropdown.css({ top: "100%", bottom: "auto" });
+          }
+
+          dropdown.css({ visibility: "", display: "" });
+        }
+      }
+
+      fixDropdownPosition();
+
+      niceSelect.on("click", fixDropdownPosition);
+      $(window).on("resize", fixDropdownPosition);
     }
-
-    if (wrapperRect.bottom + dropdown.outerHeight() > viewportHeight) {
-      dropdown.css({ bottom: "100%", top: "auto" });
-    } else {
-      dropdown.css({ top: "100%", bottom: "auto" });
-    }
-
-    dropdown.css({ visibility: "", display: "" });
   }
 
-  fixDropdownPosition();
-
-  niceSelect.on("click", fixDropdownPosition);
-
-  $(window).on("resize", fixDropdownPosition);
-
-  // Nice Select Initialization and Dropdown Position Fix
-
+  // The rest of your code remains the same...
   // Brand select toggle
   $(".brand-logo").on("click", function () {
     $(this).toggleClass("border-purple-600 border-1");
@@ -645,65 +651,70 @@ $(document).ready(function () {
   const minValue = document.getElementById("minValue");
   const maxValue = document.getElementById("maxValue");
   const sliderTrack = document.getElementById("sliderTrack");
-  const max = parseInt(maxRange.max);
+  
+  if (minRange && maxRange && minValue && maxValue && sliderTrack) {
+    const max = parseInt(maxRange.max);
 
-  function fillTrack() {
-    let minPercent = (minRange.value / max) * 100;
-    let maxPercent = (maxRange.value / max) * 100;
-    sliderTrack.style.left = minPercent + "%";
-    sliderTrack.style.width = maxPercent - minPercent + "%";
+    function fillTrack() {
+      let minPercent = (minRange.value / max) * 100;
+      let maxPercent = (maxRange.value / max) * 100;
+      sliderTrack.style.left = minPercent + "%";
+      sliderTrack.style.width = maxPercent - minPercent + "%";
+    }
+
+    minRange.addEventListener("input", function () {
+      if (parseInt(minRange.value) >= parseInt(maxRange.value)) {
+        minRange.value = maxRange.value - 10;
+      }
+      minValue.innerText = "€" + minRange.value;
+      fillTrack();
+    });
+
+    maxRange.addEventListener("input", function () {
+      if (parseInt(maxRange.value) <= parseInt(minRange.value)) {
+        maxRange.value = parseInt(minRange.value) + 10;
+      }
+      maxValue.innerText = "€" + maxRange.value;
+      fillTrack();
+    });
+
+    fillTrack();
   }
-
-  minRange.addEventListener("input", function () {
-    if (parseInt(minRange.value) >= parseInt(maxRange.value)) {
-      minRange.value = maxRange.value - 10;
-    }
-    minValue.innerText = "€" + minRange.value;
-    fillTrack();
-  });
-
-  maxRange.addEventListener("input", function () {
-    if (parseInt(maxRange.value) <= parseInt(minRange.value)) {
-      maxRange.value = parseInt(minRange.value) + 10;
-    }
-    maxValue.innerText = "€" + maxRange.value;
-    fillTrack();
-  });
-
-  fillTrack();
 
   // Mobile filter toggle
   const filterToggle = $("#filterToggle");
   const filterMenu = $("#filterMenu");
 
-  if ($(window).width() < 992) {
-    filterMenu.addClass("max-h-0 opacity-0 pt-0 pb-0");
-  }
-
-  filterToggle.on("click", function () {
-    if (filterMenu.hasClass("max-h-0")) {
-      filterMenu
-        .removeClass("max-h-0 opacity-0 pt-0 pb-0")
-        .addClass("max-h-screen overflow-y-auto opacity-100 mt-6");
-    } else {
-      filterMenu
-        .removeClass("max-h-screen opacity-100")
-        .addClass("max-h-0 opacity-0 pt-0 pb-0");
-    }
-  });
-
-  $(window).on("resize", function () {
-    if ($(window).width() >= 992) {
-      filterMenu
-        .removeClass("max-h-0 opacity-0 pt-0 pb-0 max-h-screen opacity-100")
-        .addClass("block");
-    } else if (
-      !filterMenu.hasClass("max-h-0") &&
-      !filterMenu.hasClass("max-h-screen")
-    ) {
+  if (filterToggle.length && filterMenu.length) {
+    if ($(window).width() < 992) {
       filterMenu.addClass("max-h-0 opacity-0 pt-0 pb-0");
     }
-  });
+
+    filterToggle.on("click", function () {
+      if (filterMenu.hasClass("max-h-0")) {
+        filterMenu
+          .removeClass("max-h-0 opacity-0 pt-0 pb-0")
+          .addClass("max-h-screen overflow-y-auto opacity-100 mt-6");
+      } else {
+        filterMenu
+          .removeClass("max-h-screen opacity-100")
+          .addClass("max-h-0 opacity-0 pt-0 pb-0");
+      }
+    });
+
+    $(window).on("resize", function () {
+      if ($(window).width() >= 992) {
+        filterMenu
+          .removeClass("max-h-0 opacity-0 pt-0 pb-0 max-h-screen opacity-100")
+          .addClass("block");
+      } else if (
+        !filterMenu.hasClass("max-h-0") &&
+        !filterMenu.hasClass("max-h-screen")
+      ) {
+        filterMenu.addClass("max-h-0 opacity-0 pt-0 pb-0");
+      }
+    });
+  }
 });
 //......................................................................
 //.................Product Page All Js End..............................
@@ -752,6 +763,8 @@ let quantity = 1;
 
 function updateSlider() {
   const slider = document.getElementById("mainSlider");
+  if (!slider) return; // ← prevents console error if element not found
+
   const containerWidth = slider.parentElement.offsetWidth;
   const slideWidth = slider.children[0].offsetWidth;
 
@@ -839,6 +852,7 @@ updateSlider();
 setInterval(() => {
   nextSlide();
 }, 5000);
+
 
 //......................................................................
 //................. Single Product All Js End...........................
