@@ -29,44 +29,24 @@
     <link rel="stylesheet" href="./src/output.css" />
   </head>
   <body>
-    <!-- Preloader Start -->
-    <div
-      id="pagePreloader"
-      class="fixed inset-0 w-full h-full bg-[var(--secondary-color)] flex flex-col justify-center items-center z-[9999] transition-opacity duration-500 ease-in-out"
-    >
-      <div
-        class="w-[50px] h-[50px] border-[6px] border-solid border-[var(--accent1)] border-t-[6px] border-t-[var(--primary-color)] rounded-full animate-custom-spin mb-[20px]"
-      ></div>
-      <div class="text-center font-bold mb-[20px]">
-        <img
-          src="./assets/icon/logo.png"
-          alt="Company Logo"
-          class="mx-auto w-[120px] object-contain"
-        />
-      </div>
-    </div>
-    <!-- Preloader End -->
-
     <!-- Back to Top Button Start -->
     <div
       id="back-to-top"
-      class="fixed bottom-[90px] right-6 lg:bottom-8 lg:right-8 w-14 h-14 flex justify-center items-center rounded-full cursor-pointer opacity-0 invisible transition-opacity duration-500 z-[50]"
+      class="fixed bottom-[90px] right-6 xl:bottom-12 xl:right-8 w-14 h-14 flex justify-center items-center rounded-full cursor-pointer opacity-0 invisible transition-opacity duration-500 z-[50]"
     >
-      <svg
-        class="w-14 h-14 transition-colors duration-300 group"
-        viewBox="0 0 100 119"
-        fill="none"
+       <svg
+      class="w-14 h-14 transition-colors duration-300 group"
         xmlns="http://www.w3.org/2000/svg"
+        width="100"
+        height="100"
+        viewBox="0 0 100 100"
+        fill="none"
       >
-        <!-- Background -->
+        <circle class="fill-[var(--primary-color)] group-hover:fill-[var(--black)] transition-colors duration-300" cx="50" cy="50" r="50" fill="#624D9F" />
         <path
-          d="M76.4787 22.9461L50 11L23.5213 22.9461L50 3.7082L76.4787 22.9461ZM10.0556 29.0213L12.3536 36.0938C4.66128 44.887 0 56.3992 0 69C0 96.6142 22.3858 119 50 119C77.6142 119 100 96.6142 100 69C100 56.3992 95.3387 44.887 87.6464 36.0938L89.9444 29.0213L50 0L10.0556 29.0213Z"
-          class="fill-[var(--primary-color)] group-hover:fill-[var(--black)] transition-colors duration-300"
-        />
-        <!-- Arrow -->
-        <path
-          d="M50 85V53M50 53L38 65M50 53L62 65"
-          class="stroke-[var(--secondary-color)] transition-colors duration-300"
+        class="stroke-[var(--secondary-color)] transition-colors duration-300"
+          d="M50 66V34M50 34L38 46M50 34L62 46"
+          stroke="white"
           stroke-width="4"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -77,7 +57,7 @@
 
     <!-- Fly Cart Start -->
     <div
-      class="cart-icon fixed bottom-[90px] left-6 lg:bottom-8 lg:left-8 w-12 h-12 bg-[var(--primary-color)] hover:bg-[var(--black)] rounded-full cursor-pointer transition duration-300 z-[50] flex justify-center items-center"
+      class="cart-icon fixed bottom-[90px] left-6 xl:bottom-12 xl:left-8 w-12 h-12 bg-[var(--primary-color)] hover:bg-[var(--black)] rounded-full cursor-pointer transition duration-300 z-[50] flex justify-center items-center"
     >
       <div class="relative flex justify-center items-center">
         <svg
@@ -173,7 +153,7 @@
           <!-- Mobile Menu Button -->
           <button
             id="menu-btn"
-            class="lg:hidden text-[var(--text)] focus:outline-none text-2xl cursor-pointer"
+            class="xl:hidden text-[var(--text)] focus:outline-none text-2xl cursor-pointer"
           >
             ☰
           </button>
@@ -185,7 +165,7 @@
           </div>
 
           <!-- Search Box -->
-          <div class="hidden w-full max-w-[50%] lg:flex flex-1 mx-4">
+          <div class="hidden w-full max-w-[50%] xl:flex flex-1 mx-4">
             <input
               type="text"
               placeholder="Search for rice, sweets, snacks, Beverages or more..."
@@ -219,7 +199,7 @@
             <!-- Language -->
             <div
               id="language-selector"
-              class="relative font-primary m-0 lg:mr-[16px]"
+              class="relative font-primary m-0 xl:mr-[16px]"
             >
               <div
                 class="flex items-center space-x-2 p-[8px] pr-[12px] rounded-full cursor-pointer bg-[var(--accent1)] transition-colors duration-200"
@@ -279,7 +259,7 @@
             <!-- Icon -->
             <a
               href="./wishlist.html"
-              class="whichlist relative cursor-pointer hidden lg:flex"
+              class="whichlist relative cursor-pointer hidden xl:flex"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -307,7 +287,7 @@
 
             <a
               href="#"
-              class="cart-icon cart relative cursor-pointer hidden lg:flex"
+              class="cart-icon cart relative cursor-pointer hidden xl:flex"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -332,12 +312,12 @@
             </a>
 
             <div
-              class="bar hidden lg:block w-[1px] h-[18px] bg-[var(--border)]"
+              class="bar hidden xl:block w-[1px] h-[18px] bg-[var(--border)]"
             ></div>
 
             <a
               href="#"
-              class="profile items-center justify-center rounded-full cursor-pointer p-2 bg-[var(--accent1)] hidden lg:flex m-0"
+              class="profile items-center justify-center rounded-full cursor-pointer p-2 bg-[var(--accent1)] hidden xl:flex m-0"
             >
               <i
                 class="far fa-user-circle text-[22px] text-[var(--primary-color)]"
@@ -795,7 +775,7 @@
                   class="flex-1 text-sm text-[var(--text)] border border-[var(--border)] rounded-tl-full rounded-bl-full p-2 px-3 focus:outline-none focus:border-[var(--primary-color)] transition duration-300"
                 />
                 <button
-                  class="apply-btn bg-[var(--primary-color)] border border-[var(--primary-color)] text-sm text-[var(--secondary-color)] rounded-tr-full rounded-br-full px-4 py-2 hover:bg-[var(--black)] transition duration-300"
+                  class="apply-btn bg-[var(--primary-color)] border border-[var(--primary-color)] text-sm text-[var(--secondary-color)] rounded-tr-full rounded-br-full px-4 py-2 hover:bg-[var(--black)] transition duration-300 cursor-pointer"
                 >
                   Apply
                 </button>
@@ -815,7 +795,7 @@
             </div>
 
             <button
-              class="continue-btn w-full bg-[var(--primary-color)] border border-[var(--primary-color)] text-[16px] text-[var(--secondary-color)] rounded-full px-3 py-2 hover:bg-[var(--black)] transition duration-300"
+              class="continue-btn w-full bg-[var(--primary-color)] border border-[var(--primary-color)] text-[16px] text-[var(--secondary-color)] rounded-full px-3 py-2 hover:bg-[var(--black)] transition duration-300 cursor-pointer"
             >
               Checkout <span id="checkout-price">253.00€</span>
             </button>
@@ -833,7 +813,7 @@
       </div>
 
       <!-- Desktop Menu -->
-      <div class="menu-bar hidden lg:block border-[var(--border)]">
+      <div class="menu-bar hidden xl:block border-[var(--border)]">
         <div class="custom-container py-3 relative">
           <ul
             class="flex items-center space-x-4 gap-2 justify-center text-[var(--text)] font-medium"
@@ -841,7 +821,7 @@
             <li class="group m-0">
               <a
                 href="#"
-                class="menu-item flex items-center space-x-1 hover:text-[var(--primary-color)] p-2 px-3 rounded-full group-hover:bg-[var(--accent1)] bg-[var(--accent1)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+                class="menu-item flex items-center space-x-1 hover:text-[var(--primary-color)] p-2 px-3 rounded-full group-hover:bg-[var(--accent1)] bg-[var(--accent1)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[16px]"
               >
                 <span>All Categories</span>
                 <i
@@ -854,7 +834,7 @@
               >
                 <div class="custom-container">
                   <div
-                    class="mx-auto shadow-sm grid grid-cols-5 gap-1 text-sm bg-[var(--secondary-color)] shadow-sm p-[30px] rounded-[12px]"
+                    class="mx-auto shadow-sm grid grid-cols-5 gap-1 text-sm bg-[var(--secondary-color)] p-[30px] rounded-[12px]"
                   >
                     <div>
                       <h4 class="font-bold mb-4">Instant Food & Mixes</h4>
@@ -1088,14 +1068,14 @@
             <li class="m-0">
               <a
                 href="#"
-                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-3 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-2 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[16px]"
                 >New Arrivals</a
               >
             </li>
             <li class="m-0">
               <a
                 href="#"
-                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-3 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-2 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[16px]"
                 >Best Sellers</a
               >
             </li>
@@ -1103,7 +1083,7 @@
             <li class="group m-0">
               <a
                 href="#"
-                class="menu-item flex items-center space-x-1 hover:text-[var(--primary-color)] p-2 px-3 rounded-full group-hover:bg-[var(--accent1)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+                class="menu-item flex items-center space-x-1 hover:text-[var(--primary-color)] p-2 px-3 rounded-full group-hover:bg-[var(--accent1)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[16px]"
               >
                 <span>Essentials</span>
                 <i
@@ -1116,7 +1096,7 @@
               >
                 <div class="custom-container">
                   <div
-                    class="mx-auto shadow-sm grid grid-cols-5 gap-1 text-sm bg-[var(--secondary-color)] shadow-sm p-[30px] rounded-[12px]"
+                    class="mx-auto shadow-sm grid grid-cols-5 gap-1 text-sm bg-[var(--secondary-color)]  p-[30px] rounded-[12px]"
                   >
                     <div>
                       <h4 class="font-bold mb-4">Instant Food & Mixes</h4>
@@ -1351,7 +1331,7 @@
             <li class="m-0">
               <a
                 href="#"
-                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-3 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-2 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[16px]"
                 >Fruits & Vegetables</a
               >
             </li>
@@ -1359,7 +1339,7 @@
             <li class="group m-0">
               <a
                 href="#"
-                class="menu-item flex items-center space-x-1 hover:text-[var(--primary-color)] p-2 px-3 rounded-full group-hover:bg-[var(--accent1)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+                class="menu-item flex items-center space-x-1 hover:text-[var(--primary-color)] p-2 px-3 rounded-full group-hover:bg-[var(--accent1)] hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[16px]"
               >
                 <span>Fresh & Frozen</span>
                 <i
@@ -1607,14 +1587,14 @@
             <li class="m-0">
               <a
                 href="#"
-                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-3 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-2 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[16px]"
                 >Blog</a
               >
             </li>
             <li class="m-0">
               <a
                 href="#"
-                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-3 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[14px]"
+                class="menu-item flex items-center hover:text-[var(--primary-color)] p-2 px-2 rounded-full hover:bg-[var(--accent1)] active:bg-[var(--accent1)] text-[16px]"
                 >Contact</a
               >
             </li>
@@ -2236,18 +2216,18 @@
 
     <!-- Mobile Bottom Navbar -->
     <div
-      class="mobile-navigation font-primary fixed bottom-0 bg-transparent left-0 w-full p-2 pt-0 lg:hidden z-50"
+      class="mobile-navigation font-primary fixed bottom-0 bg-transparent left-0 w-full p-2 pt-0 xl:hidden z-10"
     >
       <div
         class="navigation-wrap py-2 bg-[var(--secondary-color)] border border-[var(--border)] rounded-lg"
       >
         <div class="wrap">
           <div class="flex">
-            <div class="flex-1 group">
+            <div class="flex-1">
               <div
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+                class="flex items-center justify-center text-center mx-auto w-full px-[4px] pt-1 text-[var(--text)]"
               >
-                <a href="./wishlist.html" class="whichlist pt-1">
+                <a href="#" class="wishlist group pt-1 flex flex-col items-center gap-2">
                   <h2 class="w-5 h-5 mx-auto relative cursor-pointer">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -2272,18 +2252,17 @@
                       0
                     </span>
                   </h2>
-                  <span class="block text-sm mt-1">wishlist</span>
                   <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                    class="block w-8 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
                   ></span>
                 </a>
               </div>
             </div>
-            <div class="flex-1 group">
+            <div class="flex-1">
               <div
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+                class="flex items-center justify-center text-center mx-auto w-full px-[4px] pt-1 text-[var(--text)]"
               >
-                <a href="#" class="cart-icon pt-1">
+                <a href="#" class="cart-icon group pt-1 flex items-center flex-col gap-2">
                   <h2 class="w-5 h-5 mx-auto relative cursor-pointer">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -2306,37 +2285,35 @@
                       0
                     </span>
                   </h2>
-                  <span class="block text-sm mt-1">Cart</span>
                   <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                    class="block w-8 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
                   ></span>
                 </a>
               </div>
             </div>
-            <div class="flex-1 group">
+            <div class="flex-1 ">
               <div
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+                class="flex items-center justify-center text-center mx-auto w-full px-[4px] pt-1 text-[var(--text)]"
               >
-                <a href="#" class="profile pt-1">
-                  <span class="w-5 h-5 mx-auto cursor-pointer">
+                <a href="#" class="home group pt-1 flex items-center justify-center flex-col gap-2">
+                  <span class="w-5 h-5 flex justify-center items-center cursor-pointer">
                     <i
                       class="fa-solid fa-house text-[22px] text-[var(--black)]"
                     ></i>
                   </span>
-                  <span class="block text-sm mt-1">Home</span>
                   <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                    class="active block w-8 mx-auto h-1 bg-[var(--primary-color)] group-hover:bg-[var(--primary-color)] rounded-full"
                   ></span>
                 </a>
               </div>
             </div>
 
-            <div class="flex-1 group">
+            <div class="flex-1">
               <div
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+                class="flex items-center justify-center text-center mx-auto w-full px-[4px] pt-1 text-[var(--text)]"
               >
-                <a href="#" class="search pt-1">
-                  <span class="w-5 h-5 mx-auto cursor-pointer">
+                <a href="#" class="search group pt-1 flex items-center flex-col gap-2">
+                  <span class="w-5 h-5 flex justify-center items-center cursor-pointer">
                     <svg
                       class="w-6 h-6"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2354,26 +2331,24 @@
                       />
                     </svg>
                   </span>
-                  <span class="block text-sm mt-1">Search</span>
                   <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                    class="block w-8 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
                   ></span>
                 </a>
               </div>
             </div>
-            <div class="flex-1 group">
+            <div class="flex-1">
               <div
-                class="flex items-end justify-center text-center mx-auto px-[4px] w-full text-[var(--text)] group-hover:text-[var(--primary-color)]"
+                class="flex items-center justify-center text-center mx-auto w-full px-[4px] pt-1 text-[var(--text)]"
               >
-                <a href="#" class="profile pt-1">
-                  <span class="w-5 h-5 mx-auto cursor-pointer">
+                <a href="#" class="profile group pt-1 flex items-center flex-col gap-2">
+                  <span class="w-5 h-5 flex justify-center items-center cursor-pointer">
                     <i
                       class="far fa-user-circle text-[22px] text-[var(--black)]"
                     ></i>
                   </span>
-                  <span class="block text-sm mt-1">Profile</span>
                   <span
-                    class="block w-5 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
+                    class="block w-8 mx-auto h-1 group-hover:bg-[var(--primary-color)] rounded-full"
                   ></span>
                 </a>
               </div>
@@ -2618,7 +2593,7 @@
                     <span class="text-lg text-[var(--text2)] line-through"
                       >229€</span
                     >
-                    <span class="text-3xl font-bold text-[var(--primary-color)]"
+                    <span class="font-primary text-3xl font-bold text-[var(--primary-color)]"
                       >149€</span
                     >
                   </div>
@@ -2686,7 +2661,7 @@
                   Add to Cart
                 </button>
                 <button
-                  class="wishlist-btn flex items-center justify-center gap-1 w-full bg-[var(--white)] text-[var(--text)] py-3 px-6 rounded-full font-medium cursor-pointer transition duration-300 border border-[var(--border)]"
+                  class="wishlist-btn group flex items-center justify-center gap-1 w-full bg-[var(--white)] hover:bg-[var(--primary-color)] text-[var(--text)] hover:text-[var(--secondary-color)] py-3 px-6 rounded-full font-medium cursor-pointer transition duration-300 border border-[var(--border)]"
                 >
                   Add to Wishlist
                   <svg
@@ -2697,6 +2672,7 @@
                     fill="none"
                   >
                     <path
+                    class="group-hover:stroke-[var(--secondary-color)] transition duration-300"
                       fill-rule="evenodd"
                       clip-rule="evenodd"
                       d="M11.9932 5.13581C9.9938 2.7984 6.65975 2.16964 4.15469 4.31001C1.64964 6.45038 1.29697 10.029 3.2642 12.5604C4.89982 14.6651 9.84977 19.1041 11.4721 20.5408C11.6536 20.7016 11.7444 20.7819 11.8502 20.8135C11.9426 20.8411 12.0437 20.8411 12.1361 20.8135C12.2419 20.7819 12.3327 20.7016 12.5142 20.5408C14.1365 19.1041 19.0865 14.6651 20.7221 12.5604C22.6893 10.029 22.3797 6.42787 19.8316 4.31001C17.2835 2.19216 13.9925 2.7984 11.9932 5.13581Z"
