@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Documentation of Shop Jet</title>
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.png" />
+
+    <!-- Font awesome -->
+    <script
+      src="https://kit.fontawesome.com/476ec20884.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Icon CSS -->
+    <link
+      href="assets/css/vendor/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- <link href="assets/css/vendor/remixicon.css" rel="stylesheet"> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor -->
+    <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/vendor/prism.css" rel="stylesheet" />
+
+    <!-- Main CSS -->
+    <link id="mainCss" href="assets/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Back to top -->
+    <a href="#" id="back-to-top">
+      <i class="ri-arrow-up-circle-line"></i>
+    </a>
+    <!-- Back to top -->
+    <main class="wrapper sb-default">
+      <!-- Loader -->
+      <div id="gx-overlay">
+        <div class="gx-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+
+      <!-- Header -->
+      <header class="gx-header">
+        <div class="container-fluid">
+          <div class="gx-header-items">
+            <div class="left-header">
+              <a href="javascript:void(0)" class="gx-toggle-sidebar">
+                <i class="ri-menu-fold-line"></i>
+              </a>
+            </div>
+            <div class="heading">
+              <h1>Shop Jet - eCommerce Websites Template</h1>
+            </div>
+            <div class="right-header"></div>
+          </div>
+        </div>
+      </header>
+
+      <!-- sidebar -->
+      <div class="gx-sidebar-overlay"></div>
+      <div class="gx-sidebar" data-mode="dark">
+        <div class="gx-sb-logo">
+          <a href="index.html" class="sb-full"
+            ><img src="assets/img/Logo-1.png" alt="logo"
+          /></a>
+          <a href="index.html" class="sb-collapse"
+            ><img src="assets/img/Logo-1.png" alt="logo"
+          /></a>
+        </div>
+        <div class="gx-sb-wrapper">
+          <div class="gx-sb-content">
+            <ul class="gx-sb-list">
+              <li class="gx-sb-item menu">
+                <ul class="condense">
+                  <li class="list">
+                    <a
+                      href="index.html#gx_instructions"
+                      class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >Introduction</a
+                    >
+                  </li>
+                  <li class="list">
+                    <a href="index.html#gx_features" class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >Core Features</a
+                    >
+                  </li>
+                  <li class="list">
+                    <a href="index.html#gx_structure" class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >File Structure</a
+                    >
+                  </li>
+                  <li class="list">
+                    <a href="index.html#gx_fonts" class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >Fonts</a
+                    >
+                  </li>
+                  <li class="list">
+                    <a href="index.html#gx_preloader" class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >Preloader</a
+                    >
+                  </li>
+                  <li class="list">
+                    <a href="index.html#gx_favChange" class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >Fav Icon Change</a
+                    >
+                  </li>
+                  <li class="list">
+                    <a href="index.html#gx_logoChange" class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >Logo Change</a
+                    >
+                  </li>
+                  <li class="list">
+                    <a href="index.html#gx_navbar" class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >Navbar</a
+                    >
+                  </li>
+                  <li class="list">
+                    <a href="index.html#gx_slider" class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >Slider</a
+                    >
+                  </li>
+                  <li class="list">
+                    <a href="index.html#gx_zoomSlider" class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >Zoom Slider</a
+                    >
+                  </li>
+                  <li class="list">
+                    <a
+                      href="index.html#gx_backtoTopButton"
+                      class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >Back to Top Button</a
+                    >
+                  </li>
+                  <li class="list">
+                    <a href="index.html#gx_footer" class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >Footer</a
+                    >
+                  </li>
+                  <li class="list">
+                    <a
+                      href="index.html#gx_sourcesCredits"
+                      class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >Sources Credits</a
+                    >
+                  </li>
+                  <li class="list">
+                    <a href="index.html#gx_thankYou" class="gx-page-link drop"
+                      ><i class="ri-expand-left-right-fill ri-menu-line"></i
+                      >Thank You</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- main content -->
+      <div class="gx-main-content">
+        <div class="container-fluid">
+          <!-- Page title & breadcrumb -->
+          <div class="gx-page-title gx-page-title-2">
+            <div class="gx-breadcrumb">
+              <h5>Getting Started</h5>
+            </div>
+          </div>
+          <div class="row sections">
+            <div class="col-xl-12 col-md-12">
+              <!-- Introduction -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_instructions">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">Introduction</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content">
+                    <div class="intro">
+                      <ul class="auth-detail m-b-15 m-t-15">
+                        <li>
+                          <strong>Item Name : </strong>Shop Jet - eCommerce
+                          Websites Template
+                        </li>
+                        <li><strong>Item Version : </strong>1.0</li>
+                        <li><strong>Author : </strong>Themes Jet</li>
+                        <li><strong>Copyright : </strong>2025</li>
+                      </ul>
+                      <p>
+                        Shop Jet – eCommerce HTML Template is a modern, stylish, and fully responsive template designed for online stores of all kinds. Whether you’re showcasing products, highlighting special deals, or providing a seamless shopping experience, Shop Jet helps you build a professional and user-friendly online shop. The template includes a beautifully designed Home Page, dynamic Product Listings, detailed Product Single Page, smooth Checkout Process, and a convenient Wishlist Page — everything crafted to engage customers and boost sales.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Core Features -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_features">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">Core Features</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content m-t-15">
+                    <div class="intro">
+                      <div class="row mb-m-24">
+                        <div class="col-md-3 d-flex align-items-strecth">
+                          <div class="feature-card">
+                            <img src="./assets/img/3.png" alt="" />
+                            <h5>HTML</h5>
+                          </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-strecth">
+                          <div class="feature-card">
+                            <img src="./assets/img/2.png" alt="" />
+                            <h5>CSS</h5>
+                          </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-strecth">
+                          <div class="feature-card">
+                            <img
+                              src="./assets/img/Tailwind_CSS_Logo.svg.png"
+                              alt=""
+                            />
+                            <h5>Tailwind</h5>
+                          </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-strecth">
+                          <div class="feature-card">
+                            <img src="./assets/img/11.png" alt="" />
+                            <h5>W3C Validate</h5>
+                          </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-strecth">
+                          <div class="feature-card">
+                            <img src="./assets/img/7.png" alt="" />
+                            <h5>Responsive</h5>
+                          </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-strecth">
+                          <div class="feature-card">
+                            <img
+                              src="assets/img/cdnlogo.com_google-fonts-2021.svg"
+                              alt="features"
+                            />
+                            <h5>Google Font</h5>
+                          </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-strecth">
+                          <div class="feature-card">
+                            <img src="assets/img/4.png" alt="features" />
+                            <h5>Browser Compatibility</h5>
+                          </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-strecth">
+                          <div class="feature-card">
+                            <img
+                              src="assets/img/documents.svg"
+                              alt="features"
+                            />
+                            <h5>5+ Pages</h5>
+                          </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-strecth">
+                          <div class="feature-card">
+                            <img src="assets/img/12.png" alt="features" />
+                            <h5>Well Documented</h5>
+                          </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-strecth">
+                          <div class="feature-card">
+                            <img
+                              src="assets/img/scroll-down.png"
+                              alt="features"
+                            />
+                            <h5>Custom Scrollbar</h5>
+                          </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-strecth">
+                          <div class="feature-card">
+                            <img src="assets/img/swiper.svg" alt="features" />
+                            <h5>SwiperJS</h5>
+                          </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-strecth">
+                          <div class="feature-card">
+                            <img src="assets/img/pexeles.png" alt="features" />
+                            <h5>Pexels</h5>
+                          </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-strecth">
+                          <div class="feature-card">
+                            <img src="assets/img/jquery.png" alt="features" />
+                            <h5>jquery</h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- File Structure -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_structure">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">File Structure</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content">
+                    <div class="file-structure">
+                      <ul class="gx-main-structure">
+                        <li>
+                          <a href="javascript:void(0)" class="gx-struct-drop"
+                            ><i class="ri-arrow-up-s-line"></i
+                            ><i class="ri-folder-open-line"></i>assets</a
+                          >
+                          <ul class="gx-sub">
+                            <li>
+                              <a
+                                href="javascript:void(0)"
+                                class="gx-struct-drop"
+                                ><i class="ri-arrow-up-s-line"></i
+                                ><i class="ri-folder-4-line"></i>icon</a
+                              >
+                              <ul class="gx-hide">
+                                <li>
+                                  <i class="ri-file-line"></i>arrow-right.svg
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                          <ul class="gx-subs">
+                            <li>
+                              <a
+                                href="javascript:void(0)"
+                                class="gx-struct-drop"
+                                ><i class="ri-arrow-up-s-line"></i
+                                ><i class="ri-folder-4-line"></i>img</a
+                              >
+                              <ul class="gx-hide">
+                                <li>
+                                  <a
+                                    href="javascript:void(0)"
+                                    class="gx-struct-drop"
+                                    ><i class="ri-arrow-up-s-line"></i
+                                    ><i class="ri-folder-4-line"></i>home</a
+                                  >
+                                  <ul class="gx-hide">
+                                    <li>
+                                      <i class="ri-image-2-line"></i
+                                      >hero-img.webp
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                          <ul class="gx-sub">
+                            <li>
+                              <a
+                                href="javascript:void(0)"
+                                class="gx-struct-drop"
+                                ><i class="ri-arrow-up-s-line"></i
+                                ><i class="ri-folder-4-line"></i>js</a
+                              >
+                              <ul class="gx-hide">
+                                <li>
+                                  <i class="ri-file-list-2-line"></i>app.js
+                                </li>
+                                <li>
+                                  <i class="ri-file-list-2-line"></i>navbar.js
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+
+                      <ul class="gx-main-structure">
+                        <li>
+                          <a href="javascript:void(0)" class="gx-struct-drop"
+                            ><i class="ri-arrow-up-s-line"></i
+                            ><i class="ri-folder-open-line"></i>src</a
+                          >
+                          <ul class="gx-sub">
+                            <li>
+                              <a href="javascript:void(0)"
+                                ><i class="ri-file-text-line"></i>input.css</a
+                              >
+                            </li>
+                            <li>
+                              <a href="javascript:void(0)"
+                                ><i class="ri-file-text-line"></i>output.css</a
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+
+                      <ul class="gx-main-structure">
+                         <li>
+                          <a href="javascript:void(0)"
+                            ><i class="ri-file-text-line"></i>index.html</a
+                          >
+                        </li>
+                         <li>
+                          <a href="javascript:void(0)"
+                            ><i class="ri-file-text-line"></i>product.html</a
+                          >
+                        </li>
+                         <li>
+                          <a href="javascript:void(0)"
+                            ><i class="ri-file-text-line"></i>product-single.html</a
+                          >
+                        </li>
+                         <li>
+                          <a href="javascript:void(0)"
+                            ><i class="ri-file-text-line"></i>checkout.html</a
+                          >
+                        </li>
+                         <li>
+                          <a href="javascript:void(0)"
+                            ><i class="ri-file-text-line"></i>wishlist.html</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Fonts Change -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_fonts">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">Fonts</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content">
+                    <div class="file-customization">
+                      <ul>
+                        <li>
+                          Use Google fonts @import to change font as your need.
+                          Use Download Fonts to change font as your need
+                        </li>
+                        <img class="mb-4" src="./assets/img/fonts.png" alt="" />
+
+                        <img class="mb-4" src="./assets/img/font2.png" alt="" />
+                        <img src="./assets/img/font3.png" alt="" />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Preloader -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_preloader">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">Preloader</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content">
+                    <div class="file-customization">
+                      <ul>
+                        <li>Change preloader from here.</li>
+                        <img src="./assets/img/preloader1.png" alt="" />
+                        <li>Edit in style.css</li>
+                        <img src="./assets/img/preloader2.png" alt="" />
+                        <li>Edit logic at preloader.js</li>
+                        <img src="./assets/img/preloader3.png" alt="" />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Logo Change -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_favChange">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">Fav Icon Change</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content">
+                    <div class="file-customization">
+                      <ul>
+                        <li>Change Logo from here.</li>
+                        <img src="./assets/img/fav-icon.png" alt="" />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Logo Change -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_logoChange">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">Logo Change</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content">
+                    <div class="file-customization">
+                      <ul>
+                        <li>Change Logo from here.</li>
+                        <img src="./assets/img/logo.png" alt="" />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Navbar Change -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_navbar">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">Navbar</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content">
+                    <div class="file-customization">
+                      <ul>
+                        <li>Change Navbar HTML from here.</li>
+                        <img src="./assets/img/navbar1.png" alt="" />
+                        <li>Change Navbar JS from here.</li>
+                        <img src="./assets/img/navbar3.png" alt="" />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Slider Change -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_slider">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">Hero Slider</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content">
+                    <div class="file-customization">
+                      <ul>
+                        <li>Change Hero Slider HTML from here.</li>
+                        <img src="./assets/img/slider1.png" alt="" />
+                        <li>Change Hero Slider Css from here.</li>
+                        <img src="./assets/img/slider3.png" alt="" />
+                        <li>Change Hero Slider JS from here.</li>
+                        <img src="./assets/img/slider2.png" alt="" />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Zoom Slider Change -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_zoomSlider">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">Change Single Product Zoom Slider</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content">
+                    <div class="file-customization">
+                      <ul>
+                        <li>Change Zoom Slider HTML from here.</li>
+                        <img src="./assets/img/zoom-slide-1.png" alt="" />
+                        <li>Change Zoom Slider JS from here.</li>
+                        <img src="./assets/img/zoom-slide-2.png" alt="" />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Back to Top Button -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_backtoTopButton">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">Back to Top Button</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content">
+                    <div class="file-customization">
+                      <ul>
+                        <li>Change Back to Top Button HTML from here.</li>
+                        <img src="./assets/img/back-to-top1.png" alt="" />
+                        <li>Change Back to Top Button JS from here.</li>
+                        <img src="./assets/img/back-to-top3.png" alt="" />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Footer -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_footer">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">Footer</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content">
+                    <div class="file-customization">
+                      <ul>
+                        <li>Change Footer from here.</li>
+                        <img src="./assets/img/ftr1.png" alt="" />
+                        <li>Change Footer CSS from here.</li>
+                        <img src="./assets/img/ftr2.png" alt="" />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Sources & Credits -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_sourcesCredits">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">Sources & Credits</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content">
+                    <div class="file-customization">
+                      <ul>
+                        <li>
+                          I've used the following images, icons or other files
+                          as listed.
+                        </li>
+                        <ul class="mt-15">
+                          <li>
+                            <a href="https://tailwindcss.com/" target="_blank"
+                              >Tailwind</a
+                            >
+                          </li>
+                          <li>
+                            <a href="https://fonts.google.com/" target="_blank"
+                              >Google Fonts</a
+                            >
+                          </li>
+                          <li>
+                            <a href="https://fontawesome.com/" target="_blank"
+                              >Font Awesome</a
+                            >
+                          </li>
+                          <li>
+                            <a href="https://swiperjs.com/" target="_blank"
+                              >SwiperJS</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://jquery.com/"
+                              target="_blank"
+                              >Jquery</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.freepik.com/"
+                              target="_blank"
+                              >Freepik</a
+                            >
+                          </li>
+                          <li>
+                            <a href="https://jqueryniceselect.hernansartorio.com/" target="_blank"
+                              >Nice Select</a
+                            >
+                          </li>
+                        </ul>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Thank You -->
+              <div class="gx-block">
+                <div class="gx-card gx-page-block" id="gx_thankYou">
+                  <div class="gx-card-header header-575">
+                    <h4 class="gx-card-title">Thank You</h4>
+                    <div class="header-tools">
+                      <a class="m-r-10 gx-full-card">
+                        <i class="ri-fullscreen-line" title="Full Screen"></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="gx-card-content">
+                    <div class="file-customization">
+                      <ul>
+                        <li>
+                          We truly appreciate your trust in Shop Jet for your online shopping needs. Your confidence in our products and services inspires us to deliver the best every day. Please note that product images shown on our website or promotional materials are for illustration purposes only and may differ slightly from the actual items you receive. If you have any questions regarding your order, delivery, or product details, our dedicated support team is always ready to assist. <br> <br> Thank you for choosing Shop Jet — where your satisfaction and shopping experience are our top priority.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Sidebar Topics -->
+            <div class="gx-side-overlay"></div>
+            <div class="col-xl-3 col-md-12 gx-topic"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Vendor Custom -->
+    <script src="assets/js/vendor/jquery-3.6.4.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/prism.js"></script>
+    <!-- Main Custom -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/scrollToChange.js"></script>
+  </body>
+</html>

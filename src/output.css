@@ -212,6 +212,9 @@
   .pointer-events-none {
     pointer-events: none;
   }
+  .collapse {
+    visibility: collapse;
+  }
   .invisible {
     visibility: hidden;
   }
@@ -229,6 +232,9 @@
   }
   .relative {
     position: relative;
+  }
+  .static {
+    position: static;
   }
   .sticky {
     position: sticky;
@@ -256,9 +262,6 @@
   }
   .top-\[70\%\] {
     top: 70%;
-  }
-  .top-\[80\%\] {
-    top: 80%;
   }
   .top-full {
     top: 100%;
@@ -401,6 +404,9 @@
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
+  .mt-15 {
+    margin-top: calc(var(--spacing) * 15);
+  }
   .mt-\[20px\] {
     margin-top: 20px;
   }
@@ -482,6 +488,9 @@
   .block {
     display: block;
   }
+  .contents {
+    display: contents;
+  }
   .flex {
     display: flex;
   }
@@ -490,6 +499,12 @@
   }
   .hidden {
     display: none;
+  }
+  .inline {
+    display: inline;
+  }
+  .inline-block {
+    display: inline-block;
   }
   .inline-flex {
     display: inline-flex;
@@ -1115,6 +1130,9 @@
   .bg-yellow-400 {
     background-color: var(--color-yellow-400);
   }
+  .bg-\[url\(\.\.\.\/assets\/img\/home\/hero\.png\)\] {
+    background-image: url(.../assets/img/home/hero.png);
+  }
   .bg-\[url\(\.\.\/assets\/img\/home\/CTA-bg\.png\)\] {
     background-image: url(../assets/img/home/CTA-bg.png);
   }
@@ -1124,11 +1142,20 @@
   .bg-\[url\(\.\.\/assets\/img\/home\/Offer-2\.png\)\] {
     background-image: url(../assets/img/home/Offer-2.png);
   }
+  .bg-\[url\(\.\.\/assets\/img\/home\/hero\.png\)\] {
+    background-image: url(../assets/img/home/hero.png);
+  }
   .bg-\[url\(\.\.\/assets\/img\/home\/heroslider\.png\)\] {
     background-image: url(../assets/img/home/heroslider.png);
   }
   .bg-\[url\(\.\.\/assets\/img\/product\/page-hero\.png\)\] {
     background-image: url(../assets/img/product/page-hero.png);
+  }
+  .bg-\[url\(\.\.\/shop-set-placeholder\/assets\/img\/home\/hero\.png\)\] {
+    background-image: url(../shop-set-placeholder/assets/img/home/hero.png);
+  }
+  .bg-\[url\(\.\/assets\/img\/home\/hero\.png\)\] {
+    background-image: url(./assets/img/home/hero.png);
   }
   .bg-cover {
     background-size: cover;
@@ -1511,6 +1538,10 @@
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
+  }
+  .blur {
+    --tw-blur: blur(8px);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .drop-shadow-\[0_0_4px_rgba\(0\,0\,0\,0\.10\)\] {
     --tw-drop-shadow-size: drop-shadow(0 0 4px var(--tw-drop-shadow-color, rgba(0,0,0,0.10)));
