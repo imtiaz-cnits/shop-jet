@@ -287,7 +287,7 @@ const summerSwiper = new Swiper(".summer-swiper", {
   },
   loop: true,
   breakpoints: {
-    0: { slidesPerView: 2.3, spaceBetween: 20 },
+    0: { slidesPerView: 2.3, spaceBetween: 10 },
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 2, spaceBetween: 20 },
     992: { slidesPerView: 3, spaceBetween: 20 },
@@ -313,7 +313,7 @@ const bestSellerSwiper = new Swiper(".best-seller-swiper", {
   },
   loop: true,
   breakpoints: {
-    0: { slidesPerView: 2.3, spaceBetween: 20 },
+    0: { slidesPerView: 2.3, spaceBetween: 10 },
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 2, spaceBetween: 20 },
     992: { slidesPerView: 3, spaceBetween: 20 },
@@ -339,7 +339,7 @@ const fruitsSellerSwiper = new Swiper(".fruits-swiper", {
   },
   loop: true,
   breakpoints: {
-    0: { slidesPerView: 2.3, spaceBetween: 20 },
+    0: { slidesPerView: 2.3, spaceBetween: 10 },
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 2, spaceBetween: 20 },
     992: { slidesPerView: 3, spaceBetween: 20 },
@@ -365,7 +365,7 @@ const frozenSellerSwiper = new Swiper(".frozen-swiper", {
   },
   loop: true,
   breakpoints: {
-    0: { slidesPerView: 2.3, spaceBetween: 20 },
+    0: { slidesPerView: 2.3, spaceBetween: 10 },
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 2, spaceBetween: 20 },
     992: { slidesPerView: 3, spaceBetween: 20 },
@@ -391,7 +391,7 @@ const alsoLikeSellerSwiper = new Swiper(".alsoLike-swiper", {
   },
   loop: true,
   breakpoints: {
-    0: { slidesPerView: 2.3, spaceBetween: 20 },
+    0: { slidesPerView: 2.3, spaceBetween: 10 },
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 2, spaceBetween: 20 },
     992: { slidesPerView: 3, spaceBetween: 20 },
@@ -417,7 +417,7 @@ const arrivalSellerSwiper = new Swiper(".arrival-swiper", {
   },
   loop: true,
   breakpoints: {
-    0: { slidesPerView: 2.3, spaceBetween: 20 },
+    0: { slidesPerView: 2.3, spaceBetween: 10 },
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 2, spaceBetween: 20 },
     992: { slidesPerView: 3, spaceBetween: 20 },

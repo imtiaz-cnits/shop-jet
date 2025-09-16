@@ -10,7 +10,6 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-500: oklch(63.7% 0.237 25.331);
-    --color-amber-200: oklch(92.4% 0.12 95.746);
     --color-yellow-400: oklch(85.2% 0.199 91.936);
     --color-yellow-500: oklch(79.5% 0.184 86.047);
     --color-green-600: oklch(62.7% 0.194 149.214);
@@ -251,9 +250,6 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
-  .top-1 {
-    top: calc(var(--spacing) * 1);
-  }
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
@@ -325,9 +321,6 @@
   }
   .z-\[50\] {
     z-index: 50;
-  }
-  .z-\[150\] {
-    z-index: 150;
   }
   .z-\[200\] {
     z-index: 200;
@@ -527,9 +520,6 @@
   .h-1 {
     height: calc(var(--spacing) * 1);
   }
-  .h-2 {
-    height: calc(var(--spacing) * 2);
-  }
   .h-2\.5 {
     height: calc(var(--spacing) * 2.5);
   }
@@ -593,6 +583,9 @@
   .h-\[calc\(100\%-120px\)\] {
     height: calc(100% - 120px);
   }
+  .h-\[calc\(100vh-280px\)\] {
+    height: calc(100vh - 280px);
+  }
   .h-full {
     height: 100%;
   }
@@ -604,9 +597,6 @@
   }
   .max-h-\[250px\] {
     max-height: 250px;
-  }
-  .max-h-\[calc\(100vh-280px\)\] {
-    max-height: calc(100vh - 280px);
   }
   .max-h-screen {
     max-height: 100vh;
@@ -704,9 +694,6 @@
   .flex-1 {
     flex: 1;
   }
-  .flex-shrink {
-    flex-shrink: 1;
-  }
   .flex-shrink-0 {
     flex-shrink: 0;
   }
@@ -722,10 +709,6 @@
   }
   .translate-x-full {
     --tw-translate-x: 100%;
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-y-1 {
-    --tw-translate-y: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-y-1\/2 {
@@ -1130,9 +1113,6 @@
   .bg-yellow-400 {
     background-color: var(--color-yellow-400);
   }
-  .bg-\[url\(\.\.\.\/assets\/img\/home\/hero\.png\)\] {
-    background-image: url(.../assets/img/home/hero.png);
-  }
   .bg-\[url\(\.\.\/assets\/img\/home\/CTA-bg\.png\)\] {
     background-image: url(../assets/img/home/CTA-bg.png);
   }
@@ -1142,6 +1122,12 @@
   .bg-\[url\(\.\.\/assets\/img\/home\/Offer-2\.png\)\] {
     background-image: url(../assets/img/home/Offer-2.png);
   }
+  .bg-\[url\(\.\.\/assets\/img\/home\/deals\.png\)\] {
+    background-image: url(../assets/img/home/deals.png);
+  }
+  .bg-\[url\(\.\.\/assets\/img\/home\/hero-1\.png\)\] {
+    background-image: url(../assets/img/home/hero-1.png);
+  }
   .bg-\[url\(\.\.\/assets\/img\/home\/hero\.png\)\] {
     background-image: url(../assets/img/home/hero.png);
   }
@@ -1150,12 +1136,6 @@
   }
   .bg-\[url\(\.\.\/assets\/img\/product\/page-hero\.png\)\] {
     background-image: url(../assets/img/product/page-hero.png);
-  }
-  .bg-\[url\(\.\.\/shop-set-placeholder\/assets\/img\/home\/hero\.png\)\] {
-    background-image: url(../shop-set-placeholder/assets/img/home/hero.png);
-  }
-  .bg-\[url\(\.\/assets\/img\/home\/hero\.png\)\] {
-    background-image: url(./assets/img/home/hero.png);
   }
   .bg-cover {
     background-size: cover;
@@ -1235,9 +1215,6 @@
   .\!py-1 {
     padding-block: calc(var(--spacing) * 1) !important;
   }
-  .py-0 {
-    padding-block: calc(var(--spacing) * 0);
-  }
   .py-0\.5 {
     padding-block: calc(var(--spacing) * 0.5);
   }
@@ -1304,9 +1281,6 @@
   .pb-2 {
     padding-bottom: calc(var(--spacing) * 2);
   }
-  .pb-3 {
-    padding-bottom: calc(var(--spacing) * 3);
-  }
   .pb-4 {
     padding-bottom: calc(var(--spacing) * 4);
   }
@@ -1357,10 +1331,6 @@
   .text-6xl {
     font-size: var(--text-6xl);
     line-height: var(--tw-leading, var(--text-6xl--line-height));
-  }
-  .text-base {
-    font-size: var(--text-base);
-    line-height: var(--tw-leading, var(--text-base--line-height));
   }
   .text-base\/12 {
     font-size: var(--text-base);
@@ -1534,10 +1504,6 @@
   }
   .ring-transparent {
     --tw-ring-color: transparent;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .blur {
     --tw-blur: blur(8px);
@@ -2070,11 +2036,6 @@
       display: block;
     }
   }
-  .lg\:flex {
-    @media (width >= 64rem) {
-      display: flex;
-    }
-  }
   .lg\:hidden {
     @media (width >= 64rem) {
       display: none;
@@ -2475,11 +2436,6 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-blur {
   syntax: "*";
   inherits: false;
@@ -2582,7 +2538,6 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
