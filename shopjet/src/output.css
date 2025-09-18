@@ -216,9 +216,6 @@
   .pointer-events-none {
     pointer-events: none;
   }
-  .collapse {
-    visibility: collapse;
-  }
   .invisible {
     visibility: hidden;
   }
@@ -237,9 +234,6 @@
   .relative {
     position: relative;
   }
-  .static {
-    position: static;
-  }
   .sticky {
     position: sticky;
   }
@@ -254,9 +248,6 @@
   }
   .top-0 {
     top: calc(var(--spacing) * 0);
-  }
-  .top-1 {
-    top: calc(var(--spacing) * 1);
   }
   .top-1\/2 {
     top: calc(1/2 * 100%);
@@ -405,9 +396,6 @@
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
-  .mt-15 {
-    margin-top: calc(var(--spacing) * 15);
-  }
   .mt-\[20px\] {
     margin-top: 20px;
   }
@@ -489,9 +477,6 @@
   .block {
     display: block;
   }
-  .contents {
-    display: contents;
-  }
   .flex {
     display: flex;
   }
@@ -501,17 +486,8 @@
   .hidden {
     display: none;
   }
-  .inline {
-    display: inline;
-  }
-  .inline-block {
-    display: inline-block;
-  }
   .inline-flex {
     display: inline-flex;
-  }
-  .table {
-    display: table;
   }
   .aspect-\[6\/4\] {
     aspect-ratio: 6/4;
@@ -527,9 +503,6 @@
   }
   .h-1 {
     height: calc(var(--spacing) * 1);
-  }
-  .h-2 {
-    height: calc(var(--spacing) * 2);
   }
   .h-2\.5 {
     height: calc(var(--spacing) * 2.5);
@@ -702,14 +675,8 @@
   .flex-1 {
     flex: 1;
   }
-  .flex-shrink {
-    flex-shrink: 1;
-  }
   .flex-shrink-0 {
     flex-shrink: 0;
-  }
-  .border-collapse {
-    border-collapse: collapse;
   }
   .origin-center {
     transform-origin: center;
@@ -720,10 +687,6 @@
   }
   .translate-x-full {
     --tw-translate-x: 100%;
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-y-1 {
-    --tw-translate-y: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-y-1\/2 {
@@ -1140,15 +1103,6 @@
   .bg-\[url\(\.\.\/assets\/img\/home\/Offer-2\.png\)\] {
     background-image: url(../assets/img/home/Offer-2.png);
   }
-  .bg-\[url\(\.\.\/assets\/img\/home\/deals\.png\)\] {
-    background-image: url(../assets/img/home/deals.png);
-  }
-  .bg-\[url\(\.\.\/assets\/img\/home\/hero-1\.png\)\] {
-    background-image: url(../assets/img/home/hero-1.png);
-  }
-  .bg-\[url\(\.\.\/assets\/img\/home\/hero\.png\)\] {
-    background-image: url(../assets/img/home/hero.png);
-  }
   .bg-\[url\(\.\.\/assets\/img\/home\/heroslider\.png\)\] {
     background-image: url(../assets/img/home/heroslider.png);
   }
@@ -1233,9 +1187,6 @@
   .\!py-1 {
     padding-block: calc(var(--spacing) * 1) !important;
   }
-  .py-0 {
-    padding-block: calc(var(--spacing) * 0);
-  }
   .py-0\.5 {
     padding-block: calc(var(--spacing) * 0.5);
   }
@@ -1256,9 +1207,6 @@
   }
   .py-8 {
     padding-block: calc(var(--spacing) * 8);
-  }
-  .py-10 {
-    padding-block: calc(var(--spacing) * 10);
   }
   .py-18 {
     padding-block: calc(var(--spacing) * 18);
@@ -1356,10 +1304,6 @@
   .text-6xl {
     font-size: var(--text-6xl);
     line-height: var(--tw-leading, var(--text-6xl--line-height));
-  }
-  .text-base {
-    font-size: var(--text-base);
-    line-height: var(--tw-leading, var(--text-base--line-height));
   }
   .text-base\/12 {
     font-size: var(--text-base);
@@ -1530,14 +1474,6 @@
   }
   .ring-transparent {
     --tw-ring-color: transparent;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
-  .blur {
-    --tw-blur: blur(8px);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .drop-shadow-\[0_0_4px_rgba\(0\,0\,0\,0\.10\)\] {
     --tw-drop-shadow-size: drop-shadow(0 0 4px var(--tw-drop-shadow-color, rgba(0,0,0,0.10)));
@@ -2469,11 +2405,6 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-blur {
   syntax: "*";
   inherits: false;
@@ -2576,7 +2507,6 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
