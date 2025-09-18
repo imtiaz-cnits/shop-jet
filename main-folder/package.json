@@ -1,5 +1,5 @@
 {
-  "name": "the-habit-hemp-project",
+  "name": "shop-jet",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imtiaz-cnits/the-habit-hemp-project.git"
+    "url": "git+https://github.com/imtiaz-cnits/shop-jet.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/imtiaz-cnits/the-habit-hemp-project/issues"
+    "url": "https://github.com/imtiaz-cnits/shop-jet/issues"
   },
-  "homepage": "https://github.com/imtiaz-cnits/the-habit-hemp-project#readme",
+  "homepage": "https://github.com/imtiaz-cnits/shop-jet#readme",
   "description": "",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.10",
