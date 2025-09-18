@@ -29,23 +29,28 @@
     <link rel="stylesheet" href="./src/output.css" />
   </head>
   <body>
-  
     <!-- Back to Top Button Start -->
     <div
       id="back-to-top"
       class="fixed bottom-[90px] right-6 xl:bottom-12 xl:right-8 w-14 h-14 flex justify-center items-center rounded-full cursor-pointer opacity-0 invisible transition-opacity duration-500 z-[50]"
     >
-       <svg
-      class="w-14 h-14 transition-colors duration-300 group"
+      <svg
+        class="w-14 h-14 transition-colors duration-300 group"
         xmlns="http://www.w3.org/2000/svg"
         width="100"
         height="100"
         viewBox="0 0 100 100"
         fill="none"
       >
-        <circle class="fill-[var(--primary-color)] group-hover:fill-[var(--black)] transition-colors duration-300" cx="50" cy="50" r="50" fill="#624D9F" />
+        <circle
+          class="fill-[var(--primary-color)] group-hover:fill-[var(--black)] transition-colors duration-300"
+          cx="50"
+          cy="50"
+          r="50"
+          fill="#624D9F"
+        />
         <path
-        class="stroke-[var(--secondary-color)] transition-colors duration-300"
+          class="stroke-[var(--secondary-color)] transition-colors duration-300"
           d="M50 66V34M50 34L38 46M50 34L62 46"
           stroke="white"
           stroke-width="4"
@@ -58,7 +63,7 @@
 
     <!-- Fly Cart Start -->
     <div
-      class="cart-icon fixed bottom-[90px] left-6 xl:bottom-12 xl:left-8 hidden xl:flex w-12 h-12 bg-[var(--primary-color)] hover:bg-[var(--black)] rounded-full cursor-pointer transition duration-300 z-[50]  justify-center items-center"
+      class="cart-icon fixed bottom-[90px] left-6 xl:bottom-12 xl:left-8 hidden xl:flex w-12 h-12 bg-[var(--primary-color)] hover:bg-[var(--black)] rounded-full cursor-pointer transition duration-300 z-[50] justify-center items-center"
     >
       <div class="relative flex justify-center items-center">
         <svg
@@ -2228,7 +2233,10 @@
               <div
                 class="flex items-center justify-center text-center mx-auto w-full px-[4px] pt-1 text-[var(--text)]"
               >
-                 <a href="./wishlist.html" class="wishlist group pt-1 flex flex-col items-center gap-2">
+                <a
+                  href="./wishlist.html"
+                  class="wishlist group pt-1 flex flex-col items-center gap-2"
+                >
                   <h2 class="w-5 h-5 mx-auto relative cursor-pointer">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -2263,7 +2271,10 @@
               <div
                 class="flex items-center justify-center text-center mx-auto w-full px-[4px] pt-1 text-[var(--text)]"
               >
-                <a href="#" class="cart-icon group pt-1 flex items-center flex-col gap-2">
+                <a
+                  href="#"
+                  class="cart-icon group pt-1 flex items-center flex-col gap-2"
+                >
                   <h2 class="w-5 h-5 mx-auto relative cursor-pointer">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -2292,12 +2303,17 @@
                 </a>
               </div>
             </div>
-            <div class="flex-1 ">
+            <div class="flex-1">
               <div
                 class="flex items-center justify-center text-center mx-auto w-full px-[4px] pt-1 text-[var(--text)]"
               >
-                <a href="#" class="home group pt-1 flex items-center justify-center flex-col gap-2">
-                  <span class="w-5 h-5 flex justify-center items-center cursor-pointer">
+                <a
+                  href="#"
+                  class="home group pt-1 flex items-center justify-center flex-col gap-2"
+                >
+                  <span
+                    class="w-5 h-5 flex justify-center items-center cursor-pointer"
+                  >
                     <i
                       class="fa-solid fa-house text-[22px] text-[var(--black)]"
                     ></i>
@@ -2313,8 +2329,13 @@
               <div
                 class="flex items-center justify-center text-center mx-auto w-full px-[4px] pt-1 text-[var(--text)]"
               >
-                <a href="#" class="search group pt-1 flex items-center flex-col gap-2">
-                  <span class="w-5 h-5 flex justify-center items-center cursor-pointer">
+                <a
+                  href="#"
+                  class="search group pt-1 flex items-center flex-col gap-2"
+                >
+                  <span
+                    class="w-5 h-5 flex justify-center items-center cursor-pointer"
+                  >
                     <svg
                       class="w-6 h-6"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2342,8 +2363,13 @@
               <div
                 class="flex items-center justify-center text-center mx-auto w-full px-[4px] pt-1 text-[var(--text)]"
               >
-                <a href="#" class="profile group pt-1 flex items-center flex-col gap-2">
-                  <span class="w-5 h-5 flex justify-center items-center cursor-pointer">
+                <a
+                  href="#"
+                  class="profile group pt-1 flex items-center flex-col gap-2"
+                >
+                  <span
+                    class="w-5 h-5 flex justify-center items-center cursor-pointer"
+                  >
                     <i
                       class="far fa-user-circle text-[22px] text-[var(--black)]"
                     ></i>
@@ -2393,154 +2419,1259 @@
     <!-- Breadcrumb End -->
 
     <!-- Wishlist Start -->
-    <div class="wishlist-main bg-[var(--secondary-color)] pb-[60px] font-sans">
+    <section class="Wishlist-section mt-[60px]">
       <div class="custom-container">
-        <div class="overflow-x-auto">
-          <table class="w-full border-collapse">
-            <thead>
-              <tr
-                class="header whitespace-nowrap font-primary text-left border-b border-b-[var(--border)]"
+        <!-- Heading -->
+        <div class="header-box flex items-center justify-center mb-6">
+          <h2 class="text-4xl text-[var(--text)] font-bold mb-0 Wishlist-title">
+            YOUR FAVOURITES
+          </h2>
+        </div>
+
+        <!-- card -->
+        <div class="wishlist-box">
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Card -->
+            <div class="product-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
               >
-                <th class="py-3 px-2 !text-[16px] text-[var(--text)]">
-                  Product
-                </th>
-                <th class="py-3 px-2 !text-[16px] text-[var(--text)]">Price</th>
-                <th class="py-3 px-2 !text-[16px] text-[var(--text)]">
-                  Date Added
-                </th>
-                <th class="py-3 px-2 !text-[16px] text-[var(--text)]">Stock</th>
-                <th class="py-3 px-2 !text-[16px] text-[var(--text)]">
-                  Add to cart
-                </th>
-              </tr>
-            </thead>
-            <tbody class="text-sm whitespace-nowrap">
-              <!-- Row 1 -->
-              <tr class="border-b border-b-[var(--border)]">
-                <td class="flex items-center gap-3 py-3 px-2">
+                <!-- Badge -->
+                <span
+                  class="absolute top-2 left-2 bg-green-100 text-xs text-green-600 font-semibold px-2 py-1 rounded-[12px] rounded-br-[30px] rounded-tr-[30px]"
+                >
+                  In Stock
+                </span>
+
+                <!-- Delate Icon -->
+                <button
+                  class="dlt-item flex items-center justify-center w-8 h-8 absolute top-2 bg-[var(--accent1)] rounded-full right-2 text-[var(--text)] hover:text-[var(--primary-color)] transition cursor-pointer text-[20px]"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--secondary-color)]"
+                >
                   <img
                     src="./assets/img/home/frozen1.webp"
-                    alt="Blackberries"
-                    class="w-12 h-12 object-contain"
+                    alt="Product"
+                    class="w-full aspect-[6/6] object-contain"
                   />
-                  <span class="font-semibold line-clamp-2"
-                    >Chobani Complete Vanilla Greek Yogurt</span
-                  >
-                </td>
-                <td class="py-3 px-2">
-                  <span
-                    class="line-through text-[var(--text2)] font-semibold mr-1"
-                    >$4.99</span
-                  >
-                  <span class="text-[var(--primary-color)] font-semibold"
-                    >$2.99</span
-                  >
-                </td>
-                <td class="py-3 px-2 font-semibold">September 10, 2025</td>
-                <td class="py-3 px-2 in-stock text-green-600 font-semibold">
-                  In Stock
-                </td>
-                <td class="py-3 px-2">
-                  <div class="flex items-center gap-3 h-[100%] justify-between">
-                    <button
-                      class="add-too-cart bg-[var(--primary-color)] text-[var(--secondary-color)] px-3 py-2 rounded-full hover:bg-[var(--black)] font-semibold text-sm transition duration-300 cursor-pointer"
-                    >
-                      Add to cart
-                    </button>
-                    <button
-                      class="text-[var(--text2)] font-semibold border rounded-full w-6 h-6 flex items-center justify-center hover:bg-gray-200 cursor-pointer"
-                    >
-                      ×
-                    </button>
+                </div>
+
+                <!-- Details -->
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
+                    <div>
+                      <div class="flex justify-between items-start gap-2 mb-1">
+                        <a
+                          href="./product-single.html"
+                          class="title text-[16px] text-[var(--text)] line-clamp-2 font-semibold"
+                        >
+                          Chobani Complete Vanilla Greek Yogurt
+                        </a>
+                        <!-- Rating -->
+                        <div class="rating flex items-center gap-1">
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="19"
+                            viewBox="0 0 20 19"
+                            fill="none"
+                          >
+                            <path
+                              d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                              fill="#EEB13C"
+                            />
+                          </svg>
+                          <span class="text-sm font-secondary">4.9</span>
+                        </div>
+                      </div>
+
+                      <p
+                        class="desc text-sm text-[var(--text2)] mb-0 line-clamp-2"
+                      >
+                        200g Chobani Complete Vanilla Greek Yogurt
+                      </p>
+                    </div>
+
+                    <div class="flex justify-between items-center gap-1">
+                      <!-- Price -->
+                      <div
+                        class="price-box flex items-center gap-2 font-secondary"
+                      >
+                        <span
+                          class="old-price text-[var(--text2)] line-through text-sm"
+                          >8,99€</span
+                        >
+                        <span
+                          class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                          >6,69€</span
+                        >
+                      </div>
+
+                      <!-- Button -->
+                      <a
+                        href="./checkout.html"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        <span class="hidden md:block">Add</span>
+                      </a>
+                    </div>
                   </div>
-                </td>
-              </tr>
-              <!-- Row 2 -->
-              <tr class="border-b border-b-[var(--border)]">
-                <td class="flex items-center gap-3 py-3 px-2">
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+              >
+                <!-- Delate Icon -->
+                <button
+                  class="dlt-item flex items-center justify-center w-8 h-8 absolute top-2 bg-[var(--accent1)] rounded-full right-2 text-[var(--text)] hover:text-[var(--primary-color)] transition cursor-pointer text-[20px]"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--secondary-color)]"
+                >
+                  <img
+                    src="./assets/img/home/frozen2.webp"
+                    alt="Product"
+                    class="w-full aspect-[6/6] object-contain"
+                  />
+                </div>
+
+                <!-- Details -->
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
+                    <div>
+                      <div class="flex justify-between items-start gap-2 mb-1">
+                        <a
+                          href="./product-single.html"
+                          class="title text-[16px] text-[var(--text)] line-clamp-2 font-semibold"
+                        >
+                          Haagen Caramel Cone Ice Cream Boxed
+                        </a>
+                        <!-- Rating -->
+                        <div class="rating flex items-center gap-1">
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="19"
+                            viewBox="0 0 20 19"
+                            fill="none"
+                          >
+                            <path
+                              d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                              fill="#EEB13C"
+                            />
+                          </svg>
+                          <span class="text-sm font-secondary">4.9</span>
+                        </div>
+                      </div>
+
+                      <p
+                        class="desc text-sm text-[var(--text2)] mb-0 line-clamp-2"
+                      >
+                        340g Haagen Caramel Cone Ice Cream Boxed
+                      </p>
+                    </div>
+
+                    <div class="flex justify-between items-center gap-1">
+                      <!-- Price -->
+                      <div
+                        class="price-box flex items-center gap-2 font-secondary"
+                      >
+                        <span
+                          class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                          >2,39€</span
+                        >
+                      </div>
+
+                      <!-- Button -->
+                      <a
+                        href="./checkout.html"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        <span class="hidden md:block">Add</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+              >
+                <!-- Badge -->
+                <span
+                  class="absolute top-2 left-2 bg-red-100 text-xs text-red-600 font-semibold px-2 py-1 rounded-[12px] rounded-br-[30px] rounded-tr-[30px]"
+                >
+                  Out of Stock
+                </span>
+
+                <!-- Delate Icon -->
+                <button
+                  class="dlt-item flex items-center justify-center w-8 h-8 absolute top-2 bg-[var(--accent1)] rounded-full right-2 text-[var(--text)] hover:text-[var(--primary-color)] transition cursor-pointer text-[20px]"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--secondary-color)]"
+                >
+                  <img
+                    src="./assets/img/home/frozen3.webp"
+                    alt="Product"
+                    class="w-full aspect-[6/6] object-contain"
+                  />
+                </div>
+
+                <!-- Details -->
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
+                    <div>
+                      <div class="flex justify-between items-start gap-2 mb-1">
+                        <a
+                          href="./product-single.html"
+                          class="title text-[16px] text-[var(--text)] line-clamp-2 font-semibold"
+                        >
+                          Organic Cage Grade A Large Eggs
+                        </a>
+                        <!-- Rating -->
+                        <div class="rating flex items-center gap-1">
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="19"
+                            viewBox="0 0 20 19"
+                            fill="none"
+                          >
+                            <path
+                              d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                              fill="#EEB13C"
+                            />
+                          </svg>
+                          <span class="text-sm font-secondary">4.9</span>
+                        </div>
+                      </div>
+
+                      <p
+                        class="desc text-sm text-[var(--text2)] mb-0 line-clamp-2"
+                      >
+                        Organic Cage Grade A Large Eggs
+                      </p>
+                    </div>
+
+                    <div class="flex justify-between items-center gap-1">
+                      <!-- Price -->
+                      <div
+                        class="price-box flex items-center gap-2 font-secondary"
+                      >
+                        <span
+                          class="old-price text-[var(--text2)] line-through text-sm"
+                          >4,99€</span
+                        >
+                        <span
+                          class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                          >3,89€</span
+                        >
+                      </div>
+
+                      <!-- Button -->
+                      <a
+                        href="./checkout.html"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        <span class="hidden md:block">Add</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+              >
+                <!-- Badge -->
+                <span
+                  class="absolute top-2 left-2 bg-green-100 text-xs text-green-600 font-semibold px-2 py-1 rounded-[12px] rounded-br-[30px] rounded-tr-[30px]"
+                >
+                  In Stock
+                </span>
+
+                <!-- Wishlist Icon -->
+                <!-- Delate Icon -->
+                <button
+                  class="dlt-item flex items-center justify-center w-8 h-8 absolute top-2 bg-[var(--accent1)] rounded-full right-2 text-[var(--text)] hover:text-[var(--primary-color)] transition cursor-pointer text-[20px]"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--secondary-color)]"
+                >
+                  <img
+                    src="./assets/img/home/frozen4.webp"
+                    alt="Product"
+                    class="w-full aspect-[6/6] object-contain"
+                  />
+                </div>
+
+                <!-- Details -->
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
+                    <div>
+                      <div class="flex justify-between items-start gap-2 mb-1">
+                        <a
+                          href="./product-single.html"
+                          class="title text-[16px] text-[var(--text)] line-clamp-2 font-semibold"
+                        >
+                          Naturally Flavored Cinnamon Vanilla
+                        </a>
+                        <!-- Rating -->
+                        <div class="rating flex items-center gap-1">
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="19"
+                            viewBox="0 0 20 19"
+                            fill="none"
+                          >
+                            <path
+                              d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                              fill="#EEB13C"
+                            />
+                          </svg>
+                          <span class="text-sm font-secondary">4.9</span>
+                        </div>
+                      </div>
+
+                      <p
+                        class="desc text-sm text-[var(--text2)] mb-0 line-clamp-2"
+                      >
+                        400g Naturally Flavored Cinnamon Vanilla
+                      </p>
+                    </div>
+
+                    <div class="flex justify-between items-center gap-1">
+                      <!-- Price -->
+                      <div
+                        class="price-box flex items-center gap-2 font-secondary"
+                      >
+                        <span
+                          class="old-price text-[var(--text2)] line-through text-sm"
+                          >4,59€</span
+                        >
+                        <span
+                          class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                          >3,89€</span
+                        >
+                      </div>
+
+                      <!-- Button -->
+                      <a
+                        href="./checkout.html"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        <span class="hidden md:block">Add</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="share-items flex flex-col md:flex-row justify-center items-center gap-2 md:gap-6 mt-6"
+          >
+            <a
+              href="#"
+              class="favourites flex items-center gap-[4px] font-secondary hover:underline text-[16px] text-[var(--text)] rounded-full cursor-pointer transition duration-300"
+            >
+              <i class="fa-solid fa-arrow-up-from-bracket"></i>
+              <span>Share favourites</span>
+            </a>
+            <a
+              href="#"
+              class="add-favourites flex items-center gap-[4px] font-secondary hover:underline text-[16px] text-[var(--text)] rounded-full cursor-pointer transition duration-300"
+            >
+              <i class="fa-solid fa-heart"></i>
+              <span>Add all favourites to cart</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Wishlist End -->
+
+    <!-- You Might Also Like Start -->
+    <section class="also-like-section mt-[60px]">
+      <div class="custom-container relative">
+        <!-- Heading -->
+        <div class="header-box flex items-center justify-between mb-4">
+          <h2
+            class="text-2xl text-[var(--text)] font-bold mb-0 also-like-title"
+          >
+            You Might Also Like
+          </h2>
+          <a
+            href="#"
+            class="inline-flex items-center gap-[4px] font-secondary text-[16px] text-[var(--text)] font-semibold hover:underline categories-link group transition duration-300"
+            >See All
+            <svg
+              class="group-hover:rotate-45 transition duration-300"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
+            >
+              <path
+                d="M5.83325 14.6666L14.1666 6.33331M14.1666 6.33331H5.83325M14.1666 6.33331V14.6666"
+                stroke="#202124"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Swiper -->
+        <div class="swiper alsoLike-swiper overflow-visible">
+          <div class="swiper-wrapper py-2 pb-10 md:pb-2">
+            <!-- Card -->
+            <div class="swiper-slide also-like-card product-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+              >
+                <!-- Badge -->
+                <span
+                  class="absolute top-2 left-2 bg-[var(--accent4)] text-xs text-[var(--text)] font-semibold px-2 py-1 rounded-[12px] rounded-br-[30px] rounded-tr-[30px]"
+                >
+                  20% OFF
+                </span>
+
+                <!-- Wishlist Icon -->
+                <button
+                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
+                >
+                  ♡
+                </button>
+
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--secondary-color)]"
+                >
                   <img
                     src="./assets/img/home/frozen1.webp"
-                    alt="Bananas"
-                    class="w-12 h-12 object-contain"
+                    alt="Product"
+                    class="w-full aspect-[6/6] object-contain"
                   />
-                  <span class="font-semibold line-clamp-2"
-                    >Chobani Complete Vanilla Greek Yogurt</span
-                  >
-                </td>
-                <td class="py-3 px-2">
-                  <span
-                    class="line-through text-[var(--text2)] font-semibold mr-1"
-                    >$1.99</span
-                  >
-                  <span class="text-[var(--primary-color)] font-semibold"
-                    >$0.89</span
-                  >
-                </td>
-                <td class="py-3 px-2 font-semibold">September 10, 2025</td>
-                <td class="py-3 px-2 in-stock text-green-600 font-semibold">
-                  In Stock
-                </td>
-                <td class="py-3 px-2">
-                  <div class="flex items-center gap-3 h-[100%] justify-between">
-                    <button
-                      class="add-too-cart bg-[var(--primary-color)] text-[var(--secondary-color)] px-3 py-2 rounded-full hover:bg-[var(--black)] font-semibold text-sm transition duration-300 cursor-pointer"
-                    >
-                      Add to cart
-                    </button>
-                    <button
-                      class="text-[var(--text2)] font-semibold border rounded-full w-6 h-6 flex items-center justify-center hover:bg-gray-200 cursor-pointer"
-                    >
-                      ×
-                    </button>
+                </div>
+
+                <!-- Details -->
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
+                    <div>
+                      <div class="flex justify-between items-start gap-2 mb-1">
+                        <a
+                          href="./product-single.html"
+                          class="title text-[16px] text-[var(--text)] line-clamp-2 font-semibold"
+                        >
+                          Chobani Complete Vanilla Greek Yogurt
+                        </a>
+                        <!-- Rating -->
+                        <div class="rating flex items-center gap-1">
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="19"
+                            viewBox="0 0 20 19"
+                            fill="none"
+                          >
+                            <path
+                              d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                              fill="#EEB13C"
+                            />
+                          </svg>
+                          <span class="text-sm font-secondary">4.9</span>
+                        </div>
+                      </div>
+
+                      <p
+                        class="desc text-sm text-[var(--text2)] mb-0 line-clamp-2"
+                      >
+                        200g Chobani Complete Vanilla Greek Yogurt
+                      </p>
+                    </div>
+
+                    <div class="flex justify-between items-center gap-1">
+                      <!-- Price -->
+                      <div
+                        class="price-box flex items-center gap-2 font-secondary"
+                      >
+                        <span
+                          class="old-price text-[var(--text2)] line-through text-sm"
+                          >8,99€</span
+                        >
+                        <span
+                          class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                          >6,69€</span
+                        >
+                      </div>
+
+                      <!-- Button -->
+                      <a
+                        href="./checkout.html"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        <span class="hidden md:block">Add</span>
+                      </a>
+                    </div>
                   </div>
-                </td>
-              </tr>
-              <!-- Row 3 -->
-              <tr>
-                <td class="flex items-center gap-3 py-3 px-2">
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide also-like-card product-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+              >
+                <!-- Wishlist Icon -->
+                <button
+                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
+                >
+                  ♡
+                </button>
+
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--secondary-color)]"
+                >
                   <img
-                    src="./assets/img/home/frozen1.webp"
-                    alt="Cauliflower"
-                    class="w-12 h-12 object-contain"
+                    src="./assets/img/home/frozen2.webp"
+                    alt="Product"
+                    class="w-full aspect-[6/6] object-contain"
                   />
-                  <span class="font-semibold line-clamp-2"
-                    >Chobani Complete Vanilla Greek Yogurt</span
-                  >
-                </td>
-                <td class="py-3 px-2">
-                  <span
-                    class="line-through text-[var(--text2)] font-semibold mr-1"
-                    >$14.79</span
-                  >
-                  <span class="text-[var(--primary-color)] font-semibold"
-                    >$12.79</span
-                  >
-                </td>
-                <td class="py-3 px-2 font-semibold">September 10, 2025</td>
-                <td class="py-3 px-2 in-stock text-green-600 font-semibold">
-                  In Stock
-                </td>
-                <td class="py-3 px-2">
-                  <div class="flex items-center gap-3 h-[100%] justify-between">
-                    <button
-                      class="add-too-cart bg-[var(--primary-color)] text-[var(--secondary-color)] px-3 py-2 rounded-full hover:bg-[var(--black)] font-semibold text-sm transition duration-300 cursor-pointer"
-                    >
-                      Add to cart
-                    </button>
-                    <button
-                      class="text-[var(--text2)] font-semibold border rounded-full w-6 h-6 flex items-center justify-center hover:bg-gray-200 cursor-pointer"
-                    >
-                      ×
-                    </button>
+                </div>
+
+                <!-- Details -->
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
+                    <div>
+                      <div class="flex justify-between items-start gap-2 mb-1">
+                        <a
+                          href="./product-single.html"
+                          class="title text-[16px] text-[var(--text)] line-clamp-2 font-semibold"
+                        >
+                          Haagen Caramel Cone Ice Cream Boxed
+                        </a>
+                        <!-- Rating -->
+                        <div class="rating flex items-center gap-1">
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="19"
+                            viewBox="0 0 20 19"
+                            fill="none"
+                          >
+                            <path
+                              d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                              fill="#EEB13C"
+                            />
+                          </svg>
+                          <span class="text-sm font-secondary">4.9</span>
+                        </div>
+                      </div>
+
+                      <p
+                        class="desc text-sm text-[var(--text2)] mb-0 line-clamp-2"
+                      >
+                        340g Haagen Caramel Cone Ice Cream Boxed
+                      </p>
+                    </div>
+
+                    <div class="flex justify-between items-center gap-1">
+                      <!-- Price -->
+                      <div
+                        class="price-box flex items-center gap-2 font-secondary"
+                      >
+                        <span
+                          class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                          >2,39€</span
+                        >
+                      </div>
+
+                      <!-- Button -->
+                      <a
+                        href="./checkout.html"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        <span class="hidden md:block">Add</span>
+                      </a>
+                    </div>
                   </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide also-like-card product-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+              >
+                <!-- Badge -->
+                <span
+                  class="absolute top-2 left-2 bg-[var(--accent4)] text-xs text-[var(--text)] font-semibold px-2 py-1 rounded-[12px] rounded-br-[30px] rounded-tr-[30px]"
+                >
+                  20% OFF
+                </span>
+
+                <!-- Wishlist Icon -->
+                <button
+                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
+                >
+                  ♡
+                </button>
+
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--secondary-color)]"
+                >
+                  <img
+                    src="./assets/img/home/frozen3.webp"
+                    alt="Product"
+                    class="w-full aspect-[6/6] object-contain"
+                  />
+                </div>
+
+                <!-- Details -->
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
+                    <div>
+                      <div class="flex justify-between items-start gap-2 mb-1">
+                        <a
+                          href="./product-single.html"
+                          class="title text-[16px] text-[var(--text)] line-clamp-2 font-semibold"
+                        >
+                          Organic Cage Grade A Large Eggs
+                        </a>
+                        <!-- Rating -->
+                        <div class="rating flex items-center gap-1">
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="19"
+                            viewBox="0 0 20 19"
+                            fill="none"
+                          >
+                            <path
+                              d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                              fill="#EEB13C"
+                            />
+                          </svg>
+                          <span class="text-sm font-secondary">4.9</span>
+                        </div>
+                      </div>
+
+                      <p
+                        class="desc text-sm text-[var(--text2)] mb-0 line-clamp-2"
+                      >
+                        Organic Cage Grade A Large Eggs
+                      </p>
+                    </div>
+
+                    <div class="flex justify-between items-center gap-1">
+                      <!-- Price -->
+                      <div
+                        class="price-box flex items-center gap-2 font-secondary"
+                      >
+                        <span
+                          class="old-price text-[var(--text2)] line-through text-sm"
+                          >4,99€</span
+                        >
+                        <span
+                          class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                          >3,89€</span
+                        >
+                      </div>
+
+                      <!-- Button -->
+                      <a
+                        href="./checkout.html"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        <span class="hidden md:block">Add</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide also-like-card product-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+              >
+                <!-- Badge -->
+                <span
+                  class="absolute top-2 left-2 bg-[var(--accent4)] text-xs text-[var(--text)] font-semibold px-2 py-1 rounded-[12px] rounded-br-[30px] rounded-tr-[30px]"
+                >
+                  20% OFF
+                </span>
+
+                <!-- Wishlist Icon -->
+                <button
+                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
+                >
+                  ♡
+                </button>
+
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--secondary-color)]"
+                >
+                  <img
+                    src="./assets/img/home/frozen4.webp"
+                    alt="Product"
+                    class="w-full aspect-[6/6] object-contain"
+                  />
+                </div>
+
+                <!-- Details -->
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
+                    <div>
+                      <div class="flex justify-between items-start gap-2 mb-1">
+                        <a
+                          href="./product-single.html"
+                          class="title text-[16px] text-[var(--text)] line-clamp-2 font-semibold"
+                        >
+                          Naturally Flavored Cinnamon Vanilla
+                        </a>
+                        <!-- Rating -->
+                        <div class="rating flex items-center gap-1">
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="19"
+                            viewBox="0 0 20 19"
+                            fill="none"
+                          >
+                            <path
+                              d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                              fill="#EEB13C"
+                            />
+                          </svg>
+                          <span class="text-sm font-secondary">4.9</span>
+                        </div>
+                      </div>
+
+                      <p
+                        class="desc text-sm text-[var(--text2)] mb-0 line-clamp-2"
+                      >
+                        400g Naturally Flavored Cinnamon Vanilla
+                      </p>
+                    </div>
+
+                    <div class="flex justify-between items-center gap-1">
+                      <!-- Price -->
+                      <div
+                        class="price-box flex items-center gap-2 font-secondary"
+                      >
+                        <span
+                          class="old-price text-[var(--text2)] line-through text-sm"
+                          >4,59€</span
+                        >
+                        <span
+                          class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                          >3,89€</span
+                        >
+                      </div>
+
+                      <!-- Button -->
+                      <a
+                        href="./checkout.html"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        <span class="hidden md:block">Add</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide also-like-card product-card">
+              <div
+                class="group border border-[var(--border3)] rounded-[12px] hover:drop-shadow-[0_0_4px_rgba(0,0,0,0.10)] transition bg-[var(--secondary-color)] overflow-hidden relative"
+              >
+                <!-- Badge -->
+                <span
+                  class="absolute top-2 left-2 bg-[var(--accent4)] text-xs text-[var(--text)] font-semibold px-2 py-1 rounded-[12px] rounded-br-[30px] rounded-tr-[30px]"
+                >
+                  20% OFF
+                </span>
+
+                <!-- Wishlist Icon -->
+                <button
+                  class="wishlist w-8 h-8 absolute top-2 bg-[var(--secondary-color)] right-2 text-[var(--text)] hover:text-[var(--primary-color)] opacity-0 rounded-full group-hover:opacity-100 transition cursor-pointer text-[20px]"
+                >
+                  ♡
+                </button>
+
+                <!-- Image -->
+                <div
+                  class="product-box w-full aspect-[6/4] flex items-center justify-center p-4 bg-[var(--secondary-color)]"
+                >
+                  <img
+                    src="./assets/img/home/frozen3.webp"
+                    alt="Product"
+                    class="w-full aspect-[6/6] object-contain"
+                  />
+                </div>
+
+                <!-- Details -->
+                <div class="details p-2 md:p-4 bg-[var(--accent1)]">
+                  <div class="flex h-[140px] flex-col gap-2 justify-between">
+                    <div>
+                      <div class="flex justify-between items-start gap-2 mb-1">
+                        <a
+                          href="./product-single.html"
+                          class="title text-[16px] text-[var(--text)] line-clamp-2 font-semibold"
+                        >
+                          Organic Cage Grade A Large Eggs
+                        </a>
+                        <!-- Rating -->
+                        <div class="rating flex items-center gap-1">
+                          <svg
+                            class="w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="19"
+                            viewBox="0 0 20 19"
+                            fill="none"
+                          >
+                            <path
+                              d="M10 0L13.2916 5.4695L19.5106 6.90983L15.3259 11.7305L15.8779 18.0902L10 15.6L4.12215 18.0902L4.67408 11.7305L0.489435 6.90983L6.7084 5.4695L10 0Z"
+                              fill="#EEB13C"
+                            />
+                          </svg>
+                          <span class="text-sm font-secondary">4.9</span>
+                        </div>
+                      </div>
+
+                      <p
+                        class="desc text-sm text-[var(--text2)] mb-0 line-clamp-2"
+                      >
+                        Organic Cage Grade A Large Eggs
+                      </p>
+                    </div>
+
+                    <div class="flex justify-between items-center gap-1">
+                      <!-- Price -->
+                      <div
+                        class="price-box flex items-center gap-2 font-secondary"
+                      >
+                        <span
+                          class="old-price text-[var(--text2)] line-through text-sm"
+                          >4,99€</span
+                        >
+                        <span
+                          class="current-price text-[16px] font-semibold text-[var(--primary-color)]"
+                          >3,89€</span
+                        >
+                      </div>
+
+                      <!-- Button -->
+                      <a
+                        href="./checkout.html"
+                        class="add-cart-btn flex items-center gap-[4px] font-secondary bg-[var(--primary-color)] hover:bg-[var(--black)] text-sm text-[var(--secondary-color)] py-2 px-3 rounded-full cursor-pointer transition duration-300"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M5.00014 14H18.1359C19.1487 14 19.6551 14 20.0582 13.8112C20.4134 13.6448 20.7118 13.3777 20.9163 13.0432C21.1485 12.6633 21.2044 12.16 21.3163 11.1534L21.9013 5.88835C21.9355 5.58088 21.9525 5.42715 21.9031 5.30816C21.8597 5.20366 21.7821 5.11697 21.683 5.06228C21.5702 5 21.4155 5 21.1062 5H4.50014M2 2H3.24844C3.51306 2 3.64537 2 3.74889 2.05032C3.84002 2.09463 3.91554 2.16557 3.96544 2.25376C4.02212 2.35394 4.03037 2.48599 4.04688 2.7501L4.95312 17.2499C4.96963 17.514 4.97788 17.6461 5.03456 17.7462C5.08446 17.8344 5.15998 17.9054 5.25111 17.9497C5.35463 18 5.48694 18 5.75156 18H19M7.5 21.5H7.51M16.5 21.5H16.51M8 21.5C8 21.7761 7.77614 22 7.5 22C7.22386 22 7 21.7761 7 21.5C7 21.2239 7.22386 21 7.5 21C7.77614 21 8 21.2239 8 21.5ZM17 21.5C17 21.7761 16.7761 22 16.5 22C16.2239 22 16 21.7761 16 21.5C16 21.2239 16.2239 21 16.5 21C16.7761 21 17 21.2239 17 21.5Z"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                        <span class="hidden md:block">Add</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="swiper-pagination block md:hidden"></div>
+        </div>
+
+        <!-- Navigation -->
+        <div
+          class="swiper-button-next alsoLike-next !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -right-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+          >
+            <g filter="url(#filter0_d_2070_130)">
+              <path
+                d="M17.6667 27H36.3334M36.3334 27L27.0001 36.3334M36.3334 27L27.0001 17.6667"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_130"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_130"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_130"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+        <div
+          class="swiper-button-prev alsoLike-prev !hidden md:!block !w-10 !h-10 bg-[var(--accent1)] rounded-full after:hidden text-[var(--black)] z-30 absolute !top-[62%] -left-5 transform -translate-y-1/3 drop-shadow-[0_0_4px_rgba(0,0,0,0.10)]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="54"
+            height="54"
+            viewBox="0 0 54 54"
+            fill="none"
+          >
+            <g filter="url(#filter0_d_2070_153)">
+              <path
+                d="M36.3334 27H17.6667M17.6667 27L27 17.6666M17.6667 27L27 36.3333"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_2070_153"
+                x="-5"
+                y="-5"
+                width="64"
+                height="64"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.12549 0 0 0 0 0.129412 0 0 0 0 0.141176 0 0 0 0.16 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_2070_153"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_2070_153"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </section>
+    <!-- You Might Also Like End -->
+
+    <!-- Banner Start -->
+    <div class="banner my-[60px]">
+      <div class="custom-container">
+        <div
+          class="wrapper w-full md:max-w-[80%] rounded-lg flex flex-col lg:flex-row items-center justify-between mx-auto p-6 bg-[url(../assets/img/home/CTA-bg.png)] bg-no-repeat bg-cover"
+        >
+          <!-- Details -->
+          <div class="details py-8 w-full lg:w-1/2">
+            <span
+              class="bg-[#78C841] text-[var(--text)] text-xs font-semibold px-3 py-1 rounded-full font-primary"
+              >Only This Week</span
+            >
+            <h3
+              class="text-[28px] lg:text-[34px] leading-snug font-bold text-[var(--secondary-color)] title mt-2"
+            >
+              Provides you the quality that’s you expected
+            </h3>
+            <button
+              class="mt-8 lg:mt-10 bg-[var(--accent4)] text-[var(--text)] font-semibold text-[16px] px-5 py-2 rounded-full hover:bg-[var(--secondary-color)] cursor-pointer transition duration-300 shop-btn"
+            >
+              Shop Now
+            </button>
+          </div>
+
+          <!-- Image -->
+          <div class="img-box w-full lg:w-1/2 flex justify-center mt-6 lg:mt-0">
+            <img
+              src="./assets/img/home/banner.png"
+              alt="Banner"
+              class="w-48 md:w-56 lg:w-72"
+            />
+          </div>
         </div>
       </div>
     </div>
-    <!-- Wishlist End -->
+    <!-- Banner End -->
 
     <!-- Footer Start -->
     <footer class="footer bg-[var(--accent1)] pt-[50px] lg:mb-0 mb-[78.16px]">

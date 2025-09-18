@@ -5,18 +5,21 @@
   window.addEventListener("load", function () {
     const preloader = document.getElementById("pagePreloader");
 
-    setTimeout(function () {
-      preloader.classList.add("opacity-0", "pointer-events-none");
-
+    if (preloader) {
       setTimeout(function () {
-        preloader.classList.add("hidden");
-        document.dispatchEvent(new Event("preloaderComplete"));
-      }, 500);
-    }, 1000);
+        preloader.classList.add("opacity-0", "pointer-events-none");
+
+        setTimeout(function () {
+          preloader.classList.add("hidden");
+          document.dispatchEvent(new Event("preloaderComplete"));
+        }, 500);
+      }, 1000);
+    }
   });
 
   setTimeout(function () {
     const preloader = document.getElementById("pagePreloader");
+
     if (preloader && !preloader.classList.contains("hidden")) {
       preloader.classList.add("opacity-0", "pointer-events-none");
       setTimeout(function () {
@@ -25,6 +28,7 @@
     }
   }, 3000);
 })();
+
 //...........................................................................
 //..............................Preloader End................................
 //...........................................................................
@@ -576,7 +580,7 @@ $(document).ready(function () {
     $(".sort-by-select").niceSelect();
 
     const niceSelect = $(".sort-by-select").next(".nice-select");
-    
+
     // Only proceed if niceSelect exists
     if (niceSelect.length) {
       const dropdown = niceSelect.find(".list");
@@ -651,7 +655,7 @@ $(document).ready(function () {
   const minValue = document.getElementById("minValue");
   const maxValue = document.getElementById("maxValue");
   const sliderTrack = document.getElementById("sliderTrack");
-  
+
   if (minRange && maxRange && minValue && maxValue && sliderTrack) {
     const max = parseInt(maxRange.max);
 
@@ -719,7 +723,6 @@ $(document).ready(function () {
 //......................................................................
 //.................Product Page All Js End..............................
 //......................................................................
-
 
 //......................................................................
 //................. Quantity Js Start...........................
@@ -853,11 +856,9 @@ setInterval(() => {
   nextSlide();
 }, 5000);
 
-
 //......................................................................
 //................. Single Product All Js End...........................
 //......................................................................
-
 
 //.............................................................................
 //.............................Product Description Tab JS End............................
